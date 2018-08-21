@@ -60,6 +60,7 @@ namespace SpaceGame
                 Console.WriteLine("You paid {0} for your ship!!", cost);
             }
             Console.WriteLine("Thank you for shopping with SpaceBuggies R Us");
+
         }
     }
 }

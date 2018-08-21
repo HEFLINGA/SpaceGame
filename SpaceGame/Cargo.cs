@@ -19,6 +19,7 @@ namespace SpaceGame
         public string Type { get; set; }
         public int Size { get; set; }
         public int Cost { get; set; }
+        public double Speed { get; set; }
 
 
 

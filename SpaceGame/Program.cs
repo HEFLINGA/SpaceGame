@@ -20,10 +20,13 @@ namespace SpaceGame
             int cost = 0;  
             int credits = 10000;
 
+            // double decleration
+            double speed = 0;
+
             // Ship instantiation
             Ship tier1 = new Ship();
             tier1.Name = "RustBucket";
-            tier1.Speed = 3;
+            tier1.Speed = speed = 3;
             tier1.Price = 5000;
             tier1.Cargo = 2;
 
@@ -42,38 +45,41 @@ namespace SpaceGame
             // Cargo instantiation
             Cargo myCargo = new Cargo();
             myCargo.Type = "Food";
-            myCargo.Size = 1;
-            myCargo.Cost = 2000;
+            myCargo.Size = shipCargoCurrent += 1;
+            myCargo.Cost = credits -= 2000;
+            myCargo.Speed = speed -= .5;
 
             Cargo myCargo2 = new Cargo();
             myCargo2.Type = "Research";
-            myCargo2.Size = 1;
-            myCargo2.Cost = 3000;
+            myCargo2.Size = shipCargoCurrent += 1;
+            myCargo2.Cost = credits -= 3000;
 
             Cargo myCargo3 = new Cargo();
             myCargo3.Type = "Animal";
-            myCargo3.Size = 1;
-            myCargo3.Cost = 4000;
-
+            myCargo3.Size = shipCargoCurrent += 1;
+            myCargo3.Cost = credits -= 4000;
 
             Cargo myCargo4 = new Cargo();
             myCargo4.Type = "Water";
-            myCargo4.Size = 2;
-            myCargo4.Cost = 5000;
+            myCargo4.Size = shipCargoCurrent += 2;
+            myCargo4.Cost = credits -= 5000;
 
             Cargo myCargo5 = new Cargo();
             myCargo5.Type = "Fuel";
-            myCargo5.Size = 2;
-            myCargo5.Cost = 4000;
+            myCargo5.Size = shipCargoCurrent += 2;
+            myCargo5.Cost = credits -= 4000;
 
 
             // Intro line and story
             Console.WriteLine("Welcome to SpaceGame!!");
             Console.WriteLine("the year is 3018.A guy a guy or girl of your choice relative passed and left them 10000 dollars. Their family use to be rich merchants but " +
                 "feel on hard time.They always had a dream of becoming a space ship captain to try to restore their family's name and wealth. ");
+            Console.ReadLine();
 
+            Console.Clear();
             Console.WriteLine("Enter your name, adventurer!");
             string character = Console.ReadLine();
+        
             Console.Clear();
             Console.WriteLine("Welcome {0}, to the SPACE GAAMMMEEEEE(Click 'Enter' to continue)", character);
             Console.ReadLine();
@@ -88,11 +94,6 @@ namespace SpaceGame
             Console.SetCursorPosition(80, 1);
             Console.WriteLine("Credits: {0}", credits);
             Console.WriteLine("________________________________________________________________________________________________________________________");
-
-            // Intro story
-            // TODO - Add character name to story where names are said ----
-            Console.WriteLine("Story");
-            Console.ReadLine();
 
             // Buy your ship
             // TODO - Add ships description and price
@@ -120,6 +121,7 @@ namespace SpaceGame
                 case "1":
                 case "purchase":
                     cost = 5000;
+                    credits -= 5000;
                     break;
                 default:
                     Console.Write("Well, it was nice knowin' you! Your days on a ship have ended before they began..");
@@ -139,7 +141,6 @@ namespace SpaceGame
             Console.Clear();
 
             // Player starts his journey exploring and buying
-            credits = 5000;
 
             // Console
             Console.SetCursorPosition(0, 0);

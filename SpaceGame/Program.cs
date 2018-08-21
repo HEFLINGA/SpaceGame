@@ -10,9 +10,9 @@ namespace SpaceGame
     {
         public static void Screen(int cargoCurrent, int cargoMax, string name, int credits)
         {
-            var shipCargoCurrent = 0;
-            var shipCargoMax = 0;
-            string character = "John Doe";
+            int shipCargoCurrent = 0;
+            int shipCargoMax = 4;
+            string character = " ";
 
             
             // Console
@@ -29,8 +29,7 @@ namespace SpaceGame
 
         static void Main(string[] args)
         {
-            // string decleration
-            string character = "John Doe";
+            // string decleration           
             string currentPlanet;
             string input;
 
@@ -47,70 +46,23 @@ namespace SpaceGame
             int charMoveLeftRight = 10;
             int charMoveUpDown = 10;
 
-            Screen(shipCargoCurrent, shipCargoMax, character, credits);
-          
-
-                // Player movement controls
-                /*
-                ConsoleKeyInfo KeyInfo;
-                KeyInfo = Console.ReadKey(true);
-                switch (KeyInfo.Key)
-                {
-                    case ConsoleKey.RightArrow:                        
-                        charMoveLeftRight++;
-                        Console.SetCursorPosition(charMoveLeftRight, charMoveUpDown);
-                        Console.Write("X");
-                        Console.SetCursorPosition(charMoveLeftRight -1, charMoveUpDown);
-                        Console.ForegroundColor = ConsoleColor.Black;
-                        Console.Write("X");
-                        Console.ForegroundColor = ConsoleColor.White;
-                        break;
-                    case ConsoleKey.LeftArrow:
-                        charMoveLeftRight--;
-                        Console.SetCursorPosition(charMoveLeftRight, charMoveUpDown);
-                        Console.Write("X");
-                        Console.SetCursorPosition(charMoveLeftRight + 1, charMoveUpDown);
-                        Console.ForegroundColor = ConsoleColor.Black;
-                        Console.Write("X");
-                        Console.ForegroundColor = ConsoleColor.White;
-                        break;
-
-                    case ConsoleKey.UpArrow:
-                        charMoveUpDown--;
-                        Console.SetCursorPosition(charMoveLeftRight, charMoveUpDown);
-                        Console.Write("X");
-                        Console.SetCursorPosition(charMoveLeftRight, charMoveUpDown + 1);
-                        Console.ForegroundColor = ConsoleColor.Black;
-                        Console.Write("X");
-                        Console.ForegroundColor = ConsoleColor.White;
-                        break;
-
-                    case ConsoleKey.DownArrow:
-                        charMoveUpDown++;
-                        Console.SetCursorPosition(charMoveLeftRight, charMoveUpDown);
-                        Console.Write("X");
-                        Console.SetCursorPosition(charMoveLeftRight, charMoveUpDown - 1);
-                        Console.ForegroundColor = ConsoleColor.Black;
-                        Console.Write("X");
-                        Console.ForegroundColor = ConsoleColor.White;
-                        break;
-                }
-                */
-
-          
-
 
             // Console.SetCursorPosition(2, 3);
-            Console.WriteLine("Welcome {0} to, THE SPACE GAAMMMEEEEE", character);
+            Console.WriteLine("Enter your name, adventurer!");
+            string character = Console.ReadLine();
+            Screen(shipCargoCurrent, shipCargoMax, character, credits);
+            Console.WriteLine("Welcome {0}, to the SPACE GAAMMMEEEEE(Click 'Enter' to continue)", character);
+            Console.ReadLine();
 
             // Intro story
             // TODO - Add character name to story where names are said ----
+            Console.Clear();
             Console.WriteLine("Story");
             Console.ReadLine();
 
             // Buy your ship
             // TODO - Add ships description and price
-            Console.WriteLine("Buy your first ship! Use the 1, 2 and 3 key to select your option: ");
+            Console.WriteLine("Buy your first ship! Type \"Purchase\" to complete the transaction: ");
 
             // Get input from console to select ship and purchase
             // TODO - Connect money and currancy to prices of ships
@@ -119,17 +71,14 @@ namespace SpaceGame
 
             switch (input)
             {
+                case "Purchase":
                 case "1":
+                case "purchase":
                     cost = 5000;
                     break;
-                case "2":
-                    cost = 15000;
-                    break;
-                case "3":
-                    cost = 30000;
-                    break;
                 default:
-                    Console.WriteLine("Invalid selection. Please choose between the 3 ships using 1, 2 and 3");
+                    Console.Write("Well, it was nice knowin' you! Your days on a ship have ended before they began..");
+                    
                     break;
             }
 
@@ -139,6 +88,13 @@ namespace SpaceGame
             }
             Console.WriteLine("Thank you for shopping with SpaceBuggies R Us");
             Console.WriteLine();
+            Console.ReadLine();
+
+            Console.Clear();
+
+            // Player starts his journey exploring and buying
+            credits = 5000;
+            Screen(shipCargoCurrent, shipCargoMax, character, credits);
             Console.ReadLine();
         }
     }

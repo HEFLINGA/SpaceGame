@@ -42,6 +42,11 @@ namespace SpaceGame
             int credits = 10000;
             int gameOver = 0;
 
+            // Intro line and story
+            Console.WriteLine("Welcome to SpaceGame!!");
+            Console.WriteLine("the year is 3018.A guy a guy or girl of your choice relative passed and left them 10000 dollars. Their family use to be rich merchants but " +
+                "feel on hard time.They always had a dream of becoming a space ship captain to try to restore their family's name and wealth. ");
+
             // Console.SetCursorPosition(2, 3);
             Console.WriteLine("Enter your name, adventurer!");
             string character = Console.ReadLine();

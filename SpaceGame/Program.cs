@@ -22,6 +22,7 @@ namespace SpaceGame
             character = Console.ReadLine();
 
             Console.WriteLine("Welcome {0}!!", character);
+            Console.ReadKey();
         }
     }
 }

@@ -34,7 +34,9 @@ namespace SpaceGame
             // TODO - Add ships description and price
             Console.WriteLine("Buy your first ship! Use the 1, 2 and 3 key to select your option: ");
 
-            // Get input from console to select ship
+            // Get input from console to select ship and purchase
+            // TODO - Connect money and currancy to prices of ships
+            // TODO - Connect ships to cases
             input = Console.ReadLine();
 
             switch (input)

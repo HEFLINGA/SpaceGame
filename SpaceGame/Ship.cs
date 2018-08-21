@@ -13,20 +13,7 @@ namespace SpaceGame
         public int Cargo { get; set; }
         public int Price { get; set; }
         public double Speed { get; set; }
-
-        internal static void tier1()
-        {
-            Ship tier1 = new Ship();
-            tier1.Name = "RustBucket";
-            tier1.Speed = 3;
-            tier1.Price = 5000;
-            tier1.Cargo = 2;
-        }
-
-
-
-
-
+        
         /*
         // Speed when ship has warp factor 3
         public static double Speed()

@@ -126,10 +126,9 @@ namespace SpaceGame
                 case "1":
                 case "purchase":
                     cost = 5000;
-                    credits -= 5000;
-                    shipCargoCurrent = 0;
-                    shipCargoMax = 2;
-                    speed = 3;
+                    credits -= tier1.Price;
+                    shipCargoMax = tier1.Cargo;
+                    speed = tier1.Speed;
                     break;
                 default:
                     Console.Write("Well, it was nice knowin' you! Your days on a ship have ended before they began..");

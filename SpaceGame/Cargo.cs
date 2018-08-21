@@ -16,6 +16,7 @@ namespace SpaceGame
         //in//t cargoAnimal = 1;//4000
         //int cargoWater = 2;//5000
         //int cargoFuel = 2;//6000
+
         public string Type { get; set; }
         public int Size { get; set; }
         public int Cost { get; set; }

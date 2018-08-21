@@ -12,6 +12,7 @@ namespace SpaceGame
         {
             // string decleration
             string input;
+            string shopInput;
 
 
             // int decleration
@@ -70,7 +71,7 @@ namespace SpaceGame
             Cargo myCargo5 = new Cargo();
             myCargo5.Type = "Fuel";
             myCargo5.Size = 2;
-            myCargo5.Cost = -4000;
+            myCargo5.Cost = -6000;
             myCargo.Speed = speed -= 1;
 
 
@@ -139,10 +140,11 @@ namespace SpaceGame
             if (cost != 0)
             {
                 Console.WriteLine("You paid {0} for your ship!!", cost);
+                Console.WriteLine();
                 Console.WriteLine("Thank you for shopping with SpaceBuggies R Us");
             }
-            Console.WriteLine("Your first ship!! The {0}. Speed: {1}. Cargo Space: {2}", tier1.Name, tier1.Speed, tier1.Cargo);
-            Console.WriteLine();
+
+            Console.WriteLine("\n Your first ship!! The {0}. Speed: {1}. Cargo Space: {2}", tier1.Name, tier1.Speed, tier1.Cargo);
             Console.ReadLine();
 
             Console.Clear();
@@ -160,10 +162,73 @@ namespace SpaceGame
             Console.WriteLine("Credits: {0}", credits);
             Console.WriteLine("________________________________________________________________________________________________________________________");
 
-            Console.ReadLine();         
+            Console.ReadLine();
 
+            //Console.WriteLine("You are on planet {0}! Currency is the {1}, current date/time is {2}. Earth has a {3} focused economy!", , , ,);
+            Console.WriteLine("You are on planet Earth! Currency is the USD, current date/time is 3019/14:31. Earth has a Research focused economy!");
+            Console.WriteLine();
+            Console.WriteLine("What would you like to do?: (Type 'Upgrade' to upgrade your ship, 'Buy' to buy goods, 'Sell' to sell goods, or travel to leave and go to the next planet!)");
 
-
+            // Planetary options
+            shopInput = Console.ReadLine();
+            switch (shopInput)
+            {
+                case "Buy":
+                case "buy":
+                    Console.Clear();
+                    Console.SetCursorPosition(0, 0);
+                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                    Console.SetCursorPosition(40, 1);
+                    Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
+                    Console.SetCursorPosition(5, 1);
+                    Console.WriteLine("Name: {0}", character);
+                    Console.SetCursorPosition(80, 1);
+                    Console.WriteLine("Credits: {0}", credits);
+                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                    Console.WriteLine("What would you like to buy?: (Type name of item you want from list): ");
+                    break;
+                case "Sell":
+                case "sell":
+                    Console.Clear();
+                    Console.SetCursorPosition(0, 0);
+                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                    Console.SetCursorPosition(40, 1);
+                    Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
+                    Console.SetCursorPosition(5, 1);
+                    Console.WriteLine("Name: {0}", character);
+                    Console.SetCursorPosition(80, 1);
+                    Console.WriteLine("Credits: {0}", credits);
+                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                    Console.WriteLine("What would you like to sell?: (Type name of item you want to sell from your Cargo");
+                    break;
+                case "Upgrade":
+                case "upgrade":
+                    Console.Clear();
+                    Console.SetCursorPosition(0, 0);
+                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                    Console.SetCursorPosition(40, 1);
+                    Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
+                    Console.SetCursorPosition(5, 1);
+                    Console.WriteLine("Name: {0}", character);
+                    Console.SetCursorPosition(80, 1);
+                    Console.WriteLine("Credits: {0}", credits);
+                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                    Console.WriteLine("What upgrade would you like to buy? Speed: {0}, or Cargo{1}", tier1.Speed, tier1.Cargo);
+                    break;
+                default:
+                    Console.Clear();
+                    Console.SetCursorPosition(0, 0);
+                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                    Console.SetCursorPosition(40, 1);
+                    Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
+                    Console.SetCursorPosition(5, 1);
+                    Console.WriteLine("Name: {0}", character);
+                    Console.SetCursorPosition(80, 1);
+                    Console.WriteLine("Credits: {0}", credits);
+                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                    Console.WriteLine("Where would you like to go!: ");
+                    break;
+            }
         }
     }
 }

@@ -11,7 +11,9 @@ namespace SpaceGame
 
         public string Name { get; set; }
         public int Cargo { get; set; }
+        public int Price { get; set; }
         public double Speed { get; set; }
+        
 
 
 

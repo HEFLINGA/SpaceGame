@@ -8,6 +8,25 @@ namespace SpaceGame
 {
     class Program
     {
+        public static void Screen(int cargoCurrent, int cargoMax, string name, int credits)
+        {
+            var shipCargoCurrent = 0;
+            var shipCargoMax = 0;
+            string character = "John Doe";
+
+            
+            // Console
+            Console.SetCursorPosition(0, 0);
+            Console.WriteLine("________________________________________________________________________________________________________________________");
+            Console.SetCursorPosition(40, 1);
+            Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
+            Console.SetCursorPosition(5, 1);
+            Console.WriteLine("Name: {0}", character);
+            Console.SetCursorPosition(80, 1);
+            Console.WriteLine("Credits: {0}", credits);
+            Console.WriteLine("________________________________________________________________________________________________________________________");
+        }
+
         static void Main(string[] args)
         {
             // string decleration
@@ -28,20 +47,11 @@ namespace SpaceGame
             int charMoveLeftRight = 10;
             int charMoveUpDown = 10;
 
-            do
-            {
-                // Console
-                Console.SetCursorPosition(0, 0);
-                Console.WriteLine("________________________________________________________________________________________________________________________");
-                Console.SetCursorPosition(40, 1);
-                Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
-                Console.SetCursorPosition(5, 1);
-                Console.WriteLine("Name: {0}", character);
-                Console.SetCursorPosition(80, 1);
-                Console.WriteLine("Credits: {0}", credits);
-                Console.WriteLine("________________________________________________________________________________________________________________________");
+            Screen(shipCargoCurrent, shipCargoMax, character, credits);
+          
 
                 // Player movement controls
+                /*
                 ConsoleKeyInfo KeyInfo;
                 KeyInfo = Console.ReadKey(true);
                 switch (KeyInfo.Key)
@@ -85,11 +95,12 @@ namespace SpaceGame
                         Console.ForegroundColor = ConsoleColor.White;
                         break;
                 }
+                */
 
-            } while (gameOver == 0);
+          
 
 
-            Console.SetCursorPosition(2, 3);
+            // Console.SetCursorPosition(2, 3);
             Console.WriteLine("Welcome {0} to, THE SPACE GAAMMMEEEEE", character);
 
             // Intro story

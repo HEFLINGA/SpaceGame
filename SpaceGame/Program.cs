@@ -41,7 +41,7 @@ namespace SpaceGame
                 Console.WriteLine("Credits: {0}", credits);
                 Console.WriteLine("________________________________________________________________________________________________________________________");
 
-                // Movement
+                // Player movement controls
                 ConsoleKeyInfo KeyInfo;
                 KeyInfo = Console.ReadKey(true);
                 switch (KeyInfo.Key)
@@ -84,7 +84,6 @@ namespace SpaceGame
                         Console.Write("X");
                         Console.ForegroundColor = ConsoleColor.White;
                         break;
-
                 }
 
             } while (gameOver == 0);

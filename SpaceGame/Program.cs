@@ -42,11 +42,6 @@ namespace SpaceGame
             int credits = 10000;
             int gameOver = 0;
 
-            // movement variables
-            int charMoveLeftRight = 10;
-            int charMoveUpDown = 10;
-
-
             // Console.SetCursorPosition(2, 3);
             Console.WriteLine("Enter your name, adventurer!");
             string character = Console.ReadLine();
@@ -98,6 +93,7 @@ namespace SpaceGame
             }
             Console.WriteLine("Thank you for shopping with SpaceBuggies R Us");
             Console.WriteLine();
+            Console.WriteLine("{0} {1} {2}", tier1.Name, tier1.Speed, tier1.Cargo);
             Console.ReadLine();
 
             Console.Clear();
@@ -117,6 +113,30 @@ namespace SpaceGame
             Console.WriteLine("________________________________________________________________________________________________________________________");
 
             Console.ReadLine();
+
+
+
+            // Ship instantiation
+            Ship tier1 = new Ship();
+            tier1.Name = "RustBucket";
+            tier1.Speed = 3;
+            tier1.Cargo = 2;
+
+            Ship tier2 = new Ship();
+            tier2.Name = "Speedyy";
+            tier2.Speed = 4;
+            tier2.Cargo = 4;
+
+            Ship tier3 = new Ship();
+            tier3.Name = "USS Schwifty Ship";
+            tier3.Speed = 6;
+            tier3.Cargo = 6;
+
+            Console.WriteLine("{0} {1} {2}", tier1.Name, tier1.Speed, tier1.Cargo);
+            
+
+
+
         }
     }
 }

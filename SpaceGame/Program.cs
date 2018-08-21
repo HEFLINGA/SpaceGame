@@ -15,7 +15,7 @@ namespace SpaceGame
 
 
             // int decleration
-            int shipCargoMax = 4;
+            int shipCargoMax = 0;
             int shipCargoCurrent = 0;            
             int cost = 0;  
             int credits = 10000;
@@ -26,7 +26,7 @@ namespace SpaceGame
             // Ship instantiation
             Ship tier1 = new Ship();
             tier1.Name = "RustBucket";
-            tier1.Speed = speed = 3;
+            tier1.Speed = 3;
             tier1.Price = 5000;
             tier1.Cargo = 2;
 
@@ -45,34 +45,39 @@ namespace SpaceGame
             // Cargo instantiation
             Cargo myCargo = new Cargo();
             myCargo.Type = "Food";
-            myCargo.Size = shipCargoCurrent += 1;
-            myCargo.Cost = credits -= 2000;
-            myCargo.Speed = speed -= .5;
+            myCargo.Size = 1;
+            myCargo.Cost = -2000;
+            myCargo.Speed = -.5;
 
             Cargo myCargo2 = new Cargo();
             myCargo2.Type = "Research";
-            myCargo2.Size = shipCargoCurrent += 1;
-            myCargo2.Cost = credits -= 3000;
+            myCargo2.Size = 1;
+            myCargo2.Cost = -3000;
+            myCargo.Speed = -.5;
 
             Cargo myCargo3 = new Cargo();
             myCargo3.Type = "Animal";
-            myCargo3.Size = shipCargoCurrent += 1;
-            myCargo3.Cost = credits -= 4000;
+            myCargo3.Size = 1;
+            myCargo3.Cost = -4000;
+            myCargo.Speed = -.5;
 
             Cargo myCargo4 = new Cargo();
             myCargo4.Type = "Water";
-            myCargo4.Size = shipCargoCurrent += 2;
-            myCargo4.Cost = credits -= 5000;
+            myCargo4.Size = 2;
+            myCargo4.Cost = -5000;
+            myCargo.Speed = -1;
 
             Cargo myCargo5 = new Cargo();
             myCargo5.Type = "Fuel";
-            myCargo5.Size = shipCargoCurrent += 2;
-            myCargo5.Cost = credits -= 4000;
+            myCargo5.Size = 2;
+            myCargo5.Cost = -4000;
+            myCargo.Speed = speed -= 1;
 
 
             // Intro line and story
             Console.WriteLine("Welcome to SpaceGame!!");
-            Console.WriteLine("the year is 3018.A guy a guy or girl of your choice relative passed and left them 10000 dollars. Their family use to be rich merchants but " +
+            Console.WriteLine();
+            Console.WriteLine("  The year is 3018.A guy a guy or girl of your choice relative passed and left them 10000 dollars. Their family use to be rich merchants but " +
                 "feel on hard time.They always had a dream of becoming a space ship captain to try to restore their family's name and wealth. ");
             Console.ReadLine();
 
@@ -122,6 +127,9 @@ namespace SpaceGame
                 case "purchase":
                     cost = 5000;
                     credits -= 5000;
+                    shipCargoCurrent = 0;
+                    shipCargoMax = 2;
+                    speed = 3;
                     break;
                 default:
                     Console.Write("Well, it was nice knowin' you! Your days on a ship have ended before they began..");

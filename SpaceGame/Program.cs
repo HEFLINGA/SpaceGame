@@ -8,25 +8,6 @@ namespace SpaceGame
 {
     class Program
     {
-        public static void Screen(int cargoCurrent, int cargoMax, string name, int credits)
-        {
-            int shipCargoCurrent = 0;
-            int shipCargoMax = 4;
-            string character = "";
-
-            
-            // Console
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("________________________________________________________________________________________________________________________");
-            Console.SetCursorPosition(40, 1);
-            Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
-            Console.SetCursorPosition(5, 1);
-            Console.WriteLine("Name: {0}", character);
-            Console.SetCursorPosition(80, 1);
-            Console.WriteLine("Credits: {0}", credits);
-            Console.WriteLine("________________________________________________________________________________________________________________________");
-        }
-
         static void Main(string[] args)
         {
             // string decleration           

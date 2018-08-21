@@ -15,7 +15,7 @@ namespace SpaceGame
             string ship1 = "1";
             string ship2 = "2";
             string ship3 = "3";
-            string input = Console.ReadLine();
+            string input;
             int cost = 0;
 
 
@@ -32,8 +32,7 @@ namespace SpaceGame
 
             // Buy your ship
             // TODO - Add ships description and price
-            Console.WriteLine("Buy your first ship! Use the 1, 2 and 3 key to select your option: (Any other key will resoult in your charecter " +
-                "heading to the nearest bar instead, spending your wealth there.. And ending your space fairing adventure before it began..)");
+            Console.WriteLine("Buy your first ship! Use the 1, 2 and 3 key to select your option: ");
 
             // Get input from console to select ship
             input = Console.ReadLine();

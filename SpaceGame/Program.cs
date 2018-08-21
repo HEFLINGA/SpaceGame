@@ -10,13 +10,17 @@ namespace SpaceGame
     {
         static void Main(string[] args)
         {
-            // Variable decleration
+            // string decleration
             string character;
-            string ship1 = "1";
-            string ship2 = "2";
-            string ship3 = "3";
+            string currentPlanet;
             string input;
-            int cost = 0;
+
+
+            // int decleration
+            int shipMaxSpeed = 3;
+            int shipCargoMax = 4;
+            int shipCargoCurrent = 0;            
+            int cost = 0;         
 
             Console.WriteLine(Ship.Speed());
 
@@ -62,7 +66,15 @@ namespace SpaceGame
                 Console.WriteLine("You paid {0} for your ship!!", cost);
             }
             Console.WriteLine("Thank you for shopping with SpaceBuggies R Us");
+            Console.WriteLine();
 
+
+            // Console
+            Console.Clear();
+            Console.SetCursorPosition(35, 1);
+            Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
+            Console.SetCursorPosition(5, 1);
+            Console.WriteLine("Name: {0}", character);
         }
     }
 }

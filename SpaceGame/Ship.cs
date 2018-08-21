@@ -9,10 +9,7 @@ namespace SpaceGame
     class Ship
     {
 
-        // Speed
-
-
-        // Constructor that takes no arguments:
+        // Speed when ship has warp factor 3
         public static double Speed()
         {
             double warpFactor = Math.Pow(3, (10 / 3)) + Math.Pow((10 - 3), -11 / 3) ;
@@ -20,11 +17,24 @@ namespace SpaceGame
 
             return warpFactor;
         }
-        
 
         // Constructor that takes one argument:
         public static int Cargo(int cargo)
         {
+            int baseCargo = 4;
+            
+            switch (cargo)
+            {
+                case 1:
+                    Console.WriteLine("You have 4 slots remaining");
+                    break;
+                case 2:
+                    Console.WriteLine("You have 3 slots remaining");
+                    break;
+                case 3:
+                    Console.WriteLine("You have 2 slots remaining");
+                    break;
+            }
             return cargo;
         }
 
@@ -33,8 +43,5 @@ namespace SpaceGame
         {
 
         }
-
-        // Method that overrides the base class (System.Object) implementation.
-
     }
 }

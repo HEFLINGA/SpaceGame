@@ -11,7 +11,7 @@ namespace SpaceGame
         static void Main(string[] args)
         {
             // string decleration
-            string character;
+            string character = "John Doe";
             string currentPlanet;
             string input;
 
@@ -22,14 +22,41 @@ namespace SpaceGame
             int shipCargoCurrent = 0;            
             int cost = 0;  
             int credits = 10000;
+            int gameOver = 0;
 
-            Console.WriteLine(Ship.Speed());
+            // movement variables
+            int charMoveLeftRight = 10;
+            int charMoveUpDown = 10;
+
+            do
+            {
+                // Console
+                Console.SetCursorPosition(0, 0);
+                Console.WriteLine("________________________________________________________________________________________________________________________");
+                Console.SetCursorPosition(40, 1);
+                Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
+                Console.SetCursorPosition(5, 1);
+                Console.WriteLine("Name: {0}", character);
+                Console.SetCursorPosition(80, 1);
+                Console.WriteLine("Credits: {0}", credits);
+                Console.WriteLine("________________________________________________________________________________________________________________________");
+
+                // Movement
+                ConsoleKeyInfo KeyInfo;
+                KeyInfo = Console.ReadKey(true);
+                switch (KeyInfo.Key)
+                {
+                    case ConsoleKey.RightArrow:
+                        charMoveLeftRight++;
+                        Console.SetCursorPosition(charMoveLeftRight, charMoveUpDown);
+                        Console.Write("X");
+                        break;
+                }
+
+            } while (gameOver == 0);
 
 
-            // Character selection
-            Console.WriteLine("Enter your name: ");
-            character = Console.ReadLine();
-
+            Console.SetCursorPosition(2, 3);
             Console.WriteLine("Welcome {0} to, THE SPACE GAAMMMEEEEE", character);
 
             // Intro story
@@ -69,16 +96,6 @@ namespace SpaceGame
             Console.WriteLine("Thank you for shopping with SpaceBuggies R Us");
             Console.WriteLine();
             Console.ReadLine();
-
-
-            // Console
-            Console.Clear();
-            Console.SetCursorPosition(40, 1);
-            Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
-            Console.SetCursorPosition(5, 1);
-            Console.WriteLine("Name: {0}", character);
-            Console.SetCursorPosition(80, 1);
-            Console.WriteLine("Credits: {0}", credits);
         }
     }
 }

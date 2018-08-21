@@ -20,6 +20,7 @@ namespace SpaceGame
 
             return warpFactor;
         }
+        
 
         // Constructor that takes one argument:
         public static int Cargo(int cargo)
@@ -34,9 +35,6 @@ namespace SpaceGame
         }
 
         // Method that overrides the base class (System.Object) implementation.
-        public override string ToString()
-        {
-            return Name;
-        }
+
     }
 }

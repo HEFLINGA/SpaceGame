@@ -18,6 +18,8 @@ namespace SpaceGame
             string input;
             int cost = 0;
 
+            Console.WriteLine(Ship.Speed());
+
 
             // Character selection
             Console.WriteLine("Enter your name: ");

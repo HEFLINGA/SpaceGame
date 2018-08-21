@@ -73,7 +73,7 @@ namespace SpaceGame
             myCargo5.Type = "Fuel";
             myCargo5.Size = 2;
             myCargo5.Cost = -6000;
-            myCargo.Speed = speed -= 1;
+            myCargo.Speed = -1;
 
 
 

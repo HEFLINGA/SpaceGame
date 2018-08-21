@@ -12,20 +12,18 @@ namespace SpaceGame
         {
             // Variable decleration
             string character;
-            string ship1 = "1";
-            string ship2 = "2";
-            string ship3 = "3";
-            string input;
-            int cost = 0;
 
-            Console.WriteLine(Ship.Speed());
-
+            // Intro line and story
+            Console.WriteLine("Welcome to SpaceGame!!");
+            Console.WriteLine("the year is 3018.A guy a guy or girl of your choice relative passed and left them 10000 dollars. Their family use to be rich merchants but " +
+                "feel on hard time.They always had a dream of becoming a space ship captain to try to restore their family's name and wealth. ");
 
             // Character selection
             Console.WriteLine("Enter your name: ");
             character = Console.ReadLine();
 
             Console.WriteLine("Welcome {0}!!", character);
+            Console.ReadKey();
         }
     }
 }

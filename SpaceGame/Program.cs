@@ -12,17 +12,20 @@ namespace SpaceGame
         {
             // Variable decleration
             string character;
+            string ship1 = "1";
+            string ship2 = "2";
+            string ship3 = "3";
+            string input;
+            int cost = 0;
 
-            // Intro line and story
-            Console.WriteLine("Welcome to SpaceGame!!");
-            Console.WriteLine("Story");
+            Console.WriteLine(Ship.Speed());
+
 
             // Character selection
             Console.WriteLine("Enter your name: ");
             character = Console.ReadLine();
 
             Console.WriteLine("Welcome {0}!!", character);
-            Console.ReadKey();
         }
     }
 }

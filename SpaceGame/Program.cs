@@ -12,7 +12,7 @@ namespace SpaceGame
         {
             int shipCargoCurrent = 0;
             int shipCargoMax = 4;
-            string character = " ";
+            string character = "";
 
             
             // Console
@@ -50,13 +50,23 @@ namespace SpaceGame
             // Console.SetCursorPosition(2, 3);
             Console.WriteLine("Enter your name, adventurer!");
             string character = Console.ReadLine();
-            Screen(shipCargoCurrent, shipCargoMax, character, credits);
+            Console.Clear();
             Console.WriteLine("Welcome {0}, to the SPACE GAAMMMEEEEE(Click 'Enter' to continue)", character);
             Console.ReadLine();
 
+            // Console
+            Console.SetCursorPosition(0, 0);
+            Console.WriteLine("________________________________________________________________________________________________________________________");
+            Console.SetCursorPosition(40, 1);
+            Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
+            Console.SetCursorPosition(5, 1);
+            Console.WriteLine("Name: {0}", character);
+            Console.SetCursorPosition(80, 1);
+            Console.WriteLine("Credits: {0}", credits);
+            Console.WriteLine("________________________________________________________________________________________________________________________");
+
             // Intro story
             // TODO - Add character name to story where names are said ----
-            Console.Clear();
             Console.WriteLine("Story");
             Console.ReadLine();
 
@@ -94,7 +104,18 @@ namespace SpaceGame
 
             // Player starts his journey exploring and buying
             credits = 5000;
-            Screen(shipCargoCurrent, shipCargoMax, character, credits);
+
+            // Console
+            Console.SetCursorPosition(0, 0);
+            Console.WriteLine("________________________________________________________________________________________________________________________");
+            Console.SetCursorPosition(40, 1);
+            Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
+            Console.SetCursorPosition(5, 1);
+            Console.WriteLine("Name: {0}", character);
+            Console.SetCursorPosition(80, 1);
+            Console.WriteLine("Credits: {0}", credits);
+            Console.WriteLine("________________________________________________________________________________________________________________________");
+
             Console.ReadLine();
         }
     }

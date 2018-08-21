@@ -20,7 +20,8 @@ namespace SpaceGame
             int shipMaxSpeed = 3;
             int shipCargoMax = 4;
             int shipCargoCurrent = 0;            
-            int cost = 0;         
+            int cost = 0;  
+            int credits = 10000;
 
             Console.WriteLine(Ship.Speed());
 
@@ -67,14 +68,17 @@ namespace SpaceGame
             }
             Console.WriteLine("Thank you for shopping with SpaceBuggies R Us");
             Console.WriteLine();
+            Console.ReadLine();
 
 
             // Console
             Console.Clear();
-            Console.SetCursorPosition(35, 1);
+            Console.SetCursorPosition(40, 1);
             Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
             Console.SetCursorPosition(5, 1);
             Console.WriteLine("Name: {0}", character);
+            Console.SetCursorPosition(80, 1);
+            Console.WriteLine("Credits: {0}", credits);
         }
     }
 }

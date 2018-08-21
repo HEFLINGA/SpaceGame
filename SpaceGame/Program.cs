@@ -46,11 +46,45 @@ namespace SpaceGame
                 KeyInfo = Console.ReadKey(true);
                 switch (KeyInfo.Key)
                 {
-                    case ConsoleKey.RightArrow:
+                    case ConsoleKey.RightArrow:                        
                         charMoveLeftRight++;
                         Console.SetCursorPosition(charMoveLeftRight, charMoveUpDown);
                         Console.Write("X");
+                        Console.SetCursorPosition(charMoveLeftRight -1, charMoveUpDown);
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.Write("X");
+                        Console.ForegroundColor = ConsoleColor.White;
                         break;
+                    case ConsoleKey.LeftArrow:
+                        charMoveLeftRight--;
+                        Console.SetCursorPosition(charMoveLeftRight, charMoveUpDown);
+                        Console.Write("X");
+                        Console.SetCursorPosition(charMoveLeftRight + 1, charMoveUpDown);
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.Write("X");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        break;
+
+                    case ConsoleKey.UpArrow:
+                        charMoveUpDown--;
+                        Console.SetCursorPosition(charMoveLeftRight, charMoveUpDown);
+                        Console.Write("X");
+                        Console.SetCursorPosition(charMoveLeftRight, charMoveUpDown + 1);
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.Write("X");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        break;
+
+                    case ConsoleKey.DownArrow:
+                        charMoveUpDown++;
+                        Console.SetCursorPosition(charMoveLeftRight, charMoveUpDown);
+                        Console.Write("X");
+                        Console.SetCursorPosition(charMoveLeftRight, charMoveUpDown - 1);
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.Write("X");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        break;
+
                 }
 
             } while (gameOver == 0);

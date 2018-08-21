@@ -15,7 +15,8 @@ namespace SpaceGame
             string ship1 = "1";
             string ship2 = "2";
             string ship3 = "3";
-            string input;
+            string input = Console.ReadLine();
+            int cost = 0;
 
 
             // Character selection
@@ -31,27 +32,33 @@ namespace SpaceGame
 
             // Buy your ship
             // TODO - Add ships description and price
-            Console.WriteLine("Buy your first ship! Use the 1, 2 and 3 key to select your option: ");
+            Console.WriteLine("Buy your first ship! Use the 1, 2 and 3 key to select your option: (Any other key will resoult in your charecter " +
+                "heading to the nearest bar instead, spending your wealth there.. And ending your space fairing adventure before it began..)");
 
+            // Get input from console to select ship
             input = Console.ReadLine();
 
-            if (input == ship1)
+            switch (input)
             {
-                Console.WriteLine("Ship 1 bought");
-            }
-            else if (input == ship2)
-            {
-                Console.WriteLine("Ship 2 bought");
-            }
-            else if (input == ship3)
-            {
-                Console.WriteLine("Ship 3 bought");
-            }
-            else
-            {
-                Console.WriteLine("No Valid input");
+                case "1":
+                    cost = 5000;
+                    break;
+                case "2":
+                    cost = 15000;
+                    break;
+                case "3":
+                    cost = 30000;
+                    break;
+                default:
+                    Console.WriteLine("Invalid selection. Please choose between the 3 ships using 1, 2 and 3");
+                    break;
             }
 
+            if (cost != 0)
+            {
+                Console.WriteLine("You paid {0} for your ship!!", cost);
+            }
+            Console.WriteLine("Thank you for shopping with SpaceBuggies R Us");
         }
     }
 }

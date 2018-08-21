@@ -235,6 +235,8 @@ namespace SpaceGame
                         break;
                     }
                 }
+
+                // Game over
                 Console.WriteLine("Game Over!! Total play time: {0}.  Total credits: {1}", DateTime.Today, credits);
                 Console.ReadLine();
             } while (gameOver == 0);

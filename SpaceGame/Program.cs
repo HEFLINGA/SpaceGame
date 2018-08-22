@@ -127,14 +127,14 @@ namespace SpaceGame
             {
                 Type = "EARTH",
                 Date = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
-                Cost = 1.00
+                Rate = 1.00
             };
 
             Planet myPlanet2 = new Planet
             {
                 Type = "TRAPPIST-1",
                 Date = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss" + 6),
-                Cost = (1.00 - 0.86) / 0.86 * 100.00
+                Rate = (1.00 - 0.86) / 0.86 * 100.00
             };
 
 
@@ -142,26 +142,8 @@ namespace SpaceGame
             {
                 Type = "ALPHA CENTAURI",
                 Date = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss" + 8.5),
-                Cost = (1.00 - 3.79) / 3.709 * 100.00
+                Rate = (1.00 - 3.79) / 3.709 * 100.00
             };
-
-
-            //Planet instantiation
-            Planet myPlanet = new Planet();
-            myPlanet.Type = "EARTH";
-            myPlanet.Date = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-            myPlanet.Cost = 1.00;
-
-            Planet myPlanet2 = new Planet();
-            myPlanet2.Type = "TRAPPIST-1";
-            myPlanet2.Date = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss" + 6);
-            myPlanet2.Cost = (1.00 - 0.86) / 0.86 * 100.00;
-
-            Planet myPlanet3 = new Planet();
-            myPlanet3.Type = "ALPHA CENTAURI";
-            myPlanet3.Date = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss" + 8.5);
-            myPlanet3.Cost = (1.00 - 3.79) / 3.709 * 100.00;
-
 
 
             // Intro line and story

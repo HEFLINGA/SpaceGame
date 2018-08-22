@@ -10,8 +10,8 @@ namespace SpaceGame
     {
 
         public string Type { get; set; }
-        public string Date { get; set; }
-        public double Cost { get; set; }
+        public double Date { get; set; }
+        public double Rate { get; set; }
         public double Location { get; set; }
 
     }        

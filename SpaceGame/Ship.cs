@@ -9,6 +9,12 @@ namespace SpaceGame
     class Ship
     {
 
+        public string Name { get; set; }
+        public int Cargo { get; set; }
+        public int Price { get; set; }
+        public double Speed { get; set; }
+        
+        /*
         // Speed when ship has warp factor 3
         public static double Speed()
         {
@@ -43,5 +49,6 @@ namespace SpaceGame
         {
 
         }
+        */
     }
 }

@@ -8,8 +8,6 @@ namespace SpaceGame
 {
     class Cargo
     {
-
-
         //int cargo = (0);
         //int cargoFood = 1;//2000
         //int cargoResearch =1;//3000
@@ -21,11 +19,6 @@ namespace SpaceGame
         public int Size { get; set; }
         public int Cost { get; set; }
         public double Speed { get; set; }
-
-
-
-
-
     }
 }       
 

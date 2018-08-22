@@ -22,33 +22,7 @@ namespace SpaceGame
             double volocity = warpFactor;            
 
             return warpFactor;
-        }
-
-        // Constructor that takes one argument:
-        public static int Cargo(int cargo)
-        {
-            int baseCargo = 4;
-            
-            switch (cargo)
-            {
-                case 1:
-                    Console.WriteLine("You have 4 slots remaining");
-                    break;
-                case 2:
-                    Console.WriteLine("You have 3 slots remaining");
-                    break;
-                case 3:
-                    Console.WriteLine("You have 2 slots remaining");
-                    break;
-            }
-            return cargo;
-        }
-
-        // TODO - upgrades
-        public static void Upgrades()
-        {
-
-        }
+        }        
         */
     }
 }

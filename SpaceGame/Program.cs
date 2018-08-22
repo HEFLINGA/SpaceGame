@@ -14,7 +14,8 @@ namespace SpaceGame
             int shipCargoMax = 4;
             string character = "";
 
-            
+  
+
             // Console
             Console.SetCursorPosition(0, 0);
             Console.WriteLine("________________________________________________________________________________________________________________________");

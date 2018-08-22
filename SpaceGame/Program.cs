@@ -58,7 +58,7 @@ namespace SpaceGame
 
 
             // int decleration
-            int shipCargoMax = 0;
+            int shipCargoMax = 3;
             int shipCargoCurrent = 0;
             int cost = 0;
             int credits = 10000;
@@ -127,22 +127,22 @@ namespace SpaceGame
 
             Planet myPlanet = new Planet();
             myPlanet.Type = "EARTH";
-            myPlanet.Date = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-            myPlanet.Cost = 1.00;
+            myPlanet.Date = time;
+            myPlanet.Rate = 1.00;
             myPlanet.Location = 0;
 
 
             Planet myPlanet2 = new Planet();
             myPlanet2.Type = "TRAPPIST-1";
-            myPlanet2.Date = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss" + 6);
-            myPlanet2.Cost = (1.00 - 0.86) / 0.86 * 100.00;
+            myPlanet2.Date = time;
+            myPlanet2.Rate = (1.00 - 0.86) / 0.86 * 100.00;
             myPlanet2.Location = 10;
 
 
             Planet myPlanet3 = new Planet();
             myPlanet3.Type = "ALPHA CENTAURI";
-            myPlanet3.Date = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss" + 8.5);
-            myPlanet3.Cost = (1.00 - 3.79) / 3.709 * 100.00;
+            myPlanet3.Date = time;
+            myPlanet3.Rate = (1.00 - 3.79) / 3.709 * 100.00;
             myPlanet3.Location = 4.67;
             
 
@@ -221,8 +221,8 @@ namespace SpaceGame
 
             // Player starts his journey exploring and buying
 
-                while ((credits > 0) && (time < 40))
-                {
+            while ((credits > 0) || (time <= 40))
+            {
                 credits = 5000;
                 time = 0;
 
@@ -240,83 +240,95 @@ namespace SpaceGame
                 Console.WriteLine("________________________________________________________________________________________________________________________");
 
                 //Console.WriteLine("You are on planet {0}! Currency is the {1}, current date/time is {2}. Earth has a {3} focused economy!", , , ,);
-                Console.WriteLine("You are on planet Earth! Currency is the USD, current date/time is 3019/14:31. Earth has a Research focused economy!");
+                Console.WriteLine("You are on planet {0}! Currency is the USD, current year is {1}. Earth has a Research focused economy!",
+                    myPlanet.Type, myPlanet.Date);
                 Console.WriteLine();
                 Console.WriteLine("What would you like to do?: (Type 'Upgrade' to upgrade your ship, 'Buy' to buy goods, 'Sell' to sell goods, or travel to leave and go to the next planet!)");
 
                 // Planetary options
                 shopInput = Console.ReadLine();
-                    if (shopInput == "Buy")
-                    {
-                        Console.WriteLine("What would you like to buy?");
-                        Console.WriteLine("{0}, price: {1}", food.Type, (food.Cost));
-                        Console.WriteLine("{0}, price: {1}", research.Type, (research.Cost));
-                        Console.WriteLine("{0}, price: {1}", animal.Type, (animal.Cost));
-                        Console.WriteLine("{0}, price: {1}", water.Type, (water.Cost));
-                        Console.WriteLine("{0}, price: {1}", fuel.Type, (fuel.Cost));
-                        Console.ReadLine();
-                        switch (shopInput)
+                //Console.ReadLine();
+
+                while ((shopInput != "travel") || (shopInput != "Travel"))
+                {
+
+
+                    
+
+                        while ((shopInput == "Buy") || (shopInput == "buy"))
                         {
-                        case "Food":
-                        case "food":
-                            Console.Clear();
-                            credits -= food.Cost;
-                            Console.SetCursorPosition(0, 0);
-                            Console.WriteLine("________________________________________________________________________________________________________________________");
-                            Console.SetCursorPosition(30, 1);
-                            Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
-                            Console.SetCursorPosition(5, 1);
-                            Console.WriteLine("Name: {0}", character);
-                            Console.SetCursorPosition(55, 1);
-                            Console.WriteLine("Credits: {0}", credits);
-                            Console.SetCursorPosition(90, 1);
-                            Console.WriteLine("Time: {0}", time);
-                            Console.WriteLine("________________________________________________________________________________________________________________________");
-                            Console.ReadLine();
-                            break;
-                        case "Research":
-                        case "research":
-                            Console.Clear();
-                            credits -= research.Cost;
-                            Console.SetCursorPosition(0, 0);
-                            Console.WriteLine("________________________________________________________________________________________________________________________");
-                            Console.SetCursorPosition(30, 1);
-                            Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
-                            Console.SetCursorPosition(5, 1);
-                            Console.WriteLine("Name: {0}", character);
-                            Console.SetCursorPosition(55, 1);
-                            Console.WriteLine("Credits: {0}", credits);
-                            Console.SetCursorPosition(90, 1);
-                            Console.WriteLine("Time: {0}", time);
-                            Console.WriteLine("________________________________________________________________________________________________________________________");
-                            Console.ReadLine();
-                            break;
-                        case "animal":
-                        case "Animal":
-                            Console.Clear();
-                            credits -= research.Cost;
-                            Console.SetCursorPosition(0, 0);
-                            Console.WriteLine("________________________________________________________________________________________________________________________");
-                            Console.SetCursorPosition(30, 1);
-                            Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
-                            Console.SetCursorPosition(5, 1);
-                            Console.WriteLine("Name: {0}", character);
-                            Console.SetCursorPosition(55, 1);
-                            Console.WriteLine("Credits: {0}", credits);
-                            Console.SetCursorPosition(90, 1);
-                            Console.WriteLine("Time: {0}", time);
-                            Console.WriteLine("________________________________________________________________________________________________________________________");
-                            Console.ReadLine();
-                            break;
+                            Console.WriteLine("What would you like to buy?");
+                            Console.WriteLine("to exit store, enter travel or sell");
+                            Console.WriteLine("{0}, price: {1}", food.Type, (food.Cost));
+                            Console.WriteLine("{0}, price: {1}", research.Type, (research.Cost));
+                            Console.WriteLine("{0}, price: {1}", animal.Type, (animal.Cost));
+                            Console.WriteLine("{0}, price: {1}", water.Type, (water.Cost));
+                            Console.WriteLine("{0}, price: {1}", fuel.Type, (fuel.Cost));
+                          
+                            string buyInput = Console.ReadLine();
+                            switch (buyInput)
+                            {
+                                case "Food":
+                                case "food":
+                                    Console.Clear();
+                                    credits -= food.Cost;
+                                    Console.SetCursorPosition(0, 0);
+                                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                                    Console.SetCursorPosition(30, 1);
+                                    Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
+                                    Console.SetCursorPosition(5, 1);
+                                    Console.WriteLine("Name: {0}", character);
+                                    Console.SetCursorPosition(55, 1);
+                                    Console.WriteLine("Credits: {0}", credits);
+                                    Console.SetCursorPosition(90, 1);
+                                    Console.WriteLine("Time: {0}", time);
+                                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                                    //Console.ReadLine();
+                                    break;
+                                case "Research":
+                                case "research":
+                                    Console.Clear();
+                                    credits -= research.Cost;
+                                    Console.SetCursorPosition(0, 0);
+                                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                                    Console.SetCursorPosition(30, 1);
+                                    Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
+                                    Console.SetCursorPosition(5, 1);
+                                    Console.WriteLine("Name: {0}", character);
+                                    Console.SetCursorPosition(55, 1);
+                                    Console.WriteLine("Credits: {0}", credits);
+                                    Console.SetCursorPosition(90, 1);
+                                    Console.WriteLine("Time: {0}", time);
+                                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                                    //Console.ReadLine();
+                                    break;
+                                case "animal":
+                                case "Animal":
+                                    Console.Clear();
+                                    credits -= research.Cost;
+                                    Console.SetCursorPosition(0, 0);
+                                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                                    Console.SetCursorPosition(30, 1);
+                                    Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
+                                    Console.SetCursorPosition(5, 1);
+                                    Console.WriteLine("Name: {0}", character);
+                                    Console.SetCursorPosition(55, 1);
+                                    Console.WriteLine("Credits: {0}", credits);
+                                    Console.SetCursorPosition(90, 1);
+                                    Console.WriteLine("Time: {0}", time);
+                                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                                    //Console.ReadLine();
+                                    break;
+                            }
+
 
                         }
-                    }
                 }
 
-                // Game over
-                Console.WriteLine("Game Over!! Total play time: {0}.  Total credits: {1}", DateTime.Today, credits);
-                Console.ReadLine();
-            
+                
+            }  // Game over
+            Console.WriteLine("Game Over!! Total play time: {0}.  Total credits: {1}", DateTime.Today, credits);
+            Console.ReadLine();
         }
     }
 }

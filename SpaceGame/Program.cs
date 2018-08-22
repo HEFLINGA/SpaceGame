@@ -309,7 +309,7 @@ namespace SpaceGame
                             Console.ReadLine();
                             break;
 
-                    }
+                        }
                     }
                 }
 

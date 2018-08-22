@@ -8,7 +8,7 @@ namespace SpaceGame
 {
     class Program
     {
-        /*
+        
         public static bool GameOver(double money, double time)
         {
             bool gameOver = false;
@@ -24,6 +24,7 @@ namespace SpaceGame
             return gameOver;
         }
 
+        /*
         public static double TimePassage(double distance)
         {
             double totalTime = 40;
@@ -86,13 +87,15 @@ namespace SpaceGame
             int shipCargoMax = 3;
             int shipCargoCurrent = 0;
             int cost = 0;
-            int credits = 10000;
-            int gameOver = 0;
+            int credits = 10000;            
 
             // double decleration
             double speed = 0;
             double distance = 0;
             double time = 0;
+
+            // bool decleration
+            
 
             // Ship instantiation
             Ship tier1 = new Ship();
@@ -246,7 +249,7 @@ namespace SpaceGame
 
             // Player starts his journey exploring and buying
 
-            while ((credits > 0) || (time <= 40))
+            while (GameOver(credits, time) == false)
             {
                 credits = 5000;
                 time = 0;
@@ -276,10 +279,6 @@ namespace SpaceGame
 
                 while ((shopInput != "travel") || (shopInput != "Travel"))
                 {
-
-
-                    
-
                         while ((shopInput == "Buy") || (shopInput == "buy"))
                         {
                             Console.WriteLine("What would you like to buy?");
@@ -352,7 +351,7 @@ namespace SpaceGame
 
                 
             }  // Game over
-            Console.WriteLine("Game Over!! Total play time: {0}.  Total credits: {1}", DateTime.Today, credits);
+            Console.WriteLine("Game Over!! Total play time: {0}.  Total credits: {1}", time, credits);
             Console.ReadLine();
         }
     }

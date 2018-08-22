@@ -9,7 +9,7 @@ namespace SpaceGame
 {
     public class Planet
     {
-
+        
         public string Type { get; set; }
         public double Date { get; set; }
         public double Rate { get; set; }

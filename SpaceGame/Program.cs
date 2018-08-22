@@ -76,9 +76,26 @@ namespace SpaceGame
             myCargo.Speed = -1;
 
 
+            //Planet instantiation
+            Planet myPlanet = new Planet();
+            myPlanet.Type = "EARTH";
+            myPlanet.Date = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+            myPlanet.Cost = 1.00;
+
+            Planet myPlanet2 = new Planet();
+            myPlanet2.Type = "TRAPPIST-1";
+            myPlanet2.Date = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss" + 6);
+            myPlanet2.Cost = (1.00 - 0.86) / 0.86 * 100.00;
+
+            Planet myPlanet3 = new Planet();
+            myPlanet3.Type = "ALPHA CENTAURI";
+            myPlanet3.Date = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss" + 8.5);
+            myPlanet3.Cost = (1.00 - 3.79) / 3.709 * 100.00;
+
+
 
                 // Intro line and story
-                Console.WriteLine("Welcome to SpaceGame!!");
+            Console.WriteLine("Welcome to SpaceGame!!");
                 Console.WriteLine();
                 Console.WriteLine("  The year is 3018.A guy a guy or girl of your choice relative passed and left them 10000 dollars. Their family use to be rich merchants but " +
                     "feel on hard time.They always had a dream of becoming a space ship captain to try to restore their family's name and wealth. ");

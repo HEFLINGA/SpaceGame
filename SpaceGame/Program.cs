@@ -10,17 +10,17 @@ namespace SpaceGame
     {
         static void Main(string[] args)
         {
-        // string decleration
-        string input;
-        string shopInput;
+            // string decleration
+            string input;
+            string shopInput;
 
 
-        // int decleration
-        int shipCargoMax = 0;
-        int shipCargoCurrent = 0;
-        int cost = 0;
-        int credits = 10000;
-        int gameOver = 0;
+            // int decleration
+            int shipCargoMax = 0;
+            int shipCargoCurrent = 0;
+            int cost = 0;
+            int credits = 10000;
+            int gameOver = 0;
 
             // double decleration
             double speed = 0;
@@ -44,7 +44,8 @@ namespace SpaceGame
             tier3.Price = 30000;
             tier3.Cargo = 6;
 
-            // Cargo instantiation
+            // Cargo instantiation            
+
             Cargo food = new Cargo();
             food.Type = "Food";
             food.Size = 1;
@@ -75,76 +76,94 @@ namespace SpaceGame
             fuel.Cost = 6000;
             fuel.Speed = -1;
 
+            // Planet Instantiation
+
+            Planet myPlanet = new Planet();
+            myPlanet.Type = "EARTH";
+            myPlanet.Date = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+            myPlanet.Cost = 1.00;
+
+            Planet myPlanet2 = new Planet();
+            myPlanet2.Type = "TRAPPIST-1";
+            myPlanet2.Date = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss" + 6);
+            myPlanet2.Cost = (1.00 - 0.86) / 0.86 * 100.00;
+
+
+            Planet myPlanet3 = new Planet();
+            myPlanet3.Type = "ALPHA CENTAURI";
+            myPlanet3.Date = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss" + 8.5);
+            myPlanet3.Cost = (1.00 - 3.79) / 3.709 * 100.00;
+
 
 
                 // Intro line and story
-                Console.WriteLine("Welcome to SpaceGame!!");
+            Console.WriteLine("Welcome to SpaceGame!!");
+            Console.WriteLine();
+            Console.WriteLine("  The year is 3018.A guy a guy or girl of your choice relative passed and left them 10000 dollars. Their family use to be rich merchants but " +
+                "feel on hard time.They always had a dream of becoming a space ship captain to try to restore their family's name and wealth. ");
+            Console.ReadLine();
+
+            Console.Clear();
+            Console.WriteLine("Enter your name, adventurer!");
+            string character = Console.ReadLine();
+
+            Console.Clear();
+            Console.WriteLine("Welcome {0}, to the SPACE GAAMMMEEEEE(Click 'Enter' to continue)", character);
+            Console.ReadLine();
+
+            // Console
+            Console.SetCursorPosition(0, 0);
+            Console.WriteLine("________________________________________________________________________________________________________________________");
+            Console.SetCursorPosition(40, 1);
+            Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
+            Console.SetCursorPosition(5, 1);
+            Console.WriteLine("Name: {0}", character);
+            Console.SetCursorPosition(80, 1);
+            Console.WriteLine("Credits: {0}", credits);
+            Console.WriteLine("________________________________________________________________________________________________________________________");
+
+            // Buy your ship
+            // TODO - Add ships description and price
+            Console.Clear();
+            // Console
+            Console.SetCursorPosition(0, 0);
+            Console.WriteLine("________________________________________________________________________________________________________________________");
+            Console.SetCursorPosition(40, 1);
+            Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
+            Console.SetCursorPosition(5, 1);
+            Console.WriteLine("Name: {0}", character);
+            Console.SetCursorPosition(80, 1);
+            Console.WriteLine("Credits: {0}", credits);
+            Console.WriteLine("________________________________________________________________________________________________________________________");
+            Console.WriteLine("Buy your first ship! Type \"Purchase\" to complete the transaction: ");
+
+            // Get input from console to select ship and purchase
+            // TODO - Connect money and currancy to prices of ships
+            // TODO - Connect ships to cases
+            input = Console.ReadLine();
+
+            switch (input)
+            {
+                case "Purchase":
+                case "1":
+                case "purchase":
+                    cost = 5000;
+                    credits -= tier1.Price;
+                    shipCargoMax = tier1.Cargo;
+                    speed = tier1.Speed;
+                    break;
+                default:
+                    Console.Write("Well, it was nice knowin' you! Your days on a ship have ended before they began..");
+
+                    break;
+            }
+
+            if (cost != 0)
+            {
+                Console.WriteLine("You paid {0} for your ship!!", cost);
                 Console.WriteLine();
-                Console.WriteLine("  The year is 3018.A guy a guy or girl of your choice relative passed and left them 10000 dollars. Their family use to be rich merchants but " +
-                    "feel on hard time.They always had a dream of becoming a space ship captain to try to restore their family's name and wealth. ");
-                Console.ReadLine();
-
-                Console.Clear();
-                Console.WriteLine("Enter your name, adventurer!");
-                string character = Console.ReadLine();
-
-                Console.Clear();
-                Console.WriteLine("Welcome {0}, to the SPACE GAAMMMEEEEE(Click 'Enter' to continue)", character);
-                Console.ReadLine();
-
-                // Console
-                Console.SetCursorPosition(0, 0);
-                Console.WriteLine("________________________________________________________________________________________________________________________");
-                Console.SetCursorPosition(40, 1);
-                Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
-                Console.SetCursorPosition(5, 1);
-                Console.WriteLine("Name: {0}", character);
-                Console.SetCursorPosition(80, 1);
-                Console.WriteLine("Credits: {0}", credits);
-                Console.WriteLine("________________________________________________________________________________________________________________________");
-
-                // Buy your ship
-                // TODO - Add ships description and price
-                Console.Clear();
-                // Console
-                Console.SetCursorPosition(0, 0);
-                Console.WriteLine("________________________________________________________________________________________________________________________");
-                Console.SetCursorPosition(40, 1);
-                Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
-                Console.SetCursorPosition(5, 1);
-                Console.WriteLine("Name: {0}", character);
-                Console.SetCursorPosition(80, 1);
-                Console.WriteLine("Credits: {0}", credits);
-                Console.WriteLine("________________________________________________________________________________________________________________________");
-                Console.WriteLine("Buy your first ship! Type \"Purchase\" to complete the transaction: ");
-
-                // Get input from console to select ship and purchase
-                // TODO - Connect money and currancy to prices of ships
-                // TODO - Connect ships to cases
-                input = Console.ReadLine();
-
-                switch (input)
-                {
-                    case "Purchase":
-                    case "1":
-                    case "purchase":
-                        cost = 5000;
-                        credits -= tier1.Price;
-                        shipCargoMax = tier1.Cargo;
-                        speed = tier1.Speed;
-                        break;
-                    default:
-                        Console.Write("Well, it was nice knowin' you! Your days on a ship have ended before they began..");
-
-                        break;
-                }
-
-                if (cost != 0)
-                {
-                    Console.WriteLine("You paid {0} for your ship!!", cost);
-                    Console.WriteLine();
-                    Console.WriteLine("Thank you for shopping with SpaceBuggies R Us");
-                }
+                Console.WriteLine("Thank you for shopping with SpaceBuggies R Us");
+            }
 
             Console.Clear();
             Console.WriteLine("\n Your first ship!! The {0}. Speed: {1}. Cargo Space: {2}", tier1.Name, tier1.Speed, tier1.Cargo);

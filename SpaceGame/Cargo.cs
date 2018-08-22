@@ -19,20 +19,6 @@ namespace SpaceGame
         public int Size { get; set; }
         public int Cost { get; set; }
         public double Speed { get; set; }
-
-    }
-
-    class Food
-    {
-
-        public static void Food()
-        {
-
-        }
-        food.Type = "Food";
-        food.Size = 1;
-        food.Cost = 2000;
-        food.Speed = -.5;
     }
 }       
 

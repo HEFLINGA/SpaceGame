@@ -73,7 +73,7 @@ namespace SpaceGame
 
             return curInventory;
         }
-        public static string CargoFood()        
+        public static string CargoFood()
         {
             int food = 1;
             string foodString = "Food";
@@ -214,6 +214,62 @@ namespace SpaceGame
             return fuelString;
         }
 
+        public static void Buy()
+        {
+            string buyInput = "";
+
+            UI();
+
+            Console.WriteLine("What would you like to buy?: \n" +
+                                "(Type name of Item to purchase)");
+            Console.WriteLine("press 'Enter' to leave the trading post");
+            Console.WriteLine("Food, price: 2000");
+            Console.WriteLine("Research, price: 3000");
+            Console.WriteLine("Animals, price: 4000");
+            Console.WriteLine("Water, price: 5000");
+            Console.WriteLine("Fuel, price: 6000");
+
+            buyInput = Console.ReadLine();
+            switch (buyInput)
+            {
+                case "Food":
+                case "food":
+                    Console.Clear();
+                    CargoFood();
+                    UI();
+                    break;
+                case "Research":
+                case "research":
+                    Console.Clear();
+                    CargoResearch();
+                    UI();
+                    break;
+                case "animals":
+                case "Animals":
+                    Console.Clear();
+                    CargoAnimals();
+                    UI();
+                    break;
+                case "water":
+                case "Water":
+                    Console.Clear();
+                    CargoWater();
+                    UI();
+                    break;
+                case "fuel":
+                case "Fuel":
+                    Console.Clear();
+                    CargoFuel();
+                    UI();
+                    break;
+                default:
+                    Console.WriteLine("Returning to Menu");
+                    System.Threading.Thread.Sleep(1000);
+                    Console.Clear();
+                    break;
+
+            }
+        }
         /*
         public static double TimePassage(double distance)
         {
@@ -398,55 +454,7 @@ namespace SpaceGame
                     {
                         if ((shopInput == "Buy") || (shopInput == "buy"))
                         {
-                            Console.WriteLine("What would you like to buy?: \n" +
-                                "(Type name of Item to purchase)");
-                            Console.WriteLine("press 'Enter' to leave the trading post");
-                            Console.WriteLine("Food, price: 2000");
-                            Console.WriteLine("Research, price: 3000");
-                            Console.WriteLine("Animals, price: 4000");
-                            Console.WriteLine("Water, price: 5000");
-                            Console.WriteLine("Fuel, price: 6000");
-
-                            string buyInput = Console.ReadLine();
-                            switch (buyInput)
-                            {
-                                case "Food":
-                                case "food":
-                                    Console.Clear();
-                                    CargoFood();
-                                    UI();
-                                    break;
-                                case "Research":
-                                case "research":
-                                    Console.Clear();
-                                    CargoResearch();
-                                    UI();
-                                    break;
-                                case "animals":
-                                case "Animals":
-                                    Console.Clear();
-                                    CargoAnimals();
-                                    UI();
-                                    break;
-                                case "water":
-                                case "Water":
-                                    Console.Clear();
-                                    CargoWater();
-                                    UI();
-                                    break;
-                                case "fuel":
-                                case "Fuel":
-                                    Console.Clear();
-                                    CargoFuel();
-                                    UI();
-                                    break;
-                                default:
-                                    Console.WriteLine("Returning to Menu");
-                                    System.Threading.Thread.Sleep(1000);
-                                    Console.Clear();
-                                    break;
-
-                            }
+                            Buy();                            
                         }
                     }
 

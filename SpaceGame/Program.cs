@@ -340,7 +340,7 @@ namespace SpaceGame
             }
             public static int CargoWater()
             {
-                int water = 1;
+                int water = 2;
 
                 if (curInventory > 0)
                 {
@@ -360,7 +360,7 @@ namespace SpaceGame
             }
             public static int CargoFuel()
             {
-                int fuel = 1;
+                int fuel = 2;
 
                 if (curInventory > 0)
                 {
@@ -547,7 +547,7 @@ namespace SpaceGame
 
             Console.Clear();
             Console.WriteLine("Welcome {0}, to the SPACE GAAMMMEEEEE", character);
-            System.Threading.Thread.Sleep(2000);
+            System.Threading.Thread.Sleep(1200);
 
             // Console
             UI();
@@ -566,6 +566,7 @@ namespace SpaceGame
 
             input = Console.ReadLine();
 
+            // buying first ship
             switch (input)
             {
                 case "Buy":
@@ -611,7 +612,8 @@ namespace SpaceGame
                         "- 'Buy' to buy goods\n" +
                         "- 'Sell' to sell goods\n" +
                         "- 'travel' to leave and go to the next planet!\n" +
-                        "- 'inv' to check your current inventory space");
+                        "- 'inv' to check your current inventory space\n" +
+                        "- 'exit' to exit the game........");
 
                     // Planetary options
                     shopInput = Console.ReadLine();
@@ -627,15 +629,19 @@ namespace SpaceGame
                         {
                             Sell.SellMenu();
                         }
-                        else if ((shopInput == "inv") || (shopInput == "Inv"))
+                        else if ((shopInput == "Inv") || (shopInput == "inv"))
                         {
                             Inventory(maxInventory, curInventory);
                         }
+                        else if ((shopInput == "Exit") || (shopInput == "exit"))
+                        {
+                            break;
+                        }
                     }
 
-                } while (GameOver(credits, time) == false);
+                } while ((GameOver(credits, time) == false) || (shopInput != "exit"));
                 // Game over
-                Console.WriteLine("Game Over!! Total play time: {0}.  Total credits: {1}", time, credits);
+                Console.WriteLine("Game Over!! Total play time: {0}.  Total credits: {1}", time, credits - 10000);
                 Console.ReadLine();
             }
         }

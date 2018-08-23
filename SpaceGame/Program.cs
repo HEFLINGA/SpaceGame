@@ -8,7 +8,29 @@ namespace SpaceGame
 {
     class Program
     {
-        
+        public static int curInventory = 0;
+        public static int maxInventory = 0;
+        public static int cost = 0;
+        public static int credits = 10000;
+        public static double time = 0;
+        public static double speed = 0;
+        public static double distance = 0;
+        public static string character = "";
+
+        public static void UI()
+        {
+            Console.SetCursorPosition(0, 0);
+            Console.WriteLine("________________________________________________________________________________________________________________________");
+            Console.SetCursorPosition(30, 1);
+            Console.WriteLine("Cargo: {0}/{1}", curInventory, maxInventory);
+            Console.SetCursorPosition(5, 1);
+            Console.WriteLine("Name: {0}", character);
+            Console.SetCursorPosition(55, 1);
+            Console.WriteLine("Credits: {0}", credits);
+            Console.SetCursorPosition(90, 1);
+            Console.WriteLine("Time: {0}", time);
+            Console.WriteLine("________________________________________________________________________________________________________________________");
+        }
         public static bool GameOver(double money, double time)
         {
             bool gameOver = false;
@@ -43,28 +65,33 @@ namespace SpaceGame
         }
         */
 
+        public static void PrintLocation()
+        {    
+            
+        }
 
 
-        public static double Distance(double LocationX, double LocationY)
-        {
+
+        //public static double Distance(double LocationX, double LocationY)
+        //{
             //double distance = 0;
             //distance = Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2));
             //return distance;
 
             //Calculate the distance between the both points
             //for both axes separately.
-            double curLocation = Math.Abs(LocationX - cordX);
-            double desLocation = Math.Abs(LocationY - cordY);
+            //double curLocation = Math.Abs(LocationX - cordX);
+            //double desLocation = Math.Abs(LocationY - cordY);
 
             //Calculate the length of a line traveling from pt1 to pt2
             //(according to Pythagoras).
-            double dblHypotenuseLength = Math.Sqrt(
-               LocationX * dblDistX
-               +
-               LocationY * dblDistY);
+            //double dblHypotenuseLength = Math.Sqrt(
+            //   LocationX * dblDistX
+            //   +
+            //   LocationY * dblDistY);
 
-               return dblHypotenuseLength;
-        }
+            //   return dblHypotenuseLength;
+        //}
 
 
 
@@ -79,23 +106,7 @@ namespace SpaceGame
 
             // string decleration
             string input;
-            string shopInput;
-            string currentLocation = "Earth";
-
-
-            // int decleration
-            int shipCargoMax = 3;
-            int shipCargoCurrent = 0;
-            int cost = 0;
-            int credits = 10000;          
-
-            // double decleration
-            double speed = 0;
-            double distance = 0;
-            double time = 0;
-
-            // bool decleration
-            
+            string shopInput;            
 
             // Ship instantiation
             Ship tier1 = new Ship();
@@ -174,46 +185,26 @@ namespace SpaceGame
             myPlanet3.Rate = (1.00 - 3.79) / 3.709 * 100.00;
             myPlanet3.LocationX = 0;
             myPlanet3.LocationY = 4.67;
-            
 
-
+            // strings
+            string currentLocation = myPlanet.Type;
 
             Console.Clear();
             Console.WriteLine("Enter your name, adventurer!");
-            string character = Console.ReadLine();
+            character = Console.ReadLine();
 
             Console.Clear();
             Console.WriteLine("Welcome {0}, to the SPACE GAAMMMEEEEE(Click 'Enter' to continue)", character);
             Console.ReadLine();
 
             // Console
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("________________________________________________________________________________________________________________________");
-            Console.SetCursorPosition(30, 1);
-            Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
-            Console.SetCursorPosition(5, 1);
-            Console.WriteLine("Name: {0}", character);
-            Console.SetCursorPosition(55, 1);
-            Console.WriteLine("Credits: {0}", credits);
-            Console.SetCursorPosition(90, 1);
-            Console.WriteLine("Time: {0}", time);
-            Console.WriteLine("________________________________________________________________________________________________________________________");
+            UI();
 
             // Buy your ship
             // TODO - Add ships description and price
             Console.Clear();
             // Console
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("________________________________________________________________________________________________________________________");
-            Console.SetCursorPosition(30, 1);
-            Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
-            Console.SetCursorPosition(5, 1);
-            Console.WriteLine("Name: {0}", character);
-            Console.SetCursorPosition(55, 1);
-            Console.WriteLine("Credits: {0}", credits);
-            Console.SetCursorPosition(90, 1);
-            Console.WriteLine("Time: {0}", time);
-            Console.WriteLine("________________________________________________________________________________________________________________________");
+            UI();
             Console.WriteLine("Buy your first ship! Type \"Purchase\" to complete the transaction: ");
 
             // Get input from console to select ship and purchase
@@ -228,12 +219,13 @@ namespace SpaceGame
                 case "purchase":
                     cost = 5000;
                     credits -= tier1.Price;
-                    shipCargoMax = tier1.Cargo;
+                    maxInventory = tier1.Cargo;
                     speed = tier1.Speed;
                     break;
-                default:
-                    Console.Write("Well, it was nice knowin' you! Your days on a ship have ended before they began..");
-
+                case "":
+                    Console.WriteLine("Well, it was nice knowin' you! Your days on a ship have ended before they began..");
+                    Console.WriteLine("Press enter to exit");
+                    Console.ReadLine();
                     break;
             }
 
@@ -242,42 +234,32 @@ namespace SpaceGame
                 Console.WriteLine("You paid {0} for your ship!!", cost);
                 Console.WriteLine();
                 Console.WriteLine("Thank you for shopping with SpaceBuggies R Us");
-            }
 
-            Console.Clear();
-            Console.WriteLine("\n Your first ship!! The {0}. Speed: {1}. Cargo Space: {2}", tier1.Name, tier1.Speed, tier1.Cargo);
-            Console.ReadLine();
-            Console.Clear();
 
-            // Player starts his journey exploring and buying
+                Console.Clear();
+                Console.WriteLine("\n Your first ship!! The {0}. Speed: {1}. Cargo Space: {2}", tier1.Name, tier1.Speed, tier1.Cargo);
+                Console.ReadLine();
+                Console.Clear();
 
-            do
-            {
-                // Console
-                Console.SetCursorPosition(0, 0);
-                Console.WriteLine("________________________________________________________________________________________________________________________");
-                Console.SetCursorPosition(30, 1);
-                Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
-                Console.SetCursorPosition(5, 1);
-                Console.WriteLine("Name: {0}", character);
-                Console.SetCursorPosition(55, 1);
-                Console.WriteLine("Credits: {0}", credits);
-                Console.SetCursorPosition(90, 1);
-                Console.WriteLine("Time: {0}", time);
-                Console.WriteLine("________________________________________________________________________________________________________________________");
+                // Player starts his journey exploring and buying
 
-                //Console.WriteLine("You are on planet {0}! Currency is the {1}, current date/time is {2}. Earth has a {3} focused economy!", , , ,);
-                Console.WriteLine("You are on planet {0}! Currency is the USD, current year is {1}.!",
-                    myPlanet.Type, myPlanet.Date);
-                Console.WriteLine();
-                Console.WriteLine("What would you like to do?: (Type 'Upgrade' to upgrade your ship, 'Buy' to buy goods, 'Sell' to sell goods, or travel to leave and go to the next planet!)");
-
-                // Planetary options
-                shopInput = Console.ReadLine();
-                //Console.ReadLine();
-
-                if ((shopInput != "travel") || (shopInput != "Travel"))
+                do
                 {
+                    // Console
+                    UI();
+
+                    //Console.WriteLine("You are on planet {0}! Currency is the {1}, current date/time is {2}. Earth has a {3} focused economy!", , , ,);
+                    Console.WriteLine("You are on planet {0}! Currency is the USD, current year is {1}!",
+                        myPlanet.Type, myPlanet.Date);
+                    Console.WriteLine();
+                    Console.WriteLine("What would you like to do?: (Type 'Upgrade' to upgrade your ship, 'Buy' to buy goods, 'Sell' to sell goods, or travel to leave and go to the next planet!)");
+
+                    // Planetary options
+                    shopInput = Console.ReadLine();
+                    //Console.ReadLine();
+
+                    if ((shopInput != "travel") || (shopInput != "Travel"))
+                    {
                         if ((shopInput == "Buy") || (shopInput == "buy"))
                         {
                             Console.WriteLine("What would you like to buy?");
@@ -287,104 +269,54 @@ namespace SpaceGame
                             Console.WriteLine("{0}, price: {1}", animal.Type, (animal.Cost));
                             Console.WriteLine("{0}, price: {1}", water.Type, (water.Cost));
                             Console.WriteLine("{0}, price: {1}", fuel.Type, (fuel.Cost));
-                          
-                                string buyInput = Console.ReadLine();
+
+                            string buyInput = Console.ReadLine();
                             switch (buyInput)
                             {
                                 case "Food":
                                 case "food":
                                     Console.Clear();
                                     credits -= food.Cost;
-                                    Console.SetCursorPosition(0, 0);
-                                    Console.WriteLine("________________________________________________________________________________________________________________________");
-                                    Console.SetCursorPosition(30, 1);
-                                    Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
-                                    Console.SetCursorPosition(5, 1);
-                                    Console.WriteLine("Name: {0}", character);
-                                    Console.SetCursorPosition(55, 1);
-                                    Console.WriteLine("Credits: {0}", credits);
-                                    Console.SetCursorPosition(90, 1);
-                                    Console.WriteLine("Time: {0}", time);
-                                    Console.WriteLine("________________________________________________________________________________________________________________________");
-                                    //Console.ReadLine();
+                                    UI();
                                     break;
                                 case "Research":
                                 case "research":
                                     Console.Clear();
                                     credits -= research.Cost;
-                                    Console.SetCursorPosition(0, 0);
-                                    Console.WriteLine("________________________________________________________________________________________________________________________");
-                                    Console.SetCursorPosition(30, 1);
-                                    Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
-                                    Console.SetCursorPosition(5, 1);
-                                    Console.WriteLine("Name: {0}", character);
-                                    Console.SetCursorPosition(55, 1);
-                                    Console.WriteLine("Credits: {0}", credits);
-                                    Console.SetCursorPosition(90, 1);
-                                    Console.WriteLine("Time: {0}", time);
-                                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                                    UI();
                                     break;
                                 case "animal":
                                 case "Animal":
                                     Console.Clear();
                                     credits -= research.Cost;
-                                    Console.SetCursorPosition(0, 0);
-                                    Console.WriteLine("________________________________________________________________________________________________________________________");
-                                    Console.SetCursorPosition(30, 1);
-                                    Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
-                                    Console.SetCursorPosition(5, 1);
-                                    Console.WriteLine("Name: {0}", character);
-                                    Console.SetCursorPosition(55, 1);
-                                    Console.WriteLine("Credits: {0}", credits);
-                                    Console.SetCursorPosition(90, 1);
-                                    Console.WriteLine("Time: {0}", time);
-                                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                                    UI();
                                     break;
                                 case "water":
                                 case "Water":
                                     Console.Clear();
                                     credits -= water.Cost;
-                                    Console.SetCursorPosition(0, 0);
-                                    Console.WriteLine("________________________________________________________________________________________________________________________");
-                                    Console.SetCursorPosition(30, 1);
-                                    Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
-                                    Console.SetCursorPosition(5, 1);
-                                    Console.WriteLine("Name: {0}", character);
-                                    Console.SetCursorPosition(55, 1);
-                                    Console.WriteLine("Credits: {0}", credits);
-                                    Console.SetCursorPosition(90, 1);
-                                    Console.WriteLine("Time: {0}", time);
-                                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                                    UI();
                                     break;
                                 case "fuel":
                                 case "Fuel":
                                     Console.Clear();
                                     credits -= fuel.Cost;
-                                    Console.SetCursorPosition(0, 0);
-                                    Console.WriteLine("________________________________________________________________________________________________________________________");
-                                    Console.SetCursorPosition(30, 1);
-                                    Console.WriteLine("Cargo: {0}/{1}", shipCargoCurrent, shipCargoMax);
-                                    Console.SetCursorPosition(5, 1);
-                                    Console.WriteLine("Name: {0}", character);
-                                    Console.SetCursorPosition(55, 1);
-                                    Console.WriteLine("Credits: {0}", credits);
-                                    Console.SetCursorPosition(90, 1);
-                                    Console.WriteLine("Time: {0}", time);
-                                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                                    UI();
                                     break;
                                 default:
-                                Console.WriteLine("Returning to Menu");
-                                System.Threading.Thread.Sleep(3000);
+                                    Console.WriteLine("Returning to Menu");
+                                    System.Threading.Thread.Sleep(3000);
                                     break;
 
                             }
                         }
-                }
+                    }
 
-            } while (GameOver(credits, time) == false);
-            // Game over
-            Console.WriteLine("Game Over!! Total play time: {0}.  Total credits: {1}", time, credits);
-            Console.ReadLine();
+                } while (GameOver(credits, time) == false);
+                // Game over
+                Console.WriteLine("Game Over!! Total play time: {0}.  Total credits: {1}", time, credits);
+                Console.ReadLine();
+            }
         }
     }
 }

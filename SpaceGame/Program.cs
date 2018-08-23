@@ -16,9 +16,11 @@ namespace SpaceGame
         public static double speed = 0;
         public static double distance = 0;
         public static string character = "";
+        public static string currentShip = "";
 
         public static void UI()
         {
+            Console.Clear();
             Console.SetCursorPosition(0, 0);
             Console.WriteLine("________________________________________________________________________________________________________________________");
             Console.SetCursorPosition(30, 1);
@@ -70,8 +72,6 @@ namespace SpaceGame
             
         }
 
-
-
         //public static double Distance(double LocationX, double LocationY)
         //{
             //double distance = 0;
@@ -106,7 +106,22 @@ namespace SpaceGame
 
             // string decleration
             string input;
-            string shopInput;            
+            string shopInput;
+
+            // Cargo instantiation            
+
+            Cargo food = new Cargo();
+            food.Type = "Food";
+            food.Size = 1;
+            food.Cost = 2000;
+            food.Speed = -.5;
+            
+
+            Cargo research = new Cargo();
+            research.Type = "Research";
+            research.Size = 1;
+            research.Cost = 3000;
+            research.Speed = -.5;
 
             // Ship instantiation
             Ship tier1 = new Ship();
@@ -126,23 +141,6 @@ namespace SpaceGame
             tier3.Speed = 6;
             tier3.Price = 30000;
             tier3.Cargo = 6;
-
-
-            // Cargo instantiation            
-
-            Cargo food = new Cargo();
-            food.Type = "Food";
-            food.Size = 1;
-            food.Cost = 2000;
-            food.Speed = -.5;
-            
-
-            Cargo research = new Cargo();
-            research.Type = "Research";
-            research.Size = 1;
-            research.Cost = 3000;
-            research.Speed = -.5;
-
 
             Cargo animal = new Cargo();
             animal.Type = "Animal";
@@ -231,15 +229,15 @@ namespace SpaceGame
 
             if (cost != 0)
             {
+                UI();
                 Console.WriteLine("You paid {0} for your ship!!", cost);
                 Console.WriteLine();
                 Console.WriteLine("Thank you for shopping with SpaceBuggies R Us");
+                System.Threading.Thread.Sleep(2500);
 
-
-                Console.Clear();
+                UI();
                 Console.WriteLine("\n Your first ship!! The {0}. Speed: {1}. Cargo Space: {2}", tier1.Name, tier1.Speed, tier1.Cargo);
                 Console.ReadLine();
-                Console.Clear();
 
                 // Player starts his journey exploring and buying
 
@@ -252,7 +250,11 @@ namespace SpaceGame
                     Console.WriteLine("You are on planet {0}! Currency is the USD, current year is {1}!",
                         myPlanet.Type, myPlanet.Date);
                     Console.WriteLine();
-                    Console.WriteLine("What would you like to do?: (Type 'Upgrade' to upgrade your ship, 'Buy' to buy goods, 'Sell' to sell goods, or travel to leave and go to the next planet!)");
+                    Console.WriteLine("What would you like to do?: \n" +
+                        "- 'Upgrade' to upgrade your ship\n" +
+                        "- 'Buy' to buy goods\n" +
+                        "- 'Sell' to sell goods\n" +
+                        "- travel to leave and go to the next planet!)");
 
                     // Planetary options
                     shopInput = Console.ReadLine();
@@ -262,7 +264,8 @@ namespace SpaceGame
                     {
                         if ((shopInput == "Buy") || (shopInput == "buy"))
                         {
-                            Console.WriteLine("What would you like to buy?");
+                            Console.WriteLine("What would you like to buy?: \n" +
+                                "(Type name of Item to purchase)");
                             Console.WriteLine("press 'Enter' to leave the trading post");
                             Console.WriteLine("{0}, price: {1}", food.Type, (food.Cost));
                             Console.WriteLine("{0}, price: {1}", research.Type, (research.Cost));
@@ -305,7 +308,8 @@ namespace SpaceGame
                                     break;
                                 default:
                                     Console.WriteLine("Returning to Menu");
-                                    System.Threading.Thread.Sleep(3000);
+                                    System.Threading.Thread.Sleep(1000);
+                                    Console.Clear();
                                     break;
 
                             }

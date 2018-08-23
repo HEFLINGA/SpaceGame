@@ -103,6 +103,7 @@ namespace SpaceGame
             string shopInput;
 
             // Cargo instantiation            
+            #region Instantiating classes 
 
             Cargo food = new Cargo();
             food.Type = "Food";
@@ -177,6 +178,7 @@ namespace SpaceGame
             myPlanet3.Rate = (1.00 - 3.79) / 3.709 * 100.00;
             myPlanet3.LocationX = 0;
             myPlanet3.LocationY = 4.67;
+            #endregion
 
             // strings
             string currentLocation = myPlanet.Type;
@@ -186,8 +188,8 @@ namespace SpaceGame
             character = Console.ReadLine();
 
             Console.Clear();
-            Console.WriteLine("Welcome {0}, to the SPACE GAAMMMEEEEE(Click 'Enter' to continue)", character);
-            Console.ReadLine();
+            Console.WriteLine("Welcome {0}, to the SPACE GAAMMMEEEEE", character);
+            System.Threading.Thread.Sleep(2000);
 
             // Console
             UI();
@@ -197,7 +199,7 @@ namespace SpaceGame
             Console.Clear();
             // Console
             UI();
-            Console.WriteLine("Buy your first ship! Type \"Purchase\" to complete the transaction: ");
+            Console.WriteLine("Buy your first ship! Type 'Buy' to complete the transaction: ");
 
             // Get input from console to select ship and purchase
             // TODO - Connect money and currancy to prices of ships
@@ -206,9 +208,9 @@ namespace SpaceGame
 
             switch (input)
             {
-                case "Purchase":
+                case "Buy":
                 case "1":
-                case "purchase":
+                case "buy":
                     cost = 5000;
                     credits -= tier1.Price;
                     maxInventory = tier1.Cargo;

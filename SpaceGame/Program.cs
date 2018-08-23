@@ -36,10 +36,10 @@ namespace SpaceGame
             Console.WriteLine("Time: {0}", time);
             Console.WriteLine("________________________________________________________________________________________________________________________");
         }
-        public static bool GameOver(double money, double time)
+        public static bool GameOver(int credits, double time)
         {
             bool gameOver = false;
-            if ((money <= 0) || (time >= 40))
+            if ((credits < 0) || (time >= 40))
             {
                 gameOver = true;
             }
@@ -84,8 +84,134 @@ namespace SpaceGame
                 remInventory -= food;
                 curInventory += food;
             }
+            else if (curInventory == maxInventory)
+            {
+                UI();
+                Console.WriteLine("You do not have enough space in your inventory!");
+                Console.WriteLine("Press 'Enter' to return to Menu");
+                Console.ReadLine();
+            }
+            else if (credits <= 2000)
+            {
+                UI();
+                Console.WriteLine("You do not have enough Credits to purchase item!");
+                Console.WriteLine("Press 'Enter' to return to Menu");
+                Console.ReadLine();
+            }
 
             return foodString;
+        }
+        public static string CargoResearch()
+        {
+            int research = 1;
+            string researchString = "Research";
+
+            if ((remInventory < maxInventory) && (credits >= 3000))
+            {
+                credits -= 3000;
+                remInventory -= research;
+                curInventory += research;
+            }
+            else if (curInventory == maxInventory)
+            {
+                UI();
+                Console.WriteLine("You do not have enough space in your inventory!");
+                Console.WriteLine("Press 'Enter' to return to Menu");
+                Console.ReadLine();
+            }
+            else if (credits <= 3000)
+            {
+                UI();
+                Console.WriteLine("You do not have enough Credits to purchase item!");
+                Console.WriteLine("Press 'Enter' to return to Menu");
+                Console.ReadLine();
+            }
+
+            return researchString;
+        }
+        public static string CargoAnimals()
+        {
+            int animals = 1;
+            string animalsString = "Animals";
+
+            if ((remInventory < maxInventory) && (credits >= 4000))
+            {
+                credits -= 4000;
+                remInventory -= animals;
+                curInventory += animals;
+            }
+            else if (curInventory == maxInventory)
+            {
+                UI();
+                Console.WriteLine("You do not have enough space in your inventory!");
+                Console.WriteLine("Press 'Enter' to return to Menu");
+                Console.ReadLine();
+            }
+            else if (credits <= 4000)
+            {
+                UI();
+                Console.WriteLine("You do not have enough Credits to purchase item!");
+                Console.WriteLine("Press 'Enter' to return to Menu");
+                Console.ReadLine();
+            }
+
+            return animalsString;
+        }
+        public static string CargoWater()
+        {
+            int water = 2;
+            string waterString = "Water";
+
+            if ((remInventory<maxInventory) && (credits >= 5000))
+            {
+                credits -= 5000;
+                remInventory -= water;
+                curInventory += water;
+            }
+            else if (curInventory == maxInventory)
+            {
+                UI();
+                Console.WriteLine("You do not have enough space in your inventory!");
+                Console.WriteLine("Press 'Enter' to return to Menu");
+                Console.ReadLine();
+            }
+            else if (credits <= 5000)
+            {
+                UI();
+                Console.WriteLine("You do not have enough Credits to purchase item!");
+                Console.WriteLine("Press 'Enter' to return to Menu");
+                Console.ReadLine();
+            }
+
+            return waterString;
+        }
+        public static string CargoFuel()
+        {
+            int fuel = 2;
+            string fuelString = "Fuel";
+
+            if ((remInventory<maxInventory) && (credits >= 6000))
+            {
+                credits -= 6000;
+                remInventory -= fuel;
+                curInventory += fuel;
+            }
+            else if (curInventory == maxInventory)
+            {
+                UI();
+                Console.WriteLine("You do not have enough space in your inventory!");
+                Console.WriteLine("Press 'Enter' to return to Menu");
+                Console.ReadLine();
+            }
+            else if (credits <= 6000)
+            {
+                UI();
+                Console.WriteLine("You do not have enough Credits to purchase item!");
+                Console.WriteLine("Press 'Enter' to return to Menu");
+                Console.ReadLine();
+            }
+
+            return fuelString;
         }
 
         /*
@@ -144,20 +270,7 @@ namespace SpaceGame
             string shopInput;
 
             // Cargo instantiation
-            #region Instantiating classes 
-
-            Cargo food = new Cargo();
-            food.Type = "Food";
-            food.Size = 1;
-            food.Cost = 2000;
-            food.Speed = -.5;
-            
-
-            Cargo research = new Cargo();
-            research.Type = "Research";
-            research.Size = 1;
-            research.Cost = 3000;
-            research.Speed = -.5;
+            #region Instantiating classes
 
             // Ship instantiation
             Ship tier1 = new Ship();
@@ -177,24 +290,6 @@ namespace SpaceGame
             tier3.Speed = 6;
             tier3.Price = 30000;
             tier3.Cargo = 6;
-
-            Cargo animal = new Cargo();
-            animal.Type = "Animal";
-            animal.Size = 1;
-            animal.Cost = 4000;
-            animal.Speed = -.5;
-            
-            Cargo water = new Cargo();
-            water.Type = "Water";
-            water.Size = 2;
-            water.Cost = 5000;
-            water.Speed = -1;
-            
-            Cargo fuel = new Cargo();
-            fuel.Type = "Fuel";
-            fuel.Size = 2;
-            fuel.Cost = 6000;
-            fuel.Speed = -1;
 
             // Planet Instantiation
 
@@ -306,11 +401,11 @@ namespace SpaceGame
                             Console.WriteLine("What would you like to buy?: \n" +
                                 "(Type name of Item to purchase)");
                             Console.WriteLine("press 'Enter' to leave the trading post");
-                            Console.WriteLine("{0}, price: {1}", food.Type, (food.Cost));
-                            Console.WriteLine("{0}, price: {1}", research.Type, (research.Cost));
-                            Console.WriteLine("{0}, price: {1}", animal.Type, (animal.Cost));
-                            Console.WriteLine("{0}, price: {1}", water.Type, (water.Cost));
-                            Console.WriteLine("{0}, price: {1}", fuel.Type, (fuel.Cost));
+                            Console.WriteLine("Food, price: 2000");
+                            Console.WriteLine("Research, price: 3000");
+                            Console.WriteLine("Animals, price: 4000");
+                            Console.WriteLine("Water, price: 5000");
+                            Console.WriteLine("Fuel, price: 6000");
 
                             string buyInput = Console.ReadLine();
                             switch (buyInput)
@@ -324,25 +419,25 @@ namespace SpaceGame
                                 case "Research":
                                 case "research":
                                     Console.Clear();
-                                    credits -= research.Cost;
+                                    CargoResearch();
                                     UI();
                                     break;
-                                case "animal":
-                                case "Animal":
+                                case "animals":
+                                case "Animals":
                                     Console.Clear();
-                                    credits -= research.Cost;
+                                    CargoAnimals();
                                     UI();
                                     break;
                                 case "water":
                                 case "Water":
                                     Console.Clear();
-                                    credits -= water.Cost;
+                                    CargoWater();
                                     UI();
                                     break;
                                 case "fuel":
                                 case "Fuel":
                                     Console.Clear();
-                                    credits -= fuel.Cost;
+                                    CargoFuel();
                                     UI();
                                     break;
                                 default:

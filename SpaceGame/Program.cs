@@ -95,7 +95,7 @@ namespace SpaceGame
             // Intro line and story
             Console.WriteLine("Welcome to SpaceGame!!");
             Console.WriteLine();
-            Console.WriteLine("  The year is 3018. A relative passed and left you 10,000 credits. Your family use to be rich merchants, but " +
+            Console.WriteLine("  The year is 3018. A relative passed and left you 10,000 credits. Your family used to be rich merchants, but " +
                 "fell on hard times. You always had a dream of becoming a space ship captain, so you decided to try your luck at that life to" +
                 " restore your family's name and wealth.");
             Console.WriteLine("Press 'Enter' to continue");
@@ -187,7 +187,7 @@ namespace SpaceGame
             string currentLocation = myPlanet.Type;
 
             Console.Clear();
-            Console.WriteLine("Enter your name, adventurer!");
+            Console.WriteLine("Enter your name, Captian: ");
             character = Console.ReadLine();
 
             Console.Clear();
@@ -208,6 +208,7 @@ namespace SpaceGame
             // Get input from console to select ship and purchase
             // TODO - Connect money and currancy to prices of ships
             // TODO - Connect ships to cases
+
             input = Console.ReadLine();
 
             switch (input)

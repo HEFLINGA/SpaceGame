@@ -164,14 +164,16 @@ namespace SpaceGame
             myPlanet2.Type = "TRAPPIST-1";
             myPlanet2.Date = time;
             myPlanet2.Rate = (1.00 - 0.86) / 0.86 * 100.00;
-            myPlanet2.Location = 10;
+            myPlanet2.LocationX = 1;
+            myPlanet2.LocationY = 3;
 
 
             Planet myPlanet3 = new Planet();
             myPlanet3.Type = "ALPHA CENTAURI";
             myPlanet3.Date = time;
             myPlanet3.Rate = (1.00 - 3.79) / 3.709 * 100.00;
-            myPlanet3.Location = 4.67;
+            myPlanet3.LocationX = 0;
+            myPlanet3.LocationY = 4.67;
             
 
 

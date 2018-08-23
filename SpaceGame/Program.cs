@@ -8,7 +8,7 @@ namespace SpaceGame
 {
     class Program
     {
-        #region Variable decleration
+        #region Public Variable Decleration
         public static int curInventory = 0;
         public static int maxInventory = 0;
         public static int cost = 0;

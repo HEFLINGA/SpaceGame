@@ -95,8 +95,9 @@ namespace SpaceGame
             // Intro line and story
             Console.WriteLine("Welcome to SpaceGame!!");
             Console.WriteLine();
-            Console.WriteLine("  The year is 3018.A guy a guy or girl of your choice relative passed and left them 10000 dollars. Their family use to be rich merchants but " +
-                "feel on hard time.They always had a dream of becoming a space ship captain to try to restore their family's name and wealth.");
+            Console.WriteLine("  The year is 3018. A relative passed and left you 10,000 credits. Your family use to be rich merchants, but " +
+                "fell on hard times. You always had a dream of becoming a space ship captain, so you decided to try your luck at that life to" +
+                " restore your family's name and wealth.");
             Console.WriteLine("Press 'Enter' to continue");
             Console.ReadLine();
 

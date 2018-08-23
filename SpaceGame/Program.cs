@@ -11,6 +11,7 @@ namespace SpaceGame
         #region Public Variable Decleration
         public static int curInventory = 0;
         public static int maxInventory = 0;
+        public static int remInventory = 0;
         public static int cost = 0;
         public static int credits = 10000;
         public static double time = 0;
@@ -18,7 +19,6 @@ namespace SpaceGame
         public static double distance = 0;
         public static string character = "";
         public static string currentShip = "";
-        public static int remInventory = 0;
         #endregion
 
         public static void UI()
@@ -49,9 +49,9 @@ namespace SpaceGame
             }
 
             return gameOver;
-        }
+        }        
 
-        // Inventory space
+        // Inventory space and cargo types
         public static int Inventory(int maxInventory, int curInventory)
         {
             // remaining inventory space
@@ -61,13 +61,31 @@ namespace SpaceGame
             {
                 Console.WriteLine("You have {0} items in your inventory", curInventory);
                 Console.WriteLine("You have {0} space remaining", remInventory);
+                Console.WriteLine("Press 'Enter' to continue");
+                Console.ReadLine();
             }
             else if (curInventory == maxInventory)
             {
                 Console.WriteLine("Your inventory is full!");
+                Console.WriteLine("Press 'Enter' to continue");
+                Console.ReadLine();
             }
 
             return curInventory;
+        }
+        public static string CargoFood()        
+        {
+            int food = 1;
+            string foodString = "Food";
+
+            if ((remInventory < maxInventory) && (credits >= 2000))
+            {
+                credits -= 2000;
+                remInventory -= food;
+                curInventory += food;
+            }
+
+            return foodString;
         }
 
         /*
@@ -300,7 +318,7 @@ namespace SpaceGame
                                 case "Food":
                                 case "food":
                                     Console.Clear();
-                                    credits -= food.Cost;
+                                    CargoFood();
                                     UI();
                                     break;
                                 case "Research":

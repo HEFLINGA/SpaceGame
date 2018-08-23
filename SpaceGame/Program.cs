@@ -633,7 +633,7 @@ namespace SpaceGame
                         {
                             Inventory(maxInventory, curInventory);
                         }
-                        else if ((shopInput == "Exit") || (shopInput == "exit"))
+                        else if (shopInput == "exit")
                         {
                             break;
                         }

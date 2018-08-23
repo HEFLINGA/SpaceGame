@@ -43,6 +43,31 @@ namespace SpaceGame
         }
         */
 
+
+
+        public static double Distance(double LocationX, double LocationY)
+        {
+            //double distance = 0;
+            //distance = Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2));
+            //return distance;
+
+            //Calculate the distance between the both points
+            //for both axes separately.
+            double curLocation = Math.Abs(LocationX - cordX);
+            double desLocation = Math.Abs(LocationY - cordY);
+
+            //Calculate the length of a line traveling from pt1 to pt2
+            //(according to Pythagoras).
+            double dblHypotenuseLength = Math.Sqrt(
+               LocationX * dblDistX
+               +
+               LocationY * dblDistY);
+
+               return dblHypotenuseLength;
+        }
+
+
+
         static void Main(string[] args)
         {
             // Intro line and story
@@ -132,8 +157,8 @@ namespace SpaceGame
             myPlanet.Type = "EARTH";
             myPlanet.Date = time;
             myPlanet.Rate = 1.00;
-            myPlanet.Location = 0;
-
+            myPlanet.LocationX = 0;
+            myPlanet.LocationY = 0;
 
             Planet myPlanet2 = new Planet();
             myPlanet2.Type = "TRAPPIST-1";

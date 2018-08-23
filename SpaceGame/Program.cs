@@ -8,6 +8,7 @@ namespace SpaceGame
 {
     class Program
     {
+        #region Variable decleration
         public static int curInventory = 0;
         public static int maxInventory = 0;
         public static int cost = 0;
@@ -17,6 +18,7 @@ namespace SpaceGame
         public static double distance = 0;
         public static string character = "";
         public static string currentShip = "";
+        #endregion
 
         public static void UI()
         {
@@ -197,6 +199,7 @@ namespace SpaceGame
             // Buy your ship
             // TODO - Add ships description and price
             Console.Clear();
+
             // Console
             UI();
             Console.WriteLine("Buy your first ship! Type 'Buy' to complete the transaction: ");

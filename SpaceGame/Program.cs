@@ -18,6 +18,7 @@ namespace SpaceGame
         public static double distance = 0;
         public static string character = "";
         public static string currentShip = "";
+        public static int remInventory = 0;
         #endregion
 
         public static void UI()
@@ -48,6 +49,25 @@ namespace SpaceGame
             }
 
             return gameOver;
+        }
+
+        // Inventory space
+        public static int Inventory(int maxInventory, int curInventory)
+        {
+            // remaining inventory space
+            remInventory = curInventory - maxInventory;
+
+            if (curInventory < maxInventory)
+            {
+                Console.WriteLine("You have {0} items in your inventory", curInventory);
+                Console.WriteLine("You have {0} space remaining", remInventory);
+            }
+            else if (curInventory == maxInventory)
+            {
+                Console.WriteLine("Your inventory is full!");
+            }
+
+            return curInventory;
         }
 
         /*
@@ -105,7 +125,7 @@ namespace SpaceGame
             string input;
             string shopInput;
 
-            // Cargo instantiation            
+            // Cargo instantiation
             #region Instantiating classes 
 
             Cargo food = new Cargo();
@@ -255,7 +275,7 @@ namespace SpaceGame
                         "- 'Upgrade' to upgrade your ship\n" +
                         "- 'Buy' to buy goods\n" +
                         "- 'Sell' to sell goods\n" +
-                        "- travel to leave and go to the next planet!)");
+                        "- 'travel' to leave and go to the next planet!)");
 
                     // Planetary options
                     shopInput = Console.ReadLine();

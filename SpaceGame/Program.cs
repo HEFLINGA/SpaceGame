@@ -42,7 +42,52 @@ namespace SpaceGame
         public static int tier1Ship = 1;
         public static int tier2Ship = 2;
         public static int tier3Ship = 3;
+
+        // Planets and travel variables
+        public static string planetName = "";
+        public static int currentPlanet = 0;
+        public static int earth = 1;
+        public static int alphaCentauri = 2;
+        public static int trappist = 3;
+        public static double x = 0;
+        public static double y = 0;
+        public static double destX = 0;
+        public static double destY = 0;
+
         #endregion
+        public static int Planet(int earth, int alphaCentauri, int trappist)
+        {
+            if (currentPlanet == earth)
+            {
+                planetName = "Earth";
+                x = 0;
+                y = 0;
+            }
+            else if (currentPlanet == alphaCentauri)
+            {
+                planetName = "Alpha Centauri";
+                x = 0;
+                y = 4.367;
+                costFood = 2000 + 1000;
+                costResearch = 3000 + 2000;
+                costAnimals = 4000 + 500;
+                costWater = 5000 - 1000;
+                costFuel = 6000 - 3000;
+    }
+            else if (currentPlanet == trappist)
+            {
+                planetName = "TRAPPIST-1";
+                x = 0;
+                y = 4.367;
+                costFood = 2000 - 1000;
+                costResearch = 3000 - 2000;
+                costAnimals = 4000 - 500;
+                costWater = 5000 + 1000;
+                costFuel = 6000 + 2500;
+            }
+
+            return currentPlanet;
+        }
 
         public static int Ship(int tier1, int tier2, int tier3)
         {
@@ -520,6 +565,11 @@ namespace SpaceGame
             }
         }
 
+        class Travel
+        {
+
+        }
+
         public static int Inventory(int maxInventory, int curInventory)
         {
             // remaining inventory space
@@ -590,7 +640,7 @@ namespace SpaceGame
         {
             currentShip = tier1Ship;
             Ship(tier1Ship, tier2Ship, tier3Ship);
-            #region Instantiating classes
+            currentPlanet = earth;
 
             // Planet Instantiation
 
@@ -620,12 +670,11 @@ namespace SpaceGame
                 LocationX = 0,
                 LocationY = 4.67
             };
-            #endregion
+
 
             // string decleration
             string input;
             string shopInput;
-            string currentLocation = myPlanet.Type;
 
             #region StoryStartUp
             Console.WriteLine("Enter your name, Captian: ");

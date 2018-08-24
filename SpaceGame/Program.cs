@@ -27,8 +27,67 @@ namespace SpaceGame
         public static string currentShip = "";
         #endregion
 
-        public static void UI()
+        //attempt at making a list to take and give stuff from. 
+        //so far it's useless.. implementation seems to be something idk how to do
+        
+        public static Item food = new Item()
         {
+            Name = "Food",
+            Cost = 2000,
+            Space = 1
+        };
+
+        public static Item research = new Item()
+        {
+            Name = "Research",
+            Cost = 3000,
+            Space = 1
+        };
+
+        public static Item animals = new Item()
+        {
+            Name = "Animals",
+            Cost = 4000,
+            Space = 1
+        };
+
+        public static Item water = new Item()
+        {
+            Name = "Water",
+            Cost = 5000,
+            Space = 2
+        };
+
+        public static Item fuel = new Item()
+        {
+            Name = "Fuel",
+            Cost = 6000,
+            Space = 2
+        };
+
+        public static void ItemList()
+        {
+            List<Item> items = new List<Item>(4);
+            items.Add(food);
+            items.Add(research);
+            items.Add(animals);
+            items.Add(water);
+            items.Add(fuel);
+
+            Item f = items[0];
+            Item r = items[1];
+            Item a = items[2];
+            Item w = items[3];
+            Item fu = items[4];
+
+            Console.WriteLine($"This is the {f.Name}, " +
+                $"Costing a price of {f.Cost}, And " +
+                $"Taking up {f.Space} slots of inventory");
+            Console.ReadLine();
+        }
+
+        public static void UI()
+        {            
             Console.Clear();
             Console.SetCursorPosition(0, 0);
             Console.WriteLine("________________________________________________________________________________________________________________________");
@@ -60,9 +119,8 @@ namespace SpaceGame
         // Inventory space and cargo types
         public static int Inventory(int maxInventory, int curInventory)
         {
-            // remaining inventory space
+            // remaining inventory space            
             remInventory = curInventory - maxInventory;
-
             if (curInventory < maxInventory)
             {
                 Console.WriteLine("You have {0} items in your inventory", curInventory);
@@ -76,7 +134,7 @@ namespace SpaceGame
                 Console.WriteLine("Press 'Enter' to continue");
                 Console.ReadLine();
             }
-
+            
             return curInventory;
         }
 
@@ -466,9 +524,11 @@ namespace SpaceGame
 
         //   return dblHypotenuseLength;
         //}
+               
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            
             // Intro line and story
             Console.WriteLine("Welcome to SpaceGame!!");
             Console.WriteLine();

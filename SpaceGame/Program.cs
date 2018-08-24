@@ -460,14 +460,9 @@ namespace SpaceGame
                
 
         public static void Main(string[] args)
-        {                       
-
-            // string decleration
-            string input;
-            string shopInput;
-
+        {
             #region Instantiating classes            
-           
+
 
             // Ship instantiation
             Ship tier1 = new Ship
@@ -524,9 +519,10 @@ namespace SpaceGame
             };
             #endregion
 
-            // strings
+            // string decleration
+            string input;
+            string shopInput;
             string currentLocation = myPlanet.Type;
-
 
             #region StoryStartUp
             Console.WriteLine("Enter your name, Captian: ");
@@ -572,7 +568,6 @@ namespace SpaceGame
             #endregion
 
             // Get input from console to select ship and purchase
-
             input = Console.ReadLine();
 
             // buying first ship
@@ -615,8 +610,6 @@ namespace SpaceGame
                 {
                     // Console
                     UI();
-
-                    //Console.WriteLine("You are on planet {0}! Currency is the {1}, current date/time is {2}. Earth has a {3} focused economy!", , , ,);
                     Console.WriteLine("You are on planet {0}! Current year is {1}!", myPlanet.Type, myPlanet.Date);
                     Console.WriteLine();
                     Console.WriteLine("What would you like to do?: \n" +

@@ -71,7 +71,7 @@ namespace SpaceGame
         // Inventory space and cargo types
         public static int Inventory(int maxInventory, int curInventory)
         {
-            // remaining inventory space            
+            // remaining inventory space
             remInventory = curInventory - maxInventory;
             if (curInventory > 0)
             {
@@ -650,6 +650,7 @@ namespace SpaceGame
 
                 } while ((GameOver(credits, time) == false) || (shopInput != "exit"));
                 // Game over
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("Game Over!! Total play time: {0}.  Total credits earned: {1}", time, credits - 10000);
                 Console.ReadLine();
 

@@ -8,8 +8,5 @@ namespace SpaceGame
 {
     public class Obj
     {
-        public List<string> item = new List<string>(4);
-
-
     }
 }

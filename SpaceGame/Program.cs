@@ -69,16 +69,20 @@ namespace SpaceGame
         {
             // remaining inventory space            
             remInventory = curInventory - maxInventory;
-            if (curInventory < maxInventory)
+            if (curInventory > 0)
             {
-                Console.WriteLine("You have {0} items in your inventory", curInventory);
+                Console.WriteLine("You have {0} Food", invFood);
+                Console.WriteLine("You have {0} Research", invResearch);
+                Console.WriteLine("You have {0} Animals", invAnimals);
+                Console.WriteLine("You have {0} Water", invWater);
+                Console.WriteLine("You have {0} Fuel", invFuel);
                 Console.WriteLine("You have {0} space remaining", Math.Abs(remInventory));
                 Console.WriteLine("Press 'Enter' to continue");
                 Console.ReadLine();
             }
-            else if (curInventory == maxInventory)
+            else if (curInventory == 0)
             {
-                Console.WriteLine("Your inventory is full!");
+                Console.WriteLine("Your inventory is empty!");
                 Console.WriteLine("Press 'Enter' to continue");
                 Console.ReadLine();
             }

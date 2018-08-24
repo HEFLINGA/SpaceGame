@@ -9,6 +9,7 @@ namespace SpaceGame
     class Program
     {
         #region Public Variable Decleration
+        public static Random rnd = new Random();
 
         // Inventory and item variables
         public static int curInventory = 0;
@@ -22,11 +23,12 @@ namespace SpaceGame
         public static int cost = 0;
         public static int price = 0;
         public static int credits = 10000;
-        public static int costFood = 2000;
-        public static int costResearch = 3000;
-        public static int costAnimals = 4000;
-        public static int costWater = 5000;
-        public static int costFuel = 6000;
+        public static int costFood = rnd.Next(2000, 3000);
+        public static int costResearch = rnd.Next(1000, 5000);
+        public static int costAnimals = rnd.Next(1000, 4000);
+        public static int costWater = rnd.Next(1000, 8000);
+        public static int costFuel = rnd.Next(1000, 8500);
+
 
         //various variables
         public static double timePassage = 0;
@@ -35,6 +37,8 @@ namespace SpaceGame
         public static double distance = 0;
         public static string character = "";
         public static DateTime curTime = DateTime.Now;
+        
+
 
 
         // ship variables
@@ -65,33 +69,33 @@ namespace SpaceGame
                 planetName = "Earth";
                 x = 0;
                 y = 0;
-                costFood = 2000;
-                costResearch = 3000;
-                costAnimals = 4000;
-                costWater = 5000;
-                costFuel = 6000;
+                costFood += 500;
+                costResearch += 500;
+                costAnimals += 500;
+                costWater -= 500;
+                costFuel -= 500;
             }
             else if (currentPlanet == alphaCentauri)
             {
                 planetName = "Alpha Centauri";
                 x = 0;
                 y = 4.367;
-                costFood = 2000 + 1000;
-                costResearch = 3000 + 2000;
-                costAnimals = 4000 + 500;
-                costWater = 5000 - 1000;
-                costFuel = 6000 - 3000;
+                costFood += 1000;
+                costResearch -= 500;
+                costAnimals -= 500;
+                costWater += 500;
+                costFuel -= 500;
     }
             else if (currentPlanet == trappist)
             {
                 planetName = "TRAPPIST-1";
                 x = 1;
                 y = 3;
-                costFood = 2000 - 1000;
-                costResearch = 3000 - 2000;
-                costAnimals = 4000 - 500;
-                costWater = 5000 + 1000;
-                costFuel = 6000 + 2500;
+                costFood -= 1000;
+                costResearch += 500;
+                costAnimals -= 500;
+                costWater -= 500;
+                costFuel += 500;
             }
 
             return currentPlanet;
@@ -226,6 +230,7 @@ namespace SpaceGame
                 Console.WriteLine("What would you like to buy?: \n" +
                                         "(Type name of Ship to purchase)");
                 Console.WriteLine("press 'Enter' to leave the trading post");
+                Console.WriteLine();
                 Console.WriteLine("Star Explorer! Price: 20000 credits. Speed: 3. Cargo: 5");
                 Console.WriteLine("USS Schwiftiest Ship! Price: 50000 credits. Speed: 6. Cargo: 10");
 
@@ -386,11 +391,12 @@ namespace SpaceGame
                 Console.WriteLine("What would you like to buy?: \n" +
                                     "(Type name of Item to purchase)");
                 Console.WriteLine("press 'Enter' to leave the trading post");
+                Console.WriteLine();
                 Console.WriteLine($"Food, price: {costFood}. This will take up 1 cargo slot");
                 Console.WriteLine($"Research, price: {costResearch}. This will take up 1 cargo slot");
                 Console.WriteLine($"Animals, price: {costAnimals}. This will take up 1 cargo slot");
-                Console.WriteLine($"Water, price: {costWater}. This will take up 2 cargo slot");
-                Console.WriteLine($"Fuel, price: {costFuel}. This will take up 2 cargo slot");
+                Console.WriteLine($"Water, price: {costWater}. This will take up 2 cargo slots");
+                Console.WriteLine($"Fuel, price: {costFuel}. This will take up 2 cargo slots");
 
                 buyInput = Console.ReadLine();
                 switch (buyInput)
@@ -532,6 +538,7 @@ namespace SpaceGame
                 Console.WriteLine("What would you like to Sell?: \n" +
                                     "(Type name of Item to purchase)");
                 Console.WriteLine("press 'Enter' to leave the trading post");
+                Console.WriteLine();
                 Console.WriteLine($"Food, sale price: {costFood}");
                 Console.WriteLine($"Research, sale price: {costResearch}");
                 Console.WriteLine($"Animals, sale price: {costAnimals}");

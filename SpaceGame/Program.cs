@@ -148,9 +148,7 @@ namespace SpaceGame
             }
 
             return gameOver;
-        }
-
-        // Inventory space and cargo types   
+        }  
 
         class Upgrade
         {
@@ -577,7 +575,10 @@ namespace SpaceGame
                 }
                 else if (currentPlanet != earth)
                 {
+                    destX = 0;
+                    destY = 0;
                     Console.WriteLine("Heading to Earth!");
+                    Console.WriteLine("Distance is: {0}", Distance(x, y, destX, destY));
                     Console.WriteLine("Press 'enter' to launch");
                     Console.ReadLine();
 
@@ -598,7 +599,10 @@ namespace SpaceGame
                 }
                 else if (currentPlanet != alphaCentauri)
                 {
+                    destX = 0;
+                    destY = 4.367;
                     Console.WriteLine("Heading to Alpha Centauri!");
+                    Console.WriteLine("Distance is: {0}", Distance(x, y, destX, destY));
                     Console.WriteLine("Press 'enter' to launch");
                     Console.ReadLine();
 
@@ -619,7 +623,10 @@ namespace SpaceGame
                 }
                 else if (currentPlanet != trappist)
                 {
+                    destX = 1;
+                    destY = 3;
                     Console.WriteLine("Heading to TRAPPIST-1!");
+                    Console.WriteLine("Distance is: {0}", Distance(x, y, destX, destY));
                     Console.WriteLine("Press 'enter' to launch");
                     Console.ReadLine();
 
@@ -721,26 +728,10 @@ namespace SpaceGame
         }
         */
 
-        //public static double Distance(double LocationX, double LocationY)
-        //{
-        //double distance = 0;
-        //distance = Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2));
-        //return distance;
-
-        //Calculate the distance between the both points
-        //for both axes separately.
-        //double curLocation = Math.Abs(LocationX - cordX);
-        //double desLocation = Math.Abs(LocationY - cordY);
-
-        //Calculate the length of a line traveling from pt1 to pt2
-        //(according to Pythagoras).
-        //double dblHypotenuseLength = Math.Sqrt(
-        //   LocationX * dblDistX
-        //   +
-        //   LocationY * dblDistY);
-
-        //   return dblHypotenuseLength;
-        //}
+        public static double Distance(double x1, double y1, double destX, double destY)
+        {
+            return Math.Sqrt(Math.Pow((destX - x), 2) + Math.Pow((destY - y), 2));
+        }
 
 
         public static void Main(string[] args)

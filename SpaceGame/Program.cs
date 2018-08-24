@@ -29,9 +29,10 @@ namespace SpaceGame
         public static int costFuel = 6000;
 
         //various variables
-        public static double time = 0;
+        public static double timePassage = time += velocity * speed * distance;
+        public static double time = 0.0;
         public static double speed = 0;
-        public static double distance = 0;
+        public static double distance = Distance(x, y, destX, destY);
         public static string character = "";
 
 
@@ -53,6 +54,7 @@ namespace SpaceGame
         public static double y = 0;
         public static double destX = 0;
         public static double destY = 0;
+        public static double velocity = 0;
 
         #endregion
         public static int Planet(int earth, int alphaCentauri, int trappist)
@@ -97,6 +99,7 @@ namespace SpaceGame
                 maxInventory = 2;
                 speed = 3;
                 shipPrice = 5000;
+                velocity = 39;
             }
             else if (currentShip == tier2Ship)
             {
@@ -104,6 +107,7 @@ namespace SpaceGame
                 maxInventory = 4;
                 speed = 4;
                 shipPrice = 15000;
+                velocity = 102;
             }
             else if (currentShip == tier3Ship)
             {
@@ -111,6 +115,7 @@ namespace SpaceGame
                 maxInventory = 6;
                 speed = 6;
                 shipPrice = 30000;
+                velocity = 392;
             }
 
             return currentShip;
@@ -579,6 +584,7 @@ namespace SpaceGame
                     destY = 0;
                     Console.WriteLine("Heading to Earth!");
                     Console.WriteLine("Distance is: {0}", Distance(x, y, destX, destY));
+                    Console.WriteLine("It will take you: {0}", time);
                     Console.WriteLine("Press 'enter' to launch");
                     Console.ReadLine();
 
@@ -603,6 +609,7 @@ namespace SpaceGame
                     destY = 4.367;
                     Console.WriteLine("Heading to Alpha Centauri!");
                     Console.WriteLine("Distance is: {0}", Distance(x, y, destX, destY));
+                    Console.WriteLine("It will take you: {0}", time);
                     Console.WriteLine("Press 'enter' to launch");
                     Console.ReadLine();
 
@@ -627,6 +634,7 @@ namespace SpaceGame
                     destY = 3;
                     Console.WriteLine("Heading to TRAPPIST-1!");
                     Console.WriteLine("Distance is: {0}", Distance(x, y, destX, destY));
+                    Console.WriteLine("It will take you: {0}", time);
                     Console.WriteLine("Press 'enter' to launch");
                     Console.ReadLine();
 
@@ -733,6 +741,10 @@ namespace SpaceGame
             return Math.Sqrt(Math.Pow((destX - x), 2) + Math.Pow((destY - y), 2));
         }
 
+        public static double TravelTime()
+        {
+            return timePassage += velocity * speed * distance;
+        }
 
         public static void Main(string[] args)
         {
@@ -818,7 +830,7 @@ namespace SpaceGame
                 Console.WriteLine("You paid {0} for your ship!!", cost);
                 Console.WriteLine();
                 Console.WriteLine("Thank you for shopping with SpaceBuggies R Us");
-                System.Threading.Thread.Sleep(2500);
+                System.Threading.Thread.Sleep(1200);
 
                 UI();
                 Console.WriteLine("\n Your first ship!! The {0}. Speed: {1}. Cargo Space: {2}", shipName, speed, maxInventory);

@@ -32,8 +32,9 @@ namespace SpaceGame
         public static double timePassage = 0;
         public static double time = 0;
         public static double speed = 0;
-        public static double distance = Distance(x, y, destX, destY);
+        public static double distance = 0;
         public static string character = "";
+        public static DateTime curTime = DateTime.Now;
 
 
         // ship variables
@@ -64,6 +65,11 @@ namespace SpaceGame
                 planetName = "Earth";
                 x = 0;
                 y = 0;
+                costFood = 2000;
+                costResearch = 3000;
+                costAnimals = 4000;
+                costWater = 5000;
+                costFuel = 6000;
             }
             else if (currentPlanet == alphaCentauri)
             {
@@ -135,7 +141,7 @@ namespace SpaceGame
             Console.SetCursorPosition(55, 1);
             Console.WriteLine("Credits: {0}", credits);
             Console.SetCursorPosition(90, 1);
-            Console.WriteLine("Time: {0}", time += timePassage);
+            Console.WriteLine("Time: {0}", time);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("________________________________________________________________________________________________________________________");
             Console.ForegroundColor = ConsoleColor.DarkCyan;
@@ -143,7 +149,7 @@ namespace SpaceGame
         public static bool GameOver(int credits, double time)
         {
             bool gameOver = false;
-            if ((credits < 0) || (time >= 40))
+            if ((credits < 0) || (time >= 40.0))
             {
                 gameOver = true;
             }
@@ -154,6 +160,11 @@ namespace SpaceGame
 
             return gameOver;
         }  
+
+        public static void CurrentTime()
+        {
+            DateTime today = DateTime.Now;
+        }
 
         class Upgrade
         {
@@ -589,6 +600,7 @@ namespace SpaceGame
                     Console.ReadLine();
 
                     currentPlanet = earth;
+                    time += timePassage;
                     Planet(earth, alphaCentauri, trappist);
                 }
 
@@ -614,6 +626,7 @@ namespace SpaceGame
                     Console.ReadLine();
 
                     currentPlanet = alphaCentauri;
+                    time += timePassage;
                     Planet(earth, alphaCentauri, trappist);
                 }
 
@@ -639,6 +652,7 @@ namespace SpaceGame
                     Console.ReadLine();
 
                     currentPlanet = trappist;
+                    time += timePassage;
                     Planet(earth, alphaCentauri, trappist);
                 }
 

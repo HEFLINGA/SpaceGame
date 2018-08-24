@@ -460,21 +460,7 @@ namespace SpaceGame
                
 
         public static void Main(string[] args)
-        {
-
-            Console.Clear();
-            Console.WriteLine("Enter your name, Captian: ");
-            character = Console.ReadLine();
-
-            // Intro line and story
-            Console.Clear();
-            Console.WriteLine("Welcome to Space Game!!");
-            Console.WriteLine();
-            Console.WriteLine($"  The year is 0AR. A relative passed and left you, {character}, 10,000 credits. Your family used to be rich merchants, but " +
-                "fell on hard times... You have just finished flight school, and have always had a dream of becoming a space ship captain. So, you " +
-                "decided to try your luck at that life to restore your family's name and wealth. The First stop! A cheap, Space Ship sales shop.");
-            Console.WriteLine("Press 'Enter' to continue");
-            Console.ReadLine();
+        {                       
 
             // string decleration
             string input;
@@ -540,9 +526,21 @@ namespace SpaceGame
 
             // strings
             string currentLocation = myPlanet.Type;
-            
-            // Buy your ship
-            // TODO - Add ships description and price
+
+
+            #region StoryStartUp
+            Console.WriteLine("Enter your name, Captian: ");
+            character = Console.ReadLine();
+
+            // Intro line and story
+            Console.Clear();
+            Console.WriteLine("Welcome to Space Game!!");
+            Console.WriteLine();
+            Console.WriteLine($"  The year is 0AR. A relative passed and left you, {character}, 10,000 credits. Your family used to be rich merchants, but " +
+                "fell on hard times... You have just finished flight school, and have always had a dream of becoming a space ship captain. So, you " +
+                "decided to try your luck at that life to restore your family's name and wealth. The First stop! A cheap, Space Ship sales shop.");
+            Console.WriteLine("Press 'Enter' to continue");
+            Console.ReadLine();
             Console.Clear();
 
             // Console            
@@ -571,10 +569,9 @@ namespace SpaceGame
             Console.WriteLine("Click 'enter' to continue");
             Console.ReadLine();
             Console.WriteLine("Type 'Buy' to complete the transaction, and start your amazing journey of wealth, family and adventure!!");
+            #endregion
 
             // Get input from console to select ship and purchase
-            // TODO - Connect money and currancy to prices of ships
-            // TODO - Connect ships to cases
 
             input = Console.ReadLine();
 
@@ -588,13 +585,18 @@ namespace SpaceGame
                     maxInventory = tier1.Cargo;
                     speed = tier1.Speed;
                     break;
-                case "":
-                    Console.WriteLine("Well, it was nice knowin' you! Your days on a ship have ended before they began..");
+                default:
+                    Console.Clear();
+                    Console.WriteLine("You decide not to buy the ship, and to take a less risky/difficult approach to life.. You decide to instead go to the nearest " +
+                        "bar and spend every dime you just inherited on anything! that will make you feel better.... You died later that night, by " +
+                        "an overdose from who knows how many different things... ");
                     Console.WriteLine("Press enter to exit");
                     Console.ReadLine();
                     break;
             }
 
+
+            #region Game
             if (cost != 0)
             {
                 UI();
@@ -655,6 +657,7 @@ namespace SpaceGame
                 Console.ReadLine();
 
             }
+            #endregion
         }
     }
 }

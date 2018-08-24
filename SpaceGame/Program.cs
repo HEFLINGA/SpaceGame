@@ -105,37 +105,53 @@ namespace SpaceGame
             return gameOver;
         }
 
-        // Inventory space and cargo types
-        public static int Inventory(int maxInventory, int curInventory)
+        // Inventory space and cargo types   
+
+        class Upgrade
         {
-            // remaining inventory space
-            remInventory = curInventory - maxInventory;
-            if (curInventory > 0)
+            public static void ShipMenu()
             {
-                Console.WriteLine("You have {0} Food", invFood);
-                Console.WriteLine("You have {0} Research", invResearch);
-                Console.WriteLine("You have {0} Animals", invAnimals);
-                Console.WriteLine("You have {0} Water", invWater);
-                Console.WriteLine("You have {0} Fuel", invFuel);
-                Console.WriteLine("You have {0} space remaining out of {1}", Math.Abs(remInventory), Math.Abs(maxInventory));
-                Console.WriteLine("Press 'Enter' to continue");
-                Console.ReadLine();
+
+
+                string shipMenuInput = "";
+
+                UI();
+
+                Console.WriteLine("What would you like to buy?: \n" +
+                                        "(Type name of Ship to purchase)");
+                Console.WriteLine("press 'Enter' to leave the trading post");
+                Console.WriteLine("Star Exlorer, price: 15000 credits. Speed: 4. Cargo: 4");
+                Console.WriteLine("USS Schwiftiest Ship, price: 30000 credits. Speed: 6. Cargo: 6");
+
+                shipMenuInput = Console.ReadLine();
+                switch (shipMenuInput)
+                {
+                    case "Star Explorer":
+                    case "star explorer":
+                        Console.Clear();
+                        CargoFood();
+                        UI();
+                        break;
+                    case "USS Schwiftiest Ship":
+                    case "uss schwiftiest ship":
+                        Console.Clear();
+                        CargoResearch();
+                        UI();
+                        break;                    
+                    default:
+                        Console.WriteLine("Returning to Menu");
+                        System.Threading.Thread.Sleep(1000);
+                        Console.Clear();
+                        break;
+
+                }
             }
-            else if (curInventory == 0)
-            {
-                Console.WriteLine("Your inventory is empty!");
-                Console.WriteLine("Press 'Enter' to continue");
-                Console.ReadLine();
-            }
-            
-            return curInventory;
         }
 
         class Buy
         {
             public static int CargoFood()
             {
-
                 if ((remInventory < maxInventory) && (credits >= costFood))
                 {
                     credits -= costFood;
@@ -459,6 +475,31 @@ namespace SpaceGame
             }
         }
 
+        public static int Inventory(int maxInventory, int curInventory)
+        {
+            // remaining inventory space
+            remInventory = curInventory - maxInventory;
+            if (curInventory > 0)
+            {
+                Console.WriteLine("You have {0} Food", invFood);
+                Console.WriteLine("You have {0} Research", invResearch);
+                Console.WriteLine("You have {0} Animals", invAnimals);
+                Console.WriteLine("You have {0} Water", invWater);
+                Console.WriteLine("You have {0} Fuel", invFuel);
+                Console.WriteLine("You have {0} space remaining out of {1}", Math.Abs(remInventory), Math.Abs(maxInventory));
+                Console.WriteLine("Press 'Enter' to continue");
+                Console.ReadLine();
+            }
+            else if (curInventory == 0)
+            {
+                Console.WriteLine("Your inventory is empty!");
+                Console.WriteLine("Press 'Enter' to continue");
+                Console.ReadLine();
+            }
+
+            return curInventory;
+        }
+
         /*
         public static double TimePassage(double distance)
         {
@@ -498,7 +539,7 @@ namespace SpaceGame
 
         //   return dblHypotenuseLength;
         //}
-               
+
 
         public static void Main(string[] args)
         {
@@ -628,7 +669,7 @@ namespace SpaceGame
                     Console.WriteLine("You are on planet {0}! Current year is {1}!", myPlanet.Type, myPlanet.Date);
                     Console.WriteLine();
                     Console.WriteLine("What would you like to do?: \n" +
-                        "- 'Upgrade' to upgrade your ship\n" +
+                        "- 'Ship' to upgrade your current ship or buy a new ship\n" +
                         "- 'Buy' to buy goods\n" +
                         "- 'Sell' to sell goods\n" +
                         "- 'travel' to leave and go to the next planet!\n" +
@@ -641,7 +682,11 @@ namespace SpaceGame
 
                     if ((shopInput != "travel") || (shopInput != "Travel"))
                     {
-                        if ((shopInput == "Buy") || (shopInput == "buy"))
+                        if ((shopInput == "Ship") || (shopInput == "ship"))
+                        {
+
+                        }
+                        else if ((shopInput == "Buy") || (shopInput == "buy"))
                         {
                             Buy.BuyMenu();
                         }

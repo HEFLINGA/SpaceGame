@@ -102,25 +102,25 @@ namespace SpaceGame
             if (currentShip == tier1Ship)
             {
                 shipName = "Space Cruiser";
-                maxInventory = 2;
-                speed = 3;
+                maxInventory = 3;
+                speed = 1.5;
                 shipPrice = 5000;
                 velocity = Velocity(speed);
             }
             else if (currentShip == tier2Ship)
             {
                 shipName = "Star Explorer";
-                maxInventory = 4;
-                speed = 4;
-                shipPrice = 15000;
+                maxInventory = 5;
+                speed = 3;
+                shipPrice = 20000;
                 velocity = Velocity(speed);
             }
             else if (currentShip == tier3Ship)
             {
                 shipName = "USS Schwiftiest Ship";
-                maxInventory = 6;
+                maxInventory = 10;
                 speed = 6;
-                shipPrice = 30000;
+                shipPrice = 50000;
                 velocity = Velocity(speed);
             }
 
@@ -170,8 +170,9 @@ namespace SpaceGame
         {
             public static int StarExplorer()
             {
-                if ((currentShip != tier2Ship) && (credits >= 15000))
+                if ((currentShip != tier2Ship) && (credits >= 20000))
                 {
+                    credits -= 20000;
                     currentShip = tier2Ship;
                     Ship(tier1Ship, tier2Ship, tier3Ship);
                 }
@@ -181,7 +182,7 @@ namespace SpaceGame
                     Console.WriteLine("Press Enter to return to Main Menu");
                     Console.ReadLine();
                 }
-                else if (credits < 15000)
+                else if (credits < 20000)
                 {
                     Console.WriteLine("You are to broke to afford such a ship.. Get more credits and come back");
                     Console.WriteLine("Press Enter to return to Main Menu");
@@ -192,8 +193,9 @@ namespace SpaceGame
             }
             public static int UssSchwiftiestShip()
             {
-                if ((currentShip != tier3Ship) && (credits >= 30000))
+                if ((currentShip != tier3Ship) && (credits >= 50000))
                 {
+                    credits -= 50000;
                     currentShip = tier3Ship;
                     Ship(tier1Ship, tier2Ship, tier3Ship);
                 }
@@ -203,7 +205,7 @@ namespace SpaceGame
                     Console.WriteLine("Press Enter to return to Main Menu");
                     Console.ReadLine();
                 }
-                else if (credits < 30000)
+                else if (credits < 50000)
                 {
                     Console.WriteLine("You are to broke to afford such a ship.. Get more credits and come back");
                     Console.WriteLine("Press Enter to return to Main Menu");
@@ -224,8 +226,8 @@ namespace SpaceGame
                 Console.WriteLine("What would you like to buy?: \n" +
                                         "(Type name of Ship to purchase)");
                 Console.WriteLine("press 'Enter' to leave the trading post");
-                Console.WriteLine("Star Exlorer! Price: 15000 credits. Speed: 4. Cargo: 4");
-                Console.WriteLine("USS Schwiftiest Ship! Price: 30000 credits. Speed: 6. Cargo: 6");
+                Console.WriteLine("Star Explorer! Price: 20000 credits. Speed: 3. Cargo: 5");
+                Console.WriteLine("USS Schwiftiest Ship! Price: 50000 credits. Speed: 6. Cargo: 10");
 
                 shipMenuInput = Console.ReadLine();
                 switch (shipMenuInput)
@@ -333,7 +335,7 @@ namespace SpaceGame
                     credits -= costWater;
                     invWater += 2;
                 }
-                else if (remInventory < 2)
+                else if (remInventory <= 1)
                 {
                     UI();
                     Console.WriteLine("You do not have enough space in your inventory!");
@@ -357,7 +359,7 @@ namespace SpaceGame
                     credits -= costFuel;
                     invFuel += 2;
                 }
-                else if (remInventory < 2)
+                else if (remInventory <= 1)
                 {
                     UI();
                     Console.WriteLine("You do not have enough space in your inventory!");

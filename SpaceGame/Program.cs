@@ -135,7 +135,7 @@ namespace SpaceGame
             Console.SetCursorPosition(55, 1);
             Console.WriteLine("Credits: {0}", credits);
             Console.SetCursorPosition(90, 1);
-            Console.WriteLine("Time: {0}", time);
+            Console.WriteLine("Time: {0}", time += timePassage);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("________________________________________________________________________________________________________________________");
             Console.ForegroundColor = ConsoleColor.DarkCyan;
@@ -584,7 +584,7 @@ namespace SpaceGame
                     destY = 0;
                     Console.WriteLine("Heading to Earth!");
                     Console.WriteLine("Distance is: {0}", Distance(x, y, destX, destY));
-                    Console.WriteLine("It will take you: {0}", );
+                    Console.WriteLine("It will take you: {0}", timePassage = Distance(x, y, destX, destY) / Velocity(speed));
                     Console.WriteLine("Press 'enter' to launch");
                     Console.ReadLine();
 
@@ -609,7 +609,7 @@ namespace SpaceGame
                     destY = 4.367;
                     Console.WriteLine("Heading to Alpha Centauri!");
                     Console.WriteLine("Distance is: {0}", Distance(x, y, destX, destY));
-                    Console.WriteLine("It will take you: {0}", );
+                    Console.WriteLine("It will take you: {0}", timePassage= Distance(x, y, destX, destY) / Velocity(speed));
                     Console.WriteLine("Press 'enter' to launch");
                     Console.ReadLine();
 
@@ -634,7 +634,7 @@ namespace SpaceGame
                     destY = 3;
                     Console.WriteLine("Heading to TRAPPIST-1!");
                     Console.WriteLine("Distance is: {0}", Distance(x, y, destX, destY));
-                    Console.WriteLine("It will take you: {0}", );
+                    Console.WriteLine("It will take you: {0}", timePassage = Distance(x, y, destX, destY) / Velocity(speed));
                     Console.WriteLine("Press 'enter' to launch");
                     Console.ReadLine();
 

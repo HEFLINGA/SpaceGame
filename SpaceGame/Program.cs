@@ -12,6 +12,11 @@ namespace SpaceGame
         public static int curInventory = 0;
         public static int maxInventory = 0;
         public static int remInventory = maxInventory - curInventory;
+        public static int invFood = 0;
+        public static int invResearch = 0;
+        public static int invAnimals = 0;
+        public static int invWater = 0;
+        public static int invFuel = 0;
         public static int cost = 0;
         public static int price = 0;
         public static int credits = 10000;
@@ -27,64 +32,7 @@ namespace SpaceGame
         public static string currentShip = "";
         #endregion
 
-        //attempt at making a list to take and give stuff from. 
-        //so far it's useless.. implementation seems to be something idk how to do
         
-        public static Item food = new Item()
-        {
-            Name = "Food",
-            Cost = 2000,
-            Space = 1
-        };
-
-        public static Item research = new Item()
-        {
-            Name = "Research",
-            Cost = 3000,
-            Space = 1
-        };
-
-        public static Item animals = new Item()
-        {
-            Name = "Animals",
-            Cost = 4000,
-            Space = 1
-        };
-
-        public static Item water = new Item()
-        {
-            Name = "Water",
-            Cost = 5000,
-            Space = 2
-        };
-
-        public static Item fuel = new Item()
-        {
-            Name = "Fuel",
-            Cost = 6000,
-            Space = 2
-        };
-
-        public static void ItemList()
-        {
-            List<Item> items = new List<Item>(4);
-            items.Add(food);
-            items.Add(research);
-            items.Add(animals);
-            items.Add(water);
-            items.Add(fuel);
-
-            Item f = items[0];
-            Item r = items[1];
-            Item a = items[2];
-            Item w = items[3];
-            Item fu = items[4];
-
-            Console.WriteLine($"This is the {f.Name}, " +
-                $"Costing a price of {f.Cost}, And " +
-                $"Taking up {f.Space} slots of inventory");
-            Console.ReadLine();
-        }
 
         public static void UI()
         {            
@@ -92,7 +40,7 @@ namespace SpaceGame
             Console.SetCursorPosition(0, 0);
             Console.WriteLine("________________________________________________________________________________________________________________________");
             Console.SetCursorPosition(30, 1);
-            Console.WriteLine("Cargo: {0}/{1}", curInventory, maxInventory);
+            Console.WriteLine("Cargo: {0}/{1}", curInventory = invFood + invResearch + invAnimals + invWater + invFuel, maxInventory);
             Console.SetCursorPosition(5, 1);
             Console.WriteLine("Name: {0}", character);
             Console.SetCursorPosition(55, 1);
@@ -142,12 +90,11 @@ namespace SpaceGame
         {
             public static int CargoFood()
             {
-                int food = 1;
 
                 if ((remInventory < maxInventory) && (credits >= 2000))
                 {
                     credits -= costFood;
-                    curInventory += food;
+                    invFood += 1;
                 }
                 else if (remInventory == 0)
                 {
@@ -164,16 +111,14 @@ namespace SpaceGame
                     Console.ReadLine();
                 }
 
-                return food;
+                return invFood;
             }
             public static int CargoResearch()
             {
-                int research = 1;
-
                 if ((remInventory < maxInventory) && (credits >= 3000))
                 {
                     credits -= costResearch;
-                    curInventory += research;
+                    invResearch += 1;
                 }
                 else if (remInventory == 0)
                 {
@@ -190,16 +135,14 @@ namespace SpaceGame
                     Console.ReadLine();
                 }
 
-                return research;
+                return invResearch;
             }
             public static int CargoAnimals()
             {
-                int animals = 1;
-
                 if ((remInventory < maxInventory) && (credits >= 4000))
                 {
                     credits -= costAnimals;
-                    curInventory += animals;
+                    invAnimals += 1;
                 }
                 else if (remInventory == 0)
                 {
@@ -216,16 +159,14 @@ namespace SpaceGame
                     Console.ReadLine();
                 }
 
-                return animals;
+                return invAnimals;
             }
             public static int CargoWater()
             {
-                int water = 2;
-
                 if ((remInventory <= 2) && (credits >= 5000))
                 {
                     credits -= costWater;
-                    curInventory += water;
+                    invWater += 2;
                 }
                 else if (remInventory < 2)
                 {
@@ -242,16 +183,14 @@ namespace SpaceGame
                     Console.ReadLine();
                 }
 
-                return water;
+                return invWater;
             }
             public static int CargoFuel()
             {
-                int fuel = 2;
-
                 if ((remInventory <= 2) && (credits >= 6000))
                 {
                     credits -= costFuel;
-                    curInventory += fuel;
+                    invFuel += 2;
                 }
                 else if (remInventory < 2)
                 {
@@ -268,7 +207,7 @@ namespace SpaceGame
                     Console.ReadLine();
                 }
 
-                return fuel;
+                return invFuel;
             }
 
             public static void BuyMenu()
@@ -280,11 +219,11 @@ namespace SpaceGame
                 Console.WriteLine("What would you like to buy?: \n" +
                                     "(Type name of Item to purchase)");
                 Console.WriteLine("press 'Enter' to leave the trading post");
-                Console.WriteLine("Food, price: 2000");
-                Console.WriteLine("Research, price: 3000");
-                Console.WriteLine("Animals, price: 4000");
-                Console.WriteLine("Water, price: 5000");
-                Console.WriteLine("Fuel, price: 6000");
+                Console.WriteLine($"Food, price: {costFood}. This will take up 1 cargo slot");
+                Console.WriteLine($"Research, price: {costResearch}. This will take up 1 cargo slot");
+                Console.WriteLine($"Animals, price: {costAnimals}. This will take up 1 cargo slot");
+                Console.WriteLine($"Water, price: {costWater}. This will take up 2 cargo slot");
+                Console.WriteLine($"Fuel, price: {costFuel}. This will take up 2 cargo slot");
 
                 buyInput = Console.ReadLine();
                 switch (buyInput)
@@ -333,98 +272,88 @@ namespace SpaceGame
         {
             public static int CargoFood()
             {
-                int food = 1;
-
-                if (curInventory > 0)
+                if (invFood >= 1)
                 {
                     credits += costFood;
-                    curInventory -= food;
+                    invFood -= 1;
                 }
-                else if (curInventory == 0)
+                else if (invFood == 0)
                 {
                     UI();
-                    Console.WriteLine("You do not have anything in your inventory!");
+                    Console.WriteLine("You do not have any Food in your inventory to sell!");
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
 
-                return food;
+                return invFood;
             }
             public static int CargoResearch()
             {
-                int research = 1;
-
-                if (curInventory > 0)
+                if (invResearch >= 1)
                 {
                     credits += costResearch;
-                    curInventory -= research;
+                    invResearch -= 1;
                 }
-                else if (curInventory == 0)
+                else if (invResearch == 0)
                 {
                     UI();
-                    Console.WriteLine("You do not have anything in your inventory!");
+                    Console.WriteLine("You do not have any Research Items in your inventory to sell!");
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
 
-                return research;
+                return invResearch;
             }
             public static int CargoAnimals()
             {
-                int animals = 1;
-
-                if (curInventory > 0)
+                if (invAnimals >= 1)
                 {
                     credits += costAnimals;
-                    curInventory -= animals;
+                    invAnimals -= 1;
                 }
-                else if (curInventory == 0)
+                else if (invAnimals == 0)
                 {
                     UI();
-                    Console.WriteLine("You do not have anything in your inventory!");
+                    Console.WriteLine("You do not have any Animals in your inventory to sell!");
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
 
-                return animals;
+                return invAnimals;
             }
             public static int CargoWater()
             {
-                int water = 2;
-
-                if (curInventory >= 2)
+                if (invWater >= 2)
                 {
                     credits += costWater;
-                    curInventory -= water;
+                    invWater -= 2;
                 }
-                else if (curInventory < 2)
+                else if (invWater < 2)
                 {
                     UI();
-                    Console.WriteLine("You do not have anything in your inventory!");
+                    Console.WriteLine("You do not have any Water in your inventory to sell!");
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
 
-                return water;
+                return invWater;
             }
             public static int CargoFuel()
             {
-                int fuel = 2;
-
-                if (curInventory >= 2)
+                if (invFuel >= 2)
                 {
                     credits += costFuel;
-                    curInventory -= fuel;
+                    invFuel -= 2;
                 }
-                else if (curInventory < 2)
+                else if (invFuel < 2)
                 {
                     UI();
-                    Console.WriteLine("You do not have anything in your inventory!");
+                    Console.WriteLine("You do not have any Fuel in your inventory to Sell!");
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
 
-                return fuel;
+                return invFuel;
             }
 
             public static void SellMenu()
@@ -436,11 +365,11 @@ namespace SpaceGame
                 Console.WriteLine("What would you like to Sell?: \n" +
                                     "(Type name of Item to purchase)");
                 Console.WriteLine("press 'Enter' to leave the trading post");
-                Console.WriteLine("Food, sale price: 2000");
-                Console.WriteLine("Research, sale price: 3000");
-                Console.WriteLine("Animals, sale price: 4000");
-                Console.WriteLine("Water, sale price: 5000");
-                Console.WriteLine("Fuel, sale price: 6000");
+                Console.WriteLine($"Food, sale price: {costFood}");
+                Console.WriteLine($"Research, sale price: {costResearch}");
+                Console.WriteLine($"Animals, sale price: {costAnimals}");
+                Console.WriteLine($"Water, sale price: {costWater}");
+                Console.WriteLine($"Fuel, sale price: {costFuel}");
 
                 buyInput = Console.ReadLine();
                 switch (buyInput)
@@ -528,7 +457,7 @@ namespace SpaceGame
 
         public static void Main(string[] args)
         {
-            
+
             // Intro line and story
             Console.WriteLine("Welcome to SpaceGame!!");
             Console.WriteLine();
@@ -632,7 +561,6 @@ namespace SpaceGame
             switch (input)
             {
                 case "Buy":
-                case "1":
                 case "buy":
                     cost = 5000;
                     credits -= tier1.Price;

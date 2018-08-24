@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace SpaceGame
 {
-    public class Item
-    {       
-        public string Name { get; set; }
-        public int Cost { get; set; }
-        public int Space { get; set; }
+    public class Obj
+    {
+        public List<string> item = new List<string>(4);
+
+
     }
 }

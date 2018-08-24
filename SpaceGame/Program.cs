@@ -109,6 +109,51 @@ namespace SpaceGame
 
         class Upgrade
         {
+            public static int StarExplorer()
+            {
+                if ((currentShip != tier2Ship) && (credits >= 15000))
+                {
+                    currentShip = tier2Ship;
+                    Ship(tier1Ship, tier2Ship, tier3Ship);
+                }
+                else if (currentShip == tier2Ship)
+                {
+                    Console.WriteLine($"You already own that ship! No need to have 2 of them.. you are but one person {character}");
+                    Console.WriteLine("Press Enter to return to Main Menu");
+                    Console.ReadLine();
+                }
+                else if (credits < 15000)
+                {
+                    Console.WriteLine("You are to broke to afford such a ship.. Get more credits and come back");
+                    Console.WriteLine("Press Enter to return to Main Menu");
+                    Console.ReadLine();
+                }
+
+                return currentShip;
+            }
+            public static int UssSchwiftiestShip()
+            {
+                if ((currentShip != tier3Ship) && (credits >= 30000))
+                {
+                    currentShip = tier3Ship;
+                    Ship(tier1Ship, tier2Ship, tier3Ship);
+                }
+                else if (currentShip == tier3Ship)
+                {
+                    Console.WriteLine($"You already own that ship! No need to have 2 of them.. you are but one person {character}");
+                    Console.WriteLine("Press Enter to return to Main Menu");
+                    Console.ReadLine();
+                }
+                else if (credits < 30000)
+                {
+                    Console.WriteLine("You are to broke to afford such a ship.. Get more credits and come back");
+                    Console.WriteLine("Press Enter to return to Main Menu");
+                    Console.ReadLine();
+                }
+
+                return currentShip;
+            }
+
             public static void ShipMenu()
             {
 
@@ -120,8 +165,8 @@ namespace SpaceGame
                 Console.WriteLine("What would you like to buy?: \n" +
                                         "(Type name of Ship to purchase)");
                 Console.WriteLine("press 'Enter' to leave the trading post");
-                Console.WriteLine("Star Exlorer, price: 15000 credits. Speed: 4. Cargo: 4");
-                Console.WriteLine("USS Schwiftiest Ship, price: 30000 credits. Speed: 6. Cargo: 6");
+                Console.WriteLine("Star Exlorer! Price: 15000 credits. Speed: 4. Cargo: 4");
+                Console.WriteLine("USS Schwiftiest Ship! Price: 30000 credits. Speed: 6. Cargo: 6");
 
                 shipMenuInput = Console.ReadLine();
                 switch (shipMenuInput)
@@ -129,13 +174,13 @@ namespace SpaceGame
                     case "Star Explorer":
                     case "star explorer":
                         Console.Clear();
-                        CargoFood();
+                        StarExplorer();
                         UI();
                         break;
                     case "USS Schwiftiest Ship":
                     case "uss schwiftiest ship":
                         Console.Clear();
-                        CargoResearch();
+                        UssSchwiftiestShip();
                         UI();
                         break;                    
                     default:
@@ -669,7 +714,7 @@ namespace SpaceGame
                     Console.WriteLine("You are on planet {0}! Current year is {1}!", myPlanet.Type, myPlanet.Date);
                     Console.WriteLine();
                     Console.WriteLine("What would you like to do?: \n" +
-                        "- 'Ship' to upgrade your current ship or buy a new ship\n" +
+                        "- 'Ship'to buy a new ship\n" +
                         "- 'Buy' to buy goods\n" +
                         "- 'Sell' to sell goods\n" +
                         "- 'travel' to leave and go to the next planet!\n" +
@@ -684,7 +729,7 @@ namespace SpaceGame
                     {
                         if ((shopInput == "Ship") || (shopInput == "ship"))
                         {
-
+                            Upgrade.ShipMenu();
                         }
                         else if ((shopInput == "Buy") || (shopInput == "buy"))
                         {

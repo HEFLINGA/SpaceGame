@@ -11,7 +11,7 @@ namespace SpaceGame
         #region Public Variable Decleration
         public static int curInventory = 0;
         public static int maxInventory = 0;
-        public static int remInventory = 0;
+        public static int remInventory = maxInventory - curInventory;
         public static int cost = 0;
         public static int price = 0;
         public static int credits = 10000;
@@ -55,7 +55,7 @@ namespace SpaceGame
             }
 
             return gameOver;
-        }        
+        }
 
         // Inventory space and cargo types
         public static int Inventory(int maxInventory, int curInventory)
@@ -89,10 +89,9 @@ namespace SpaceGame
                 if ((remInventory < maxInventory) && (credits >= 2000))
                 {
                     credits -= costFood;
-                    remInventory -= food;
                     curInventory += food;
                 }
-                else if (curInventory == maxInventory)
+                else if (remInventory == 0)
                 {
                     UI();
                     Console.WriteLine("You do not have enough space in your inventory!");
@@ -116,10 +115,9 @@ namespace SpaceGame
                 if ((remInventory < maxInventory) && (credits >= 3000))
                 {
                     credits -= costResearch;
-                    remInventory -= research;
                     curInventory += research;
                 }
-                else if (curInventory == maxInventory)
+                else if (remInventory == 0)
                 {
                     UI();
                     Console.WriteLine("You do not have enough space in your inventory!");
@@ -143,10 +141,9 @@ namespace SpaceGame
                 if ((remInventory < maxInventory) && (credits >= 4000))
                 {
                     credits -= costAnimals;
-                    remInventory -= animals;
                     curInventory += animals;
                 }
-                else if (curInventory == maxInventory)
+                else if (remInventory == 0)
                 {
                     UI();
                     Console.WriteLine("You do not have enough space in your inventory!");
@@ -167,13 +164,12 @@ namespace SpaceGame
             {
                 int water = 2;
 
-                if ((remInventory < maxInventory) && (credits >= 5000))
+                if ((remInventory <= 2) && (credits >= 5000))
                 {
                     credits -= costWater;
-                    remInventory -= water;
                     curInventory += water;
                 }
-                else if (curInventory == maxInventory)
+                else if (remInventory < 2)
                 {
                     UI();
                     Console.WriteLine("You do not have enough space in your inventory!");
@@ -194,13 +190,12 @@ namespace SpaceGame
             {
                 int fuel = 2;
 
-                if ((remInventory < maxInventory) && (credits >= 6000))
+                if ((remInventory <= 2) && (credits >= 6000))
                 {
                     credits -= costFuel;
-                    remInventory -= fuel;
                     curInventory += fuel;
                 }
-                else if (curInventory == maxInventory)
+                else if (remInventory < 2)
                 {
                     UI();
                     Console.WriteLine("You do not have enough space in your inventory!");
@@ -285,10 +280,9 @@ namespace SpaceGame
                 if (curInventory > 0)
                 {
                     credits += costFood;
-                    remInventory += food;
                     curInventory -= food;
                 }
-                else if (curInventory <= 0)
+                else if (curInventory == 0)
                 {
                     UI();
                     Console.WriteLine("You do not have anything in your inventory!");
@@ -305,10 +299,9 @@ namespace SpaceGame
                 if (curInventory > 0)
                 {
                     credits += costResearch;
-                    remInventory += research;
                     curInventory -= research;
                 }
-                else if (curInventory <= 0)
+                else if (curInventory == 0)
                 {
                     UI();
                     Console.WriteLine("You do not have anything in your inventory!");
@@ -325,10 +318,9 @@ namespace SpaceGame
                 if (curInventory > 0)
                 {
                     credits += costAnimals;
-                    remInventory += animals;
                     curInventory -= animals;
                 }
-                else if (curInventory <= 0)
+                else if (curInventory == 0)
                 {
                     UI();
                     Console.WriteLine("You do not have anything in your inventory!");
@@ -342,13 +334,12 @@ namespace SpaceGame
             {
                 int water = 2;
 
-                if (curInventory > 0)
+                if (curInventory >= 2)
                 {
                     credits += costWater;
-                    remInventory += water;
                     curInventory -= water;
                 }
-                else if (curInventory <= 0)
+                else if (curInventory < 2)
                 {
                     UI();
                     Console.WriteLine("You do not have anything in your inventory!");
@@ -362,13 +353,12 @@ namespace SpaceGame
             {
                 int fuel = 2;
 
-                if (curInventory > 0)
+                if (curInventory >= 2)
                 {
                     credits += costFuel;
-                    remInventory += fuel;
                     curInventory -= fuel;
                 }
-                else if (curInventory <= 0)
+                else if (curInventory < 2)
                 {
                     UI();
                     Console.WriteLine("You do not have anything in your inventory!");
@@ -491,51 +481,63 @@ namespace SpaceGame
             // string decleration
             string input;
             string shopInput;
-                        
-            #region Instantiating classes
+
+            #region Instantiating classes            
+           
 
             // Ship instantiation
-            Ship tier1 = new Ship();
-            tier1.Name = "RustBucket";
-            tier1.Speed = 3;
-            tier1.Price = 5000;
-            tier1.Cargo = 2;
+            Ship tier1 = new Ship
+            {
+                Name = "RustBucket",
+                Speed = 3,
+                Price = 5000,
+                Cargo = 2
+            };
 
-            Ship tier2 = new Ship();
-            tier2.Name = "Speedyy";
-            tier2.Speed = 4;
-            tier2.Price = 15000;
-            tier2.Cargo = 4;
+            Ship tier2 = new Ship
+            {
+                Name = "Speedyy",
+                Speed = 4,
+                Price = 15000,
+                Cargo = 4
+            };
 
-            Ship tier3 = new Ship();
-            tier3.Name = "USS Schwifty Ship";
-            tier3.Speed = 6;
-            tier3.Price = 30000;
-            tier3.Cargo = 6;
+            Ship tier3 = new Ship
+            {
+                Name = "USS Schwifty Ship",
+                Speed = 6,
+                Price = 30000,
+                Cargo = 6
+            };
 
             // Planet Instantiation
 
-            Planet myPlanet = new Planet();
-            myPlanet.Type = "EARTH";
-            myPlanet.Date = time;
-            myPlanet.Rate = 1.00;
-            myPlanet.LocationX = 0;
-            myPlanet.LocationY = 0;
+            Planet myPlanet = new Planet
+            {
+                Type = "EARTH",
+                Date = time,
+                Rate = 1.00,
+                LocationX = 0,
+                LocationY = 0
+            };
 
-            Planet myPlanet2 = new Planet();
-            myPlanet2.Type = "TRAPPIST-1";
-            myPlanet2.Date = time;
-            myPlanet2.Rate = (1.00 - 0.86) / 0.86 * 100.00;
-            myPlanet2.LocationX = 1;
-            myPlanet2.LocationY = 3;
+            Planet myPlanet2 = new Planet
+            {
+                Type = "TRAPPIST-1",
+                Date = time,
+                Rate = (1.00 - 0.86) / 0.86 * 100.00,
+                LocationX = 1,
+                LocationY = 3
+            };
 
-
-            Planet myPlanet3 = new Planet();
-            myPlanet3.Type = "ALPHA CENTAURI";
-            myPlanet3.Date = time;
-            myPlanet3.Rate = (1.00 - 3.79) / 3.709 * 100.00;
-            myPlanet3.LocationX = 0;
-            myPlanet3.LocationY = 4.67;
+            Planet myPlanet3 = new Planet
+            {
+                Type = "ALPHA CENTAURI",
+                Date = time,
+                Rate = (1.00 - 3.79) / 3.709 * 100.00,
+                LocationX = 0,
+                LocationY = 4.67
+            };
             #endregion
 
             // strings
@@ -642,6 +644,7 @@ namespace SpaceGame
                 // Game over
                 Console.WriteLine("Game Over!! Total play time: {0}.  Total credits: {1}", time, credits - 10000);
                 Console.ReadLine();
+
             }
         }
     }

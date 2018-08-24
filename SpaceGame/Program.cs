@@ -77,8 +77,8 @@ namespace SpaceGame
             else if (currentPlanet == trappist)
             {
                 planetName = "TRAPPIST-1";
-                x = 0;
-                y = 4.367;
+                x = 1;
+                y = 3;
                 costFood = 2000 - 1000;
                 costResearch = 3000 - 2000;
                 costAnimals = 4000 - 500;
@@ -509,7 +509,7 @@ namespace SpaceGame
 
             public static void SellMenu()
             {
-                string buyInput = "";
+                string sellInput = "";
 
                 UI();
 
@@ -522,8 +522,8 @@ namespace SpaceGame
                 Console.WriteLine($"Water, sale price: {costWater}");
                 Console.WriteLine($"Fuel, sale price: {costFuel}");
 
-                buyInput = Console.ReadLine();
-                switch (buyInput)
+                sellInput = Console.ReadLine();
+                switch (sellInput)
                 {
                     case "Food":
                     case "food":
@@ -567,7 +567,114 @@ namespace SpaceGame
 
         class Travel
         {
+            public static int Earth()
+            {
+                if (currentPlanet == earth)
+                {
+                    Console.WriteLine("You are already here!! No need to travel anywhere..");
+                    Console.WriteLine("Press 'enter' to return to Menu");
+                    Console.ReadLine();
+                }
+                else if (currentPlanet != earth)
+                {
+                    Console.WriteLine("Heading to Earth!");
+                    Console.WriteLine("Press 'enter' to launch");
+                    Console.ReadLine();
 
+                    currentPlanet = earth;
+                    Planet(earth, alphaCentauri, trappist);
+                }
+
+                return currentPlanet;
+            }
+
+            public static int AlphaCentauri()
+            {
+                if (currentPlanet == alphaCentauri)
+                {
+                    Console.WriteLine("You are already here!! No need to travel anywhere..");
+                    Console.WriteLine("Press 'enter' to return to Menu");
+                    Console.ReadLine();
+                }
+                else if (currentPlanet != alphaCentauri)
+                {
+                    Console.WriteLine("Heading to Alpha Centauri!");
+                    Console.WriteLine("Press 'enter' to launch");
+                    Console.ReadLine();
+
+                    currentPlanet = alphaCentauri;
+                    Planet(earth, alphaCentauri, trappist);
+                }
+
+                return currentPlanet;
+            }
+
+            public static int Trappist()
+            {
+                if (currentPlanet == trappist)
+                {
+                    Console.WriteLine("You are already here!! No need to travel anywhere..");
+                    Console.WriteLine("Press 'enter' to return to Menu");
+                    Console.ReadLine();
+                }
+                else if (currentPlanet != trappist)
+                {
+                    Console.WriteLine("Heading to TRAPPIST-1!");
+                    Console.WriteLine("Press 'enter' to launch");
+                    Console.ReadLine();
+
+                    currentPlanet = trappist;
+                    Planet(earth, alphaCentauri, trappist);
+                }
+
+                return currentPlanet;
+            }
+
+
+            public static void TravelMenu()
+            {
+                string travelInput = "";
+
+                UI();
+
+                Console.WriteLine("Where would you like to go!!: \n" +
+                                    "(Type name of planet you wish to go to)");
+                Console.WriteLine("press 'Enter' to leave the space port and return to Main Menu");
+                Console.WriteLine("- 'Earth' for Earth!");
+                Console.WriteLine("- 'Alpha Centauri' for Alpha Centauri!");
+                Console.WriteLine("- 'Trappist' for TRAPPIST-1");
+
+
+                travelInput = Console.ReadLine();
+                switch (travelInput)
+                {
+                    case "Earth":
+                    case "earth":
+                        Console.Clear();
+                        Earth();
+                        UI();
+                        break;
+                    case "Alpha Centauri":
+                    case "alpha centauri":
+                        Console.Clear();
+                        AlphaCentauri();
+                        UI();
+                        break;
+                    case "Trappist":
+                    case "trappist":
+                    case "TRAPPIST":
+                        Console.Clear();
+                        Trappist();
+                        UI();
+                        break;
+                    default:    
+                        Console.WriteLine("Returning to Menu");
+                        System.Threading.Thread.Sleep(1000);
+                        Console.Clear();
+                        break;
+
+                }
+            }
         }
 
         public static int Inventory(int maxInventory, int curInventory)
@@ -641,35 +748,7 @@ namespace SpaceGame
             currentShip = tier1Ship;
             Ship(tier1Ship, tier2Ship, tier3Ship);
             currentPlanet = earth;
-
-            // Planet Instantiation
-
-            Planet myPlanet = new Planet
-            {
-                Type = "EARTH",
-                Date = time,
-                Rate = 1.00,
-                LocationX = 0,
-                LocationY = 0
-            };
-
-            Planet myPlanet2 = new Planet
-            {
-                Type = "TRAPPIST-1",
-                Date = time,
-                Rate = (1.00 - 0.86) / 0.86 * 100.00,
-                LocationX = 1,
-                LocationY = 3
-            };
-
-            Planet myPlanet3 = new Planet
-            {
-                Type = "ALPHA CENTAURI",
-                Date = time,
-                Rate = (1.00 - 3.79) / 3.709 * 100.00,
-                LocationX = 0,
-                LocationY = 4.67
-            };
+            Planet(earth, alphaCentauri, trappist);
 
 
             // string decleration
@@ -760,7 +839,7 @@ namespace SpaceGame
                 {
                     // Console
                     UI();
-                    Console.WriteLine("You are on planet {0}! Current year is {1}!", myPlanet.Type, myPlanet.Date);
+                    Console.WriteLine("You are on planet {0}! Current year is {1}!", planetName, time);
                     Console.WriteLine();
                     Console.WriteLine("What would you like to do?: \n" +
                         "- 'Ship'to buy a new ship\n" +
@@ -774,7 +853,7 @@ namespace SpaceGame
                     shopInput = Console.ReadLine();
                     //Console.ReadLine();
 
-                    if ((shopInput != "travel") || (shopInput != "Travel"))
+                    if ((shopInput != "exit") || (shopInput != "Exit"))
                     {
                         if ((shopInput == "Ship") || (shopInput == "ship"))
                         {
@@ -791,6 +870,10 @@ namespace SpaceGame
                         else if ((shopInput == "Inv") || (shopInput == "inv"))
                         {
                             Inventory(maxInventory, curInventory);
+                        }
+                        else if ((shopInput == "Travel") || (shopInput == "travel"))
+                        {
+                            Travel.TravelMenu();
                         }
                         else if (shopInput == "exit")
                         {

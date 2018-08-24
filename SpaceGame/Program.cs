@@ -9,6 +9,8 @@ namespace SpaceGame
     class Program
     {
         #region Public Variable Decleration
+
+        // Inventory and item variables
         public static int curInventory = 0;
         public static int maxInventory = 0;
         public static int remInventory = maxInventory - curInventory;
@@ -25,14 +27,49 @@ namespace SpaceGame
         public static int costAnimals = 4000;
         public static int costWater = 5000;
         public static int costFuel = 6000;
+
+        //various variables
         public static double time = 0;
         public static double speed = 0;
         public static double distance = 0;
         public static string character = "";
-        public static string currentShip = "";
+
+
+        // ship variables
+        public static string shipName = "";
+        public static int currentShip = 0;
+        public static int shipPrice = 0;
+        public static int tier1Ship = 1;
+        public static int tier2Ship = 2;
+        public static int tier3Ship = 3;
         #endregion
 
-        
+        public static int Ship(int tier1, int tier2, int tier3)
+        {
+            if (currentShip == tier1Ship)
+            {
+                shipName = "Space Cruiser";
+                maxInventory = 2;
+                speed = 3;
+                shipPrice = 5000;
+            }
+            else if (currentShip == tier2Ship)
+            {
+                shipName = "Star Explorer";
+                maxInventory = 4;
+                speed = 4;
+                shipPrice = 15000;
+            }
+            else if (currentShip == tier3Ship)
+            {
+                shipName = "USS Schwiftiest Ship";
+                maxInventory = 6;
+                speed = 6;
+                shipPrice = 30000;
+            }
+
+            return currentShip;
+        }
 
         public static void UI()
         {            
@@ -99,7 +136,7 @@ namespace SpaceGame
             public static int CargoFood()
             {
 
-                if ((remInventory < maxInventory) && (credits >= 2000))
+                if ((remInventory < maxInventory) && (credits >= costFood))
                 {
                     credits -= costFood;
                     invFood += 1;
@@ -111,7 +148,7 @@ namespace SpaceGame
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
-                else if (credits <= 2000)
+                else if (credits <= costFood)
                 {
                     UI();
                     Console.WriteLine("You do not have enough Credits to purchase item!");
@@ -123,7 +160,7 @@ namespace SpaceGame
             }
             public static int CargoResearch()
             {
-                if ((remInventory < maxInventory) && (credits >= 3000))
+                if ((remInventory < maxInventory) && (credits >= costResearch))
                 {
                     credits -= costResearch;
                     invResearch += 1;
@@ -135,7 +172,7 @@ namespace SpaceGame
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
-                else if (credits <= 3000)
+                else if (credits <= costResearch)
                 {
                     UI();
                     Console.WriteLine("You do not have enough Credits to purchase item!");
@@ -147,7 +184,7 @@ namespace SpaceGame
             }
             public static int CargoAnimals()
             {
-                if ((remInventory < maxInventory) && (credits >= 4000))
+                if ((remInventory < maxInventory) && (credits >= costAnimals))
                 {
                     credits -= costAnimals;
                     invAnimals += 1;
@@ -159,7 +196,7 @@ namespace SpaceGame
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
-                else if (credits <= 4000)
+                else if (credits <= costAnimals)
                 {
                     UI();
                     Console.WriteLine("You do not have enough Credits to purchase item!");
@@ -171,7 +208,7 @@ namespace SpaceGame
             }
             public static int CargoWater()
             {
-                if ((remInventory <= 2) && (credits >= 5000))
+                if ((remInventory <= 2) && (credits >= costWater))
                 {
                     credits -= costWater;
                     invWater += 2;
@@ -183,7 +220,7 @@ namespace SpaceGame
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
-                else if (credits <= 5000)
+                else if (credits <= costWater)
                 {
                     UI();
                     Console.WriteLine("You do not have enough Credits to purchase item!");
@@ -195,7 +232,7 @@ namespace SpaceGame
             }
             public static int CargoFuel()
             {
-                if ((remInventory <= 2) && (credits >= 6000))
+                if ((remInventory <= 2) && (credits >= costFuel))
                 {
                     credits -= costFuel;
                     invFuel += 2;
@@ -207,7 +244,7 @@ namespace SpaceGame
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
-                else if (credits <= 6000)
+                else if (credits <= costFuel)
                 {
                     UI();
                     Console.WriteLine("You do not have enough Credits to purchase item!");
@@ -465,33 +502,9 @@ namespace SpaceGame
 
         public static void Main(string[] args)
         {
-            #region Instantiating classes            
-
-
-            // Ship instantiation
-            Ship tier1 = new Ship
-            {
-                Name = "Space Cruiser",
-                Speed = 3,
-                Price = 5000,
-                Cargo = 2
-            };
-
-            Ship tier2 = new Ship
-            {
-                Name = "Star Wonderer",
-                Speed = 4,
-                Price = 15000,
-                Cargo = 4
-            };
-
-            Ship tier3 = new Ship
-            {
-                Name = "USS Schwiftiest Ship",
-                Speed = 6,
-                Price = 30000,
-                Cargo = 6
-            };
+            currentShip = tier1Ship;
+            Ship(tier1Ship, tier2Ship, tier3Ship);
+            #region Instantiating classes
 
             // Planet Instantiation
 
@@ -553,13 +566,13 @@ namespace SpaceGame
             Console.WriteLine("Then you see it!! Behind a cracked Real Fake Door, a ship with a price tag in your budget.. the tag says \"5,000 " +
                 "credits.No Warrenty. Buy at own risk.\"");
             Console.WriteLine("");
-            Console.WriteLine($"Click enter to walk up to the risky looking ship you spotted.. {tier1.Name}. and take its tag to the " +
+            Console.WriteLine($"Click enter to walk up to the risky looking ship you spotted.. {shipName}. and take its tag to the " +
                 $"check out counter: ");
             Console.WriteLine("");
             Console.ReadLine();
 
             Console.Clear();
-            Console.WriteLine($"The cashier sees you walking up from the dark corner where they keep {tier1.Name}, and begins to laugh. " +
+            Console.WriteLine($"The cashier sees you walking up from the dark corner where they keep {shipName}, and begins to laugh. " +
                 $"as soon as you reach the counter, they asked if you knew what you were getting yourself into with that ship (the oldest ship " +
                 $"currently on the market).");
             Console.WriteLine("");
@@ -580,9 +593,7 @@ namespace SpaceGame
                 case "Buy":
                 case "buy":
                     cost = 5000;
-                    credits -= tier1.Price;
-                    maxInventory = tier1.Cargo;
-                    speed = tier1.Speed;
+                    credits -= shipPrice;
                     break;
                 default:
                     Console.Clear();
@@ -605,7 +616,7 @@ namespace SpaceGame
                 System.Threading.Thread.Sleep(2500);
 
                 UI();
-                Console.WriteLine("\n Your first ship!! The {0}. Speed: {1}. Cargo Space: {2}", tier1.Name, tier1.Speed, tier1.Cargo);
+                Console.WriteLine("\n Your first ship!! The {0}. Speed: {1}. Cargo Space: {2}", shipName, speed, maxInventory);
                 Console.ReadLine();
 
                 // Player starts his journey exploring and buying

@@ -37,9 +37,11 @@ namespace SpaceGame
         public static void UI()
         {            
             Console.Clear();
-            Console.SetCursorPosition(0, 0);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.SetCursorPosition(0, 0);            
             Console.WriteLine("________________________________________________________________________________________________________________________");
             Console.SetCursorPosition(30, 1);
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Cargo: {0}/{1}", curInventory = invFood + invResearch + invAnimals + invWater + invFuel, maxInventory);
             Console.SetCursorPosition(5, 1);
             Console.WriteLine("Name: {0}", character);
@@ -47,7 +49,9 @@ namespace SpaceGame
             Console.WriteLine("Credits: {0}", credits);
             Console.SetCursorPosition(90, 1);
             Console.WriteLine("Time: {0}", time);
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("________________________________________________________________________________________________________________________");
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
         }
         public static bool GameOver(int credits, double time)
         {

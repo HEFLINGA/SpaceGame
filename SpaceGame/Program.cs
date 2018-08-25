@@ -10,7 +10,6 @@ namespace SpaceGame
     {
         #region Public Variable Decleration
         public static Random rnd = new Random();
-
         // Inventory and item variables
         public static int curInventory = 0;
         public static int maxInventory = 0;
@@ -28,7 +27,6 @@ namespace SpaceGame
         public static int costAnimals = 4000;
         public static int costWater = 5000;
         public static int costFuel = 6000;
-
         //various variables
         public static double timePassage = 0;
         public static double time = 0;
@@ -36,7 +34,6 @@ namespace SpaceGame
         public static double distance = 0;
         public static string character = "";
         public static DateTime curTime = DateTime.Now;
-
         // ship variables
         public static string shipName = "";
         public static int currentShip = 0;
@@ -44,7 +41,6 @@ namespace SpaceGame
         public static int tier1Ship = 1;
         public static int tier2Ship = 2;
         public static int tier3Ship = 3;
-
         // Planets and travel variables
         public static string planetName = "";
         public static int currentPlanet = 0;
@@ -55,9 +51,8 @@ namespace SpaceGame
         public static double y = 0;
         public static double destX = 0;
         public static double destY = 0;
-        public static double velocity = 0;
+        public static double velocity = 0;        
         #endregion
-
         public static void RandomNumbers()
         {
             costFood = rnd.Next(2000, 3000);
@@ -66,7 +61,6 @@ namespace SpaceGame
             costWater = rnd.Next(1000, 8000);
             costFuel = rnd.Next(2000, 7000);
         }
-
         public static int Planet(int earth, int alphaCentauri, int trappist)
         {
             if (currentPlanet == earth)
@@ -87,13 +81,12 @@ namespace SpaceGame
             {
                 planetName = "TRAPPIST-1";
                 x = -2;
-                y = 5;
+                y = 6;
                 RandomNumbers();
             }
 
             return currentPlanet;
         }
-
         public static int Ship(int tier1, int tier2, int tier3)
         {
             if (currentShip == tier1Ship)
@@ -123,7 +116,6 @@ namespace SpaceGame
 
             return currentShip;
         }
-
         public static void UI()
         {            
             Console.Clear();
@@ -143,12 +135,10 @@ namespace SpaceGame
             Console.WriteLine("________________________________________________________________________________________________________________________");
             Console.ForegroundColor = ConsoleColor.DarkCyan;
         }
-
         public static void CurrentTime()
         {
             DateTime today = DateTime.Now;
         }
-
         public static bool GameOver(int credits, double time)
         {
             bool gameOver = false;
@@ -163,7 +153,6 @@ namespace SpaceGame
 
             return gameOver;
         }
-
         class Upgrade
         {
             public static int StarExplorer()
@@ -252,7 +241,6 @@ namespace SpaceGame
                 }
             }
         }
-
         class Buy
         {
             public static int CargoFood()
@@ -434,7 +422,6 @@ namespace SpaceGame
                 }
             }
         }
-
         class Sell
         {
             public static int CargoFood()
@@ -581,7 +568,6 @@ namespace SpaceGame
                 }
             }
         }
-
         class Travel
         {
             public static int Earth()
@@ -647,7 +633,7 @@ namespace SpaceGame
                 else if (currentPlanet != trappist)
                 {
                     destX = -2;
-                    destY = 5;
+                    destY = 6;
                     Console.WriteLine("Heading to TRAPPIST-1!");
                     Console.WriteLine("Distance is: {0}LYs", Distance(x, y, destX, destY));
                     Console.WriteLine("It will take you: {0}yrs", timePassage = Distance(x, y, destX, destY) / Velocity(speed));
@@ -708,7 +694,6 @@ namespace SpaceGame
                 }
             }
         }
-
         public static int Inventory(int maxInventory, int curInventory)
         {
             // remaining inventory space
@@ -733,7 +718,6 @@ namespace SpaceGame
 
             return curInventory;
         }
-
         /*
         public static double TimePassage(double distance)
         {
@@ -752,19 +736,16 @@ namespace SpaceGame
             return currentTime;
         }
         */
-
         public static double Distance(double x1, double y1, double destX, double destY)
         {
             return Math.Sqrt(Math.Pow((destX - x), 2) + Math.Pow((destY - y), 2));
         }
-
         public static double Velocity(double speed)
         {
             velocity = Math.Pow(speed, (10/3)) + Math.Pow((10 - speed), -11/3);
 
             return velocity;
         }
-
         public static void Main(string[] args)
         {
             currentShip = tier1Ship;
@@ -905,7 +886,7 @@ namespace SpaceGame
                 } while ((GameOver(credits, time) == false) && (shopInput != "exit"));
                 // Game over
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("Game Over!! Total play time: {0}.  Total credits earned: {1}", time, credits - 10000);
+                Console.WriteLine("Game Over!! Total play time: {0}.  Total credits earned: {1}.", time, credits - 10000);
                 Console.ReadLine();
 
             }

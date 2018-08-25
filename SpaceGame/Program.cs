@@ -23,12 +23,11 @@ namespace SpaceGame
         public static int cost = 0;
         public static int price = 0;
         public static int credits = 10000;
-        public static int costFood = rnd.Next(2000, 3000);
-        public static int costResearch = rnd.Next(1000, 5000);
-        public static int costAnimals = rnd.Next(1000, 4000);
-        public static int costWater = rnd.Next(1000, 8000);
-        public static int costFuel = rnd.Next(1000, 8500);
-
+        public static int costFood = 2000;
+        public static int costResearch = 3000;
+        public static int costAnimals = 4000;
+        public static int costWater = 5000;
+        public static int costFuel = 6000;
 
         //various variables
         public static double timePassage = 0;
@@ -37,9 +36,6 @@ namespace SpaceGame
         public static double distance = 0;
         public static string character = "";
         public static DateTime curTime = DateTime.Now;
-        
-
-
 
         // ship variables
         public static string shipName = "";
@@ -62,6 +58,15 @@ namespace SpaceGame
         public static double velocity = 0;
         #endregion
 
+        public static void RandomNumbers()
+        {
+            costFood = rnd.Next(2000, 3000);
+            costResearch = rnd.Next(1000, 5000);
+            costAnimals = rnd.Next(2000, 4000);
+            costWater = rnd.Next(1000, 8000);
+            costFuel = rnd.Next(2000, 7000);
+        }
+
         public static int Planet(int earth, int alphaCentauri, int trappist)
         {
             if (currentPlanet == earth)
@@ -69,33 +74,21 @@ namespace SpaceGame
                 planetName = "Earth";
                 x = 0;
                 y = 0;
-                costFood += 500;
-                costResearch += 500;
-                costAnimals += 500;
-                costWater -= 500;
-                costFuel -= 500;
+                RandomNumbers();
             }
             else if (currentPlanet == alphaCentauri)
             {
                 planetName = "Alpha Centauri";
                 x = 0;
                 y = 4.367;
-                costFood += 1000;
-                costResearch -= 500;
-                costAnimals -= 500;
-                costWater += 500;
-                costFuel -= 500;
+                RandomNumbers();
     }
             else if (currentPlanet == trappist)
             {
                 planetName = "TRAPPIST-1";
-                x = 1;
-                y = 3;
-                costFood -= 1000;
-                costResearch += 500;
-                costAnimals -= 500;
-                costWater -= 500;
-                costFuel += 500;
+                x = -2;
+                y = 5;
+                RandomNumbers();
             }
 
             return currentPlanet;
@@ -150,6 +143,12 @@ namespace SpaceGame
             Console.WriteLine("________________________________________________________________________________________________________________________");
             Console.ForegroundColor = ConsoleColor.DarkCyan;
         }
+
+        public static void CurrentTime()
+        {
+            DateTime today = DateTime.Now;
+        }
+
         public static bool GameOver(int credits, double time)
         {
             bool gameOver = false;
@@ -163,11 +162,6 @@ namespace SpaceGame
             }
 
             return gameOver;
-        }  
-
-        public static void CurrentTime()
-        {
-            DateTime today = DateTime.Now;
         }
 
         class Upgrade
@@ -603,8 +597,8 @@ namespace SpaceGame
                     destX = 0;
                     destY = 0;
                     Console.WriteLine("Heading to Earth!");
-                    Console.WriteLine("Distance is: {0}", Distance(x, y, destX, destY));
-                    Console.WriteLine("It will take you: {0}", timePassage = Distance(x, y, destX, destY) / Velocity(speed));
+                    Console.WriteLine("Distance is: {0}LYs", Distance(x, y, destX, destY));
+                    Console.WriteLine("It will take you: {0}yrs", timePassage = Distance(x, y, destX, destY) / Velocity(speed));
                     Console.WriteLine("Press 'enter' to launch");
                     Console.ReadLine();
 
@@ -629,8 +623,8 @@ namespace SpaceGame
                     destX = 0;
                     destY = 4.367;
                     Console.WriteLine("Heading to Alpha Centauri!");
-                    Console.WriteLine("Distance is: {0}", Distance(x, y, destX, destY));
-                    Console.WriteLine("It will take you: {0}", timePassage= Distance(x, y, destX, destY) / Velocity(speed));
+                    Console.WriteLine("Distance is: {0}LYs", Distance(x, y, destX, destY));
+                    Console.WriteLine("It will take you: {0}yrs", timePassage= Distance(x, y, destX, destY) / Velocity(speed));
                     Console.WriteLine("Press 'enter' to launch");
                     Console.ReadLine();
 
@@ -652,11 +646,11 @@ namespace SpaceGame
                 }
                 else if (currentPlanet != trappist)
                 {
-                    destX = 1;
-                    destY = 3;
+                    destX = -2;
+                    destY = 5;
                     Console.WriteLine("Heading to TRAPPIST-1!");
-                    Console.WriteLine("Distance is: {0}", Distance(x, y, destX, destY));
-                    Console.WriteLine("It will take you: {0}", timePassage = Distance(x, y, destX, destY) / Velocity(speed));
+                    Console.WriteLine("Distance is: {0}LYs", Distance(x, y, destX, destY));
+                    Console.WriteLine("It will take you: {0}yrs", timePassage = Distance(x, y, destX, destY) / Velocity(speed));
                     Console.WriteLine("Press 'enter' to launch");
                     Console.ReadLine();
 
@@ -777,7 +771,6 @@ namespace SpaceGame
             Ship(tier1Ship, tier2Ship, tier3Ship);
             currentPlanet = earth;
             Planet(earth, alphaCentauri, trappist);
-
 
             // string decleration
             string input;
@@ -909,7 +902,7 @@ namespace SpaceGame
                         }
                     }
 
-                } while ((GameOver(credits, time) == false) || (shopInput != "exit"));
+                } while ((GameOver(credits, time) == false) && (shopInput != "exit"));
                 // Game over
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("Game Over!! Total play time: {0}.  Total credits earned: {1}", time, credits - 10000);

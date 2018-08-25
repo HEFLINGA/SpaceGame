@@ -13,7 +13,7 @@ namespace SpaceGame
         // Inventory and item variables
         public static int curInventory = 0;
         public static int maxInventory = 0;
-        public static int remInventory = maxInventory - curInventory;
+        public static int remInventory = 0;
         public static int invFood = 0;
         public static int invResearch = 0;
         public static int invAnimals = 0;
@@ -697,7 +697,7 @@ namespace SpaceGame
         public static int Inventory(int maxInventory, int curInventory)
         {
             // remaining inventory space
-            remInventory = curInventory - maxInventory;
+            remInventory = maxInventory - curInventory;
             if (curInventory > 0)
             {
                 Console.WriteLine("You have {0} Food", invFood);
@@ -705,7 +705,7 @@ namespace SpaceGame
                 Console.WriteLine("You have {0} Animals", invAnimals);
                 Console.WriteLine("You have {0} Water", invWater);
                 Console.WriteLine("You have {0} Fuel", invFuel);
-                Console.WriteLine("You have {0} space remaining out of {1}", Math.Abs(remInventory), Math.Abs(maxInventory));
+                Console.WriteLine("You have {0} out of {1} spaces remaining", remInventory, maxInventory);
                 Console.WriteLine("Press 'Enter' to continue");
                 Console.ReadLine();
             }

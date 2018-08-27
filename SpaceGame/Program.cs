@@ -11,6 +11,7 @@ namespace SpaceGame
         // TODO - 
 
         // Decleration of variables
+
         #region Public Variable Decleration
         public static Random rnd = new Random();
 

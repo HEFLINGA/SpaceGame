@@ -8,7 +8,7 @@ namespace SpaceGame
 {
     class Program
     {
-        // TODO - Fix credits and inv to make it to where you dont over load your inventory..
+        // TODO - Check to see if game tells you you are out of inv when inv is empty, until going to check inv and then trying to buy again..
         // Decleration of variables
         #region Public Variable Decleration
         public static Random rnd = new Random();
@@ -409,7 +409,9 @@ namespace SpaceGame
                 string buyInput = "";
 
                 UI();
-
+                Inventory(maxInventory, curInventory);
+                UI();
+                
                 Console.WriteLine("What would you like to buy?: \n" +
                                     "(Type name of Item to purchase)");
                 Console.WriteLine("press 'Enter' to leave the trading post");
@@ -555,6 +557,8 @@ namespace SpaceGame
             {
                 string sellInput = "";
 
+                UI();
+                Inventory(maxInventory, curInventory);
                 UI();
 
                 Console.WriteLine("What would you like to Sell?: \n" +

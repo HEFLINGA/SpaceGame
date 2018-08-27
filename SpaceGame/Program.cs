@@ -252,19 +252,13 @@ namespace SpaceGame
         // Buying Menu for buying resources
         class Buy
         {
+            // Code for buying food
             public static int CargoFood()
             {
                 if ((remInventory < maxInventory) && (credits >= costFood))
                 {
                     credits -= costFood;
                     invFood += 1;
-                }
-                else if (remInventory == 0)
-                {
-                    UI();
-                    Console.WriteLine("You do not have enough space in your inventory!");
-                    Console.WriteLine("Press 'Enter' to return to Menu");
-                    Console.ReadLine();
                 }
                 else if (credits <= costFood)
                 {
@@ -273,22 +267,23 @@ namespace SpaceGame
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
-
-                return invFood;
-            }
-            public static int CargoResearch()
-            {
-                if ((remInventory < maxInventory) && (credits >= costResearch))
-                {
-                    credits -= costResearch;
-                    invResearch += 1;
-                }
                 else if (remInventory == 0)
                 {
                     UI();
                     Console.WriteLine("You do not have enough space in your inventory!");
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
+                }
+
+                return invFood;
+            }
+            // Code for buying research
+            public static int CargoResearch()
+            {
+                if ((remInventory < maxInventory) && (credits >= costResearch))
+                {
+                    credits -= costResearch;
+                    invResearch += 1;
                 }
                 else if (credits <= costResearch)
                 {
@@ -297,22 +292,23 @@ namespace SpaceGame
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
-
-                return invResearch;
-            }
-            public static int CargoAnimals()
-            {
-                if ((remInventory < maxInventory) && (credits >= costAnimals))
-                {
-                    credits -= costAnimals;
-                    invAnimals += 1;
-                }
                 else if (remInventory == 0)
                 {
                     UI();
                     Console.WriteLine("You do not have enough space in your inventory!");
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
+                }
+
+                return invResearch;
+            }
+            // Code for buying animals
+            public static int CargoAnimals()
+            {
+                if ((remInventory < maxInventory) && (credits >= costAnimals))
+                {
+                    credits -= costAnimals;
+                    invAnimals += 1;
                 }
                 else if (credits <= costAnimals)
                 {
@@ -321,22 +317,23 @@ namespace SpaceGame
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
+                else if (remInventory == 0)
+                {
+                    UI();
+                    Console.WriteLine("You do not have enough space in your inventory!");
+                    Console.WriteLine("Press 'Enter' to return to Menu");
+                    Console.ReadLine();
+                }
 
                 return invAnimals;
             }
+            // Code for buying water
             public static int CargoWater()
             {
                 if ((remInventory <= 2) && (credits >= costWater))
                 {
                     credits -= costWater;
                     invWater += 2;
-                }
-                else if (remInventory <= 1)
-                {
-                    UI();
-                    Console.WriteLine("You do not have enough space in your inventory!");
-                    Console.WriteLine("Press 'Enter' to return to Menu");
-                    Console.ReadLine();
                 }
                 else if (credits <= costWater)
                 {
@@ -345,22 +342,23 @@ namespace SpaceGame
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
-
-                return invWater;
-            }
-            public static int CargoFuel()
-            {
-                if ((remInventory <= 2) && (credits >= costFuel))
-                {
-                    credits -= costFuel;
-                    invFuel += 2;
-                }
                 else if (remInventory <= 1)
                 {
                     UI();
                     Console.WriteLine("You do not have enough space in your inventory!");
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
+                }
+
+                return invWater;
+            }
+            // Code for buying fuel (Resource)
+            public static int CargoFuel()
+            {
+                if ((remInventory <= 2) && (credits >= costFuel))
+                {
+                    credits -= costFuel;
+                    invFuel += 2;
                 }
                 else if (credits <= costFuel)
                 {
@@ -369,10 +367,17 @@ namespace SpaceGame
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
+                else if (remInventory <= 1)
+                {
+                    UI();
+                    Console.WriteLine("You do not have enough space in your inventory!");
+                    Console.WriteLine("Press 'Enter' to return to Menu");
+                    Console.ReadLine();
+                }
 
                 return invFuel;
             }
-
+            // Buying Menu
             public static void BuyMenu()
             {
                 string buyInput = "";

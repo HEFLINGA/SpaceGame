@@ -37,8 +37,6 @@ namespace SpaceGame
         //various variables
         public static double timePassage = 0;
         public static double time = 0;
-        public static double years = 0;
-        public static double days = 0;
         public static double speed = 0;
         public static double distance = 0;
         public static string character = "";
@@ -157,7 +155,7 @@ namespace SpaceGame
         }
         // Code for UI
         public static void UI()
-        {            
+        {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.SetCursorPosition(0, 0);            
@@ -170,22 +168,10 @@ namespace SpaceGame
             Console.SetCursorPosition(55, 1);
             Console.WriteLine("Credits: {0}", credits);
             Console.SetCursorPosition(90, 1);
-            Console.WriteLine("Year: {0}", Math.Round(time, 2));
+            Console.WriteLine("Year: {0}.", time);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("________________________________________________________________________________________________________________________");
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-        }
-        // Code for getting Years and days from time
-        public static void CurrentTime(double time, double years, double days)
-        {
-            if (time == .27)
-            {
-                days = 1;
-                if (days == 365)
-                {
-                    years = 1;
-                }
-            }
         }
         // Code with game over bool
         public static bool GameOver(int credits, double time)

@@ -153,6 +153,7 @@ namespace SpaceGame
 
             return gameOver;
         }
+        // Ship Menu for buying ships
         class Upgrade
         {
             public static int StarExplorer()
@@ -241,6 +242,7 @@ namespace SpaceGame
                 }
             }
         }
+        // Buying Menu for buying resources
         class Buy
         {
             public static int CargoFood()
@@ -422,6 +424,7 @@ namespace SpaceGame
                 }
             }
         }
+        // Selling Menu for selling resources
         class Sell
         {
             public static int CargoFood()
@@ -568,6 +571,7 @@ namespace SpaceGame
                 }
             }
         }
+        // Travelling Menu for traveling from world to world
         class Travel
         {
             public static int Earth()
@@ -648,7 +652,6 @@ namespace SpaceGame
                 return currentPlanet;
             }
 
-
             public static void TravelMenu()
             {
                 string travelInput = "";
@@ -694,6 +697,7 @@ namespace SpaceGame
                 }
             }
         }
+        // Code for inventory handling
         public static int Inventory(int maxInventory, int curInventory)
         {
             // remaining inventory space
@@ -718,34 +722,19 @@ namespace SpaceGame
 
             return curInventory;
         }
-        /*
-        public static double TimePassage(double distance)
-        {
-            double totalTime = 40;
-            double currentTime = 0;
-
-            while (currentTime < totalTime)
-            {
-                if (distance > 0)
-                {
-                    currentTime += distance;
-                    return currentTime;
-                }
-            }            
-
-            return currentTime;
-        }
-        */
+        // Math for distance
         public static double Distance(double x1, double y1, double destX, double destY)
         {
             return Math.Sqrt(Math.Pow((destX - x), 2) + Math.Pow((destY - y), 2));
         }
+        // Math for Velocity
         public static double Velocity(double speed)
         {
             velocity = Math.Pow(speed, (10/3)) + Math.Pow((10 - speed), -11/3);
 
             return velocity;
         }
+        // Main Game
         public static void Main(string[] args)
         {
             currentShip = tier1Ship;
@@ -821,7 +810,7 @@ namespace SpaceGame
                     break;
             }
 
-
+            // Loop for game
             #region Game
             if (cost != 0)
             {
@@ -839,7 +828,7 @@ namespace SpaceGame
 
                 do
                 {
-                    // Console
+                    // Console/Menu
                     UI();
                     Console.WriteLine("You are on planet {0}! Current year is {1}!", planetName, time);
                     Console.WriteLine();

@@ -8,6 +8,7 @@ namespace SpaceGame
 {
     class Program
     {
+        // TODO - Fix credits and inv to make it to where you dont over load your inventory..
         // Decleration of variables
         #region Public Variable Decleration
         public static Random rnd = new Random();

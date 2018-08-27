@@ -9,9 +9,11 @@ namespace SpaceGame
     class Program
     {
         // TODO - 
+
         // Decleration of variables
         #region Public Variable Decleration
         public static Random rnd = new Random();
+
         // Inventory and item variables
         public static int curInventory = 0;
         public static int maxInventory = 0;
@@ -30,6 +32,7 @@ namespace SpaceGame
         public static int costAnimals = 4000;
         public static int costWater = 5000;
         public static int costFuel = 6000;
+
         //various variables
         public static double timePassage = 0;
         public static double time = 0;
@@ -37,6 +40,7 @@ namespace SpaceGame
         public static double distance = 0;
         public static string character = "";
         public static DateTime curTime = DateTime.Now;
+
         // ship variables
         public static string shipName = "";
         public static int currentShip = 0;
@@ -44,6 +48,7 @@ namespace SpaceGame
         public static int tier1Ship = 1;
         public static int tier2Ship = 2;
         public static int tier3Ship = 3;
+
         // Planets and travel variables
         public static string planetName = "";
         public static int currentPlanet = 0;
@@ -56,6 +61,7 @@ namespace SpaceGame
         public static double destY = 0;
         public static double velocity = 0;        
         #endregion
+
         // Random Number generator
         public static void RandomNumbers()
         {

@@ -62,6 +62,15 @@ namespace SpaceGame
         public static double velocity = 0;        
         #endregion
 
+        // Congrats Window when buying ship
+        public static void Congrats()
+        {
+            UI();
+            Console.WriteLine("Congratulations on your new ship!!!!!");
+            Console.WriteLine("You now have a new max speed and cargo!");
+            Console.WriteLine("New Max Speed: {0}.  New Max Cargo: {1}", speed, maxInventory);
+            Console.ReadLine();
+        }
         // Random Number generator
         public static void RandomNumbers()
         {
@@ -200,6 +209,7 @@ namespace SpaceGame
                     credits -= 20000;
                     currentShip = tier2Ship;
                     Ship(tier1Ship, tier2Ship, tier3Ship);
+                    Congrats();
                 }
                 else if (currentShip == tier2Ship)
                 {
@@ -223,6 +233,7 @@ namespace SpaceGame
                     credits -= 50000;
                     currentShip = tier3Ship;
                     Ship(tier1Ship, tier2Ship, tier3Ship);
+                    Congrats();
                 }
                 else if (currentShip == tier3Ship)
                 {

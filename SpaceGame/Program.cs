@@ -892,7 +892,7 @@ namespace SpaceGame
                 } while ((GameOver(credits, time) == false) && (shopInput != "exit"));
                 // Game over
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("Game Over!! Total play time: {0}.  Total credits earned: {1}.", time, credits - 10000);
+                Console.WriteLine("Game Over!! Total play time: {0}.  Total credits earned: {1}.", time, credits += credits - 10000);
                 Console.ReadLine();
 
             }

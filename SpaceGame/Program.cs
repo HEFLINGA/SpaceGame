@@ -8,6 +8,7 @@ namespace SpaceGame
 {
     class Program
     {
+        // Decleration of variables
         #region Public Variable Decleration
         public static Random rnd = new Random();
         // Inventory and item variables
@@ -53,6 +54,7 @@ namespace SpaceGame
         public static double destY = 0;
         public static double velocity = 0;        
         #endregion
+        // Random Number generator
         public static void RandomNumbers()
         {
             costFood = rnd.Next(2000, 3000);
@@ -61,6 +63,7 @@ namespace SpaceGame
             costWater = rnd.Next(1000, 8000);
             costFuel = rnd.Next(2000, 7000);
         }
+        // Code for Planets
         public static int Planet(int earth, int alphaCentauri, int trappist)
         {
             if (currentPlanet == earth)
@@ -87,6 +90,7 @@ namespace SpaceGame
 
             return currentPlanet;
         }
+        // Code for Ships
         public static int Ship(int tier1, int tier2, int tier3)
         {
             if (currentShip == tier1Ship)
@@ -116,6 +120,7 @@ namespace SpaceGame
 
             return currentShip;
         }
+        // Code for UI
         public static void UI()
         {            
             Console.Clear();
@@ -135,10 +140,12 @@ namespace SpaceGame
             Console.WriteLine("________________________________________________________________________________________________________________________");
             Console.ForegroundColor = ConsoleColor.DarkCyan;
         }
+        // Test code to get Current time to be time game starts on... Still work in progress
         public static void CurrentTime()
         {
             DateTime today = DateTime.Now;
         }
+        // Code with game over bool
         public static bool GameOver(int credits, double time)
         {
             bool gameOver = false;

@@ -37,8 +37,6 @@ namespace SpaceGame
         //various variables
         public static double timePassage = 0;
         public static double time = 0;
-        public static double year = 0;
-        public static double day = 0;
         public static double speed = 0;
         public static double distance = 0;
         public static string character = "";
@@ -170,7 +168,7 @@ namespace SpaceGame
             Console.SetCursorPosition(55, 1);
             Console.WriteLine("Credits: {0}", credits);
             Console.SetCursorPosition(90, 1);
-            Console.WriteLine("Year: {0}. Day: {1}.", year, day);
+            Console.WriteLine("Year: {0}", time);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("________________________________________________________________________________________________________________________");
             Console.ForegroundColor = ConsoleColor.DarkCyan;
@@ -637,15 +635,13 @@ namespace SpaceGame
                     destX = 0;
                     destY = 0;
                     Console.WriteLine("Heading to Earth!");
-                    Console.WriteLine("Distance is: {0}LYs", Distance(x, y, destX, destY));
+                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(x, y, destX, destY), 3));
                     Console.WriteLine("It will take you: {0}yrs", timePassage = Math.Round(Distance(x, y, destX, destY) / Velocity(speed), 2));
                     Console.WriteLine("Press 'enter' to launch");
                     Console.ReadLine();
 
                     currentPlanet = earth;
                     time += timePassage;
-                    day = time * 365;
-
                     Planet(earth, alphaCentauri, trappist);
                 }
 
@@ -665,15 +661,13 @@ namespace SpaceGame
                     destX = 0;
                     destY = 4.367;
                     Console.WriteLine("Heading to Alpha Centauri!");
-                    Console.WriteLine("Distance is: {0}LYs", Distance(x, y, destX, destY));
+                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(x, y, destX, destY), 3));
                     Console.WriteLine("It will take you: {0}yrs", timePassage = Math.Round(Distance(x, y, destX, destY) / Velocity(speed), 2));
                     Console.WriteLine("Press 'enter' to launch");
                     Console.ReadLine();
 
                     currentPlanet = alphaCentauri;
                     time += timePassage;
-                    day = time * 365;
-
                     Planet(earth, alphaCentauri, trappist);
                 }
 
@@ -693,15 +687,13 @@ namespace SpaceGame
                     destX = -2;
                     destY = 6;
                     Console.WriteLine("Heading to TRAPPIST-1!");
-                    Console.WriteLine("Distance is: {0}LYs", Distance(x, y, destX, destY));
+                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(x, y, destX, destY), 3));
                     Console.WriteLine("It will take you: {0}yrs", timePassage = Math.Round(Distance(x, y, destX, destY) / Velocity(speed), 2));
                     Console.WriteLine("Press 'enter' to launch");
                     Console.ReadLine();
 
                     currentPlanet = trappist;
                     time += timePassage;
-                    day = time * 365;
-
                     Planet(earth, alphaCentauri, trappist);
                 }
 

@@ -8,7 +8,7 @@ namespace SpaceGame
 {
     class Program
     {
-        // TODO - Check to see if game tells you you are out of inv when inv is empty, until going to check inv and then trying to buy again..
+        // TODO - 
         // Decleration of variables
         #region Public Variable Decleration
         public static Random rnd = new Random();
@@ -24,6 +24,7 @@ namespace SpaceGame
         public static int cost = 0;
         public static int price = 0;
         public static int credits = 10000;
+        public static int totalCredits = 0;
         public static int costFood = 2000;
         public static int costResearch = 3000;
         public static int costAnimals = 4000;
@@ -174,6 +175,7 @@ namespace SpaceGame
         // Code with game over bool
         public static bool GameOver(int credits, double time)
         {
+            totalCredits = (credits += credits);
             bool gameOver = false;
             if ((credits < 0) || (time >= 40.0))
             {
@@ -892,7 +894,7 @@ namespace SpaceGame
                 } while ((GameOver(credits, time) == false) && (shopInput != "exit"));
                 // Game over
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("Game Over!! Total play time: {0}.  Total credits earned: {1}.", time, credits += credits - 10000);
+                Console.WriteLine("Game Over!! Total play time: {0}.  Total credits earned: {1}.", time, totalCredits - 10000);
                 Console.ReadLine();
 
             }

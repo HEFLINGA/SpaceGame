@@ -37,6 +37,8 @@ namespace SpaceGame
         //various variables
         public static double timePassage = 0;
         public static double time = 0;
+        public static double days = 0;
+        public static double years = 0;
         public static double speed = 0;
         public static double distance = 0;
         public static string character = "";

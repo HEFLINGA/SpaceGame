@@ -91,6 +91,31 @@ namespace SpaceGame
 
             return currentPlanet;
         }
+        // Code for inventory handling
+        public static int Inventory(int maxInventory, int curInventory)
+        {
+            // remaining inventory space
+            remInventory = maxInventory - curInventory;
+            if (curInventory > 0)
+            {
+                Console.WriteLine("You have {0} Food", invFood);
+                Console.WriteLine("You have {0} Research", invResearch);
+                Console.WriteLine("You have {0} Animals", invAnimals);
+                Console.WriteLine("You have {0} Water", invWater);
+                Console.WriteLine("You have {0} Fuel", invFuel);
+                Console.WriteLine("You have {0} out of {1} spaces remaining", remInventory, maxInventory);
+                Console.WriteLine("Press 'Enter' to continue");
+                Console.ReadLine();
+            }
+            else if (curInventory == 0)
+            {
+                Console.WriteLine("Your inventory is empty!");
+                Console.WriteLine("Press 'Enter' to continue");
+                Console.ReadLine();
+            }
+
+            return curInventory;
+        }
         // Code for Ships
         public static int Ship(int tier1, int tier2, int tier3)
         {
@@ -256,7 +281,7 @@ namespace SpaceGame
             // Code for buying food
             public static int CargoFood()
             {
-                if ((remInventory < maxInventory) && (credits >= costFood))
+                if ((curInventory < maxInventory) && (credits >= costFood))
                 {
                     credits -= costFood;
                     invFood += 1;
@@ -268,7 +293,7 @@ namespace SpaceGame
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
-                else if (remInventory == 0)
+                else if ((remInventory == 0) || (curInventory == maxInventory))
                 {
                     UI();
                     Console.WriteLine("You do not have enough space in your inventory!");
@@ -281,7 +306,7 @@ namespace SpaceGame
             // Code for buying research
             public static int CargoResearch()
             {
-                if ((remInventory < maxInventory) && (credits >= costResearch))
+                if ((curInventory < maxInventory) && (credits >= costResearch))
                 {
                     credits -= costResearch;
                     invResearch += 1;
@@ -293,7 +318,7 @@ namespace SpaceGame
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
-                else if (remInventory == 0)
+                else if ((remInventory == 0) || (curInventory == maxInventory))
                 {
                     UI();
                     Console.WriteLine("You do not have enough space in your inventory!");
@@ -306,7 +331,7 @@ namespace SpaceGame
             // Code for buying animals
             public static int CargoAnimals()
             {
-                if ((remInventory < maxInventory) && (credits >= costAnimals))
+                if ((curInventory < maxInventory) && (credits >= costAnimals))
                 {
                     credits -= costAnimals;
                     invAnimals += 1;
@@ -318,7 +343,7 @@ namespace SpaceGame
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
-                else if (remInventory == 0)
+                else if ((remInventory == 0) || (curInventory == maxInventory))
                 {
                     UI();
                     Console.WriteLine("You do not have enough space in your inventory!");
@@ -331,7 +356,7 @@ namespace SpaceGame
             // Code for buying water
             public static int CargoWater()
             {
-                if ((remInventory <= 2) && (credits >= costWater))
+                if ((remInventory >= 2) && (credits >= costWater))
                 {
                     credits -= costWater;
                     invWater += 2;
@@ -356,7 +381,7 @@ namespace SpaceGame
             // Code for buying fuel (Resource)
             public static int CargoFuel()
             {
-                if ((remInventory <= 2) && (credits >= costFuel))
+                if ((remInventory >= 2) && (credits >= costFuel))
                 {
                     credits -= costFuel;
                     invFuel += 2;
@@ -709,31 +734,6 @@ namespace SpaceGame
 
                 }
             }
-        }
-        // Code for inventory handling
-        public static int Inventory(int maxInventory, int curInventory)
-        {
-            // remaining inventory space
-            remInventory = maxInventory - curInventory;
-            if (curInventory > 0)
-            {
-                Console.WriteLine("You have {0} Food", invFood);
-                Console.WriteLine("You have {0} Research", invResearch);
-                Console.WriteLine("You have {0} Animals", invAnimals);
-                Console.WriteLine("You have {0} Water", invWater);
-                Console.WriteLine("You have {0} Fuel", invFuel);
-                Console.WriteLine("You have {0} out of {1} spaces remaining", remInventory, maxInventory);
-                Console.WriteLine("Press 'Enter' to continue");
-                Console.ReadLine();
-            }
-            else if (curInventory == 0)
-            {
-                Console.WriteLine("Your inventory is empty!");
-                Console.WriteLine("Press 'Enter' to continue");
-                Console.ReadLine();
-            }
-
-            return curInventory;
         }
         // Math for distance
         public static double Distance(double x1, double y1, double destX, double destY)

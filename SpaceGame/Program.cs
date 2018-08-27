@@ -192,6 +192,7 @@ namespace SpaceGame
         // Ship Menu for buying ships
         class Upgrade
         {
+            // Ship options
             public static int StarExplorer()
             {
                 if ((currentShip != tier2Ship) && (credits >= 20000))
@@ -238,7 +239,7 @@ namespace SpaceGame
 
                 return currentShip;
             }
-
+            // Ship menu
             public static void ShipMenu()
             {
                 string shipMenuInput = "";

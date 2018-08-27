@@ -37,10 +37,11 @@ namespace SpaceGame
         //various variables
         public static double timePassage = 0;
         public static double time = 0;
+        public static double years = 0;
+        public static double days = 0;
         public static double speed = 0;
         public static double distance = 0;
         public static string character = "";
-        public static DateTime curTime = DateTime.Now;
 
         // ship variables
         public static string shipName = "";
@@ -169,15 +170,22 @@ namespace SpaceGame
             Console.SetCursorPosition(55, 1);
             Console.WriteLine("Credits: {0}", credits);
             Console.SetCursorPosition(90, 1);
-            Console.WriteLine("Time: {0}", time);
+            Console.WriteLine("Year: {0}", Math.Round(time, 2));
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("________________________________________________________________________________________________________________________");
             Console.ForegroundColor = ConsoleColor.DarkCyan;
         }
-        // Test code to get Current time to be time game starts on... Still work in progress
-        public static void CurrentTime()
+        // Code for getting Years and days from time
+        public static void CurrentTime(double time, double years, double days)
         {
-            DateTime today = DateTime.Now;
+            if (time == .27)
+            {
+                days = 1;
+                if (days == 365)
+                {
+                    years = 1;
+                }
+            }
         }
         // Code with game over bool
         public static bool GameOver(int credits, double time)
@@ -639,7 +647,7 @@ namespace SpaceGame
                     destY = 0;
                     Console.WriteLine("Heading to Earth!");
                     Console.WriteLine("Distance is: {0}LYs", Distance(x, y, destX, destY));
-                    Console.WriteLine("It will take you: {0}yrs", timePassage = Distance(x, y, destX, destY) / Velocity(speed));
+                    Console.WriteLine("It will take you: {0}yrs", timePassage = Math.Round(Distance(x, y, destX, destY) / Velocity(speed), 2));
                     Console.WriteLine("Press 'enter' to launch");
                     Console.ReadLine();
 
@@ -665,7 +673,7 @@ namespace SpaceGame
                     destY = 4.367;
                     Console.WriteLine("Heading to Alpha Centauri!");
                     Console.WriteLine("Distance is: {0}LYs", Distance(x, y, destX, destY));
-                    Console.WriteLine("It will take you: {0}yrs", timePassage= Distance(x, y, destX, destY) / Velocity(speed));
+                    Console.WriteLine("It will take you: {0}yrs", timePassage = Math.Round(Distance(x, y, destX, destY) / Velocity(speed), 2));
                     Console.WriteLine("Press 'enter' to launch");
                     Console.ReadLine();
 
@@ -691,7 +699,7 @@ namespace SpaceGame
                     destY = 6;
                     Console.WriteLine("Heading to TRAPPIST-1!");
                     Console.WriteLine("Distance is: {0}LYs", Distance(x, y, destX, destY));
-                    Console.WriteLine("It will take you: {0}yrs", timePassage = Distance(x, y, destX, destY) / Velocity(speed));
+                    Console.WriteLine("It will take you: {0}yrs", timePassage = Math.Round(Distance(x, y, destX, destY) / Velocity(speed), 2));
                     Console.WriteLine("Press 'enter' to launch");
                     Console.ReadLine();
 
@@ -856,7 +864,7 @@ namespace SpaceGame
                 {
                     // Console/Menu
                     UI();
-                    Console.WriteLine("You are on planet {0}! Current year is {1}!", planetName, time);
+                    Console.WriteLine("You are on planet {0}! Current year is {1}!", planetName, Math.Round(time, 2));
                     Console.WriteLine();
                     Console.WriteLine("What would you like to do?: \n" +
                         "- 'Ship'to buy a new ship\n" +
@@ -901,7 +909,7 @@ namespace SpaceGame
                 } while ((GameOver(credits, time) == false) && (shopInput != "exit"));
                 // Game over
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("Game Over!! Total play time: {0}.  Total credits earned: {1}.", time, totalCredits - 10000);
+                Console.WriteLine("Game Over!! Total play time: {0}.  Total credits earned: {1}.", Math.Round(time, 2), totalCredits - 10000);
                 Console.ReadLine();
 
             }

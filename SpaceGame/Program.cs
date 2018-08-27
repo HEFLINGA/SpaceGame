@@ -37,8 +37,8 @@ namespace SpaceGame
         //various variables
         public static double timePassage = 0;
         public static double time = 0;
-        public static double days = 0;
-        public static double years = 0;
+        public static double year = 0;
+        public static double day = 0;
         public static double speed = 0;
         public static double distance = 0;
         public static string character = "";
@@ -170,7 +170,7 @@ namespace SpaceGame
             Console.SetCursorPosition(55, 1);
             Console.WriteLine("Credits: {0}", credits);
             Console.SetCursorPosition(90, 1);
-            Console.WriteLine("Year: {0}.", time);
+            Console.WriteLine("Year: {0}. Day: {1}.", year, day);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("________________________________________________________________________________________________________________________");
             Console.ForegroundColor = ConsoleColor.DarkCyan;
@@ -243,41 +243,39 @@ namespace SpaceGame
 
             public static void ShipMenu()
             {
-
-
                 string shipMenuInput = "";
+              
+                    UI();
 
-                UI();
+                    Console.WriteLine("What would you like to buy?: \n" +
+                                            "(Type name of Ship to purchase)");
+                    Console.WriteLine("press 'Enter' to leave the trading post");
+                    Console.WriteLine();
+                    Console.WriteLine("Star Explorer! Price: 20000 credits. Speed: 3. Cargo: 5");
+                    Console.WriteLine("USS Schwiftiest Ship! Price: 50000 credits. Speed: 6. Cargo: 10");
 
-                Console.WriteLine("What would you like to buy?: \n" +
-                                        "(Type name of Ship to purchase)");
-                Console.WriteLine("press 'Enter' to leave the trading post");
-                Console.WriteLine();
-                Console.WriteLine("Star Explorer! Price: 20000 credits. Speed: 3. Cargo: 5");
-                Console.WriteLine("USS Schwiftiest Ship! Price: 50000 credits. Speed: 6. Cargo: 10");
+                    shipMenuInput = Console.ReadLine();
+                    switch (shipMenuInput)
+                    {
+                        case "Star Explorer":
+                        case "star explorer":
+                            Console.Clear();
+                            StarExplorer();
+                            UI();
+                            break;
+                        case "USS Schwiftiest Ship":
+                        case "uss schwiftiest ship":
+                            Console.Clear();
+                            UssSchwiftiestShip();
+                            UI();
+                            break;
+                        default:
+                            Console.WriteLine("Returning to Menu");
+                            System.Threading.Thread.Sleep(1000);
+                            Console.Clear();
+                            break;
 
-                shipMenuInput = Console.ReadLine();
-                switch (shipMenuInput)
-                {
-                    case "Star Explorer":
-                    case "star explorer":
-                        Console.Clear();
-                        StarExplorer();
-                        UI();
-                        break;
-                    case "USS Schwiftiest Ship":
-                    case "uss schwiftiest ship":
-                        Console.Clear();
-                        UssSchwiftiestShip();
-                        UI();
-                        break;                    
-                    default:
-                        Console.WriteLine("Returning to Menu");
-                        System.Threading.Thread.Sleep(1000);
-                        Console.Clear();
-                        break;
-
-                }
+                    }          
             }
         }
         // Buying Menu for buying resources
@@ -413,60 +411,62 @@ namespace SpaceGame
             {
                 string buyInput = "";
 
-                UI();
-                Inventory(maxInventory, curInventory);
-                UI();
-                
-                Console.WriteLine("What would you like to buy?: \n" +
-                                    "(Type name of Item to purchase)");
-                Console.WriteLine("press 'Enter' to leave the trading post");
-                Console.WriteLine();
-                Console.WriteLine($"Food, price: {costFood}. This will take up 1 cargo slot");
-                Console.WriteLine($"Research, price: {costResearch}. This will take up 1 cargo slot");
-                Console.WriteLine($"Animals, price: {costAnimals}. This will take up 1 cargo slot");
-                Console.WriteLine($"Water, price: {costWater}. This will take up 2 cargo slots");
-                Console.WriteLine($"Fuel, price: {costFuel}. This will take up 2 cargo slots");
-
-                buyInput = Console.ReadLine();
-                switch (buyInput)
+                do
                 {
-                    case "Food":
-                    case "food":
-                        Console.Clear();
-                        CargoFood();
-                        UI();
-                        break;
-                    case "Research":
-                    case "research":
-                        Console.Clear();
-                        CargoResearch();
-                        UI();
-                        break;
-                    case "animals":
-                    case "Animals":
-                        Console.Clear();
-                        CargoAnimals();
-                        UI();
-                        break;
-                    case "water":
-                    case "Water":
-                        Console.Clear();
-                        CargoWater();
-                        UI();
-                        break;
-                    case "fuel":
-                    case "Fuel":
-                        Console.Clear();
-                        CargoFuel();
-                        UI();
-                        break;
-                    default:
-                        Console.WriteLine("Returning to Menu");
-                        System.Threading.Thread.Sleep(1000);
-                        Console.Clear();
-                        break;
+                    UI();
+                    Inventory(maxInventory, curInventory);
+                    UI();
 
-                }
+                    Console.WriteLine("What would you like to buy?: \n" +
+                                        "(Type name of Item to purchase)");
+                    Console.WriteLine("press 'Enter' to leave the trading post");
+                    Console.WriteLine();
+                    Console.WriteLine($"Food, price: {costFood}. This will take up 1 cargo slot");
+                    Console.WriteLine($"Research, price: {costResearch}. This will take up 1 cargo slot");
+                    Console.WriteLine($"Animals, price: {costAnimals}. This will take up 1 cargo slot");
+                    Console.WriteLine($"Water, price: {costWater}. This will take up 2 cargo slots");
+                    Console.WriteLine($"Fuel, price: {costFuel}. This will take up 2 cargo slots");
+
+                    buyInput = Console.ReadLine();
+                    switch (buyInput)
+                    {
+                        case "Food":
+                        case "food":
+                            Console.Clear();
+                            CargoFood();
+                            UI();
+                            break;
+                        case "Research":
+                        case "research":
+                            Console.Clear();
+                            CargoResearch();
+                            UI();
+                            break;
+                        case "animals":
+                        case "Animals":
+                            Console.Clear();
+                            CargoAnimals();
+                            UI();
+                            break;
+                        case "water":
+                        case "Water":
+                            Console.Clear();
+                            CargoWater();
+                            UI();
+                            break;
+                        case "fuel":
+                        case "Fuel":
+                            Console.Clear();
+                            CargoFuel();
+                            UI();
+                            break;
+                        case "":
+                            Console.WriteLine("Returning to Menu");
+                            System.Threading.Thread.Sleep(1000);
+                            Console.Clear();
+                            break;
+                    }
+                } while (buyInput != "");
             }
         }
         // Selling Menu for selling resources
@@ -561,61 +561,64 @@ namespace SpaceGame
             public static void SellMenu()
             {
                 string sellInput = "";
-
-                UI();
-                Inventory(maxInventory, curInventory);
-                UI();
-
-                Console.WriteLine("What would you like to Sell?: \n" +
-                                    "(Type name of Item to purchase)");
-                Console.WriteLine("press 'Enter' to leave the trading post");
-                Console.WriteLine();
-                Console.WriteLine($"Food, sale price: {costFood}");
-                Console.WriteLine($"Research, sale price: {costResearch}");
-                Console.WriteLine($"Animals, sale price: {costAnimals}");
-                Console.WriteLine($"Water, sale price: {costWater}");
-                Console.WriteLine($"Fuel, sale price: {costFuel}");
-
-                sellInput = Console.ReadLine();
-                switch (sellInput)
+               
+                do
                 {
-                    case "Food":
-                    case "food":
-                        Console.Clear();
-                        CargoFood();
-                        UI();
-                        break;
-                    case "Research":
-                    case "research":
-                        Console.Clear();
-                        CargoResearch();
-                        UI();
-                        break;
-                    case "animals":
-                    case "Animals":
-                        Console.Clear();
-                        CargoAnimals();
-                        UI();
-                        break;
-                    case "water":
-                    case "Water":
-                        Console.Clear();
-                        CargoWater();
-                        UI();
-                        break;
-                    case "fuel":
-                    case "Fuel":
-                        Console.Clear();
-                        CargoFuel();
-                        UI();
-                        break;
-                    default:
-                        Console.WriteLine("Returning to Menu");
-                        System.Threading.Thread.Sleep(1000);
-                        Console.Clear();
-                        break;
+                    UI();
+                    Inventory(maxInventory, curInventory);
+                    UI();
 
-                }
+                    Console.WriteLine("What would you like to Sell?: \n" +
+                                        "(Type name of Item to purchase)");
+                    Console.WriteLine("press 'Enter' to leave the trading post");
+                    Console.WriteLine();
+                    Console.WriteLine($"Food, sale price: {costFood}");
+                    Console.WriteLine($"Research, sale price: {costResearch}");
+                    Console.WriteLine($"Animals, sale price: {costAnimals}");
+                    Console.WriteLine($"Water, sale price: {costWater}");
+                    Console.WriteLine($"Fuel, sale price: {costFuel}");
+
+                    sellInput = Console.ReadLine();
+                    switch (sellInput)
+                    {
+                        case "Food":
+                        case "food":
+                            Console.Clear();
+                            CargoFood();
+                            UI();
+                            break;
+                        case "Research":
+                        case "research":
+                            Console.Clear();
+                            CargoResearch();
+                            UI();
+                            break;
+                        case "animals":
+                        case "Animals":
+                            Console.Clear();
+                            CargoAnimals();
+                            UI();
+                            break;
+                        case "water":
+                        case "Water":
+                            Console.Clear();
+                            CargoWater();
+                            UI();
+                            break;
+                        case "fuel":
+                        case "Fuel":
+                            Console.Clear();
+                            CargoFuel();
+                            UI();
+                            break;
+                        case "":
+                            Console.WriteLine("Returning to Menu");
+                            System.Threading.Thread.Sleep(1000);
+                            Console.Clear();
+                            break;
+
+                    }
+                } while (sellInput != "");
             }
         }
         // Travelling Menu for traveling from world to world
@@ -641,6 +644,8 @@ namespace SpaceGame
 
                     currentPlanet = earth;
                     time += timePassage;
+                    day = time * 365;
+
                     Planet(earth, alphaCentauri, trappist);
                 }
 
@@ -667,6 +672,8 @@ namespace SpaceGame
 
                     currentPlanet = alphaCentauri;
                     time += timePassage;
+                    day = time * 365;
+
                     Planet(earth, alphaCentauri, trappist);
                 }
 
@@ -693,6 +700,8 @@ namespace SpaceGame
 
                     currentPlanet = trappist;
                     time += timePassage;
+                    day = time * 365;
+
                     Planet(earth, alphaCentauri, trappist);
                 }
 
@@ -732,7 +741,7 @@ namespace SpaceGame
                     case "trappist":
                     case "TRAPPIST":
                         Console.Clear();
-                        Trappist();
+                        Trappist();                        
                         UI();
                         break;
                     default:    

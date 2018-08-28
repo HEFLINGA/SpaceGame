@@ -655,6 +655,8 @@ namespace SpaceGame
                     Console.WriteLine("Heading to Earth!");
                     Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(x, y, destX, destY), 3));
                     Console.WriteLine("It will take you: {0}yrs", timePassage = Math.Round(Distance(x, y, destX, destY) / Velocity(speed), 2));
+                    Console.WriteLine("{0}", );
+                    Console.WriteLine();
                     Console.WriteLine("type 'GO' to depart");
                     Console.WriteLine("press 'enter' to go back to main menu");
                     string conf = Console.ReadLine();
@@ -729,6 +731,7 @@ namespace SpaceGame
                     Console.WriteLine("Heading to TRAPPIST-1!");
                     Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(x, y, destX, destY), 3));
                     Console.WriteLine("It will take you: {0}yrs", timePassage = Math.Round(Distance(x, y, destX, destY) / Velocity(speed), 2));
+                    
                     Console.WriteLine("type 'GO' to depart");
                     Console.WriteLine("press 'enter' to go back to main menu");
                     string conf = Console.ReadLine();

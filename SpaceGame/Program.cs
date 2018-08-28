@@ -506,7 +506,7 @@ namespace SpaceGame
                 if (invResearch >= 1)
                 {
                     credits += costResearch;
-                    totalCredits += costFood;
+                    totalCredits += costResearch;
                     invResearch -= 1;
                 }
                 else if (invResearch == 0)
@@ -524,7 +524,7 @@ namespace SpaceGame
                 if (invAnimals >= 1)
                 {
                     credits += costAnimals;
-                    totalCredits += costFood;
+                    totalCredits += costAnimals;
                     invAnimals -= 1;
                 }
                 else if (invAnimals == 0)
@@ -542,7 +542,7 @@ namespace SpaceGame
                 if (invWater >= 2)
                 {
                     credits += costWater;
-                    totalCredits += costFood;
+                    totalCredits += costWater;
                     invWater -= 2;
                 }
                 else if (invWater < 2)
@@ -560,7 +560,7 @@ namespace SpaceGame
                 if (invFuel >= 2)
                 {
                     credits += costFuel;
-                    totalCredits += costFood;
+                    totalCredits += costFuel;
                     invFuel -= 2;
                 }
                 else if (invFuel < 2)

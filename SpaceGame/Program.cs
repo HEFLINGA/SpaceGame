@@ -186,7 +186,6 @@ namespace SpaceGame
         // Code with game over bool
         public static bool GameOver(int credits, double time)
         {
-            totalCredits = credits += credits;
             bool gameOver = false;
             if ((credits < 0) || (time >= 40.0))
             {
@@ -639,9 +638,10 @@ namespace SpaceGame
         }
         // Travelling Menu for traveling from world to world
         class Travel
-        {
+        {            
             public static int Earth()
             {
+                UI();
                 if (currentPlanet == earth)
                 {
                     Console.WriteLine("You are already here!! No need to travel anywhere..");
@@ -655,12 +655,22 @@ namespace SpaceGame
                     Console.WriteLine("Heading to Earth!");
                     Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(x, y, destX, destY), 3));
                     Console.WriteLine("It will take you: {0}yrs", timePassage = Math.Round(Distance(x, y, destX, destY) / Velocity(speed), 2));
-                    Console.WriteLine("Press 'enter' to launch");
-                    Console.ReadLine();
+                    Console.WriteLine("type 'GO' to depart");
+                    Console.WriteLine("press 'enter' to go back to main menu");
+                    string conf = Console.ReadLine();
 
-                    currentPlanet = earth;
-                    time += timePassage;
-                    Planet(earth, alphaCentauri, trappist);
+                    if (conf == "GO")
+                    {
+                        currentPlanet = earth;
+                        time += timePassage;
+                        Planet(earth, alphaCentauri, trappist);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Returning to Menu");
+                        System.Threading.Thread.Sleep(1100);
+                    }
+
                 }
 
                 return currentPlanet;
@@ -668,6 +678,7 @@ namespace SpaceGame
 
             public static int AlphaCentauri()
             {
+                UI();
                 if (currentPlanet == alphaCentauri)
                 {
                     Console.WriteLine("You are already here!! No need to travel anywhere..");
@@ -681,12 +692,22 @@ namespace SpaceGame
                     Console.WriteLine("Heading to Alpha Centauri!");
                     Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(x, y, destX, destY), 3));
                     Console.WriteLine("It will take you: {0}yrs", timePassage = Math.Round(Distance(x, y, destX, destY) / Velocity(speed), 2));
-                    Console.WriteLine("Press 'enter' to launch");
-                    Console.ReadLine();
+                    Console.WriteLine("type 'GO' to depart");
+                    Console.WriteLine("press 'enter' to go back to main menu");
+                    string conf = Console.ReadLine();
 
-                    currentPlanet = alphaCentauri;
-                    time += timePassage;
-                    Planet(earth, alphaCentauri, trappist);
+                    if (conf == "GO")
+                    {
+                        currentPlanet = alphaCentauri;
+                        time += timePassage;
+                        Planet(earth, alphaCentauri, trappist);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Returning to Menu");
+                        System.Threading.Thread.Sleep(1100);
+                    }
+
                 }
 
                 return currentPlanet;
@@ -694,6 +715,7 @@ namespace SpaceGame
 
             public static int Trappist()
             {
+                UI();
                 if (currentPlanet == trappist)
                 {
                     Console.WriteLine("You are already here!! No need to travel anywhere..");
@@ -707,12 +729,21 @@ namespace SpaceGame
                     Console.WriteLine("Heading to TRAPPIST-1!");
                     Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(x, y, destX, destY), 3));
                     Console.WriteLine("It will take you: {0}yrs", timePassage = Math.Round(Distance(x, y, destX, destY) / Velocity(speed), 2));
-                    Console.WriteLine("Press 'enter' to launch");
-                    Console.ReadLine();
+                    Console.WriteLine("type 'GO' to depart");
+                    Console.WriteLine("press 'enter' to go back to main menu");
+                    string conf = Console.ReadLine();
 
-                    currentPlanet = trappist;
-                    time += timePassage;
-                    Planet(earth, alphaCentauri, trappist);
+                    if (conf == "GO")
+                    {
+                        currentPlanet = trappist;
+                        time += timePassage;
+                        Planet(earth, alphaCentauri, trappist);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Returning to Menu");
+                        System.Threading.Thread.Sleep(1100);
+                    }
                 }
 
                 return currentPlanet;
@@ -766,7 +797,9 @@ namespace SpaceGame
         // Math for distance
         public static double Distance(double x1, double y1, double destX, double destY)
         {
-            return Math.Sqrt(Math.Pow((destX - x), 2) + Math.Pow((destY - y), 2));
+            distance = Math.Sqrt(Math.Pow((destX - x), 2) + Math.Pow((destY - y), 2));
+
+            return distance;
         }
         // Math for Velocity
         public static double Velocity(double speed)

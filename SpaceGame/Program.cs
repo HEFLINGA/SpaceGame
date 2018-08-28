@@ -61,7 +61,7 @@ namespace SpaceGame
         public static double destY = 0;
         public static double velocity = 0;        
         #endregion
-
+        
         // Congrats Window when buying ship
         public static void Congrats()
         {
@@ -488,6 +488,7 @@ namespace SpaceGame
                 if (invFood >= 1)
                 {
                     credits += costFood;
+                    totalCredits += costFood;
                     invFood -= 1;
                 }
                 else if (invFood == 0)
@@ -505,6 +506,7 @@ namespace SpaceGame
                 if (invResearch >= 1)
                 {
                     credits += costResearch;
+                    totalCredits += costFood;
                     invResearch -= 1;
                 }
                 else if (invResearch == 0)
@@ -522,6 +524,7 @@ namespace SpaceGame
                 if (invAnimals >= 1)
                 {
                     credits += costAnimals;
+                    totalCredits += costFood;
                     invAnimals -= 1;
                 }
                 else if (invAnimals == 0)
@@ -539,6 +542,7 @@ namespace SpaceGame
                 if (invWater >= 2)
                 {
                     credits += costWater;
+                    totalCredits += costFood;
                     invWater -= 2;
                 }
                 else if (invWater < 2)
@@ -556,6 +560,7 @@ namespace SpaceGame
                 if (invFuel >= 2)
                 {
                     credits += costFuel;
+                    totalCredits += costFood;
                     invFuel -= 2;
                 }
                 else if (invFuel < 2)

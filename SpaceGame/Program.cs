@@ -55,6 +55,7 @@ namespace SpaceGame
         public static int earth = 1;
         public static int alphaCentauri = 2;
         public static int trappist = 3;
+        public static int krootabulon = 4;
         public static double x = 0;
         public static double y = 0;
         public static double destX = 0;
@@ -82,7 +83,7 @@ namespace SpaceGame
             costFuel = rnd.Next(2000, 7000);
         }
         // Code for Planets
-        public static int Planet(int earth, int alphaCentauri, int trappist)
+        public static int Planet(int earth, int alphaCentauri, int trappist, int krootabulon)
         {
             if (currentPlanet == earth)
             {
@@ -103,6 +104,13 @@ namespace SpaceGame
                 planetName = "TRAPPIST-1";
                 x = -2;
                 y = 6;
+                RandomNumbers();
+            }
+            else if (currentPlanet == krootabulon)
+            {
+                planetName = "Krootabulon!";
+                x = 3;
+                y = -7;
                 RandomNumbers();
             }
 
@@ -655,7 +663,6 @@ namespace SpaceGame
                     Console.WriteLine("Heading to Earth!");
                     Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(x, y, destX, destY), 3));
                     Console.WriteLine("It will take you: {0}yrs", timePassage = Math.Round(Distance(x, y, destX, destY) / Velocity(speed), 2));
-                    Console.WriteLine("{0}", );
                     Console.WriteLine();
                     Console.WriteLine("type 'GO' to depart");
                     Console.WriteLine("press 'enter' to go back to main menu");
@@ -665,7 +672,7 @@ namespace SpaceGame
                     {
                         currentPlanet = earth;
                         time += timePassage;
-                        Planet(earth, alphaCentauri, trappist);
+                        Planet(earth, alphaCentauri, trappist, krootabulon);
                     }
                     else
                     {
@@ -694,6 +701,7 @@ namespace SpaceGame
                     Console.WriteLine("Heading to Alpha Centauri!");
                     Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(x, y, destX, destY), 3));
                     Console.WriteLine("It will take you: {0}yrs", timePassage = Math.Round(Distance(x, y, destX, destY) / Velocity(speed), 2));
+                    Console.WriteLine();
                     Console.WriteLine("type 'GO' to depart");
                     Console.WriteLine("press 'enter' to go back to main menu");
                     string conf = Console.ReadLine();
@@ -702,7 +710,7 @@ namespace SpaceGame
                     {
                         currentPlanet = alphaCentauri;
                         time += timePassage;
-                        Planet(earth, alphaCentauri, trappist);
+                        Planet(earth, alphaCentauri, trappist, krootabulon);
                     }
                     else
                     {
@@ -731,7 +739,7 @@ namespace SpaceGame
                     Console.WriteLine("Heading to TRAPPIST-1!");
                     Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(x, y, destX, destY), 3));
                     Console.WriteLine("It will take you: {0}yrs", timePassage = Math.Round(Distance(x, y, destX, destY) / Velocity(speed), 2));
-                    
+                    Console.WriteLine();
                     Console.WriteLine("type 'GO' to depart");
                     Console.WriteLine("press 'enter' to go back to main menu");
                     string conf = Console.ReadLine();
@@ -740,13 +748,51 @@ namespace SpaceGame
                     {
                         currentPlanet = trappist;
                         time += timePassage;
-                        Planet(earth, alphaCentauri, trappist);
+                        Planet(earth, alphaCentauri, trappist, krootabulon);
                     }
                     else
                     {
                         Console.WriteLine("Returning to Menu");
                         System.Threading.Thread.Sleep(1100);
                     }
+                }
+
+                return currentPlanet;
+            }
+
+            public static int Krootabulon()
+            {
+                UI();
+                if (currentPlanet == krootabulon)
+                {
+                    Console.WriteLine("You are already here!! No need to travel anywhere..");
+                    Console.WriteLine("Press 'enter' to return to Menu");
+                    Console.ReadLine();
+                }
+                else if (currentPlanet != krootabulon)
+                {
+                    destX = 3;
+                    destY = -7;
+                    Console.WriteLine("Heading to Krootabulon!");
+                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(x, y, destX, destY), 3));
+                    Console.WriteLine("It will take you: {0}yrs", timePassage = Math.Round(Distance(x, y, destX, destY) / Velocity(speed), 2));
+                    Console.WriteLine();
+                    Console.WriteLine("type 'GO' to depart");
+                    Console.WriteLine("press 'enter' to go back to main menu");
+                    string conf = Console.ReadLine();
+
+                    if (conf == "GO")
+                    {
+                        currentPlanet = krootabulon;
+                        time += timePassage;
+                        Planet(earth, alphaCentauri, trappist, krootabulon);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Returning to Menu");
+                        System.Threading.Thread.Sleep(1100);
+                    }
+
                 }
 
                 return currentPlanet;
@@ -764,6 +810,7 @@ namespace SpaceGame
                 Console.WriteLine("- 'Earth' for Earth!");
                 Console.WriteLine("- 'Alpha Centauri' for Alpha Centauri!");
                 Console.WriteLine("- 'Trappist' for TRAPPIST-1");
+                Console.WriteLine("- 'Kroot' for krootabulon!!");
 
 
                 travelInput = Console.ReadLine();
@@ -786,6 +833,14 @@ namespace SpaceGame
                     case "TRAPPIST":
                         Console.Clear();
                         Trappist();                        
+                        UI();
+                        break;
+                    case "Krootabulon":
+                    case "krootabulon":
+                    case "kroot":
+                    case "Kroot":
+                        Console.Clear();
+                        Krootabulon();
                         UI();
                         break;
                     default:    
@@ -817,7 +872,7 @@ namespace SpaceGame
             currentShip = tier1Ship;
             Ship(tier1Ship, tier2Ship, tier3Ship);
             currentPlanet = earth;
-            Planet(earth, alphaCentauri, trappist);
+            Planet(earth, alphaCentauri, trappist, krootabulon);
 
             // string decleration
             string input;

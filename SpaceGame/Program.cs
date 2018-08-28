@@ -68,6 +68,7 @@ namespace SpaceGame
             UI();
             Console.WriteLine("Congratulations on your new ship!!!!!");
             Console.WriteLine("You now have a new max speed and cargo!");
+            Console.WriteLine();
             Console.WriteLine("New Max Speed: {0}.  New Max Cargo: {1}", speed, maxInventory);
             Console.ReadLine();
         }

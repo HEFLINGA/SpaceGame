@@ -186,7 +186,7 @@ namespace SpaceGame
         // Code with game over bool
         public static bool GameOver(int credits, double time)
         {
-            totalCredits = (credits += credits);
+            totalCredits = credits += credits;
             bool gameOver = false;
             if ((credits < 0) || (time >= 40.0))
             {

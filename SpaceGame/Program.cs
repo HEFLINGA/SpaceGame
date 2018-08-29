@@ -126,7 +126,7 @@ namespace SpaceGame
             Console.WriteLine("________________________________________________________________________________________________________________________");
             Console.SetCursorPosition(30, 1);
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Cargo: {0}/{1}", V.curInventory = V.invFood + V.invResearch + V.invAnimals + V.invWater + V.invFuel, maxInventory);
+            Console.WriteLine("Cargo: {0}/{1}", V.curInventory = V.invFood + V.invResearch + V.invAnimals + V.invWater + V.invFuel, V.maxInventory);
             Console.SetCursorPosition(5, 1);
             Console.WriteLine("Name: {0}", V.character);
             Console.SetCursorPosition(55, 1);
@@ -191,7 +191,7 @@ namespace SpaceGame
                 }
                 else if (V.currentShip == V.tier3Ship)
                 {
-                    Console.WriteLine($"You already own that ship! No need to have 2 of them.. you are but one person {character}");
+                    Console.WriteLine($"You already own that ship! No need to have 2 of them.. you are but one person {V.character}");
                     Console.WriteLine("Press Enter to return to Main Menu");
                     Console.ReadLine();
                 }
@@ -607,7 +607,7 @@ namespace SpaceGame
                     V.destX = 0;
                     V.destY = 0;
                     Console.WriteLine("Heading to Earth!");
-                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(x, y, V.destX, V.destY), 3));
+                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(V.x, V.y, V.destX, V.destY), 3));
                     Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Distance(V.x, V.y, V.destX, V.destY) / Velocity(V.speed), 2));
                     Console.WriteLine();
                     Console.WriteLine("type 'GO' to depart");

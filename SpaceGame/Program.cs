@@ -80,8 +80,8 @@ namespace SpaceGame
             string shopInput;
             int cost = 0;
 
-        // Stroy Start up
-        new Story().Intro();
+            // Stroy Start up
+            new Story().Intro();
 
             // Get input from console to select first ship
             input = Console.ReadLine();
@@ -115,7 +115,6 @@ namespace SpaceGame
                 System.Threading.Thread.Sleep(1200);
 
                 UI();
-
                 Console.WriteLine("\n Your first ship!! The {0}. Speed: {1}. Cargo Space: {2}", 
                     Ship.ShowShipName(Ship.currentShip), 
                     Ship.ShowShipSpeed(Ship.currentShip), 
@@ -128,7 +127,6 @@ namespace SpaceGame
                 {
                     // Console/Menu
                     UI();
-
                     Console.WriteLine("You are on planet {0}! Current year is {1}!", 
                         Planet.GetPlanetName(Planet.currentPlanet), 
                         Math.Round(V.time, 2));

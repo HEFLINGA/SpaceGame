@@ -267,41 +267,34 @@ namespace SpaceGame
                     Console.WriteLine($"Fuel, price: {V.costFuel}. This will take up 2 cargo slots");
                     Console.WriteLine("'Inv' to check your current inventory");
 
-                    buyInput = Console.ReadLine();
+                    buyInput = Console.ReadLine().ToLower();
                     switch (buyInput)
                     {
-                        case "Food":
                         case "food":
                             Console.Clear();
                             CargoFood();
                             Program.UI();
                             break;
-                        case "Research":
                         case "research":
                             Console.Clear();
                             CargoResearch();
                             Program.UI();
                             break;
                         case "animals":
-                        case "Animals":
                             Console.Clear();
                             CargoAnimals();
                             Program.UI();
                             break;
                         case "water":
-                        case "Water":
                             Console.Clear();
                             CargoWater();
                             Program.UI();
                             break;
                         case "fuel":
-                        case "Fuel":
                             Console.Clear();
                             CargoFuel();
                             Program.UI();
                             break;
-                       
-                        
                         case "":
                             Console.WriteLine("Returning to Menu");
                             System.Threading.Thread.Sleep(1000);
@@ -427,41 +420,34 @@ namespace SpaceGame
                     Console.WriteLine($"Fuel, sale price: {V.costFuel}");
                     Console.WriteLine("'Inv' to check your current Inventory");
 
-                    sellInput = Console.ReadLine();
+                    sellInput = Console.ReadLine().ToLower();
                     switch (sellInput)
                     {
-                        case "Food":
                         case "food":
                             Console.Clear();
                             CargoFood();
                             Program.UI();
                             break;
-                        case "Research":
                         case "research":
                             Console.Clear();
                             CargoResearch();
                             Program.UI();
                             break;
                         case "animals":
-                        case "Animals":
                             Console.Clear();
                             CargoAnimals();
                             Program.UI();
                             break;
                         case "water":
-                        case "Water":
                             Console.Clear();
                             CargoWater();
                             Program.UI();
                             break;
                         case "fuel":
-                        case "Fuel":
                             Console.Clear();
                             CargoFuel();
                             Program.UI();
                             break;
-                            // TODO - Add inventory check to sell
-                        //case "":
                         case "":
                             Console.WriteLine("Returning to Menu");
                             System.Threading.Thread.Sleep(1000);
@@ -642,32 +628,26 @@ namespace SpaceGame
                 Console.WriteLine("- 'Kroot' for krootabulon!!");
 
 
-                travelInput = Console.ReadLine();
+                travelInput = Console.ReadLine().ToLower();
                 switch (travelInput)
                 {
-                    case "Earth":
                     case "earth":
                         Console.Clear();
                         Earth();
                         Program.UI();
-                        break;
-                    case "Alpha Centauri":
+                        break;:
                     case "alpha centauri":
                         Console.Clear();
                         AlphaCentauri();
                         Program.UI();
                         break;
-                    case "Trappist":
-                    case "trappist":
-                    case "TRAPPIST":
+                    case "trappist"::
                         Console.Clear();
                         Trappist();
                         Program.UI();
                         break;
-                    case "Krootabulon":
                     case "krootabulon":
                     case "kroot":
-                    case "Kroot":
                         Console.Clear();
                         Krootabulon();
                         Program.UI();

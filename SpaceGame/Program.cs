@@ -170,10 +170,8 @@ namespace SpaceGame
             // Stroy Start up
             Story.Intro();
 
-            // Get input from console to select ship and purchase
-            input = Console.ReadLine();
-
-            // buying first ship
+            // Get input from console to select first ship
+            input = Console.ReadLine();           
             switch (input)
             {
                 case "Buy":

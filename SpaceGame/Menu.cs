@@ -307,6 +307,7 @@ namespace SpaceGame
             }
         }
 
+        // Sell class for all selling of inventory
         public class Sell
         {
             private static int CargoFood()

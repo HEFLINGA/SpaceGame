@@ -23,6 +23,7 @@ namespace SpaceGame
             Console.WriteLine("New Max V.speed: {0}.  New Max Cargo: {1}", V.speed, V.maxInventory);
             Console.ReadLine();
         }
+
         // Ship class for all buying of ships
         public class ShipBuy
         {

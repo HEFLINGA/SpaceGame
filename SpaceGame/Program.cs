@@ -8,7 +8,7 @@ namespace SpaceGame
 {
     class Program
     {
-        // Random Number generator
+        // Static Public fields for holding constant information;
         public static void RandomNumbers()
         {
             V.costFood = V.rnd.Next(2000, 3000);
@@ -16,7 +16,27 @@ namespace SpaceGame
             V.costAnimals = V.rnd.Next(2000, 4000);
             V.costWater = V.rnd.Next(1000, 8000);
             V.costFuel = V.rnd.Next(2000, 7000);
-        }
+        }    // Code for RandomNumber generator
+        public static void UI()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.SetCursorPosition(0, 0);
+            Console.WriteLine("________________________________________________________________________________________________________________________");
+            Console.SetCursorPosition(30, 1);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Cargo: {0}/{1}", V.curInventory = V.invFood + V.invResearch + V.invAnimals + V.invWater + V.invFuel, V.maxInventory);
+            Console.SetCursorPosition(5, 1);
+            Console.WriteLine("Name: {0}", V.character);
+            Console.SetCursorPosition(55, 1);
+            Console.WriteLine("Credits: {0}", V.credits);
+            Console.SetCursorPosition(90, 1);
+            Console.WriteLine("Year: {0}", V.time);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("________________________________________________________________________________________________________________________");
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+        }               // Code for UI
+
         // Code for Planets
         public static int Planet(int earth, int alphaCentauri, int trappist, int krootabulon)
         {
@@ -51,6 +71,7 @@ namespace SpaceGame
 
             return V.currentPlanet;
         }
+
         // Code for inventory handling
         public static int Inventory(int maxInventory, int curInventory)
         {
@@ -76,6 +97,7 @@ namespace SpaceGame
 
             return curInventory;
         }
+
         // Code for Ships
         public static int Ship(int tier1, int tier2, int tier3)
         {
@@ -106,26 +128,7 @@ namespace SpaceGame
 
             return V.currentShip;
         }
-        // Code for UI
-        public static void UI()
-        {
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.SetCursorPosition(0, 0);            
-            Console.WriteLine("________________________________________________________________________________________________________________________");
-            Console.SetCursorPosition(30, 1);
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Cargo: {0}/{1}", V.curInventory = V.invFood + V.invResearch + V.invAnimals + V.invWater + V.invFuel, V.maxInventory);
-            Console.SetCursorPosition(5, 1);
-            Console.WriteLine("Name: {0}", V.character);
-            Console.SetCursorPosition(55, 1);
-            Console.WriteLine("Credits: {0}", V.credits);
-            Console.SetCursorPosition(90, 1);
-            Console.WriteLine("Year: {0}", V.time);
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("________________________________________________________________________________________________________________________");
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
-        }
+
         // Code with game over bool
         public static bool GameOver(int credits, double time)
         {
@@ -141,6 +144,7 @@ namespace SpaceGame
 
             return gameOver;
         }        
+
         // Math for distance
         public static double Distance(double x1, double y1, double destX, double destY)
         {
@@ -148,6 +152,7 @@ namespace SpaceGame
 
             return V.distance;
         }
+
         // Math for Velocity
         public static double Velocity(double speed)
         {
@@ -155,6 +160,7 @@ namespace SpaceGame
 
             return V.velocity;
         }
+
         // Main Game
         public static void Main(string[] args)
         {

@@ -465,5 +465,213 @@ namespace SpaceGame
             }
         }
 
+        // Travel class for all travel handling
+        public class Travel
+        {
+            public static int Earth()
+            {
+                Program.UI();
+                if (V.currentPlanet == V.earth)
+                {
+                    Console.WriteLine("You are already here!! No need to travel anywhere..");
+                    Console.WriteLine("Press 'enter' to return to Menu");
+                    Console.ReadLine();
+                }
+                else if (V.currentPlanet != V.earth)
+                {
+                    V.destX = 0;
+                    V.destY = 0;
+                    Console.WriteLine("Heading to Earth!");
+                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(V.x, V.y, V.destX, V.destY), 3));
+                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(V.x, V.y, V.destX, V.destY) / Program.Velocity(V.speed), 2));
+                    Console.WriteLine();
+                    Console.WriteLine("type 'GO' to depart");
+                    Console.WriteLine("press 'enter' to go back to main menu");
+                    string conf = Console.ReadLine();
+
+                    if (conf == "GO")
+                    {
+                        V.currentPlanet = V.earth;
+                        V.time += V.timePassage;
+                        Program.Planet(V.earth, V.alphaCentauri, V.trappist, V.krootabulon);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Returning to Menu");
+                        System.Threading.Thread.Sleep(1100);
+                    }
+
+                }
+
+                return V.currentPlanet;
+            }
+
+            public static int AlphaCentauri()
+            {
+                Program.UI();
+                if (V.currentPlanet == V.alphaCentauri)
+                {
+                    Console.WriteLine("You are already here!! No need to travel anywhere..");
+                    Console.WriteLine("Press 'enter' to return to Menu");
+                    Console.ReadLine();
+                }
+                else if (V.currentPlanet != V.alphaCentauri)
+                {
+                    V.destX = 0;
+                    V.destY = 4.367;
+                    Console.WriteLine("Heading to Alpha Centauri!");
+                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(V.x, V.y, V.destX, V.destY), 3));
+                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(V.x, V.y, V.destX, V.destY) / Program.Velocity(V.speed), 2));
+                    Console.WriteLine();
+                    Console.WriteLine("type 'GO' to depart");
+                    Console.WriteLine("press 'enter' to go back to main menu");
+                    string conf = Console.ReadLine();
+
+                    if (conf == "GO")
+                    {
+                        V.currentPlanet = V.alphaCentauri;
+                        V.time += V.timePassage;
+                        Program.Planet(V.earth, V.alphaCentauri, V.trappist, V.krootabulon);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Returning to Menu");
+                        System.Threading.Thread.Sleep(1100);
+                    }
+
+                }
+
+                return V.currentPlanet;
+            }
+
+            public static int Trappist()
+            {
+                Program.UI();
+                if (V.currentPlanet == V.trappist)
+                {
+                    Console.WriteLine("You are already here!! No need to travel anywhere..");
+                    Console.WriteLine("Press 'enter' to return to Menu");
+                    Console.ReadLine();
+                }
+                else if (V.currentPlanet != V.trappist)
+                {
+                    V.destX = -2;
+                    V.destY = 6;
+                    Console.WriteLine("Heading to TRAPPIST-1!");
+                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(V.x, V.y, V.destX, V.destY), 3));
+                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(V.x, V.y, V.destX, V.destY) / Program.Velocity(V.speed), 2));
+                    Console.WriteLine();
+                    Console.WriteLine("type 'GO' to depart");
+                    Console.WriteLine("press 'enter' to go back to main menu");
+                    string conf = Console.ReadLine();
+
+                    if (conf == "GO")
+                    {
+                        V.currentPlanet = V.trappist;
+                        V.time += V.timePassage;
+                        Program.Planet(V.earth, V.alphaCentauri, V.trappist, V.krootabulon);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Returning to Menu");
+                        System.Threading.Thread.Sleep(1100);
+                    }
+                }
+
+                return V.currentPlanet;
+            }
+
+            public static int Krootabulon()
+            {
+                Program.UI();
+                if (V.currentPlanet == V.krootabulon)
+                {
+                    Console.WriteLine("You are already here!! No need to travel anywhere..");
+                    Console.WriteLine("Press 'enter' to return to Menu");
+                    Console.ReadLine();
+                }
+                else if (V.currentPlanet != V.krootabulon)
+                {
+                    V.destX = 3;
+                    V.destY = -7;
+                    Console.WriteLine("Heading to Krootabulon!");
+                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(V.x, V.y, V.destX, V.destY), 3));
+                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(V.x, V.y, V.destX, V.destY) / Program.Velocity(V.speed), 2));
+                    Console.WriteLine();
+                    Console.WriteLine("type 'GO' to depart");
+                    Console.WriteLine("press 'enter' to go back to main menu");
+                    string conf = Console.ReadLine();
+
+                    if (conf == "GO")
+                    {
+                        V.currentPlanet = V.krootabulon;
+                        V.time += V.timePassage;
+                        Program.Planet(V.earth, V.alphaCentauri, V.trappist, V.krootabulon);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Returning to Menu");
+                        System.Threading.Thread.Sleep(1100);
+                    }
+
+                }
+
+                return V.currentPlanet;
+            }
+
+            public static void TravelMenu()
+            {
+                string travelInput = "";
+
+                Program.UI();
+
+                Console.WriteLine("Where would you like to go!!: \n" +
+                                    "(Type name of planet you wish to go to)");
+                Console.WriteLine("press 'Enter' to leave the space port and return to Main Menu");
+                Console.WriteLine("- 'Earth' for Earth!");
+                Console.WriteLine("- 'Alpha Centauri' for Alpha Centauri!");
+                Console.WriteLine("- 'Trappist' for TRAPPIST-1");
+                Console.WriteLine("- 'Kroot' for krootabulon!!");
+
+
+                travelInput = Console.ReadLine();
+                switch (travelInput)
+                {
+                    case "Earth":
+                    case "earth":
+                        Console.Clear();
+                        Earth();
+                        Program.UI();
+                        break;
+                    case "Alpha Centauri":
+                    case "alpha centauri":
+                        Console.Clear();
+                        AlphaCentauri();
+                        Program.UI();
+                        break;
+                    case "Trappist":
+                    case "trappist":
+                    case "TRAPPIST":
+                        Console.Clear();
+                        Trappist();
+                        Program.UI();
+                        break;
+                    case "Krootabulon":
+                    case "krootabulon":
+                    case "kroot":
+                    case "Kroot":
+                        Console.Clear();
+                        Krootabulon();
+                        Program.UI();
+                        break;
+                    default:
+                        Console.WriteLine("Returning to Menu");
+                        System.Threading.Thread.Sleep(1000);
+                        Console.Clear();
+                        break;
+
+                }
+            }
+        }
     }
 }

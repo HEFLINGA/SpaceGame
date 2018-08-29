@@ -103,12 +103,13 @@ namespace SpaceGame
             Ship(V.tier1Ship, V.tier2Ship, V.tier3Ship);
             Planet.currentPlanet = 1;
 
-            // string decleration
+            // Variable Decleration
             string input;
             string shopInput;
+            int cost = 0;
 
-            // Stroy Start up
-            new Story().Intro();
+        // Stroy Start up
+        new Story().Intro();
 
             // Get input from console to select first ship
             input = Console.ReadLine();
@@ -116,7 +117,7 @@ namespace SpaceGame
             {
                 case "Buy":
                 case "buy":
-                    V.cost = 5000;
+                    cost = 5000;
                     V.credits -= V.shipPrice;
                     break;
                 default:
@@ -131,11 +132,11 @@ namespace SpaceGame
 
             // Loop for game
             #region Game
-            if (V.cost != 0)
+            if (cost != 0)
             {
                 Planet.GetPlanetName(Planet.currentPlanet);
                 UI();
-                Console.WriteLine("You paid {0} for your ship!!", V.cost);
+                Console.WriteLine("You paid {0} for your ship!!", cost);
                 Console.WriteLine();
                 Console.WriteLine("Thank you for shopping with SpaceBuggies R Us");
                 System.Threading.Thread.Sleep(1200);

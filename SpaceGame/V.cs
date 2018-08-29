@@ -21,7 +21,6 @@ namespace SpaceGame
         public static int invAnimals = 0;
         public static int invWater = 0;
         public static int invFuel = 0;
-        public static int cost = 0;
         public static int price = 0;
         public static int credits = 10000;
         public static int totalCredits = 0;

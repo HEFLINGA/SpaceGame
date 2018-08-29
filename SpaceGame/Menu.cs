@@ -267,41 +267,34 @@ namespace SpaceGame
                     Console.WriteLine($"Fuel, price: {V.costFuel}. This will take up 2 cargo slots");
                     Console.WriteLine("'Inv' to check your current inventory");
 
-                    buyInput = Console.ReadLine();
+                    buyInput = Console.ReadLine().ToLower();
                     switch (buyInput)
                     {
-                        case "Food":
                         case "food":
                             Console.Clear();
                             CargoFood();
                             Program.UI();
                             break;
-                        case "Research":
                         case "research":
                             Console.Clear();
                             CargoResearch();
                             Program.UI();
                             break;
                         case "animals":
-                        case "Animals":
                             Console.Clear();
                             CargoAnimals();
                             Program.UI();
                             break;
                         case "water":
-                        case "Water":
                             Console.Clear();
                             CargoWater();
                             Program.UI();
                             break;
                         case "fuel":
-                        case "Fuel":
                             Console.Clear();
                             CargoFuel();
                             Program.UI();
                             break;
-                        // TODO - Add inventory check to sell
-                        //case "":
                         case "":
                             Console.WriteLine("Returning to Menu");
                             System.Threading.Thread.Sleep(1000);

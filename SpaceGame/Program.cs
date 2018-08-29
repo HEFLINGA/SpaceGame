@@ -49,37 +49,6 @@ namespace SpaceGame
             return V.velocity;
         }                                       // Code for Velocity/Speed math based on Warp Factor
         
-        // Code for Ships
-        public static int Ship(int tier1, int tier2, int tier3)
-        {
-            if (V.currentShip == V.tier1Ship)
-            {
-                V.shipName = "Space Cruiser";
-                V.maxInventory = 3;
-                V.speed = 1.5;
-                V.shipPrice = 5000;
-                V.velocity = Velocity(V.speed);
-            }
-            else if (V.currentShip == V.tier2Ship)
-            {
-                V.shipName = "Star Explorer";
-                V.maxInventory = 5;
-                V.speed = 3;
-                V.shipPrice = 20000;
-                V.velocity = Velocity(V.speed);
-            }
-            else if (V.currentShip == V.tier3Ship)
-            {
-                V.shipName = "USS Schwiftiest Ship";
-                V.maxInventory = 10;
-                V.speed = 6;
-                V.shipPrice = 50000;
-                V.velocity = Velocity(V.speed);
-            }
-
-            return V.currentShip;
-        }
-
         // Code with game over bool
         public static bool GameOver(int credits, double time)
         {
@@ -99,8 +68,11 @@ namespace SpaceGame
         // Main Game
         public static void Main(string[] args)
         {
-            V.currentShip = V.tier1Ship;
-            Ship(V.tier1Ship, V.tier2Ship, V.tier3Ship);
+            Ship.currentShip = 1;
+            new Ship().ShipName("Star Cruiser");
+            new Ship().ShipCargo(3);
+            new Ship().ShipSpeed(1.5);
+            new Ship().ShipVelocity(Velocity(3));
             Planet.currentPlanet = 1;
 
             // Variable Decleration
@@ -118,7 +90,7 @@ namespace SpaceGame
                 case "Buy":
                 case "buy":
                     cost = 5000;
-                    V.credits -= V.shipPrice;
+                    V.credits -= 5000;
                     break;
                 default:
                     Console.Clear();
@@ -142,7 +114,12 @@ namespace SpaceGame
                 System.Threading.Thread.Sleep(1200);
 
                 UI();
-                Console.WriteLine("\n Your first ship!! The {0}. V.speed: {1}. Cargo Space: {2}", V.shipName, V.speed, V.maxInventory);
+
+                Console.WriteLine("\n Your first ship!! The {0}. Speed: {1}. Cargo Space: {2}", 
+                    Ship.ShowShipName(Ship.currentShip), 
+                    Ship.ShowShipSpeed(Ship.currentShip), 
+                    V.maxInventory);
+
                 Console.ReadLine();
 
                 // Player starts his journey exploring and buying
@@ -150,7 +127,11 @@ namespace SpaceGame
                 {
                     // Console/Menu
                     UI();
-                    Console.WriteLine("You are on planet {0}! Current year is {1}!", Planet.GetPlanetName(Planet.currentPlanet), Math.Round(V.time, 2));
+
+                    Console.WriteLine("You are on planet {0}! Current year is {1}!", 
+                        Planet.GetPlanetName(Planet.currentPlanet), 
+                        Math.Round(V.time, 2));
+
                     Console.WriteLine();
                     Console.WriteLine("What would you like to do?: \n" +
                         "- 'Ship'to buy a new ship\n" +

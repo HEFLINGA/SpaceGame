@@ -19,7 +19,7 @@ namespace SpaceGame
             Console.WriteLine("Welcome to Space Game!!");
             Console.WriteLine();
             Console.WriteLine($"  The year is 0AR. A relative passed and left you, {V.character}, 10,000 credits. Your family used to be rich merchants, but " +
-                "fell on hard V.times... You have just finished flight school, and have always had a dream of becoming a space ship captain. So, you " +
+                "fell on hard times... You have just finished flight school, and have always had a dream of becoming a space ship captain. So, you " +
                 "decided to try your luck at that life to restore your family's name and wealth. The First stop! A cheap, Space Ship sales shop.");
             Console.WriteLine("Press 'Enter' to continue");
             Console.ReadLine();
@@ -35,13 +35,13 @@ namespace SpaceGame
             Console.WriteLine("Then you see it!! Behind a cracked Real Fake Door, a ship with a price tag in your budget.. the tag says \"5,000 " +
                 "credits.No Warrenty. Buy at own risk.\"");
             Console.WriteLine("");
-            Console.WriteLine($"Click enter to walk up to the risky looking ship you spotted.. {V.shipName}. and take its tag to the " +
+            Console.WriteLine($"Click enter to walk up to the risky looking ship you spotted.. {Ship.ShowShipName(Ship.currentShip)}. and take its tag to the " +
                 $"check out counter: ");
             Console.WriteLine("");
             Console.ReadLine();
 
             Console.Clear();
-            Console.WriteLine($"The cashier sees you walking up from the dark corner where they keep {V.shipName}, and begins to laugh. " +
+            Console.WriteLine($"The cashier sees you walking up from the dark corner where they keep {Ship.ShowShipName(Ship.currentShip)}, and begins to laugh. " +
                 $"as soon as you reach the counter, they asked if you knew what you were getting yourself into with that ship (the oldest ship " +
                 $"currently on the market).");
             Console.WriteLine("");

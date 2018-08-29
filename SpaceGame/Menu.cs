@@ -19,9 +19,9 @@ namespace SpaceGame
         {
             Program.UI();
             Console.WriteLine("Congratulations on your new ship!!!!!");
-            Console.WriteLine("You now have a new max V.speed and cargo!");
+            Console.WriteLine("You now have a new max speed and cargo!");
             Console.WriteLine();
-            Console.WriteLine("New Max V.speed: {0}.  New Max Cargo: {1}", V.speed, V.maxInventory);
+            Console.WriteLine("New Max speed: {0}.  New Max Cargo: {1}", Ship.ShowShipSpeed(Ship.currentShip), V.maxInventory);
             Console.ReadLine();
         }
 
@@ -32,14 +32,17 @@ namespace SpaceGame
             // Ship options
             private int StarExplorer()
             {
-                if ((V.currentShip != V.tier2Ship) && (V.credits >= 20000))
+                if ((Ship.currentShip != 2) && (V.credits >= 20000))
                 {
                     V.credits -= 20000;
-                    V.currentShip = V.tier2Ship;
-                    Program.Ship(V.tier1Ship, V.tier2Ship, V.tier3Ship);
+                    Ship.currentShip = 2;
+                    new Ship().ShipName("Star Explorer");
+                    new Ship().ShipCargo(5);
+                    new Ship().ShipSpeed(3);
+                    new Ship().ShipVelocity(Program.Velocity(3));
                     new Menu().Congrats();
                 }
-                else if (V.currentShip == V.tier2Ship)
+                else if (Ship.currentShip == 2)
                 {
                     Console.WriteLine($"You already own that ship! No need to have 2 of them.. you are but one person {V.character}");
                     Console.WriteLine("Press Enter to return to Main Menu");
@@ -52,18 +55,21 @@ namespace SpaceGame
                     Console.ReadLine();
                 }
 
-                return V.currentShip;
+                return Ship.currentShip;
             }
             private int UssSchwiftiestShip()
             {
-                if ((V.currentShip != V.tier3Ship) && (V.credits >= 50000))
+                if ((Ship.currentShip != 3) && (V.credits >= 50000))
                 {
                     V.credits -= 50000;
-                    V.currentShip = V.tier3Ship;
-                    Program.Ship(V.tier1Ship, V.tier2Ship, V.tier3Ship);
+                    Ship.currentShip = 3;
+                    new Ship().ShipName("USS Schwifty Ship");
+                    new Ship().ShipCargo(10);
+                    new Ship().ShipSpeed(6);
+                    new Ship().ShipVelocity(Program.Velocity(6));
                     new Menu().Congrats();
                 }
-                else if (V.currentShip == V.tier3Ship)
+                else if (Ship.currentShip == 3)
                 {
                     Console.WriteLine($"You already own that ship! No need to have 2 of them.. you are but one person {V.character}");
                     Console.WriteLine("Press Enter to return to Main Menu");
@@ -76,7 +82,7 @@ namespace SpaceGame
                     Console.ReadLine();
                 }
 
-                return V.currentShip;
+                return Ship.currentShip;
             }
             // Ship menu
             public void ShipMenu()
@@ -89,8 +95,8 @@ namespace SpaceGame
                                         "(Type name of Ship to purchase)");
                 Console.WriteLine("press 'Enter' to leave the trading post");
                 Console.WriteLine();
-                Console.WriteLine("Star Explorer! Price: 20000 credits. V.speed: 3. Cargo: 5");
-                Console.WriteLine("USS Schwiftiest Ship! Price: 50000 credits. V.speed: 6. Cargo: 10");
+                Console.WriteLine("Star Explorer! Price: 20000 credits. speed: 3. Cargo: 5");
+                Console.WriteLine("USS Schwifty Ship! Price: 50000 credits. speed: 6. Cargo: 10");
 
                 shipMenuInput = Console.ReadLine();
                 switch (shipMenuInput)
@@ -489,7 +495,7 @@ namespace SpaceGame
                 {
                     Console.WriteLine("Heading to Earth!");
                     Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = 0, new Menu().destY = 0), 3));
-                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = 0, new Menu().destY = 0) / Program.Velocity(V.speed), 2));
+                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = 0, new Menu().destY = 0) / Program.Velocity(Ship.ShowShipSpeed(Ship.currentShip)), 2));
                     Console.WriteLine();
                     Console.WriteLine("type 'GO' to depart");
                     Console.WriteLine("press 'enter' to go back to main menu");
@@ -528,7 +534,7 @@ namespace SpaceGame
                 {
                     Console.WriteLine("Heading to Alpha Centauri!");
                     Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = 0, new Menu().destY = 4.367), 3));
-                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = 0, new Menu().destY = 4.367) / Program.Velocity(V.speed), 2));
+                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = 0, new Menu().destY = 4.367) / Program.Velocity(Ship.ShowShipSpeed(Ship.currentShip)), 2));
                     Console.WriteLine();
                     Console.WriteLine("type 'GO' to depart");
                     Console.WriteLine("press 'enter' to go back to main menu");
@@ -567,7 +573,7 @@ namespace SpaceGame
                 {
                     Console.WriteLine("Heading to TRAPPIST-1!");
                     Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = -3, new Menu().destY = 6), 3));
-                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = -3, new Menu().destY = 6) / Program.Velocity(V.speed), 2));
+                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = -3, new Menu().destY = 6) / Program.Velocity(Ship.ShowShipSpeed(Ship.currentShip)), 2));
                     Console.WriteLine();
                     Console.WriteLine("type 'GO' to depart");
                     Console.WriteLine("press 'enter' to go back to main menu");
@@ -605,7 +611,7 @@ namespace SpaceGame
                 {
                     Console.WriteLine("Heading to Krootabulon!");
                     Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = 10, new Menu().destY = -15), 3));
-                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = 10, new Menu().destY = -15) / Program.Velocity(V.speed), 2));
+                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = 10, new Menu().destY = -15) / Program.Velocity(Ship.ShowShipSpeed(Ship.currentShip)), 2));
                     Console.WriteLine();
                     Console.WriteLine("type 'GO' to depart");
                     Console.WriteLine("press 'enter' to go back to main menu");

@@ -253,7 +253,7 @@ namespace SpaceGame
                 do
                 {
                     Program.UI();
-                    Program.Inventory(V.maxInventory, V.curInventory);
+                    V.CheckInventory(V.curInventory, V.maxInventory);
                     Program.UI();
 
                     Console.WriteLine("What would you like to buy?: \n" +
@@ -265,6 +265,7 @@ namespace SpaceGame
                     Console.WriteLine($"Animals, price: {V.costAnimals}. This will take up 1 cargo slot");
                     Console.WriteLine($"Water, price: {V.costWater}. This will take up 2 cargo slots");
                     Console.WriteLine($"Fuel, price: {V.costFuel}. This will take up 2 cargo slots");
+                    Console.WriteLine("'Inv' to check your current inventory");
 
                     buyInput = Console.ReadLine();
                     switch (buyInput)
@@ -299,6 +300,8 @@ namespace SpaceGame
                             CargoFuel();
                             Program.UI();
                             break;
+                        // TODO - Add inventory check to sell
+                        //case "":
                         case "":
                             Console.WriteLine("Returning to Menu");
                             System.Threading.Thread.Sleep(1000);
@@ -410,11 +413,11 @@ namespace SpaceGame
                 do
                 {
                     Program.UI();
-                    Program.Inventory(V.maxInventory, V.curInventory);
+                    V.CheckInventory(V.curInventory, V.maxInventory);
                     Program.UI();
 
                     Console.WriteLine("What would you like to Sell?: \n" +
-                                        "(Type name of Item to purchase)");
+                                        "(Type name of Item to purchase)");                    
                     Console.WriteLine("press 'Enter' to leave the trading post");
                     Console.WriteLine();
                     Console.WriteLine($"Food, sale price: {V.costFood}");
@@ -422,6 +425,7 @@ namespace SpaceGame
                     Console.WriteLine($"Animals, sale price: {V.costAnimals}");
                     Console.WriteLine($"Water, sale price: {V.costWater}");
                     Console.WriteLine($"Fuel, sale price: {V.costFuel}");
+                    Console.WriteLine("'Inv' to check your current Inventory");
 
                     sellInput = Console.ReadLine();
                     switch (sellInput)
@@ -456,6 +460,8 @@ namespace SpaceGame
                             CargoFuel();
                             Program.UI();
                             break;
+                            // TODO - Add inventory check to sell
+                        //case "":
                         case "":
                             Console.WriteLine("Returning to Menu");
                             System.Threading.Thread.Sleep(1000);

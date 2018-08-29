@@ -59,5 +59,37 @@ namespace SpaceGame
         public static double destY = 0;
         public static double velocity = 0;
         #endregion
+
+        // Code for inventory handling
+        public static int Inventory(int maxInventory, int curInventory)
+        {
+            // remaining inventory space
+            remInventory = maxInventory - curInventory;
+            if (curInventory > 0)
+            {
+                Console.WriteLine("You have {0} Food", invFood);
+                Console.WriteLine("You have {0} Research", invResearch);
+                Console.WriteLine("You have {0} Animals", invAnimals);
+                Console.WriteLine("You have {0} Water", invWater);
+                Console.WriteLine("You have {0} Fuel", invFuel);
+                Console.WriteLine("You have {0} out of {1} spaces remaining", remInventory, maxInventory);
+                Console.WriteLine("Press 'Enter' to continue");
+                Console.ReadLine();
+            }
+            else if (curInventory == 0)
+            {
+                Console.WriteLine("Your inventory is empty!");
+                Console.WriteLine("Press 'Enter' to continue");
+                Console.ReadLine();
+            }
+
+            return curInventory;
+        }
+
+        // Code for inventory checking at runtime (behind the scenes)
+        public static int CheckInventory(int curInventory, int maxInventory)
+        {
+            return curInventory;
+        }
     }
 }

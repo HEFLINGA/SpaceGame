@@ -110,6 +110,12 @@ namespace SpaceGame
             return curInventory;
         }
 
+        // Code for inventory checking at runtime (behind the scenes)
+        public int CheckInventory(int curInventory, int maxInventory)
+        {            
+            return curInventory;
+        }
+
         // Code for Ships
         public static int Ship(int tier1, int tier2, int tier3)
         {

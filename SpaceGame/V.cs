@@ -47,13 +47,10 @@ namespace SpaceGame
         public static int tier3Ship = 3;
 
         // Planets and travel variables
-  
-       
         public static int earth = 1;
         public static int alphaCentauri = 2;
         public static int trappist = 3;
         public static int krootabulon = 4;
- 
         public static double destX = 0;
         public static double destY = 0;
         public static double velocity = 0;

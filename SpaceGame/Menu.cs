@@ -305,7 +305,7 @@ namespace SpaceGame
             }
         }
 
-        // Sell class for all selling of inventory
+        // Sell class for all selling of inventory;
         public class Sell
         {
             private int CargoFood()
@@ -459,7 +459,7 @@ namespace SpaceGame
             }
         }
 
-        // Travel class for all travel handling
+        // Travel class for all travel handling;
         public class Travel
         {
             private int Earth()

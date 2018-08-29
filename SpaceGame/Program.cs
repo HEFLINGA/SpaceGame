@@ -70,10 +70,10 @@ namespace SpaceGame
         {
             Ship.currentShip = 1;
             new Ship().ShipName("Star Cruiser");
-            new Ship().ShipCargo(3);
             new Ship().ShipSpeed(1.5);
             new Ship().ShipVelocity(Velocity(3));
             Planet.currentPlanet = 1;
+            RandomNumbers();
 
             // Variable Decleration
             string input;
@@ -91,6 +91,7 @@ namespace SpaceGame
                 case "buy":
                     cost = 5000;
                     V.credits -= 5000;
+                    new Ship().ShipCargo(3);
                     break;
                 default:
                     Console.Clear();

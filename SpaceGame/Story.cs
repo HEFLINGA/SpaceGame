@@ -15,7 +15,7 @@ namespace SpaceGame
             V.character = Console.ReadLine();
 
             // Intro line and story
-            Console.Clear();
+            Program.UI();
             Console.WriteLine("Welcome to Space Game!!");
             Console.WriteLine();
             Console.WriteLine($"  The year is 0AR. A relative passed and left you, {V.character}, 10,000 credits. Your family used to be rich merchants, but " +
@@ -23,9 +23,9 @@ namespace SpaceGame
                 "decided to try your luck at that life to restore your family's name and wealth. The First stop! A cheap, Space Ship sales shop.");
             Console.WriteLine("Press 'Enter' to continue");
             Console.ReadLine();
-            Console.Clear();
 
-            // Console            
+            // Console  
+            Program.UI();
             Console.WriteLine("You arrive at the cheapest space ship sales barn you could.. Real Fake Ships.. Definitely not your first choice, " +
                 "But it's the only place on this planet you can find with a ship that's in your budget.");
             Console.WriteLine("");
@@ -40,7 +40,7 @@ namespace SpaceGame
             Console.WriteLine("");
             Console.ReadLine();
 
-            Console.Clear();
+            Program.UI();
             Console.WriteLine($"The cashier sees you walking up from the dark corner where they keep {Ship.ShowShipName(Ship.currentShip)}, and begins to laugh. " +
                 $"as soon as you reach the counter, they asked if you knew what you were getting yourself into with that ship (the oldest ship " +
                 $"currently on the market).");

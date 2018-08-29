@@ -97,7 +97,5 @@ namespace SpaceGame
 
             return ShowShipSpeed(currentShip);
         }
-
-
     }
 }

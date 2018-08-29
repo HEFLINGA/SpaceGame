@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SpaceGame
 {
-    class Menu
+    public class Menu
     {
         // Custom default constructor
         public Menu()

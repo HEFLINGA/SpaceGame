@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SpaceGame
 {
-    class Ship
+    public class Ship
     {
         public Ship()
         {

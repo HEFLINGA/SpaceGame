@@ -114,5 +114,196 @@ namespace SpaceGame
             }
         }
 
+        public class Buy
+        {
+            // Code for buying food
+            private static int CargoFood()
+            {
+                if ((V.curInventory < V.maxInventory) && (V.credits >= V.costFood))
+                {
+                    V.credits -= V.costFood;
+                    V.invFood += 1;
+                }
+                else if (V.credits <= V.costFood)
+                {
+                    Program.UI();
+                    Console.WriteLine("You do not have enough Credits to purchase item!");
+                    Console.WriteLine("Press 'Enter' to return to Menu");
+                    Console.ReadLine();
+                }
+                else if ((V.remInventory == 0) || (V.curInventory == V.maxInventory))
+                {
+                    Program.UI();
+                    Console.WriteLine("You do not have enough space in your inventory!");
+                    Console.WriteLine("Press 'Enter' to return to Menu");
+                    Console.ReadLine();
+                }
+
+                return V.invFood;
+            }
+            // Code for buying research
+            private static int CargoResearch()
+            {
+                if ((V.curInventory < V.maxInventory) && (V.credits >= V.costResearch))
+                {
+                    V.credits -= V.costResearch;
+                    V.invResearch += 1;
+                }
+                else if (V.credits <= V.costResearch)
+                {
+                    Program.UI();
+                    Console.WriteLine("You do not have enough Credits to purchase item!");
+                    Console.WriteLine("Press 'Enter' to return to Menu");
+                    Console.ReadLine();
+                }
+                else if ((V.remInventory == 0) || (V.curInventory == V.maxInventory))
+                {
+                    Program.UI();
+                    Console.WriteLine("You do not have enough space in your inventory!");
+                    Console.WriteLine("Press 'Enter' to return to Menu");
+                    Console.ReadLine();
+                }
+
+                return V.invResearch;
+            }
+            // Code for buying animals
+            private static int CargoAnimals()
+            {
+                if ((V.curInventory < V.maxInventory) && (V.credits >= V.costAnimals))
+                {
+                    V.credits -= V.costAnimals;
+                    V.invAnimals += 1;
+                }
+                else if (V.credits <= V.costAnimals)
+                {
+                    Program.UI();
+                    Console.WriteLine("You do not have enough Credits to purchase item!");
+                    Console.WriteLine("Press 'Enter' to return to Menu");
+                    Console.ReadLine();
+                }
+                else if ((V.remInventory == 0) || (V.curInventory == V.maxInventory))
+                {
+                    Program.UI();
+                    Console.WriteLine("You do not have enough space in your inventory!");
+                    Console.WriteLine("Press 'Enter' to return to Menu");
+                    Console.ReadLine();
+                }
+
+                return V.invAnimals;
+            }
+            // Code for buying water
+            private static int CargoWater()
+            {
+                if ((V.remInventory >= 2) && (V.credits >= V.costWater))
+                {
+                    V.credits -= V.costWater;
+                    V.invWater += 2;
+                }
+                else if (V.credits <= V.costWater)
+                {
+                    Program.UI();
+                    Console.WriteLine("You do not have enough Credits to purchase item!");
+                    Console.WriteLine("Press 'Enter' to return to Menu");
+                    Console.ReadLine();
+                }
+                else if (V.remInventory <= 1)
+                {
+                    Program.UI();
+                    Console.WriteLine("You do not have enough space in your inventory!");
+                    Console.WriteLine("Press 'Enter' to return to Menu");
+                    Console.ReadLine();
+                }
+
+                return V.invWater;
+            }
+            // Code for buying fuel (Resource)
+            private static int CargoFuel()
+            {
+                if ((V.remInventory >= 2) && (V.credits >= V.costFuel))
+                {
+                    V.credits -= V.costFuel;
+                    V.invFuel += 2;
+                }
+                else if (V.credits <= V.costFuel)
+                {
+                    Program.UI();
+                    Console.WriteLine("You do not have enough Credits to purchase item!");
+                    Console.WriteLine("Press 'Enter' to return to Menu");
+                    Console.ReadLine();
+                }
+                else if (V.remInventory <= 1)
+                {
+                    Program.UI();
+                    Console.WriteLine("You do not have enough space in your inventory!");
+                    Console.WriteLine("Press 'Enter' to return to Menu");
+                    Console.ReadLine();
+                }
+
+                return V.invFuel;
+            }
+            // Buying Menu
+            public static void BuyMenu()
+            {
+                string buyInput = "";
+
+                do
+                {
+                    Program.UI();
+                    Program.Inventory(V.maxInventory, V.curInventory);
+                    Program.UI();
+
+                    Console.WriteLine("What would you like to buy?: \n" +
+                                        "(Type name of Item to purchase)");
+                    Console.WriteLine("press 'Enter' to leave the trading post");
+                    Console.WriteLine();
+                    Console.WriteLine($"Food, price: {V.costFood}. This will take up 1 cargo slot");
+                    Console.WriteLine($"Research, price: {V.costResearch}. This will take up 1 cargo slot");
+                    Console.WriteLine($"Animals, price: {V.costAnimals}. This will take up 1 cargo slot");
+                    Console.WriteLine($"Water, price: {V.costWater}. This will take up 2 cargo slots");
+                    Console.WriteLine($"Fuel, price: {V.costFuel}. This will take up 2 cargo slots");
+
+                    buyInput = Console.ReadLine();
+                    switch (buyInput)
+                    {
+                        case "Food":
+                        case "food":
+                            Console.Clear();
+                            CargoFood();
+                            Program.UI();
+                            break;
+                        case "Research":
+                        case "research":
+                            Console.Clear();
+                            CargoResearch();
+                            Program.UI();
+                            break;
+                        case "animals":
+                        case "Animals":
+                            Console.Clear();
+                            CargoAnimals();
+                            Program.UI();
+                            break;
+                        case "water":
+                        case "Water":
+                            Console.Clear();
+                            CargoWater();
+                            Program.UI();
+                            break;
+                        case "fuel":
+                        case "Fuel":
+                            Console.Clear();
+                            CargoFuel();
+                            Program.UI();
+                            break;
+                        case "":
+                            Console.WriteLine("Returning to Menu");
+                            System.Threading.Thread.Sleep(1000);
+                            Console.Clear();
+                            break;
+                    }
+                } while (buyInput != "");
+            }
+        }
+
     }
 }

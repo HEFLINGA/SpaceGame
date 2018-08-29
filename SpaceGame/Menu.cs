@@ -469,6 +469,10 @@ namespace SpaceGame
             }
         }
 
+        // Planets and travel variables        
+        private double destX = 0;
+        private double destY = 0;        
+
         // Travel class for all travel handling;        
         public class Travel
         {
@@ -483,12 +487,9 @@ namespace SpaceGame
                 }
                 else if (Planet.currentPlanet != 1)
                 {
-
-                    V.destX = 0;
-                    V.destY = 0;
                     Console.WriteLine("Heading to Earth!");
-                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), V.destX, V.destY), 3));
-                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), V.destX, V.destY) / Program.Velocity(V.speed), 2));
+                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = 0, new Menu().destY = 0), 3));
+                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = 0, new Menu().destY = 0) / Program.Velocity(V.speed), 2));
                     Console.WriteLine();
                     Console.WriteLine("type 'GO' to depart");
                     Console.WriteLine("press 'enter' to go back to main menu");
@@ -525,11 +526,9 @@ namespace SpaceGame
                 }
                 else if (Planet.currentPlanet != 2)
                 {
-                    V.destX = 0;
-                    V.destY = 4.367;
                     Console.WriteLine("Heading to Alpha Centauri!");
-                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), V.destX, V.destY), 3));
-                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), V.destX, V.destY) / Program.Velocity(V.speed), 2));
+                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = 0, new Menu().destY = 4.367), 3));
+                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = 0, new Menu().destY = 4.367) / Program.Velocity(V.speed), 2));
                     Console.WriteLine();
                     Console.WriteLine("type 'GO' to depart");
                     Console.WriteLine("press 'enter' to go back to main menu");
@@ -566,11 +565,9 @@ namespace SpaceGame
                 }
                 else if (Planet.currentPlanet != 3)
                 {
-                    V.destX = -2;
-                    V.destY = 6;
                     Console.WriteLine("Heading to TRAPPIST-1!");
-                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), V.destX, V.destY), 3));
-                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), V.destX, V.destY) / Program.Velocity(V.speed), 2));
+                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = -3, new Menu().destY = 6), 3));
+                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = -3, new Menu().destY = 6) / Program.Velocity(V.speed), 2));
                     Console.WriteLine();
                     Console.WriteLine("type 'GO' to depart");
                     Console.WriteLine("press 'enter' to go back to main menu");
@@ -606,11 +603,9 @@ namespace SpaceGame
                 }
                 else if (Planet.currentPlanet != 4)
                 {
-                    V.destX = 3;
-                    V.destY = -7;
                     Console.WriteLine("Heading to Krootabulon!");
-                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), V.destX, V.destY), 3));
-                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), V.destX, V.destY) / Program.Velocity(V.speed), 2));
+                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = 10, new Menu().destY = -15), 3));
+                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = 10, new Menu().destY = -15) / Program.Velocity(V.speed), 2));
                     Console.WriteLine();
                     Console.WriteLine("type 'GO' to depart");
                     Console.WriteLine("press 'enter' to go back to main menu");

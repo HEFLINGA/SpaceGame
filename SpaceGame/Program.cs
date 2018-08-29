@@ -38,7 +38,7 @@ namespace SpaceGame
         }                                                           // Code for UI
         public static double Distance(double x1, double y1, double destX, double destY)
         {
-            V.distance = Math.Sqrt(Math.Pow((V.destX - x1), 2) + Math.Pow((destY - y1), 2));
+            V.distance = Math.Sqrt(Math.Pow((destX - x1), 2) + Math.Pow((destY - y1), 2));
 
             return V.distance;
         }   // Code for distance math

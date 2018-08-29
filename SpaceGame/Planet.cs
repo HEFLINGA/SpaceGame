@@ -76,7 +76,7 @@ namespace SpaceGame
             }
             if (currentPlanet == 4)
             {
-                return new Planet().x = 3;
+                return new Planet().x = 10;
             }
             return GetCurX();
         }
@@ -98,7 +98,7 @@ namespace SpaceGame
             }
             if (currentPlanet == 4)
             {
-                return new Planet().y = -7;
+                return new Planet().y = -15;
             }
             return GetCurY();
         }

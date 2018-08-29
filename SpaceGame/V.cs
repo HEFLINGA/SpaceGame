@@ -36,6 +36,7 @@ namespace SpaceGame
         public static double speed = 0;
         public static double distance = 0;
         public static string character = "";
+        public static double velocity = 0;
 
         // ship variables
         public static string shipName = "";
@@ -43,12 +44,7 @@ namespace SpaceGame
         public static int shipPrice = 0;
         public static int tier1Ship = 1;
         public static int tier2Ship = 2;
-        public static int tier3Ship = 3;
-
-        // Planets and travel variables        
-        public static double destX = 0;
-        public static double destY = 0;
-        public static double velocity = 0;
+        public static int tier3Ship = 3;        
         #endregion
 
         // Code for inventory handling

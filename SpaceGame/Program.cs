@@ -240,7 +240,7 @@ namespace SpaceGame
                         }
                         else if ((shopInput == "Travel") || (shopInput == "travel"))
                         {
-                            Menu.Travel.TravelMenu();
+                            new Menu.Travel().TravelMenu();
                         }
                         else if (shopInput == "exit")
                         {

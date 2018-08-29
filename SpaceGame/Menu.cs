@@ -468,7 +468,7 @@ namespace SpaceGame
         // Travel class for all travel handling
         public class Travel
         {
-            public static int Earth()
+            private int Earth()
             {
                 Program.UI();
                 if (V.currentPlanet == V.earth)
@@ -506,7 +506,7 @@ namespace SpaceGame
                 return V.currentPlanet;
             }
 
-            public static int AlphaCentauri()
+            private int AlphaCentauri()
             {
                 Program.UI();
                 if (V.currentPlanet == V.alphaCentauri)
@@ -544,7 +544,7 @@ namespace SpaceGame
                 return V.currentPlanet;
             }
 
-            public static int Trappist()
+            private int Trappist()
             {
                 Program.UI();
                 if (V.currentPlanet == V.trappist)
@@ -581,7 +581,7 @@ namespace SpaceGame
                 return V.currentPlanet;
             }
 
-            public static int Krootabulon()
+            private int Krootabulon()
             {
                 Program.UI();
                 if (V.currentPlanet == V.krootabulon)
@@ -619,7 +619,7 @@ namespace SpaceGame
                 return V.currentPlanet;
             }
 
-            public static void TravelMenu()
+            public void TravelMenu()
             {
                 string travelInput = "";
 

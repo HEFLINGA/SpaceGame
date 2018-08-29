@@ -145,7 +145,7 @@ namespace SpaceGame
         public static bool GameOver(int credits, double time)
         {
             bool gameOver = false;
-            if ((credits < 0) || (V.time >= 40.0))
+            if ((credits < 0) || (time >= 40.0))
             {
                 gameOver = true;
             }

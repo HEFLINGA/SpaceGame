@@ -8,6 +8,7 @@ namespace SpaceGame
 {
     class Menu
     {
+        // Custom default constructor
         public Menu()
         {
 

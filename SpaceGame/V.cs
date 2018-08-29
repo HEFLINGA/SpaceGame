@@ -9,7 +9,6 @@ namespace SpaceGame
     public class V
     {
         // Decleration of variables
-
         #region Public Variable Decleration
         public static Random rnd = new Random();
 

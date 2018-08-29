@@ -499,7 +499,6 @@ namespace SpaceGame
                     {
                         Planet.currentPlanet = 1;
                         V.time += V.timePassage;
-                        Planet.GetPlanet(Planet.PlanetEarth());
                         Planet.GetPlanetName(1);
                         Planet.GetCurX();
                         Planet.GetCurY();
@@ -541,7 +540,6 @@ namespace SpaceGame
                     {
                         Planet.currentPlanet = 2;
                         V.time += V.timePassage;
-                        Planet.GetPlanet(Planet.PlanetAlphaCentauri());
                         Planet.GetPlanetName(2);
                         Planet.GetCurX();
                         Planet.GetCurY();
@@ -583,7 +581,6 @@ namespace SpaceGame
                     {
                         Planet.currentPlanet = 3;
                         V.time += V.timePassage;
-                        Planet.GetPlanet(Planet.PlanetTrappist());
                         Planet.GetPlanetName(3);
                         Planet.GetCurX();
                         Planet.GetCurY();
@@ -624,7 +621,6 @@ namespace SpaceGame
                     {
                         Planet.currentPlanet = 4;
                         V.time += V.timePassage;
-                        Planet.GetPlanet(Planet.Planetkrootabulon());
                         Planet.GetPlanetName(4);
                         Planet.GetCurX();
                         Planet.GetCurY();

@@ -10,22 +10,28 @@ namespace SpaceGame
     {
         private double x = 0;
         private double y = 0;
-        public string planetName = "";
+        private string planetName = "";
         public static int currentPlanet;
 
-        public static int PlanetEarth()
+        // Default constructor
+        public Planet()
+        {
+        }
+
+        // Methods for using planets
+        public int PlanetEarth()
         {
             return currentPlanet = 1;
         }
-        public static int PlanetAlphaCentauri()
+        public int PlanetAlphaCentauri()
         {
             return currentPlanet = 2;
         }
-        public static int PlanetTrappist()
+        public int PlanetTrappist()
         {
             return currentPlanet = 3;
         }
-        public static int Planetkrootabulon()
+        public int Planetkrootabulon()
         {
             return currentPlanet = 4;
         }
@@ -95,27 +101,6 @@ namespace SpaceGame
                 return new Planet().y = -7;
             }
             return GetCurY();
-        }
-
-        // Get current planet
-        public static void GetPlanet(int currentPlanet)
-        {
-            if (currentPlanet == 1)
-            {
-                PlanetEarth();
-            }
-            else if (currentPlanet == 2)
-            {
-                PlanetAlphaCentauri();
-            }
-            else if (currentPlanet == 3)
-            {
-                PlanetTrappist();
-            }
-            else if (currentPlanet == 4)
-            {
-                Planetkrootabulon();
-            }
         }
     }
 }

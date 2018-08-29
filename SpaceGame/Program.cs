@@ -102,8 +102,6 @@ namespace SpaceGame
             V.currentShip = V.tier1Ship;
             Ship(V.tier1Ship, V.tier2Ship, V.tier3Ship);
             Planet.currentPlanet = 1;
-            Planet.GetPlanet(Planet.currentPlanet);
-            //Planet(V.earth, V.alphaCentauri, V.trappist, V.krootabulon);
 
             // string decleration
             string input;

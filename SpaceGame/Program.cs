@@ -44,7 +44,7 @@ namespace SpaceGame
         }   // Code for distance math
         public static double Velocity(double speed)
         {
-            V.velocity = Math.Pow(V.speed, (10 / 3)) + Math.Pow((10 - V.speed), -11 / 3);
+            V.velocity = Math.Pow(speed, (10 / 3)) + Math.Pow((10 - speed), -11 / 3);
 
             return V.velocity;
         }                                       // Code for Velocity/Speed math based on Warp Factor

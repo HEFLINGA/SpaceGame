@@ -295,6 +295,11 @@ namespace SpaceGame
                             CargoFuel();
                             Program.UI();
                             break;
+                        case "inv":
+                            Console.Clear();
+                            V.Inventory(V.maxInventory, V.curInventory);
+                            Program.UI();
+                            break;
                         case "":
                             Console.WriteLine("Returning to Menu");
                             System.Threading.Thread.Sleep(1000);
@@ -446,6 +451,11 @@ namespace SpaceGame
                         case "fuel":
                             Console.Clear();
                             CargoFuel();
+                            Program.UI();
+                            break;
+                        case "inv":
+                            Console.Clear();
+                            V.Inventory(V.maxInventory, V.curInventory);
                             Program.UI();
                             break;
                         case "":
@@ -635,13 +645,13 @@ namespace SpaceGame
                         Console.Clear();
                         Earth();
                         Program.UI();
-                        break;:
+                        break;
                     case "alpha centauri":
                         Console.Clear();
                         AlphaCentauri();
                         Program.UI();
                         break;
-                    case "trappist"::
+                    case "trappist":
                         Console.Clear();
                         Trappist();
                         Program.UI();

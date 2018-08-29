@@ -84,38 +84,6 @@ namespace SpaceGame
             return V.currentPlanet;
         }
 
-        // Code for inventory handling
-        public static int Inventory(int maxInventory, int curInventory)
-        {
-            // remaining inventory space
-            V.remInventory = maxInventory - curInventory;
-            if (curInventory > 0)
-            {
-                Console.WriteLine("You have {0} Food", V.invFood);
-                Console.WriteLine("You have {0} Research", V.invResearch);
-                Console.WriteLine("You have {0} Animals", V.invAnimals);
-                Console.WriteLine("You have {0} Water", V.invWater);
-                Console.WriteLine("You have {0} Fuel", V.invFuel);
-                Console.WriteLine("You have {0} out of {1} spaces remaining", V.remInventory, maxInventory);
-                Console.WriteLine("Press 'Enter' to continue");
-                Console.ReadLine();
-            }
-            else if (curInventory == 0)
-            {
-                Console.WriteLine("Your inventory is empty!");
-                Console.WriteLine("Press 'Enter' to continue");
-                Console.ReadLine();
-            }
-
-            return curInventory;
-        }
-
-        // Code for inventory checking at runtime (behind the scenes)
-        public int CheckInventory(int curInventory, int maxInventory)
-        {            
-            return curInventory;
-        }
-
         // Code for Ships
         public static int Ship(int tier1, int tier2, int tier3)
         {
@@ -244,7 +212,7 @@ namespace SpaceGame
                         }
                         else if ((shopInput == "Inv") || (shopInput == "inv"))
                         {
-                            Inventory(V.maxInventory, V.curInventory);
+                            V.Inventory(V.maxInventory, V.curInventory);
                         }
                         else if ((shopInput == "Travel") || (shopInput == "travel"))
                         {

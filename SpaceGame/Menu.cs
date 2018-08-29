@@ -23,6 +23,7 @@ namespace SpaceGame
             Console.WriteLine("New Max V.speed: {0}.  New Max Cargo: {1}", V.speed, V.maxInventory);
             Console.ReadLine();
         }
+        // Ship class for all buying of ships
         public class ShipBuy
         {
             // Ship Menu for buying ships
@@ -114,6 +115,7 @@ namespace SpaceGame
             }
         }
 
+        // Buy class for all buying of inventory
         public class Buy
         {
             // Code for buying food
@@ -302,6 +304,163 @@ namespace SpaceGame
                             break;
                     }
                 } while (buyInput != "");
+            }
+        }
+
+        public class Sell
+        {
+            private static int CargoFood()
+            {
+                if (V.invFood >= 1)
+                {
+                    V.credits += V.costFood;
+                    V.totalCredits += V.costFood;
+                    V.invFood -= 1;
+                }
+                else if (V.invFood == 0)
+                {
+                    Program.UI();
+                    Console.WriteLine("You do not have any Food in your inventory to sell!");
+                    Console.WriteLine("Press 'Enter' to return to Menu");
+                    Console.ReadLine();
+                }
+
+                return V.invFood;
+            }
+            private static int CargoResearch()
+            {
+                if (V.invResearch >= 1)
+                {
+                    V.credits += V.costResearch;
+                    V.totalCredits += V.costResearch;
+                    V.invResearch -= 1;
+                }
+                else if (V.invResearch == 0)
+                {
+                    Program.UI();
+                    Console.WriteLine("You do not have any Research Items in your inventory to sell!");
+                    Console.WriteLine("Press 'Enter' to return to Menu");
+                    Console.ReadLine();
+                }
+
+                return V.invResearch;
+            }
+            private static int CargoAnimals()
+            {
+                if (V.invAnimals >= 1)
+                {
+                    V.credits += V.costAnimals;
+                    V.totalCredits += V.costAnimals;
+                    V.invAnimals -= 1;
+                }
+                else if (V.invAnimals == 0)
+                {
+                    Program.UI();
+                    Console.WriteLine("You do not have any Animals in your inventory to sell!");
+                    Console.WriteLine("Press 'Enter' to return to Menu");
+                    Console.ReadLine();
+                }
+
+                return V.invAnimals;
+            }
+            private static int CargoWater()
+            {
+                if (V.invWater >= 2)
+                {
+                    V.credits += V.costWater;
+                    V.totalCredits += V.costWater;
+                    V.invWater -= 2;
+                }
+                else if (V.invWater < 2)
+                {
+                    Program.UI();
+                    Console.WriteLine("You do not have any Water in your inventory to sell!");
+                    Console.WriteLine("Press 'Enter' to return to Menu");
+                    Console.ReadLine();
+                }
+
+                return V.invWater;
+            }
+            private static int CargoFuel()
+            {
+                if (V.invFuel >= 2)
+                {
+                    V.credits += V.costFuel;
+                    V.totalCredits += V.costFuel;
+                    V.invFuel -= 2;
+                }
+                else if (V.invFuel < 2)
+                {
+                    Program.UI();
+                    Console.WriteLine("You do not have any Fuel in your inventory to Sell!");
+                    Console.WriteLine("Press 'Enter' to return to Menu");
+                    Console.ReadLine();
+                }
+
+                return V.invFuel;
+            }
+
+            public static void SellMenu()
+            {
+                string sellInput = "";
+
+                do
+                {
+                    Program.UI();
+                    Program.Inventory(V.maxInventory, V.curInventory);
+                    Program.UI();
+
+                    Console.WriteLine("What would you like to Sell?: \n" +
+                                        "(Type name of Item to purchase)");
+                    Console.WriteLine("press 'Enter' to leave the trading post");
+                    Console.WriteLine();
+                    Console.WriteLine($"Food, sale price: {V.costFood}");
+                    Console.WriteLine($"Research, sale price: {V.costResearch}");
+                    Console.WriteLine($"Animals, sale price: {V.costAnimals}");
+                    Console.WriteLine($"Water, sale price: {V.costWater}");
+                    Console.WriteLine($"Fuel, sale price: {V.costFuel}");
+
+                    sellInput = Console.ReadLine();
+                    switch (sellInput)
+                    {
+                        case "Food":
+                        case "food":
+                            Console.Clear();
+                            CargoFood();
+                            Program.UI();
+                            break;
+                        case "Research":
+                        case "research":
+                            Console.Clear();
+                            CargoResearch();
+                            Program.UI();
+                            break;
+                        case "animals":
+                        case "Animals":
+                            Console.Clear();
+                            CargoAnimals();
+                            Program.UI();
+                            break;
+                        case "water":
+                        case "Water":
+                            Console.Clear();
+                            CargoWater();
+                            Program.UI();
+                            break;
+                        case "fuel":
+                        case "Fuel":
+                            Console.Clear();
+                            CargoFuel();
+                            Program.UI();
+                            break;
+                        case "":
+                            Console.WriteLine("Returning to Menu");
+                            System.Threading.Thread.Sleep(1000);
+                            Console.Clear();
+                            break;
+
+                    }
+                } while (sellInput != "");
             }
         }
 

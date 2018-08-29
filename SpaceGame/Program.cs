@@ -228,11 +228,11 @@ namespace SpaceGame
                         }
                         else if ((shopInput == "Buy") || (shopInput == "buy"))
                         {
-                            Menu.Buy.BuyMenu();
+                            new Menu.Buy().BuyMenu();
                         }
                         else if ((shopInput == "Sell") || (shopInput == "sell"))
                         {
-                            Menu.Sell.SellMenu();
+                            new Menu.Sell().SellMenu();
                         }
                         else if ((shopInput == "Inv") || (shopInput == "inv"))
                         {

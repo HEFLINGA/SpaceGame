@@ -14,7 +14,7 @@ namespace SpaceGame
         }
 
         // Congrats Window when buying ship
-        private static void Congrats()
+        private void Congrats()
         {
             Program.UI();
             Console.WriteLine("Congratulations on your new ship!!!!!");
@@ -35,7 +35,7 @@ namespace SpaceGame
                     V.credits -= 20000;
                     V.currentShip = V.tier2Ship;
                     Program.Ship(V.tier1Ship, V.tier2Ship, V.tier3Ship);
-                    Congrats();
+                    new Menu().Congrats();
                 }
                 else if (V.currentShip == V.tier2Ship)
                 {
@@ -59,7 +59,7 @@ namespace SpaceGame
                     V.credits -= 50000;
                     V.currentShip = V.tier3Ship;
                     Program.Ship(V.tier1Ship, V.tier2Ship, V.tier3Ship);
-                    Congrats();
+                    new Menu().Congrats();
                 }
                 else if (V.currentShip == V.tier3Ship)
                 {
@@ -119,7 +119,7 @@ namespace SpaceGame
         public class Buy
         {
             // Code for buying food
-            private static int CargoFood()
+            private int CargoFood()
             {
                 if ((V.curInventory < V.maxInventory) && (V.credits >= V.costFood))
                 {
@@ -144,7 +144,7 @@ namespace SpaceGame
                 return V.invFood;
             }
             // Code for buying research
-            private static int CargoResearch()
+            private int CargoResearch()
             {
                 if ((V.curInventory < V.maxInventory) && (V.credits >= V.costResearch))
                 {
@@ -169,7 +169,7 @@ namespace SpaceGame
                 return V.invResearch;
             }
             // Code for buying animals
-            private static int CargoAnimals()
+            private int CargoAnimals()
             {
                 if ((V.curInventory < V.maxInventory) && (V.credits >= V.costAnimals))
                 {
@@ -194,7 +194,7 @@ namespace SpaceGame
                 return V.invAnimals;
             }
             // Code for buying water
-            private static int CargoWater()
+            private int CargoWater()
             {
                 if ((V.remInventory >= 2) && (V.credits >= V.costWater))
                 {
@@ -219,7 +219,7 @@ namespace SpaceGame
                 return V.invWater;
             }
             // Code for buying fuel (Resource)
-            private static int CargoFuel()
+            private int CargoFuel()
             {
                 if ((V.remInventory >= 2) && (V.credits >= V.costFuel))
                 {
@@ -244,7 +244,7 @@ namespace SpaceGame
                 return V.invFuel;
             }
             // Buying Menu
-            public static void BuyMenu()
+            public void BuyMenu()
             {
                 string buyInput = "";
 
@@ -310,7 +310,7 @@ namespace SpaceGame
         // Sell class for all selling of inventory
         public class Sell
         {
-            private static int CargoFood()
+            private int CargoFood()
             {
                 if (V.invFood >= 1)
                 {
@@ -328,7 +328,7 @@ namespace SpaceGame
 
                 return V.invFood;
             }
-            private static int CargoResearch()
+            private int CargoResearch()
             {
                 if (V.invResearch >= 1)
                 {
@@ -346,7 +346,7 @@ namespace SpaceGame
 
                 return V.invResearch;
             }
-            private static int CargoAnimals()
+            private int CargoAnimals()
             {
                 if (V.invAnimals >= 1)
                 {
@@ -364,7 +364,7 @@ namespace SpaceGame
 
                 return V.invAnimals;
             }
-            private static int CargoWater()
+            private int CargoWater()
             {
                 if (V.invWater >= 2)
                 {
@@ -382,7 +382,7 @@ namespace SpaceGame
 
                 return V.invWater;
             }
-            private static int CargoFuel()
+            private int CargoFuel()
             {
                 if (V.invFuel >= 2)
                 {
@@ -401,7 +401,7 @@ namespace SpaceGame
                 return V.invFuel;
             }
 
-            public static void SellMenu()
+            public void SellMenu()
             {
                 string sellInput = "";
 

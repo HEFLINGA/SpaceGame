@@ -469,8 +469,7 @@ namespace SpaceGame
             }
         }
 
-        // Travel class for all travel handling;
-        
+        // Travel class for all travel handling;        
         public class Travel
         {
             private int Earth()
@@ -493,9 +492,9 @@ namespace SpaceGame
                     Console.WriteLine();
                     Console.WriteLine("type 'GO' to depart");
                     Console.WriteLine("press 'enter' to go back to main menu");
-                    string conf = Console.ReadLine();
+                    string conf = Console.ReadLine().ToLower();
 
-                    if (conf == "GO")
+                    if (conf == "go")
                     {
                         Planet.currentPlanet = 1;
                         V.time += V.timePassage;
@@ -534,9 +533,9 @@ namespace SpaceGame
                     Console.WriteLine();
                     Console.WriteLine("type 'GO' to depart");
                     Console.WriteLine("press 'enter' to go back to main menu");
-                    string conf = Console.ReadLine();
+                    string conf = Console.ReadLine().ToLower();
 
-                    if (conf == "GO")
+                    if (conf == "go")
                     {
                         Planet.currentPlanet = 2;
                         V.time += V.timePassage;
@@ -575,9 +574,9 @@ namespace SpaceGame
                     Console.WriteLine();
                     Console.WriteLine("type 'GO' to depart");
                     Console.WriteLine("press 'enter' to go back to main menu");
-                    string conf = Console.ReadLine();
+                    string conf = Console.ReadLine().ToLower();
 
-                    if (conf == "GO")
+                    if (conf == "go")
                     {
                         Planet.currentPlanet = 3;
                         V.time += V.timePassage;
@@ -615,9 +614,9 @@ namespace SpaceGame
                     Console.WriteLine();
                     Console.WriteLine("type 'GO' to depart");
                     Console.WriteLine("press 'enter' to go back to main menu");
-                    string conf = Console.ReadLine();
+                    string conf = Console.ReadLine().ToLower();
 
-                    if (conf == "GO")
+                    if (conf == "go")
                     {
                         Planet.currentPlanet = 4;
                         V.time += V.timePassage;

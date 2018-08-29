@@ -8,127 +8,73 @@ namespace SpaceGame
 {
     class Program
     {
-        // TODO - 
-
-        // Decleration of variables
-
-        #region Public Variable Decleration
-        public static Random rnd = new Random();
-
-        // Inventory and item variables
-        public static int curInventory = 0;
-        public static int maxInventory = 0;
-        public static int remInventory = 0;
-        public static int invFood = 0;
-        public static int invResearch = 0;
-        public static int invAnimals = 0;
-        public static int invWater = 0;
-        public static int invFuel = 0;
-        public static int cost = 0;
-        public static int price = 0;
-        public static int credits = 10000;
-        public static int totalCredits = 0;
-        public static int costFood = 2000;
-        public static int costResearch = 3000;
-        public static int costAnimals = 4000;
-        public static int costWater = 5000;
-        public static int costFuel = 6000;
-
-        //various variables
-        public static double timePassage = 0;
-        public static double time = 0;
-        public static double speed = 0;
-        public static double distance = 0;
-        public static string character = "";
-
-        // ship variables
-        public static string shipName = "";
-        public static int currentShip = 0;
-        public static int shipPrice = 0;
-        public static int tier1Ship = 1;
-        public static int tier2Ship = 2;
-        public static int tier3Ship = 3;
-
-        // Planets and travel variables
-        public static string planetName = "";
-        public static int currentPlanet = 0;
-        public static int earth = 1;
-        public static int alphaCentauri = 2;
-        public static int trappist = 3;
-        public static int krootabulon = 4;
-        public static double x = 0;
-        public static double y = 0;
-        public static double destX = 0;
-        public static double destY = 0;
-        public static double velocity = 0;        
-        #endregion
         
         // Congrats Window when buying ship
         public static void Congrats()
         {
             UI();
             Console.WriteLine("Congratulations on your new ship!!!!!");
-            Console.WriteLine("You now have a new max speed and cargo!");
+            Console.WriteLine("You now have a new max V.speed and cargo!");
             Console.WriteLine();
-            Console.WriteLine("New Max Speed: {0}.  New Max Cargo: {1}", speed, maxInventory);
+            Console.WriteLine("New Max V.speed: {0}.  New Max Cargo: {1}", V.speed, V.maxInventory);
             Console.ReadLine();
         }
         // Random Number generator
         public static void RandomNumbers()
         {
-            costFood = rnd.Next(2000, 3000);
-            costResearch = rnd.Next(1000, 5000);
-            costAnimals = rnd.Next(2000, 4000);
-            costWater = rnd.Next(1000, 8000);
-            costFuel = rnd.Next(2000, 7000);
+            V.costFood = V.rnd.Next(2000, 3000);
+            V.costResearch = V.rnd.Next(1000, 5000);
+            V.costAnimals = V.rnd.Next(2000, 4000);
+            V.costWater = V.rnd.Next(1000, 8000);
+            V.costFuel = V.rnd.Next(2000, 7000);
         }
         // Code for Planets
         public static int Planet(int earth, int alphaCentauri, int trappist, int krootabulon)
         {
-            if (currentPlanet == earth)
+            if (V.currentPlanet == earth)
             {
-                planetName = "Earth";
-                x = 0;
-                y = 0;
+                V.planetName = "Earth";
+                V.x = 0;
+                V.y = 0;
                 RandomNumbers();
             }
-            else if (currentPlanet == alphaCentauri)
+            else if (V.currentPlanet == alphaCentauri)
             {
-                planetName = "Alpha Centauri";
-                x = 0;
-                y = 4.367;
+                V.planetName = "Alpha Centauri";
+                V.x = 0;
+                V.y = 4.367;
                 RandomNumbers();
     }
-            else if (currentPlanet == trappist)
+            else if (V.currentPlanet == trappist)
             {
-                planetName = "TRAPPIST-1";
-                x = -2;
-                y = 6;
+                V.planetName = "TRAPPIST-1";
+                V.x = -2;
+                V.y = 6;
                 RandomNumbers();
             }
-            else if (currentPlanet == krootabulon)
+            else if (V.currentPlanet == krootabulon)
             {
-                planetName = "Krootabulon!";
-                x = 3;
-                y = -7;
+                V.planetName = "Krootabulon!";
+                V.x = 3;
+                V.y = -7;
                 RandomNumbers();
             }
 
-            return currentPlanet;
+            return V.currentPlanet;
         }
         // Code for inventory handling
         public static int Inventory(int maxInventory, int curInventory)
         {
             // remaining inventory space
-            remInventory = maxInventory - curInventory;
+            V.remInventory = maxInventory - curInventory;
             if (curInventory > 0)
             {
-                Console.WriteLine("You have {0} Food", invFood);
-                Console.WriteLine("You have {0} Research", invResearch);
-                Console.WriteLine("You have {0} Animals", invAnimals);
-                Console.WriteLine("You have {0} Water", invWater);
-                Console.WriteLine("You have {0} Fuel", invFuel);
-                Console.WriteLine("You have {0} out of {1} spaces remaining", remInventory, maxInventory);
+                Console.WriteLine("You have {0} Food", V.invFood);
+                Console.WriteLine("You have {0} Research", V.invResearch);
+                Console.WriteLine("You have {0} Animals", V.invAnimals);
+                Console.WriteLine("You have {0} Water", V.invWater);
+                Console.WriteLine("You have {0} Fuel", V.invFuel);
+                Console.WriteLine("You have {0} out of {1} spaces remaining", V.remInventory, maxInventory);
                 Console.WriteLine("Press 'Enter' to continue");
                 Console.ReadLine();
             }
@@ -144,32 +90,32 @@ namespace SpaceGame
         // Code for Ships
         public static int Ship(int tier1, int tier2, int tier3)
         {
-            if (currentShip == tier1Ship)
+            if (V.currentShip == V.tier1Ship)
             {
-                shipName = "Space Cruiser";
-                maxInventory = 3;
-                speed = 1.5;
-                shipPrice = 5000;
-                velocity = Velocity(speed);
+                V.shipName = "Space Cruiser";
+                V.maxInventory = 3;
+                V.speed = 1.5;
+                V.shipPrice = 5000;
+                V.velocity = Velocity(V.speed);
             }
-            else if (currentShip == tier2Ship)
+            else if (V.currentShip == V.tier2Ship)
             {
-                shipName = "Star Explorer";
-                maxInventory = 5;
-                speed = 3;
-                shipPrice = 20000;
-                velocity = Velocity(speed);
+                V.shipName = "Star Explorer";
+                V.maxInventory = 5;
+                V.speed = 3;
+                V.shipPrice = 20000;
+                V.velocity = Velocity(V.speed);
             }
-            else if (currentShip == tier3Ship)
+            else if (V.currentShip == V.tier3Ship)
             {
-                shipName = "USS Schwiftiest Ship";
-                maxInventory = 10;
-                speed = 6;
-                shipPrice = 50000;
-                velocity = Velocity(speed);
+                V.shipName = "USS Schwiftiest Ship";
+                V.maxInventory = 10;
+                V.speed = 6;
+                V.shipPrice = 50000;
+                V.velocity = Velocity(V.speed);
             }
 
-            return currentShip;
+            return V.currentShip;
         }
         // Code for UI
         public static void UI()
@@ -180,13 +126,13 @@ namespace SpaceGame
             Console.WriteLine("________________________________________________________________________________________________________________________");
             Console.SetCursorPosition(30, 1);
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Cargo: {0}/{1}", curInventory = invFood + invResearch + invAnimals + invWater + invFuel, maxInventory);
+            Console.WriteLine("Cargo: {0}/{1}", V.curInventory = V.invFood + V.invResearch + V.invAnimals + V.invWater + V.invFuel, maxInventory);
             Console.SetCursorPosition(5, 1);
-            Console.WriteLine("Name: {0}", character);
+            Console.WriteLine("Name: {0}", V.character);
             Console.SetCursorPosition(55, 1);
-            Console.WriteLine("Credits: {0}", credits);
+            Console.WriteLine("Credits: {0}", V.credits);
             Console.SetCursorPosition(90, 1);
-            Console.WriteLine("Year: {0}", time);
+            Console.WriteLine("Year: {0}", V.time);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("________________________________________________________________________________________________________________________");
             Console.ForegroundColor = ConsoleColor.DarkCyan;
@@ -195,7 +141,7 @@ namespace SpaceGame
         public static bool GameOver(int credits, double time)
         {
             bool gameOver = false;
-            if ((credits < 0) || (time >= 40.0))
+            if ((credits < 0) || (V.time >= 40.0))
             {
                 gameOver = true;
             }
@@ -212,51 +158,51 @@ namespace SpaceGame
             // Ship options
             public static int StarExplorer()
             {
-                if ((currentShip != tier2Ship) && (credits >= 20000))
+                if ((V.currentShip != V.tier2Ship) && (V.credits >= 20000))
                 {
-                    credits -= 20000;
-                    currentShip = tier2Ship;
-                    Ship(tier1Ship, tier2Ship, tier3Ship);
+                    V.credits -= 20000;
+                    V.currentShip = V.tier2Ship;
+                    Ship(V.tier1Ship, V.tier2Ship, V.tier3Ship);
                     Congrats();
                 }
-                else if (currentShip == tier2Ship)
+                else if (V.currentShip == V.tier2Ship)
                 {
-                    Console.WriteLine($"You already own that ship! No need to have 2 of them.. you are but one person {character}");
+                    Console.WriteLine($"You already own that ship! No need to have 2 of them.. you are but one person {V.character}");
                     Console.WriteLine("Press Enter to return to Main Menu");
                     Console.ReadLine();
                 }
-                else if (credits < 20000)
+                else if (V.credits < 20000)
                 {
                     Console.WriteLine("You are to broke to afford such a ship.. Get more credits and come back");
                     Console.WriteLine("Press Enter to return to Main Menu");
                     Console.ReadLine();
                 }
 
-                return currentShip;
+                return V.currentShip;
             }
             public static int UssSchwiftiestShip()
             {
-                if ((currentShip != tier3Ship) && (credits >= 50000))
+                if ((V.currentShip != V.tier3Ship) && (V.credits >= 50000))
                 {
-                    credits -= 50000;
-                    currentShip = tier3Ship;
-                    Ship(tier1Ship, tier2Ship, tier3Ship);
+                    V.credits -= 50000;
+                    V.currentShip = V.tier3Ship;
+                    Ship(V.tier1Ship, V.tier2Ship, V.tier3Ship);
                     Congrats();
                 }
-                else if (currentShip == tier3Ship)
+                else if (V.currentShip == V.tier3Ship)
                 {
                     Console.WriteLine($"You already own that ship! No need to have 2 of them.. you are but one person {character}");
                     Console.WriteLine("Press Enter to return to Main Menu");
                     Console.ReadLine();
                 }
-                else if (credits < 50000)
+                else if (V.credits < 50000)
                 {
                     Console.WriteLine("You are to broke to afford such a ship.. Get more credits and come back");
                     Console.WriteLine("Press Enter to return to Main Menu");
                     Console.ReadLine();
                 }
 
-                return currentShip;
+                return V.currentShip;
             }
             // Ship menu
             public static void ShipMenu()
@@ -269,8 +215,8 @@ namespace SpaceGame
                                             "(Type name of Ship to purchase)");
                     Console.WriteLine("press 'Enter' to leave the trading post");
                     Console.WriteLine();
-                    Console.WriteLine("Star Explorer! Price: 20000 credits. Speed: 3. Cargo: 5");
-                    Console.WriteLine("USS Schwiftiest Ship! Price: 50000 credits. Speed: 6. Cargo: 10");
+                    Console.WriteLine("Star Explorer! Price: 20000 credits. V.speed: 3. Cargo: 5");
+                    Console.WriteLine("USS Schwiftiest Ship! Price: 50000 credits. V.speed: 6. Cargo: 10");
 
                     shipMenuInput = Console.ReadLine();
                     switch (shipMenuInput)
@@ -302,19 +248,19 @@ namespace SpaceGame
             // Code for buying food
             public static int CargoFood()
             {
-                if ((curInventory < maxInventory) && (credits >= costFood))
+                if ((V.curInventory < V.maxInventory) && (V.credits >= V.costFood))
                 {
-                    credits -= costFood;
-                    invFood += 1;
+                    V.credits -= V.costFood;
+                    V.invFood += 1;
                 }
-                else if (credits <= costFood)
+                else if (V.credits <= V.costFood)
                 {
                     UI();
                     Console.WriteLine("You do not have enough Credits to purchase item!");
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
-                else if ((remInventory == 0) || (curInventory == maxInventory))
+                else if ((V.remInventory == 0) || (V.curInventory == V.maxInventory))
                 {
                     UI();
                     Console.WriteLine("You do not have enough space in your inventory!");
@@ -322,24 +268,24 @@ namespace SpaceGame
                     Console.ReadLine();
                 }
 
-                return invFood;
+                return V.invFood;
             }
             // Code for buying research
             public static int CargoResearch()
             {
-                if ((curInventory < maxInventory) && (credits >= costResearch))
+                if ((V.curInventory < V.maxInventory) && (V.credits >= V.costResearch))
                 {
-                    credits -= costResearch;
-                    invResearch += 1;
+                    V.credits -= V.costResearch;
+                    V.invResearch += 1;
                 }
-                else if (credits <= costResearch)
+                else if (V.credits <= V.costResearch)
                 {
                     UI();
                     Console.WriteLine("You do not have enough Credits to purchase item!");
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
-                else if ((remInventory == 0) || (curInventory == maxInventory))
+                else if ((V.remInventory == 0) || (V.curInventory == V.maxInventory))
                 {
                     UI();
                     Console.WriteLine("You do not have enough space in your inventory!");
@@ -347,24 +293,24 @@ namespace SpaceGame
                     Console.ReadLine();
                 }
 
-                return invResearch;
+                return V.invResearch;
             }
             // Code for buying animals
             public static int CargoAnimals()
             {
-                if ((curInventory < maxInventory) && (credits >= costAnimals))
+                if ((V.curInventory < V.maxInventory) && (V.credits >= V.costAnimals))
                 {
-                    credits -= costAnimals;
-                    invAnimals += 1;
+                    V.credits -= V.costAnimals;
+                    V.invAnimals += 1;
                 }
-                else if (credits <= costAnimals)
+                else if (V.credits <= V.costAnimals)
                 {
                     UI();
                     Console.WriteLine("You do not have enough Credits to purchase item!");
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
-                else if ((remInventory == 0) || (curInventory == maxInventory))
+                else if ((V.remInventory == 0) || (V.curInventory == V.maxInventory))
                 {
                     UI();
                     Console.WriteLine("You do not have enough space in your inventory!");
@@ -372,24 +318,24 @@ namespace SpaceGame
                     Console.ReadLine();
                 }
 
-                return invAnimals;
+                return V.invAnimals;
             }
             // Code for buying water
             public static int CargoWater()
             {
-                if ((remInventory >= 2) && (credits >= costWater))
+                if ((V.remInventory >= 2) && (V.credits >= V.costWater))
                 {
-                    credits -= costWater;
-                    invWater += 2;
+                    V.credits -= V.costWater;
+                    V.invWater += 2;
                 }
-                else if (credits <= costWater)
+                else if (V.credits <= V.costWater)
                 {
                     UI();
                     Console.WriteLine("You do not have enough Credits to purchase item!");
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
-                else if (remInventory <= 1)
+                else if (V.remInventory <= 1)
                 {
                     UI();
                     Console.WriteLine("You do not have enough space in your inventory!");
@@ -397,24 +343,24 @@ namespace SpaceGame
                     Console.ReadLine();
                 }
 
-                return invWater;
+                return V.invWater;
             }
             // Code for buying fuel (Resource)
             public static int CargoFuel()
             {
-                if ((remInventory >= 2) && (credits >= costFuel))
+                if ((V.remInventory >= 2) && (V.credits >= V.costFuel))
                 {
-                    credits -= costFuel;
-                    invFuel += 2;
+                    V.credits -= V.costFuel;
+                    V.invFuel += 2;
                 }
-                else if (credits <= costFuel)
+                else if (V.credits <= V.costFuel)
                 {
                     UI();
                     Console.WriteLine("You do not have enough Credits to purchase item!");
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
-                else if (remInventory <= 1)
+                else if (V.remInventory <= 1)
                 {
                     UI();
                     Console.WriteLine("You do not have enough space in your inventory!");
@@ -422,7 +368,7 @@ namespace SpaceGame
                     Console.ReadLine();
                 }
 
-                return invFuel;
+                return V.invFuel;
             }
             // Buying Menu
             public static void BuyMenu()
@@ -432,18 +378,18 @@ namespace SpaceGame
                 do
                 {
                     UI();
-                    Inventory(maxInventory, curInventory);
+                    Inventory(V.maxInventory, V.curInventory);
                     UI();
 
                     Console.WriteLine("What would you like to buy?: \n" +
                                         "(Type name of Item to purchase)");
                     Console.WriteLine("press 'Enter' to leave the trading post");
                     Console.WriteLine();
-                    Console.WriteLine($"Food, price: {costFood}. This will take up 1 cargo slot");
-                    Console.WriteLine($"Research, price: {costResearch}. This will take up 1 cargo slot");
-                    Console.WriteLine($"Animals, price: {costAnimals}. This will take up 1 cargo slot");
-                    Console.WriteLine($"Water, price: {costWater}. This will take up 2 cargo slots");
-                    Console.WriteLine($"Fuel, price: {costFuel}. This will take up 2 cargo slots");
+                    Console.WriteLine($"Food, price: {V.costFood}. This will take up 1 cargo slot");
+                    Console.WriteLine($"Research, price: {V.costResearch}. This will take up 1 cargo slot");
+                    Console.WriteLine($"Animals, price: {V.costAnimals}. This will take up 1 cargo slot");
+                    Console.WriteLine($"Water, price: {V.costWater}. This will take up 2 cargo slots");
+                    Console.WriteLine($"Fuel, price: {V.costFuel}. This will take up 2 cargo slots");
 
                     buyInput = Console.ReadLine();
                     switch (buyInput)
@@ -492,13 +438,13 @@ namespace SpaceGame
         {
             public static int CargoFood()
             {
-                if (invFood >= 1)
+                if (V.invFood >= 1)
                 {
-                    credits += costFood;
-                    totalCredits += costFood;
-                    invFood -= 1;
+                    V.credits += V.costFood;
+                    V.totalCredits += V.costFood;
+                    V.invFood -= 1;
                 }
-                else if (invFood == 0)
+                else if (V.invFood == 0)
                 {
                     UI();
                     Console.WriteLine("You do not have any Food in your inventory to sell!");
@@ -506,17 +452,17 @@ namespace SpaceGame
                     Console.ReadLine();
                 }
 
-                return invFood;
+                return V.invFood;
             }
             public static int CargoResearch()
             {
-                if (invResearch >= 1)
+                if (V.invResearch >= 1)
                 {
-                    credits += costResearch;
-                    totalCredits += costResearch;
-                    invResearch -= 1;
+                    V.credits += V.costResearch;
+                    V.totalCredits += V.costResearch;
+                    V.invResearch -= 1;
                 }
-                else if (invResearch == 0)
+                else if (V.invResearch == 0)
                 {
                     UI();
                     Console.WriteLine("You do not have any Research Items in your inventory to sell!");
@@ -524,17 +470,17 @@ namespace SpaceGame
                     Console.ReadLine();
                 }
 
-                return invResearch;
+                return V.invResearch;
             }
             public static int CargoAnimals()
             {
-                if (invAnimals >= 1)
+                if (V.invAnimals >= 1)
                 {
-                    credits += costAnimals;
-                    totalCredits += costAnimals;
-                    invAnimals -= 1;
+                    V.credits += V.costAnimals;
+                    V.totalCredits += V.costAnimals;
+                    V.invAnimals -= 1;
                 }
-                else if (invAnimals == 0)
+                else if (V.invAnimals == 0)
                 {
                     UI();
                     Console.WriteLine("You do not have any Animals in your inventory to sell!");
@@ -542,17 +488,17 @@ namespace SpaceGame
                     Console.ReadLine();
                 }
 
-                return invAnimals;
+                return V.invAnimals;
             }
             public static int CargoWater()
             {
-                if (invWater >= 2)
+                if (V.invWater >= 2)
                 {
-                    credits += costWater;
-                    totalCredits += costWater;
-                    invWater -= 2;
+                    V.credits += V.costWater;
+                    V.totalCredits += V.costWater;
+                    V.invWater -= 2;
                 }
-                else if (invWater < 2)
+                else if (V.invWater < 2)
                 {
                     UI();
                     Console.WriteLine("You do not have any Water in your inventory to sell!");
@@ -560,17 +506,17 @@ namespace SpaceGame
                     Console.ReadLine();
                 }
 
-                return invWater;
+                return V.invWater;
             }
             public static int CargoFuel()
             {
-                if (invFuel >= 2)
+                if (V.invFuel >= 2)
                 {
-                    credits += costFuel;
-                    totalCredits += costFuel;
-                    invFuel -= 2;
+                    V.credits += V.costFuel;
+                    V.totalCredits += V.costFuel;
+                    V.invFuel -= 2;
                 }
-                else if (invFuel < 2)
+                else if (V.invFuel < 2)
                 {
                     UI();
                     Console.WriteLine("You do not have any Fuel in your inventory to Sell!");
@@ -578,7 +524,7 @@ namespace SpaceGame
                     Console.ReadLine();
                 }
 
-                return invFuel;
+                return V.invFuel;
             }
 
             public static void SellMenu()
@@ -588,18 +534,18 @@ namespace SpaceGame
                 do
                 {
                     UI();
-                    Inventory(maxInventory, curInventory);
+                    Inventory(V.maxInventory, V.curInventory);
                     UI();
 
                     Console.WriteLine("What would you like to Sell?: \n" +
                                         "(Type name of Item to purchase)");
                     Console.WriteLine("press 'Enter' to leave the trading post");
                     Console.WriteLine();
-                    Console.WriteLine($"Food, sale price: {costFood}");
-                    Console.WriteLine($"Research, sale price: {costResearch}");
-                    Console.WriteLine($"Animals, sale price: {costAnimals}");
-                    Console.WriteLine($"Water, sale price: {costWater}");
-                    Console.WriteLine($"Fuel, sale price: {costFuel}");
+                    Console.WriteLine($"Food, sale price: {V.costFood}");
+                    Console.WriteLine($"Research, sale price: {V.costResearch}");
+                    Console.WriteLine($"Animals, sale price: {V.costAnimals}");
+                    Console.WriteLine($"Water, sale price: {V.costWater}");
+                    Console.WriteLine($"Fuel, sale price: {V.costFuel}");
 
                     sellInput = Console.ReadLine();
                     switch (sellInput)
@@ -650,19 +596,19 @@ namespace SpaceGame
             public static int Earth()
             {
                 UI();
-                if (currentPlanet == earth)
+                if (V.currentPlanet == V.earth)
                 {
                     Console.WriteLine("You are already here!! No need to travel anywhere..");
                     Console.WriteLine("Press 'enter' to return to Menu");
                     Console.ReadLine();
                 }
-                else if (currentPlanet != earth)
+                else if (V.currentPlanet != V.earth)
                 {
-                    destX = 0;
-                    destY = 0;
+                    V.destX = 0;
+                    V.destY = 0;
                     Console.WriteLine("Heading to Earth!");
-                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(x, y, destX, destY), 3));
-                    Console.WriteLine("It will take you: {0}yrs", timePassage = Math.Round(Distance(x, y, destX, destY) / Velocity(speed), 2));
+                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(x, y, V.destX, V.destY), 3));
+                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Distance(V.x, V.y, V.destX, V.destY) / Velocity(V.speed), 2));
                     Console.WriteLine();
                     Console.WriteLine("type 'GO' to depart");
                     Console.WriteLine("press 'enter' to go back to main menu");
@@ -670,9 +616,9 @@ namespace SpaceGame
 
                     if (conf == "GO")
                     {
-                        currentPlanet = earth;
-                        time += timePassage;
-                        Planet(earth, alphaCentauri, trappist, krootabulon);
+                        V.currentPlanet = V.earth;
+                        V.time += V.timePassage;
+                        Planet(V.earth, V.alphaCentauri, V.trappist, V.krootabulon);
                     }
                     else
                     {
@@ -682,25 +628,25 @@ namespace SpaceGame
 
                 }
 
-                return currentPlanet;
+                return V.currentPlanet;
             }
 
             public static int AlphaCentauri()
             {
                 UI();
-                if (currentPlanet == alphaCentauri)
+                if (V.currentPlanet == V.alphaCentauri)
                 {
                     Console.WriteLine("You are already here!! No need to travel anywhere..");
                     Console.WriteLine("Press 'enter' to return to Menu");
                     Console.ReadLine();
                 }
-                else if (currentPlanet != alphaCentauri)
+                else if (V.currentPlanet != V.alphaCentauri)
                 {
-                    destX = 0;
-                    destY = 4.367;
+                    V.destX = 0;
+                    V.destY = 4.367;
                     Console.WriteLine("Heading to Alpha Centauri!");
-                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(x, y, destX, destY), 3));
-                    Console.WriteLine("It will take you: {0}yrs", timePassage = Math.Round(Distance(x, y, destX, destY) / Velocity(speed), 2));
+                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(V.x, V.y, V.destX, V.destY), 3));
+                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Distance(V.x, V.y, V.destX, V.destY) / Velocity(V.speed), 2));
                     Console.WriteLine();
                     Console.WriteLine("type 'GO' to depart");
                     Console.WriteLine("press 'enter' to go back to main menu");
@@ -708,9 +654,9 @@ namespace SpaceGame
 
                     if (conf == "GO")
                     {
-                        currentPlanet = alphaCentauri;
-                        time += timePassage;
-                        Planet(earth, alphaCentauri, trappist, krootabulon);
+                        V.currentPlanet = V.alphaCentauri;
+                        V.time += V.timePassage;
+                        Planet(V.earth, V.alphaCentauri, V.trappist, V.krootabulon);
                     }
                     else
                     {
@@ -720,25 +666,25 @@ namespace SpaceGame
 
                 }
 
-                return currentPlanet;
+                return V.currentPlanet;
             }
 
             public static int Trappist()
             {
                 UI();
-                if (currentPlanet == trappist)
+                if (V.currentPlanet == V.trappist)
                 {
                     Console.WriteLine("You are already here!! No need to travel anywhere..");
                     Console.WriteLine("Press 'enter' to return to Menu");
                     Console.ReadLine();
                 }
-                else if (currentPlanet != trappist)
+                else if (V.currentPlanet != V.trappist)
                 {
-                    destX = -2;
-                    destY = 6;
+                    V.destX = -2;
+                    V.destY = 6;
                     Console.WriteLine("Heading to TRAPPIST-1!");
-                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(x, y, destX, destY), 3));
-                    Console.WriteLine("It will take you: {0}yrs", timePassage = Math.Round(Distance(x, y, destX, destY) / Velocity(speed), 2));
+                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(V.x, V.y, V.destX, V.destY), 3));
+                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Distance(V.x, V.y, V.destX, V.destY) / Velocity(V.speed), 2));
                     Console.WriteLine();
                     Console.WriteLine("type 'GO' to depart");
                     Console.WriteLine("press 'enter' to go back to main menu");
@@ -746,9 +692,9 @@ namespace SpaceGame
 
                     if (conf == "GO")
                     {
-                        currentPlanet = trappist;
-                        time += timePassage;
-                        Planet(earth, alphaCentauri, trappist, krootabulon);
+                        V.currentPlanet = V.trappist;
+                        V.time += V.timePassage;
+                        Planet(V.earth, V.alphaCentauri, V.trappist, V.krootabulon);
                     }
                     else
                     {
@@ -757,25 +703,25 @@ namespace SpaceGame
                     }
                 }
 
-                return currentPlanet;
+                return V.currentPlanet;
             }
 
             public static int Krootabulon()
             {
                 UI();
-                if (currentPlanet == krootabulon)
+                if (V.currentPlanet == V.krootabulon)
                 {
                     Console.WriteLine("You are already here!! No need to travel anywhere..");
                     Console.WriteLine("Press 'enter' to return to Menu");
                     Console.ReadLine();
                 }
-                else if (currentPlanet != krootabulon)
+                else if (V.currentPlanet != V.krootabulon)
                 {
-                    destX = 3;
-                    destY = -7;
+                    V.destX = 3;
+                    V.destY = -7;
                     Console.WriteLine("Heading to Krootabulon!");
-                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(x, y, destX, destY), 3));
-                    Console.WriteLine("It will take you: {0}yrs", timePassage = Math.Round(Distance(x, y, destX, destY) / Velocity(speed), 2));
+                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Distance(V.x, V.y, V.destX, V.destY), 3));
+                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Distance(V.x, V.y, V.destX, V.destY) / Velocity(V.speed), 2));
                     Console.WriteLine();
                     Console.WriteLine("type 'GO' to depart");
                     Console.WriteLine("press 'enter' to go back to main menu");
@@ -783,9 +729,9 @@ namespace SpaceGame
 
                     if (conf == "GO")
                     {
-                        currentPlanet = krootabulon;
-                        time += timePassage;
-                        Planet(earth, alphaCentauri, trappist, krootabulon);
+                        V.currentPlanet = V.krootabulon;
+                        V.time += V.timePassage;
+                        Planet(V.earth, V.alphaCentauri, V.trappist, V.krootabulon);
                     }
                     else
                     {
@@ -795,7 +741,7 @@ namespace SpaceGame
 
                 }
 
-                return currentPlanet;
+                return V.currentPlanet;
             }
 
             public static void TravelMenu()
@@ -855,24 +801,24 @@ namespace SpaceGame
         // Math for distance
         public static double Distance(double x1, double y1, double destX, double destY)
         {
-            distance = Math.Sqrt(Math.Pow((destX - x), 2) + Math.Pow((destY - y), 2));
+            V.distance = Math.Sqrt(Math.Pow((V.destX - x1), 2) + Math.Pow((destY - y1), 2));
 
-            return distance;
+            return V.distance;
         }
         // Math for Velocity
         public static double Velocity(double speed)
         {
-            velocity = Math.Pow(speed, (10/3)) + Math.Pow((10 - speed), -11/3);
+            V.velocity = Math.Pow(V.speed, (10/3)) + Math.Pow((10 - V.speed), -11/3);
 
-            return velocity;
+            return V.velocity;
         }
         // Main Game
         public static void Main(string[] args)
         {
-            currentShip = tier1Ship;
-            Ship(tier1Ship, tier2Ship, tier3Ship);
-            currentPlanet = earth;
-            Planet(earth, alphaCentauri, trappist, krootabulon);
+            V.currentShip = V.tier1Ship;
+            Ship(V.tier1Ship, V.tier2Ship, V.tier3Ship);
+            V.currentPlanet = V.earth;
+            Planet(V.earth, V.alphaCentauri, V.trappist, V.krootabulon);
 
             // string decleration
             string input;
@@ -880,14 +826,14 @@ namespace SpaceGame
 
             #region StoryStartUp
             Console.WriteLine("Enter your name, Captian: ");
-            character = Console.ReadLine();
+            V.character = Console.ReadLine();
 
             // Intro line and story
             Console.Clear();
             Console.WriteLine("Welcome to Space Game!!");
             Console.WriteLine();
-            Console.WriteLine($"  The year is 0AR. A relative passed and left you, {character}, 10,000 credits. Your family used to be rich merchants, but " +
-                "fell on hard times... You have just finished flight school, and have always had a dream of becoming a space ship captain. So, you " +
+            Console.WriteLine($"  The year is 0AR. A relative passed and left you, {V.character}, 10,000 credits. Your family used to be rich merchants, but " +
+                "fell on hard V.times... You have just finished flight school, and have always had a dream of becoming a space ship captain. So, you " +
                 "decided to try your luck at that life to restore your family's name and wealth. The First stop! A cheap, Space Ship sales shop.");
             Console.WriteLine("Press 'Enter' to continue");
             Console.ReadLine();
@@ -903,13 +849,13 @@ namespace SpaceGame
             Console.WriteLine("Then you see it!! Behind a cracked Real Fake Door, a ship with a price tag in your budget.. the tag says \"5,000 " +
                 "credits.No Warrenty. Buy at own risk.\"");
             Console.WriteLine("");
-            Console.WriteLine($"Click enter to walk up to the risky looking ship you spotted.. {shipName}. and take its tag to the " +
+            Console.WriteLine($"Click enter to walk up to the risky looking ship you spotted.. {V.shipName}. and take its tag to the " +
                 $"check out counter: ");
             Console.WriteLine("");
             Console.ReadLine();
 
             Console.Clear();
-            Console.WriteLine($"The cashier sees you walking up from the dark corner where they keep {shipName}, and begins to laugh. " +
+            Console.WriteLine($"The cashier sees you walking up from the dark corner where they keep {V.shipName}, and begins to laugh. " +
                 $"as soon as you reach the counter, they asked if you knew what you were getting yourself into with that ship (the oldest ship " +
                 $"currently on the market).");
             Console.WriteLine("");
@@ -929,8 +875,8 @@ namespace SpaceGame
             {
                 case "Buy":
                 case "buy":
-                    cost = 5000;
-                    credits -= shipPrice;
+                    V.cost = 5000;
+                    V.credits -= V.shipPrice;
                     break;
                 default:
                     Console.Clear();
@@ -944,16 +890,16 @@ namespace SpaceGame
 
             // Loop for game
             #region Game
-            if (cost != 0)
+            if (V.cost != 0)
             {
                 UI();
-                Console.WriteLine("You paid {0} for your ship!!", cost);
+                Console.WriteLine("You paid {0} for your ship!!", V.cost);
                 Console.WriteLine();
                 Console.WriteLine("Thank you for shopping with SpaceBuggies R Us");
                 System.Threading.Thread.Sleep(1200);
 
                 UI();
-                Console.WriteLine("\n Your first ship!! The {0}. Speed: {1}. Cargo Space: {2}", shipName, speed, maxInventory);
+                Console.WriteLine("\n Your first ship!! The {0}. V.speed: {1}. Cargo Space: {2}", V.shipName, V.speed, V.maxInventory);
                 Console.ReadLine();
 
                 // Player starts his journey exploring and buying
@@ -962,7 +908,7 @@ namespace SpaceGame
                 {
                     // Console/Menu
                     UI();
-                    Console.WriteLine("You are on planet {0}! Current year is {1}!", planetName, Math.Round(time, 2));
+                    Console.WriteLine("You are on planet {0}! Current year is {1}!", V.planetName, Math.Round(V.time, 2));
                     Console.WriteLine();
                     Console.WriteLine("What would you like to do?: \n" +
                         "- 'Ship'to buy a new ship\n" +
@@ -992,7 +938,7 @@ namespace SpaceGame
                         }
                         else if ((shopInput == "Inv") || (shopInput == "inv"))
                         {
-                            Inventory(maxInventory, curInventory);
+                            Inventory(V.maxInventory, V.curInventory);
                         }
                         else if ((shopInput == "Travel") || (shopInput == "travel"))
                         {
@@ -1004,10 +950,10 @@ namespace SpaceGame
                         }
                     }
 
-                } while ((GameOver(credits, time) == false) && (shopInput != "exit"));
+                } while ((GameOver(V.credits, V.time) == false) && (shopInput != "exit"));
                 // Game over
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("Game Over!! Total play time: {0}.  Total credits earned: {1}.", Math.Round(time, 2), totalCredits - 10000);
+                Console.WriteLine("Game Over!! Total play V.time: {0}.  Total credits earned: {1}.", Math.Round(V.time, 2), V.totalCredits - 10000);
                 Console.ReadLine();
 
             }

@@ -8,7 +8,7 @@ namespace SpaceGame
 {
     class Story
     {
-        public static void Intro()
+        public void Intro()
         {
             #region StoryStartUp
             Console.WriteLine("Enter your name, Captian: ");

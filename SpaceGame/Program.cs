@@ -862,7 +862,6 @@ namespace SpaceGame
                 Console.ReadLine();
 
                 // Player starts his journey exploring and buying
-
                 do
                 {
                     // Console/Menu
@@ -879,8 +878,6 @@ namespace SpaceGame
 
                     // Planetary options
                     shopInput = Console.ReadLine();
-                    //Console.ReadLine();
-
                     if ((shopInput != "exit") || (shopInput != "Exit"))
                     {
                         if ((shopInput == "Ship") || (shopInput == "ship"))

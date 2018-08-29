@@ -224,7 +224,7 @@ namespace SpaceGame
                     {
                         if ((shopInput == "Ship") || (shopInput == "ship"))
                         {
-                            Menu.ShipBuy.ShipMenu();
+                            new Menu.ShipBuy().ShipMenu();
                         }
                         else if ((shopInput == "Buy") || (shopInput == "buy"))
                         {

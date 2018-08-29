@@ -28,7 +28,7 @@ namespace SpaceGame
         {
             // Ship Menu for buying ships
             // Ship options
-            private static int StarExplorer()
+            private int StarExplorer()
             {
                 if ((V.currentShip != V.tier2Ship) && (V.credits >= 20000))
                 {
@@ -52,7 +52,7 @@ namespace SpaceGame
 
                 return V.currentShip;
             }
-            private static int UssSchwiftiestShip()
+            private int UssSchwiftiestShip()
             {
                 if ((V.currentShip != V.tier3Ship) && (V.credits >= 50000))
                 {
@@ -77,7 +77,7 @@ namespace SpaceGame
                 return V.currentShip;
             }
             // Ship menu
-            public static void ShipMenu()
+            public void ShipMenu()
             {
                 string shipMenuInput = "";
 
@@ -96,13 +96,13 @@ namespace SpaceGame
                     case "Star Explorer":
                     case "star explorer":
                         Console.Clear();
-                        StarExplorer();
+                        new ShipBuy().StarExplorer();
                         Program.UI();
                         break;
                     case "USS Schwiftiest Ship":
                     case "uss schwiftiest ship":
                         Console.Clear();
-                        UssSchwiftiestShip();
+                        new ShipBuy().UssSchwiftiestShip();
                         Program.UI();
                         break;
                     default:

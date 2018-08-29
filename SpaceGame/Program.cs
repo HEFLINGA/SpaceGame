@@ -48,42 +48,7 @@ namespace SpaceGame
 
             return V.velocity;
         }                                       // Code for Velocity/Speed math based on Warp Factor
-
-        // Code for Planets
-        public static int Planet(int earth, int alphaCentauri, int trappist, int krootabulon)
-        {
-            if (V.currentPlanet == earth)
-            {
-                V.planetName = "Earth";
-                V.x = 0;
-                V.y = 0;
-                RandomNumbers();
-            }
-            else if (V.currentPlanet == alphaCentauri)
-            {
-                V.planetName = "Alpha Centauri";
-                V.x = 0;
-                V.y = 4.367;
-                RandomNumbers();
-    }
-            else if (V.currentPlanet == trappist)
-            {
-                V.planetName = "TRAPPIST-1";
-                V.x = -2;
-                V.y = 6;
-                RandomNumbers();
-            }
-            else if (V.currentPlanet == krootabulon)
-            {
-                V.planetName = "Krootabulon!";
-                V.x = 3;
-                V.y = -7;
-                RandomNumbers();
-            }
-
-            return V.currentPlanet;
-        }
-
+        
         // Code for Ships
         public static int Ship(int tier1, int tier2, int tier3)
         {
@@ -136,8 +101,9 @@ namespace SpaceGame
         {
             V.currentShip = V.tier1Ship;
             Ship(V.tier1Ship, V.tier2Ship, V.tier3Ship);
-            V.currentPlanet = V.earth;
-            Planet(V.earth, V.alphaCentauri, V.trappist, V.krootabulon);
+            Planet.currentPlanet = 1;
+            Planet.GetPlanet(Planet.currentPlanet);
+            //Planet(V.earth, V.alphaCentauri, V.trappist, V.krootabulon);
 
             // string decleration
             string input;
@@ -169,6 +135,7 @@ namespace SpaceGame
             #region Game
             if (V.cost != 0)
             {
+                Planet.GetPlanetName(Planet.currentPlanet);
                 UI();
                 Console.WriteLine("You paid {0} for your ship!!", V.cost);
                 Console.WriteLine();
@@ -184,7 +151,7 @@ namespace SpaceGame
                 {
                     // Console/Menu
                     UI();
-                    Console.WriteLine("You are on planet {0}! Current year is {1}!", V.planetName, Math.Round(V.time, 2));
+                    Console.WriteLine("You are on planet {0}! Current year is {1}!", Planet.GetPlanetName(Planet.currentPlanet), Math.Round(V.time, 2));
                     Console.WriteLine();
                     Console.WriteLine("What would you like to do?: \n" +
                         "- 'Ship'to buy a new ship\n" +

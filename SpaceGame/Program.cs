@@ -16,7 +16,7 @@ namespace SpaceGame
             V.costAnimals = V.rnd.Next(2000, 4000);
             V.costWater = V.rnd.Next(1000, 8000);
             V.costFuel = V.rnd.Next(2000, 7000);
-        }    // Code for RandomNumber generator
+        }                                                // Code for RandomNumber generator
         public static void UI()
         {
             Console.Clear();
@@ -35,7 +35,19 @@ namespace SpaceGame
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("________________________________________________________________________________________________________________________");
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-        }               // Code for UI
+        }                                                           // Code for UI
+        public static double Distance(double x1, double y1, double destX, double destY)
+        {
+            V.distance = Math.Sqrt(Math.Pow((V.destX - x1), 2) + Math.Pow((destY - y1), 2));
+
+            return V.distance;
+        }   // Code for distance math
+        public static double Velocity(double speed)
+        {
+            V.velocity = Math.Pow(V.speed, (10 / 3)) + Math.Pow((10 - V.speed), -11 / 3);
+
+            return V.velocity;
+        }                                       // Code for Velocity/Speed math based on Warp Factor
 
         // Code for Planets
         public static int Planet(int earth, int alphaCentauri, int trappist, int krootabulon)
@@ -144,22 +156,6 @@ namespace SpaceGame
 
             return gameOver;
         }        
-
-        // Math for distance
-        public static double Distance(double x1, double y1, double destX, double destY)
-        {
-            V.distance = Math.Sqrt(Math.Pow((V.destX - x1), 2) + Math.Pow((destY - y1), 2));
-
-            return V.distance;
-        }
-
-        // Math for Velocity
-        public static double Velocity(double speed)
-        {
-            V.velocity = Math.Pow(V.speed, (10/3)) + Math.Pow((10 - V.speed), -11/3);
-
-            return V.velocity;
-        }
 
         // Main Game
         public static void Main(string[] args)

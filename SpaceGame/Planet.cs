@@ -12,6 +12,20 @@ namespace SpaceGame
         private double y = 0;
         private double destX = 0;
         private double destY = 0;
+        private double destX2 = 0;
+        private double destY2 = 0;
+        private double destX3 = 0;
+        private double destY3 = 0;
+        private double destX4 = 0;
+        private double destY4 = 0;
+        private double destX5 = 0;
+        private double destY5 = 0;
+        private double destX6 = 0;
+        private double destY6 = 0;
+        private double destX7 = 0;
+        private double destY7 = 0;
+        private double destX8 = 0;
+        private double destY8 = 0;
         private string planetName = "";
         public static int currentPlanet;
 
@@ -37,10 +51,26 @@ namespace SpaceGame
             }
             else if (currentPlanet == 4)
             {
-                return new Planet().planetName = "Krootabulon!";
+                return new Planet().planetName = "Krootabulon";
             }
-            return GetPlanetName(currentPlanet);
+            else if (currentPlanet == 5)
+            {
+                return new Planet().planetName = "Bird World";
+            }
+            else if (currentPlanet == 6)
+            {
+                return new Planet().planetName = "Gazorpazorp";
+            }
+            else if (currentPlanet == 7)
+            {
+                return new Planet().planetName = "Alphabetrium";
+            }
+            else if (currentPlanet == 8)
+            {
+                return new Planet().planetName = "Planet Squanch";
+            }
 
+            return GetPlanetName(currentPlanet);
         }
 
         // Get planet X
@@ -50,17 +80,33 @@ namespace SpaceGame
             {
                 return new Planet().x = 0;
             }
-            if (currentPlanet == 2)
+            else if (currentPlanet == 2)
             {
                 return new Planet().x = 0;
             }
-            if (currentPlanet == 3)
+            else if (currentPlanet == 3)
             {
                 return new Planet().x = -3;
             }
-            if (currentPlanet == 4)
+            else if (currentPlanet == 4)
             {
                 return new Planet().x = 10;
+            }
+            else if (currentPlanet == 5)
+            {
+                return new Planet().x = 20;
+            }
+            else if (currentPlanet == 6)
+            {
+                return new Planet().x = -25;
+            }
+            else if (currentPlanet == 7)
+            {
+                return new Planet().x = 45;
+            }
+            else if (currentPlanet == 8)
+            {
+                return new Planet().x = 55;
             }
             return GetCurX();
         }
@@ -71,60 +117,180 @@ namespace SpaceGame
             {
                 return new Planet().y = 0;
             }
-            if (currentPlanet == 2)
+            else if (currentPlanet == 2)
             {
                 return new Planet().y = 4.367;
             }
-            if (currentPlanet == 3)
+            else if (currentPlanet == 3)
             {
                 return new Planet().y = 6;
             }
-            if (currentPlanet == 4)
+            else if (currentPlanet == 4)
             {
                 return new Planet().y = -15;
+            }
+            else if (currentPlanet == 5)
+            {
+                return new Planet().y = -25;
+            }
+            else if (currentPlanet == 6)
+            {
+                return new Planet().y = 33;
+            }
+            else if (currentPlanet == 7)
+            {
+                return new Planet().y = -40;
+            }
+            else if (currentPlanet == 8)
+            {
+                return new Planet().y = -50;
             }
             return GetCurY();
         }
 
         // Get Destination planet Y
+        public static double GetDestY(int n1,int n2, int n3, int n4, int n5, int n6, int n7, int n8)
+        {
+            if (n1 == 1)
+            {
+                return new Planet().destY = 0;
+            }
+            else if (n2 == 2)
+            {
+                return new Planet().destY2 = 4.367;
+            }
+            else if (n3 == 3)
+            {
+                return new Planet().destY3 = 6;
+            }
+            else if (n4 == 4)
+            {
+                return new Planet().destY4 = -15;
+            }
+            else if (n5 == 5)
+            {
+                return new Planet().destY5 = -25;
+            }
+            else if (n6 == 6)
+            {
+                return new Planet().destY6 = 33;
+            }
+            else if (n7 == 7)
+            {
+                return new Planet().destY7 = -40;
+            }
+            else if (n8 == 8)
+            {
+                return new Planet().destY8 = -50;
+            }
+            return GetDestY(n1, n2, n3, n4, n5, n6, n7, n8);
+        }
         public static double GetDestY(int currentPlanet)
         {
             if (currentPlanet == 1)
             {
                 return new Planet().destY = 0;
             }
-            if (currentPlanet == 2)
+            else if (currentPlanet == 2)
             {
-                return new Planet().destY = 4.367;
+                return new Planet().destY2 = 4.367;
             }
-            if (currentPlanet == 3)
+            else if (currentPlanet == 3)
             {
-                return new Planet().destY = 6;
+                return new Planet().destY3 = 6;
             }
-            if (currentPlanet == 4)
+            else if (currentPlanet == 4)
             {
-                return new Planet().destY = -15;
+                return new Planet().destY4 = -15;
+            }
+            else if (currentPlanet == 5)
+            {
+                return new Planet().destY5 = -25;
+            }
+            else if (currentPlanet == 6)
+            {
+                return new Planet().destY6 = 33;
+            }
+            else if (currentPlanet == 7)
+            {
+                return new Planet().destY7 = -40;
+            }
+            else if (currentPlanet == 8)
+            {
+                return new Planet().destY8 = -50;
             }
             return GetDestY(currentPlanet);
         }
         // Get Destination planet X
+        public static double GetDestX(int n1, int n2, int n3, int n4, int n5, int n6, int n7, int n8)
+        {
+            if (n1 == 1)
+            {
+                return new Planet().destX = 0;
+            }
+            else if (n2 == 2)
+            {
+                return new Planet().destX2 = 0;
+            }
+            else if (n3 == 3)
+            {
+                return new Planet().destX3 = -3;
+            }
+            else if (n4 == 4)
+            {
+                return new Planet().destX4 = 15;
+            }
+            else if (n5 == 5)
+            {
+                return new Planet().destX5 = 20;
+            }
+            else if (n6 == 6)
+            {
+                return new Planet().destX6 = -25;
+            }
+            else if (n7 == 7)
+            {
+                return new Planet().destX7 = 45;
+            }
+            else if (n8 == 8)
+            {
+                return new Planet().destX8 = 55;
+            }
+            return GetDestX(n1, n2, n3, n4, n5, n6, n7, n8);
+        }
         public static double GetDestX(int currentPlanet)
         {
             if (currentPlanet == 1)
             {
                 return new Planet().destX = 0;
             }
-            if (currentPlanet == 2)
+            else if (currentPlanet == 2)
             {
-                return new Planet().destX = 0;
+                return new Planet().destX2 = 0;
             }
-            if (currentPlanet == 3)
+            else if (currentPlanet == 3)
             {
-                return new Planet().destX = -3;
+                return new Planet().destX3 = -3;
             }
-            if (currentPlanet == 4)
+            else if (currentPlanet == 4)
             {
-                return new Planet().destX = 15;
+                return new Planet().destX4 = 15;
+            }
+            else if (currentPlanet == 5)
+            {
+                return new Planet().destX5 = 20;
+            }
+            else if (currentPlanet == 6)
+            {
+                return new Planet().destX6 = -25;
+            }
+            else if (currentPlanet == 7)
+            {
+                return new Planet().destX7 = 45;
+            }
+            else if (currentPlanet == 8)
+            {
+                return new Planet().destX8 = 55;
             }
             return GetDestX(currentPlanet);
         }
@@ -148,6 +314,7 @@ namespace SpaceGame
                 Console.WriteLine();
                 Console.WriteLine("type 'GO' to depart");
                 Console.WriteLine("press 'enter' to go back to main menu");
+                double distance = Math.Ceiling(Program.Distance(getX, getY, destX, destY));
                 string conf = Console.ReadLine().ToLower();
 
                 if (conf == "go")
@@ -157,6 +324,7 @@ namespace SpaceGame
                     GetPlanetName(currentPlanet);
                     GetCurX();
                     GetCurY();
+                    Ship.curFuel -= distance;
                     Program.RandomNumbers();
                 }
                 else
@@ -168,6 +336,12 @@ namespace SpaceGame
             }
 
             return currentPlanet;
+        }
+
+        // Get distance to planets..?
+        public static double DistanceToPlanets(int currentPlanet, double getX, double getY, double destX, double destY)
+        {
+            return Math.Round(Program.Distance(getX, getY, destX, destY), 3);
         }
     }
 }

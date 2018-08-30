@@ -488,52 +488,119 @@ namespace SpaceGame
         }
 
         public void TravelMenu()
+        {
+            string travelInput = "";           
+
+            Program.UI();
+            Console.WriteLine("Where would you like to go!!: \n" +
+                                "(Type name of planet you wish to go to)");
+            Console.WriteLine("press 'Enter' to leave the space port and return to Main Menu");
+            Console.WriteLine();
+            #region Bool for range
+            bool inRange1 = false;
+            bool inRange2 = false;
+            bool inRange3 = false;
+            bool inRange4 = false;
+            bool inRange5 = false;
+            bool inRange6 = false;
+            bool inRange7 = false;
+            bool inRange8 = false;
+            #endregion
+            if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(1), Planet.GetDestY(1)) <= Ship.curFuel)
             {
-                string travelInput = "";
-
-                Program.UI();
-
-                Console.WriteLine("Where would you like to go!!: \n" +
-                                    "(Type name of planet you wish to go to)");
-                Console.WriteLine("press 'Enter' to leave the space port and return to Main Menu");
-                Console.WriteLine("- 'Earth' for Earth!");
-                Console.WriteLine("- 'Alpha Centauri' for Alpha Centauri!");
-                Console.WriteLine("- 'Trappist' for TRAPPIST-1");
-                Console.WriteLine("- 'Kroot' for krootabulon!!");
-
-
-                travelInput = Console.ReadLine().ToLower();
-                switch (travelInput)
+                Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(1));
+                inRange1 = true;
+                if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(2), Planet.GetDestY(2)) <= Ship.curFuel)
                 {
-                    case "earth":
-                        Console.Clear();
-                        new Planet().Planets(1, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(1), Planet.GetDestY(1));
-                        Program.UI();
-                        break;
-                    case "alpha centauri":
-                        Console.Clear();
-                        new Planet().Planets(2, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(2), Planet.GetDestY(2));
-                        Program.UI();
-                        break;
-                    case "trappist":
-                        Console.Clear();
-                        new Planet().Planets(3, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(3), Planet.GetDestY(3));
-                        Program.UI();
-                        break;
-                    case "krootabulon":
-                    case "kroot":
-                        Console.Clear();
-                        new Planet().Planets(4, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(4), Planet.GetDestY(4));
-                        Program.UI();
-                        break;
-                    default:
-                        Console.WriteLine("Returning to Menu");
-                        System.Threading.Thread.Sleep(1000);
-                        Console.Clear();
-                        break;
-
+                    Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(2));
+                    inRange2 = true;
+                    if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(3), Planet.GetDestY(3)) <= Ship.curFuel)
+                    {
+                        Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(3));
+                        inRange3 = true;
+                        if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(4), Planet.GetDestY(4)) <= Ship.curFuel)
+                        {
+                            Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(4));
+                            inRange4 = true;
+                            if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(5), Planet.GetDestY(5)) <= Ship.curFuel)
+                            {
+                                Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(5));
+                                inRange5 = true;
+                                if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(6), Planet.GetDestY(6)) <= Ship.curFuel)
+                                {
+                                    Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(6));
+                                    inRange6 = true;
+                                    if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(7), Planet.GetDestY(7)) <= Ship.curFuel)
+                                    {
+                                        Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(7));
+                                        inRange7 = true;
+                                        if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(8), Planet.GetDestY(8)) <= Ship.curFuel)
+                                        {
+                                            Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(8));
+                                            inRange8 = true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
+            }
+            travelInput = Console.ReadLine().ToLower();
+            if ((travelInput == "earth") && (inRange1 == true))
+            {
+                Console.Clear();
+                new Planet().Planets(1, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(1), Planet.GetDestY(1));
+                Program.UI();
+            }
+            else if ((travelInput == "alpha centauri") && (inRange2 == true))
+            {
+                Console.Clear();
+                new Planet().Planets(2, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(2), Planet.GetDestY(2));
+                Program.UI();
+            }
+            else if ((travelInput == "trappist") && (inRange3 == true))
+            {
+                Console.Clear();
+                new Planet().Planets(3, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(3), Planet.GetDestY(3));
+                Program.UI();
+            }
+            else if ((travelInput == "krootabulon") && (inRange4 == true))
+            {
+                Console.Clear();
+                new Planet().Planets(4, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(4), Planet.GetDestY(4));
+                Program.UI();
+            }
+            else if ((travelInput == "bird world") && (inRange5 == true))
+            {
+                Console.Clear();
+                new Planet().Planets(5, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(5), Planet.GetDestY(5));
+                Program.UI();
+            }
+            else if ((travelInput == "gazorpazorp") && (inRange6 == true))
+            {
+                Console.Clear();
+                new Planet().Planets(6, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(6), Planet.GetDestY(6));
+                Program.UI();
+            }
+            else if ((travelInput == "alphabetruim") && (inRange7 == true))
+            {
+                Console.Clear();
+                new Planet().Planets(7, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(7), Planet.GetDestY(7));
+                Program.UI();
+            }
+            else if ((travelInput == "planet squanch") && (inRange8 == true))
+            {
+                Console.Clear();
+                new Planet().Planets(8, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(8), Planet.GetDestY(8));
+                Program.UI();
+            }
+            else
+            {
+                Console.WriteLine("Returning to Menu");
+                System.Threading.Thread.Sleep(1000);
+                Console.Clear();
+            }            
         }
     }
 }
-

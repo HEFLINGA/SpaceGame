@@ -230,7 +230,7 @@ namespace SpaceGame
 
                 return V.invWater;
             }
-            // Code for buying fuel (Resource)
+            // Code for buying dark matter
             private int CargoDarkMatter()
             {
                 if ((V.remInventory >= 5) && (V.credits >= V.costDarkMatter))
@@ -324,6 +324,7 @@ namespace SpaceGame
         // Sell class for all selling of inventory;
         public class Sell
         {
+            // Code for selling food
             private int CargoFood()
             {
                 if (V.invFood >= 1)
@@ -342,6 +343,7 @@ namespace SpaceGame
 
                 return V.invFood;
             }
+            // Code for selling research
             private int CargoResearch()
             {
                 if (V.invResearch >= 1)
@@ -360,6 +362,7 @@ namespace SpaceGame
 
                 return V.invResearch;
             }
+            // Code for selling animals
             private int CargoAnimals()
             {
                 if (V.invAnimals >= 1)
@@ -378,6 +381,7 @@ namespace SpaceGame
 
                 return V.invAnimals;
             }
+            // Code for selling water
             private int CargoWater()
             {
                 if (V.invWater >= 2)
@@ -396,6 +400,7 @@ namespace SpaceGame
 
                 return V.invWater;
             }
+            // Code for selling dark matter
             private int CargoDarkMatter()
             {
                 if (V.invDarkMatter >= 5)
@@ -415,6 +420,7 @@ namespace SpaceGame
                 return V.invDarkMatter;
             }
 
+            // Code for sellMenu
             public void SellMenu()
             {
                 string sellInput = "";
@@ -488,6 +494,7 @@ namespace SpaceGame
         // Travel class for all travel handling;        
         public class Travel
         {
+            // Travel from planet to planet and change curX and curY
             private int Earth()
             {
                 Program.UI();
@@ -526,7 +533,6 @@ namespace SpaceGame
 
                 return Planet.currentPlanet;
             }
-
             private int AlphaCentauri()
             {
                 Program.UI();
@@ -565,7 +571,6 @@ namespace SpaceGame
 
                 return Planet.currentPlanet;
             }
-
             private int Trappist()
             {
                 Program.UI();
@@ -603,7 +608,6 @@ namespace SpaceGame
 
                 return Planet.currentPlanet;
             }
-
             private int Krootabulon()
             {
                 Program.UI();
@@ -643,6 +647,7 @@ namespace SpaceGame
                 return Planet.currentPlanet;
             }
 
+            // Travel menu to select planet to go to and run the above code to get you there
             public void TravelMenu()
             {
                 string travelInput = "";

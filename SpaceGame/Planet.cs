@@ -8,6 +8,8 @@ namespace SpaceGame
 {
     public class Planet
     {
+        // Variables for planets controlling destination X's and Y's for travel
+        #region Variables
         private double x = 0;
         private double y = 0;
         private double destX = 0;
@@ -28,6 +30,7 @@ namespace SpaceGame
         private double destY8 = 0;
         private string planetName = "";
         public static int currentPlanet;
+        #endregion
 
         // Default constructor
         public Planet()

@@ -496,6 +496,7 @@ namespace SpaceGame
                                 "(Type name of planet you wish to go to)");
             Console.WriteLine("press 'Enter' to leave the space port and return to Main Menu");
             Console.WriteLine();
+            // Bools for deciding if you are in range of planets
             #region Bool for range
             bool inRange1 = false;
             bool inRange2 = false;
@@ -506,6 +507,7 @@ namespace SpaceGame
             bool inRange7 = false;
             bool inRange8 = false;
             #endregion
+            // Nested if statements determening whether or not you are in range of a planet
             if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(1), Planet.GetDestY(1)) <= Ship.curFuel)
             {
                 Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(1));
@@ -546,6 +548,8 @@ namespace SpaceGame
                     }
                 }
             }
+            // Code for changing planetary information based on range and user input
+            #region Planet changed based on range and input
             travelInput = Console.ReadLine().ToLower();
             if ((travelInput == "earth") && (inRange1 == true))
             {
@@ -600,7 +604,8 @@ namespace SpaceGame
                 Console.WriteLine("Returning to Menu");
                 System.Threading.Thread.Sleep(1000);
                 Console.Clear();
-            }            
+            }
+            #endregion
         }
     }
 }

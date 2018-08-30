@@ -41,11 +41,11 @@ namespace SpaceGame
                     V.credits -= 20000;
                     Ship.currentShip = 2;
                     new Ship().ShipName("Star Explorer");
-                    new Ship().ShipCargo(5);
-                    new Ship().ShipSpeed(3);
-                    new Ship().ShipVelocity(Program.Velocity(3));
-                    new Ship().ShipMaxFuel(35);
-                    Ship.curFuel = 35;
+                    new Ship().ShipCargo(8);
+                    new Ship().ShipSpeed(2.5);
+                    new Ship().ShipVelocity(Program.Velocity(2.5));
+                    new Ship().ShipMaxFuel(45);
+                    Ship.curFuel = 45;
                     new Menu().Congrats();
                 }
                 else if (Ship.currentShip == 2)
@@ -70,11 +70,11 @@ namespace SpaceGame
                     V.credits -= 50000;
                     Ship.currentShip = 3;
                     new Ship().ShipName("USS Schwifty Ship");
-                    new Ship().ShipCargo(10);
-                    new Ship().ShipSpeed(6);
-                    new Ship().ShipVelocity(Program.Velocity(6));
-                    new Ship().ShipMaxFuel(60);
-                    Ship.curFuel = 60;
+                    new Ship().ShipCargo(15);
+                    new Ship().ShipSpeed(4);
+                    new Ship().ShipVelocity(Program.Velocity(4));
+                    new Ship().ShipMaxFuel(100);
+                    Ship.curFuel = 100;
                     new Menu().Congrats();
                 }
                 else if (Ship.currentShip == 3)
@@ -311,28 +311,23 @@ namespace SpaceGame
                     switch (buyInput)
                     {
                         case "food":
-                            Console.Clear();
                             CargoFood();
                             Program.UI();
                             break;
                         case "research":
-                            Console.Clear();
                             CargoResearch();
                             Program.UI();
                             break;
                         case "animals":
-                            Console.Clear();
                             CargoAnimals();
                             Program.UI();
                             break;
                         case "water":
-                            Console.Clear();
                             CargoWater();
                             Program.UI();
                             break;
                         case "darkmatter":
                         case "dark matter":
-                            Console.Clear();
                             CargoDarkMatter();
                             Program.UI();
                             break;
@@ -361,6 +356,9 @@ namespace SpaceGame
                     V.credits += V.costFood;
                     V.totalCredits += V.costFood;
                     V.invFood -= 1;
+                    Console.WriteLine("You sold 1 Food!");
+                    Console.WriteLine("Loading..");
+                    System.Threading.Thread.Sleep(800);
                 }
                 else if (V.invFood == 0)
                 {
@@ -380,6 +378,9 @@ namespace SpaceGame
                     V.credits += V.costResearch;
                     V.totalCredits += V.costResearch;
                     V.invResearch -= 1;
+                    Console.WriteLine("You sold 1 Research!");
+                    Console.WriteLine("Loading..");
+                    System.Threading.Thread.Sleep(800);
                 }
                 else if (V.invResearch == 0)
                 {
@@ -399,6 +400,9 @@ namespace SpaceGame
                     V.credits += V.costAnimals;
                     V.totalCredits += V.costAnimals;
                     V.invAnimals -= 1;
+                    Console.WriteLine("You sold an Animal!");
+                    Console.WriteLine("Loading..");
+                    System.Threading.Thread.Sleep(800);
                 }
                 else if (V.invAnimals == 0)
                 {
@@ -418,6 +422,9 @@ namespace SpaceGame
                     V.credits += V.costWater;
                     V.totalCredits += V.costWater;
                     V.invWater -= 2;
+                    Console.WriteLine("You sold some Water!");
+                    Console.WriteLine("Loading..");
+                    System.Threading.Thread.Sleep(800);
                 }
                 else if (V.invWater < 2)
                 {
@@ -437,6 +444,9 @@ namespace SpaceGame
                     V.credits += V.invDarkMatter;
                     V.totalCredits += V.invDarkMatter;
                     V.invDarkMatter -= 5;
+                    Console.WriteLine("You sold some DARK MATTER baby!!!");
+                    Console.WriteLine("Loading..");
+                    System.Threading.Thread.Sleep(800);
                 }
                 else if (V.invDarkMatter < 5)
                 {
@@ -478,28 +488,23 @@ namespace SpaceGame
                     switch (sellInput)
                     {
                         case "food":
-                            Console.Clear();
                             CargoFood();
                             Program.UI();
                             break;
                         case "research":
-                            Console.Clear();
                             CargoResearch();
                             Program.UI();
                             break;
                         case "animals":
-                            Console.Clear();
                             CargoAnimals();
                             Program.UI();
                             break;
                         case "water":
-                            Console.Clear();
                             CargoWater();
                             Program.UI();
                             break;
                         case "darkmatter":
                         case "dark matter":
-                            Console.Clear();
                             CargoDarkMatter();
                             Program.UI();
                             break;

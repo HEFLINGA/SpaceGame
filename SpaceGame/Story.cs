@@ -50,6 +50,18 @@ namespace SpaceGame
             Console.WriteLine("");
             Console.WriteLine("Click 'enter' to continue");
             Console.ReadLine();
+            Console.WriteLine($"You should be warned, {V.character}, this is a space game! You will be exploring the Galaxy, using fuel, buying and " +
+                $"selling resources and trying to get the next upgrade to your ship to get to further and further planets!! If you are not careful.. " +
+                $"you could easily run out of fuel on a random planet without any money or fuel left to get to a closer planet.. And that planet might " +
+                $"even by the 'Screaming Sun Planet'.. It seems nice at first, until the damn sun comes up. This game will not hold your hand! Watch your " +
+                $"fuel, and dont run out of money and get stranded! (I suggest just sticking to a travel route between 'Alpha Centauri' and 'Earth' for the " +
+                $"first few good sales).");
+            Console.WriteLine("");
+            Console.WriteLine("Anyways!! Good luck out there. You wont be hearing from me again. I got better things to do then explain things and hold " +
+                "your hand. You chose this life, don't blame me.");
+            Console.WriteLine("");
+            Console.WriteLine("Click 'enter' to continue");
+            Console.ReadLine();
             Console.WriteLine("Type 'Buy' to complete the transaction, and start your amazing journey of wealth, family and adventure!!");
             #endregion
         }

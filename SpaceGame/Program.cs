@@ -95,6 +95,7 @@ namespace SpaceGame
                     cost = 5000;
                     V.credits -= 5000;
                     new Ship().ShipCargo(3);
+                    Ship.curFuel = 10;
                     break;
                 default:
                     Console.Clear();

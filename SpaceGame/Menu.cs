@@ -19,9 +19,9 @@ namespace SpaceGame
         {
             Program.UI();
             Console.WriteLine("Congratulations on your new ship!!!!!");
-            Console.WriteLine("You now have a new max speed and cargo!");
+            Console.WriteLine("You now have a new max speed, cargo, and fuel!");
             Console.WriteLine();
-            Console.WriteLine("New Max speed: {0}.  New Max Cargo: {1}", Ship.ShowShipSpeed(Ship.currentShip), V.maxInventory);
+            Console.WriteLine("New Max Speed: {0}.  New Max Cargo: {1}. New Max Fuel: {2}", Ship.ShowShipSpeed(Ship.currentShip), V.maxInventory, Ship.ShowShipMaxFuel(Ship.currentShip));
             Console.ReadLine();
         }
 
@@ -41,6 +41,7 @@ namespace SpaceGame
                     new Ship().ShipSpeed(3);
                     new Ship().ShipVelocity(Program.Velocity(3));
                     new Ship().ShipMaxFuel(35);
+                    Ship.curFuel = 35;
                     new Menu().Congrats();
                 }
                 else if (Ship.currentShip == 2)
@@ -69,6 +70,7 @@ namespace SpaceGame
                     new Ship().ShipSpeed(6);
                     new Ship().ShipVelocity(Program.Velocity(6));
                     new Ship().ShipMaxFuel(60);
+                    Ship.curFuel = 60;
                     new Menu().Congrats();
                 }
                 else if (Ship.currentShip == 3)
@@ -97,8 +99,8 @@ namespace SpaceGame
                                         "(Type name of Ship to purchase)");
                 Console.WriteLine("press 'Enter' to leave the trading post");
                 Console.WriteLine();
-                Console.WriteLine("Star Explorer! Price: 20000 credits. speed: 3. Cargo: 5");
-                Console.WriteLine("USS Schwifty Ship! Price: 50000 credits. speed: 6. Cargo: 10");
+                Console.WriteLine("Star Explorer! Price: 20000 Credits. Speed: 3. Cargo: 5. Fuel: 35");
+                Console.WriteLine("USS Schwifty Ship! Price: 50000 Credits. Speed: 6. Cargo: 10. Fuel 60");
 
                 shipMenuInput = Console.ReadLine();
                 switch (shipMenuInput)

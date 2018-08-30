@@ -487,14 +487,18 @@ namespace SpaceGame
             }
         }
 
+        /*
         // Planets and travel variables
         private double destX = 0;
         private double destY = 0;
+        */
 
         // Travel class for all travel handling;        
         public class Travel
         {
             // TODO - Add method for planet selection instead of repeated code...
+
+            /*
             // Travel from planet to planet and change curX and curY
             private int Earth()
             {
@@ -647,7 +651,7 @@ namespace SpaceGame
 
                 return Planet.currentPlanet;
             }
-
+            */
             // Travel menu to select planet to go to and run the above code to get you there
             public void TravelMenu()
             {

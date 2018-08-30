@@ -36,6 +36,7 @@ namespace SpaceGame
 
         }
 
+        // Code for fuel buying decisions
         public static double BuyingFuel()
         {
             string input = "";
@@ -148,6 +149,7 @@ namespace SpaceGame
             return curFuel;
         }
 
+        // Code for getting Max Fuel
         public double ShipMaxFuel(double maxFuel)
         {
             this.maxFuel = maxFuel;

@@ -8,6 +8,8 @@ namespace SpaceGame
 {
     public class Menu
     {
+        public static bool stranded = false;
+
         // Custom default constructor
         public Menu()
         {
@@ -215,7 +217,7 @@ namespace SpaceGame
             // Code for buying water
             private int CargoWater()
             {
-                if ((V.remInventory >= 2) && (V.credits >= V.costWater))
+                if ((V.curInventory <= V.maxInventory - 2) && (V.credits >= V.costWater))
                 {
                     V.credits -= V.costWater;
                     V.invWater += 2;
@@ -227,7 +229,7 @@ namespace SpaceGame
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
-                else if (V.remInventory <= 1)
+                else if (V.curInventory >= V.maxInventory - 1)
                 {
                     Program.UI();
                     Console.WriteLine("You do not have enough space in your inventory!");
@@ -240,7 +242,7 @@ namespace SpaceGame
             // Code for buying dark matter
             private int CargoDarkMatter()
             {
-                if ((V.remInventory >= 5) && (V.credits >= V.costDarkMatter))
+                if ((V.curInventory <= V.maxInventory - 5) && (V.credits >= V.costDarkMatter))
                 {
                     V.credits -= V.costDarkMatter;
                     V.invDarkMatter += 5;
@@ -252,7 +254,7 @@ namespace SpaceGame
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
-                else if (V.remInventory <= 4)
+                else if (V.curInventory >= V.maxInventory - 4)
                 {
                     Program.UI();
                     Console.WriteLine("You do not have enough space in your inventory!");
@@ -275,13 +277,15 @@ namespace SpaceGame
 
                     Console.WriteLine("What would you like to buy?: \n" +
                                         "(Type name of Item to purchase)");
-                    Console.WriteLine("press 'Enter' to leave the trading post");
+                    Console.WriteLine("For buying multiples of the same item after the initial buy, use up/down");
+                    Console.WriteLine("arrows to go to name, and press 'enter'");
+                    Console.WriteLine("press 'enter' to leave the trading post");
                     Console.WriteLine();
-                    Console.WriteLine($"Food, price: {V.costFood}. This will take up 1 cargo slot");
-                    Console.WriteLine($"Research, price: {V.costResearch}. This will take up 1 cargo slot");
-                    Console.WriteLine($"Animals, price: {V.costAnimals}. This will take up 1 cargo slot");
-                    Console.WriteLine($"Water, price: {V.costWater}. This will take up 2 cargo slots");
-                    Console.WriteLine($"Dark Matter, price: {V.costDarkMatter}. This will take up 5 cargo slots");
+                    Console.WriteLine($"'Food', price: {V.costFood}. This will take up 1 cargo slot");
+                    Console.WriteLine($"'Research', price: {V.costResearch}. This will take up 1 cargo slot");
+                    Console.WriteLine($"'Animals', price: {V.costAnimals}. This will take up 1 cargo slot");
+                    Console.WriteLine($"'Water, price': {V.costWater}. This will take up 2 cargo slots");
+                    Console.WriteLine($"'Dark Matter', price: {V.costDarkMatter}. This will take up 5 cargo slots");
                     Console.WriteLine("'Inv' to check your current inventory");
 
                     buyInput = Console.ReadLine().ToLower();
@@ -314,9 +318,8 @@ namespace SpaceGame
                             Program.UI();
                             break;
                         case "inv":
-                            Console.Clear();
-                            V.Inventory(V.maxInventory, V.curInventory);
                             Program.UI();
+                            V.Inventory(V.maxInventory, V.curInventory);
                             break;
                         case "":
                             Console.WriteLine("Returning to Menu");
@@ -439,14 +442,16 @@ namespace SpaceGame
                     Program.UI();
 
                     Console.WriteLine("What would you like to Sell?: \n" +
-                                        "(Type name of Item to purchase)");                    
+                                        "(Type name of Item to purchase)");
+                    Console.WriteLine("For buying multiples of the same item after the initial buy, use up/down");
+                    Console.WriteLine("arrows to go to name, and press 'enter'");
                     Console.WriteLine("press 'Enter' to leave the trading post");
                     Console.WriteLine();
-                    Console.WriteLine($"Food, sale price: {V.costFood}");
-                    Console.WriteLine($"Research, sale price: {V.costResearch}");
-                    Console.WriteLine($"Animals, sale price: {V.costAnimals}");
-                    Console.WriteLine($"Water, sale price: {V.costWater}");
-                    Console.WriteLine($"Dark Matter, sale price: {V.costDarkMatter}");
+                    Console.WriteLine($"'Food', sale price: {V.costFood}");
+                    Console.WriteLine($"'Research', sale price: {V.costResearch}");
+                    Console.WriteLine($"'Animals', sale price: {V.costAnimals}");
+                    Console.WriteLine($"'Water', sale price: {V.costWater}");
+                    Console.WriteLine($"'Dark Matter', sale price: {V.costDarkMatter}");
                     Console.WriteLine("'Inv' to check your current Inventory");
 
                     sellInput = Console.ReadLine().ToLower();
@@ -479,9 +484,8 @@ namespace SpaceGame
                             Program.UI();
                             break;
                         case "inv":
-                            Console.Clear();
-                            V.Inventory(V.maxInventory, V.curInventory);
                             Program.UI();
+                            V.Inventory(V.maxInventory, V.curInventory);                            
                             break;
                         case "":
                             Console.WriteLine("Returning to Menu");
@@ -607,6 +611,19 @@ namespace SpaceGame
                 new Planet().Planets(8, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(8), Planet.GetDestY(8));
                 Program.UI();
             }
+            else if ((inRange1 == false) 
+                && (inRange2 == false) 
+                && (inRange3 == false) 
+                && (inRange4 == false) 
+                && (inRange5 == false) 
+                && (inRange6 == false) 
+                && (inRange7 == false) 
+                && (inRange8 == false) 
+                && (V.credits < 500) 
+                && (V.curInventory < 1))
+                 {
+                    stranded = true;
+                 }
             else
             {
                 Console.WriteLine("Returning to Menu");

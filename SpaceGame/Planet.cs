@@ -149,42 +149,6 @@ namespace SpaceGame
         }
 
         // Get Destination planet Y
-        public static double GetDestY(int n1,int n2, int n3, int n4, int n5, int n6, int n7, int n8)
-        {
-            if (n1 == 1)
-            {
-                return new Planet().destY = 0;
-            }
-            else if (n2 == 2)
-            {
-                return new Planet().destY2 = 4.367;
-            }
-            else if (n3 == 3)
-            {
-                return new Planet().destY3 = 6;
-            }
-            else if (n4 == 4)
-            {
-                return new Planet().destY4 = -15;
-            }
-            else if (n5 == 5)
-            {
-                return new Planet().destY5 = -25;
-            }
-            else if (n6 == 6)
-            {
-                return new Planet().destY6 = 33;
-            }
-            else if (n7 == 7)
-            {
-                return new Planet().destY7 = -40;
-            }
-            else if (n8 == 8)
-            {
-                return new Planet().destY8 = -50;
-            }
-            return GetDestY(n1, n2, n3, n4, n5, n6, n7, n8);
-        }
         public static double GetDestY(int currentPlanet)
         {
             if (currentPlanet == 1)
@@ -222,42 +186,6 @@ namespace SpaceGame
             return GetDestY(currentPlanet);
         }
         // Get Destination planet X
-        public static double GetDestX(int n1, int n2, int n3, int n4, int n5, int n6, int n7, int n8)
-        {
-            if (n1 == 1)
-            {
-                return new Planet().destX = 0;
-            }
-            else if (n2 == 2)
-            {
-                return new Planet().destX2 = 0;
-            }
-            else if (n3 == 3)
-            {
-                return new Planet().destX3 = -3;
-            }
-            else if (n4 == 4)
-            {
-                return new Planet().destX4 = 15;
-            }
-            else if (n5 == 5)
-            {
-                return new Planet().destX5 = 20;
-            }
-            else if (n6 == 6)
-            {
-                return new Planet().destX6 = -25;
-            }
-            else if (n7 == 7)
-            {
-                return new Planet().destX7 = 45;
-            }
-            else if (n8 == 8)
-            {
-                return new Planet().destX8 = 55;
-            }
-            return GetDestX(n1, n2, n3, n4, n5, n6, n7, n8);
-        }
         public static double GetDestX(int currentPlanet)
         {
             if (currentPlanet == 1)

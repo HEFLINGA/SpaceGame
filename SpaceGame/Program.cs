@@ -175,7 +175,7 @@ namespace SpaceGame
                         }
                     }
 
-                } while ((GameOver(V.credits, V.time) == false) && (shopInput != "exit"));
+                } while ((GameOver(V.credits, V.time) == false) && (shopInput != "exit") && (Menu.stranded == false));
                 // Game over
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("Game Over!! Total years played: {0}yrs.  Total credits earned: {1}.", Math.Round(V.time, 2), V.totalCredits - 10000);

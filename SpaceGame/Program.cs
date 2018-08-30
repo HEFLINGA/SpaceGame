@@ -15,7 +15,7 @@ namespace SpaceGame
             V.costResearch = V.rnd.Next(1000, 5000);
             V.costAnimals = V.rnd.Next(2000, 4000);
             V.costWater = V.rnd.Next(1000, 8000);
-            V.costFuel = V.rnd.Next(2000, 7000);
+            V.costDarkMatter = V.rnd.Next(40000, 65000);
         }                                                // Code for RandomNumber generator
         public static void UI()
         {
@@ -25,7 +25,7 @@ namespace SpaceGame
             Console.WriteLine("________________________________________________________________________________________________________________________");
             Console.SetCursorPosition(30, 1);
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Cargo: {0}/{1}", V.curInventory = V.invFood + V.invResearch + V.invAnimals + V.invWater + V.invFuel, V.maxInventory);
+            Console.WriteLine("Cargo: {0}/{1}", V.curInventory = V.invFood + V.invResearch + V.invAnimals + V.invWater + V.invDarkMatter, V.maxInventory);
             Console.SetCursorPosition(5, 1);
             Console.WriteLine("Name: {0}", V.character);
             Console.SetCursorPosition(55, 1);

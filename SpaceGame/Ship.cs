@@ -13,6 +13,7 @@ namespace SpaceGame
         public static int currentShip = 0;
         public int shipPrice = 0;
         public double speed = 0;
+        public double fuel = 0;
 
         // Code for setting Ship
         public int Tier1Ship()

@@ -227,21 +227,21 @@ namespace SpaceGame
                 return V.invWater;
             }
             // Code for buying fuel (Resource)
-            private int CargoFuel()
+            private int CargoDarkMatter()
             {
-                if ((V.remInventory >= 2) && (V.credits >= V.costFuel))
+                if ((V.remInventory >= 5) && (V.credits >= V.costDarkMatter))
                 {
-                    V.credits -= V.costFuel;
-                    V.invFuel += 2;
+                    V.credits -= V.costDarkMatter;
+                    V.invDarkMatter += 5;
                 }
-                else if (V.credits <= V.costFuel)
+                else if (V.credits <= V.costDarkMatter)
                 {
                     Program.UI();
                     Console.WriteLine("You do not have enough Credits to purchase item!");
                     Console.WriteLine("Press 'Enter' to return to Menu");
                     Console.ReadLine();
                 }
-                else if (V.remInventory <= 1)
+                else if (V.remInventory <= 4)
                 {
                     Program.UI();
                     Console.WriteLine("You do not have enough space in your inventory!");
@@ -249,7 +249,7 @@ namespace SpaceGame
                     Console.ReadLine();
                 }
 
-                return V.invFuel;
+                return V.invDarkMatter;
             }
             // Buying Menu
             public void BuyMenu()
@@ -270,7 +270,7 @@ namespace SpaceGame
                     Console.WriteLine($"Research, price: {V.costResearch}. This will take up 1 cargo slot");
                     Console.WriteLine($"Animals, price: {V.costAnimals}. This will take up 1 cargo slot");
                     Console.WriteLine($"Water, price: {V.costWater}. This will take up 2 cargo slots");
-                    Console.WriteLine($"Fuel, price: {V.costFuel}. This will take up 2 cargo slots");
+                    Console.WriteLine($"Dark Matter, price: {V.costDarkMatter}. This will take up 5 cargo slots");
                     Console.WriteLine("'Inv' to check your current inventory");
 
                     buyInput = Console.ReadLine().ToLower();
@@ -296,9 +296,10 @@ namespace SpaceGame
                             CargoWater();
                             Program.UI();
                             break;
-                        case "fuel":
+                        case "darkmatter":
+                        case "dark matter":
                             Console.Clear();
-                            CargoFuel();
+                            CargoDarkMatter();
                             Program.UI();
                             break;
                         case "inv":
@@ -391,15 +392,15 @@ namespace SpaceGame
 
                 return V.invWater;
             }
-            private int CargoFuel()
+            private int CargoDarkMatter()
             {
-                if (V.invFuel >= 2)
+                if (V.invDarkMatter >= 5)
                 {
-                    V.credits += V.costFuel;
-                    V.totalCredits += V.costFuel;
-                    V.invFuel -= 2;
+                    V.credits += V.invDarkMatter;
+                    V.totalCredits += V.invDarkMatter;
+                    V.invDarkMatter -= 5;
                 }
-                else if (V.invFuel < 2)
+                else if (V.invDarkMatter < 5)
                 {
                     Program.UI();
                     Console.WriteLine("You do not have any Fuel in your inventory to Sell!");
@@ -407,7 +408,7 @@ namespace SpaceGame
                     Console.ReadLine();
                 }
 
-                return V.invFuel;
+                return V.invDarkMatter;
             }
 
             public void SellMenu()
@@ -428,7 +429,7 @@ namespace SpaceGame
                     Console.WriteLine($"Research, sale price: {V.costResearch}");
                     Console.WriteLine($"Animals, sale price: {V.costAnimals}");
                     Console.WriteLine($"Water, sale price: {V.costWater}");
-                    Console.WriteLine($"Fuel, sale price: {V.costFuel}");
+                    Console.WriteLine($"Dark Matter, sale price: {V.costDarkMatter}");
                     Console.WriteLine("'Inv' to check your current Inventory");
 
                     sellInput = Console.ReadLine().ToLower();
@@ -454,9 +455,10 @@ namespace SpaceGame
                             CargoWater();
                             Program.UI();
                             break;
-                        case "fuel":
+                        case "darkmatter":
+                        case "dark matter":
                             Console.Clear();
-                            CargoFuel();
+                            CargoDarkMatter();
                             Program.UI();
                             break;
                         case "inv":
@@ -475,9 +477,9 @@ namespace SpaceGame
             }
         }
 
-        // Planets and travel variables        
+        // Planets and travel variables
         private double destX = 0;
-        private double destY = 0;        
+        private double destY = 0;
 
         // Travel class for all travel handling;        
         public class Travel

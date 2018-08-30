@@ -20,7 +20,7 @@ namespace SpaceGame
         public static int invResearch = 0;
         public static int invAnimals = 0;
         public static int invWater = 0;
-        public static int invFuel = 0;
+        public static int invDarkMatter = 0;
         public static int price = 0;
         public static int credits = 10000;
         public static int totalCredits = 0;
@@ -28,7 +28,7 @@ namespace SpaceGame
         public static int costResearch = 3000;
         public static int costAnimals = 4000;
         public static int costWater = 5000;
-        public static int costFuel = 6000;
+        public static int costDarkMatter = 50000;
 
         //various variables
         public static double timePassage = 0;
@@ -49,7 +49,7 @@ namespace SpaceGame
                 Console.WriteLine("You have {0} Research", invResearch);
                 Console.WriteLine("You have {0} Animals", invAnimals);
                 Console.WriteLine("You have {0} Water", invWater);
-                Console.WriteLine("You have {0} Fuel", invFuel);
+                Console.WriteLine("You have {0} Dark Matter", invDarkMatter);
                 Console.WriteLine("You have {0} out of {1} spaces remaining", remInventory, maxInventory);
                 Console.WriteLine("Press 'Enter' to continue");
                 Console.ReadLine();

@@ -487,173 +487,7 @@ namespace SpaceGame
             }
         }
 
-        /*
-        // Planets and travel variables
-        private double destX = 0;
-        private double destY = 0;
-        */
-
-        // Travel class for all travel handling;        
-        public class Travel
-        {
-            // TODO - Add method for planet selection instead of repeated code...
-
-            /*
-            // Travel from planet to planet and change curX and curY
-            private int Earth()
-            {
-                Program.UI();
-                if (Planet.currentPlanet == 1)
-                {
-                    Console.WriteLine("You are already here!! No need to travel anywhere..");
-                    Console.WriteLine("Press 'enter' to return to Menu");
-                    Console.ReadLine();
-                }
-                else if (Planet.currentPlanet != 1)
-                {
-                    Console.WriteLine("Heading to Earth!");
-                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = 0, new Menu().destY = 0), 3));
-                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = 0, new Menu().destY = 0) / Program.Velocity(Ship.ShowShipSpeed(Ship.currentShip)), 2));
-                    Console.WriteLine();
-                    Console.WriteLine("type 'GO' to depart");
-                    Console.WriteLine("press 'enter' to go back to main menu");
-                    string conf = Console.ReadLine().ToLower();
-
-                    if (conf == "go")
-                    {
-                        Planet.currentPlanet = 1;
-                        V.time += V.timePassage;
-                        Planet.GetPlanetName(1);
-                        Planet.GetCurX();
-                        Planet.GetCurY();
-                        Program.RandomNumbers();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Returning to Menu");
-                        System.Threading.Thread.Sleep(1100);
-                    }
-
-                }
-
-                return Planet.currentPlanet;
-            }
-            private int AlphaCentauri()
-            {
-                Program.UI();
-                if (Planet.currentPlanet == 2)
-                {
-                    Console.WriteLine("You are already here!! No need to travel anywhere..");
-                    Console.WriteLine("Press 'enter' to return to Menu");
-                    Console.ReadLine();
-                }
-                else if (Planet.currentPlanet != 2)
-                {
-                    Console.WriteLine("Heading to Alpha Centauri!");
-                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = 0, new Menu().destY = 4.367), 3));
-                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = 0, new Menu().destY = 4.367) / Program.Velocity(Ship.ShowShipSpeed(Ship.currentShip)), 2));
-                    Console.WriteLine();
-                    Console.WriteLine("type 'GO' to depart");
-                    Console.WriteLine("press 'enter' to go back to main menu");
-                    string conf = Console.ReadLine().ToLower();
-
-                    if (conf == "go")
-                    {
-                        Planet.currentPlanet = 2;
-                        V.time += V.timePassage;
-                        Planet.GetPlanetName(2);
-                        Planet.GetCurX();
-                        Planet.GetCurY();
-                        Program.RandomNumbers();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Returning to Menu");
-                        System.Threading.Thread.Sleep(1100);
-                    }
-
-                }
-
-                return Planet.currentPlanet;
-            }
-            private int Trappist()
-            {
-                Program.UI();
-                if (Planet.currentPlanet == 3)
-                {
-                    Console.WriteLine("You are already here!! No need to travel anywhere..");
-                    Console.WriteLine("Press 'enter' to return to Menu");
-                    Console.ReadLine();
-                }
-                else if (Planet.currentPlanet != 3)
-                {
-                    Console.WriteLine("Heading to TRAPPIST-1!");
-                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = -3, new Menu().destY = 6), 3));
-                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = -3, new Menu().destY = 6) / Program.Velocity(Ship.ShowShipSpeed(Ship.currentShip)), 2));
-                    Console.WriteLine();
-                    Console.WriteLine("type 'GO' to depart");
-                    Console.WriteLine("press 'enter' to go back to main menu");
-                    string conf = Console.ReadLine().ToLower();
-
-                    if (conf == "go")
-                    {
-                        Planet.currentPlanet = 3;
-                        V.time += V.timePassage;
-                        Planet.GetPlanetName(3);
-                        Planet.GetCurX();
-                        Planet.GetCurY();
-                        Program.RandomNumbers();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Returning to Menu");
-                        System.Threading.Thread.Sleep(1100);
-                    }
-                }
-
-                return Planet.currentPlanet;
-            }
-            private int Krootabulon()
-            {
-                Program.UI();
-                if (Planet.currentPlanet == 4)
-                {
-                    Console.WriteLine("You are already here!! No need to travel anywhere..");
-                    Console.WriteLine("Press 'enter' to return to Menu");
-                    Console.ReadLine();
-                }
-                else if (Planet.currentPlanet != 4)
-                {
-                    Console.WriteLine("Heading to Krootabulon!");
-                    Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = 10, new Menu().destY = -15), 3));
-                    Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(Planet.GetCurX(), Planet.GetCurY(), new Menu().destX = 10, new Menu().destY = -15) / Program.Velocity(Ship.ShowShipSpeed(Ship.currentShip)), 2));
-                    Console.WriteLine();
-                    Console.WriteLine("type 'GO' to depart");
-                    Console.WriteLine("press 'enter' to go back to main menu");
-                    string conf = Console.ReadLine().ToLower();
-
-                    if (conf == "go")
-                    {
-                        Planet.currentPlanet = 4;
-                        V.time += V.timePassage;
-                        Planet.GetPlanetName(4);
-                        Planet.GetCurX();
-                        Planet.GetCurY();
-                        Program.RandomNumbers();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Returning to Menu");
-                        System.Threading.Thread.Sleep(1100);
-                    }
-
-                }
-
-                return Planet.currentPlanet;
-            }
-            */
-            // Travel menu to select planet to go to and run the above code to get you there
-            public void TravelMenu()
+        public void TravelMenu()
             {
                 string travelInput = "";
 
@@ -673,23 +507,23 @@ namespace SpaceGame
                 {
                     case "earth":
                         Console.Clear();
-                        Earth();
+                        new Planet().Planets(1, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(1), Planet.GetDestY(1));
                         Program.UI();
                         break;
                     case "alpha centauri":
                         Console.Clear();
-                        AlphaCentauri();
+                        new Planet().Planets(2, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(2), Planet.GetDestY(2));
                         Program.UI();
                         break;
                     case "trappist":
                         Console.Clear();
-                        Trappist();
+                        new Planet().Planets(3, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(3), Planet.GetDestY(3));
                         Program.UI();
                         break;
                     case "krootabulon":
                     case "kroot":
                         Console.Clear();
-                        Krootabulon();
+                        new Planet().Planets(4, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(4), Planet.GetDestY(4));
                         Program.UI();
                         break;
                     default:
@@ -699,7 +533,7 @@ namespace SpaceGame
                         break;
 
                 }
-            }
         }
     }
 }
+

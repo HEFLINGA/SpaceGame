@@ -494,6 +494,7 @@ namespace SpaceGame
         // Travel class for all travel handling;        
         public class Travel
         {
+            // TODO - Add method for planet selection instead of repeated code...
             // Travel from planet to planet and change curX and curY
             private int Earth()
             {

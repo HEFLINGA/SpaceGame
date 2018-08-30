@@ -36,6 +36,118 @@ namespace SpaceGame
 
         }
 
+        public static double BuyingFuel()
+        {
+            string input = "";
+            do
+            {
+                Program.UI();
+                Console.WriteLine("How much Fuel would you like to buy?");
+                Console.WriteLine("Fuel is sold in bundles of: ");
+                Console.WriteLine("1. 1 - Fuel. Price: 500");
+                Console.WriteLine("2. 5 - Fuel. Price: 2500");
+                Console.WriteLine("3. 10 - Fuel. Price: 5000");
+                Console.WriteLine("4. 15 - Fuel. Price: 7500");
+                Console.WriteLine("5. 30 - Fuel. Price: 15000");
+                Console.WriteLine("Type 'exit' to exit back to Menu!");
+                input = Console.ReadLine().ToLower();
+
+                if (input == "1")
+                {
+                    if ((V.credits >= 500) && (curFuel < ShowShipMaxFuel(currentShip)))
+                    {
+                        curFuel += 1;
+                        V.credits -= 500;
+                        Console.WriteLine("You bought 1 Fuel!");
+                        Console.WriteLine("Loading..");
+                        System.Threading.Thread.Sleep(1000);
+                    }
+                    else if ((V.credits < 500) || (curFuel >= ShowShipMaxFuel(currentShip)))
+                    {
+                        Console.WriteLine("You can not purchase this item");
+                        Console.WriteLine("Press 'enter' to continue");
+                        Console.ReadLine();
+                    }
+                }
+                else if (input == "2")
+                {
+                    if ((V.credits >= 2500) && (curFuel <= ShowShipMaxFuel(currentShip) - 5))
+                    {
+                        curFuel += 5;
+                        V.credits -= 2500;
+                        Console.WriteLine("You bought 5 Fuel!");
+                        Console.WriteLine("Loading..");
+                        System.Threading.Thread.Sleep(1000);
+                    }
+                    else if ((V.credits < 2500) || (curFuel >= ShowShipMaxFuel(currentShip) - 4))
+                    {
+                        Console.WriteLine("You can not purchase this item");
+                        Console.WriteLine("Press 'enter' to continue");
+                        Console.ReadLine();
+                    }
+
+                }
+                else if (input == "3")
+                {
+                    if ((V.credits >= 5000) && (curFuel <= ShowShipMaxFuel(currentShip) - 10))
+                    {
+                        curFuel += 10;
+                        V.credits -= 5000;
+                        Console.WriteLine("You bought 10 Fuel!");
+                        Console.WriteLine("Loading..");
+                        System.Threading.Thread.Sleep(1000);
+                    }
+                    else if ((V.credits < 5000) || (curFuel >= ShowShipMaxFuel(currentShip) - 9))
+                    {
+                        Console.WriteLine("You can not purchase this item");
+                        Console.WriteLine("Press 'enter' to continue");
+                        Console.ReadLine();
+                    }
+
+                }
+                else if (input == "4")
+                {
+                    if ((V.credits >= 7500) && (curFuel <= ShowShipMaxFuel(currentShip) - 15))
+                    {
+                        curFuel += 15;
+                        V.credits -= 7500;
+                        Console.WriteLine("You bought 15 Fuel!");
+                        Console.WriteLine("Loading..");
+                        System.Threading.Thread.Sleep(1000);
+                    }
+                    else if ((V.credits < 7500) || (curFuel >= ShowShipMaxFuel(currentShip) - 14))
+                    {
+                        Console.WriteLine("You can not purchase this item");
+                        Console.WriteLine("Press 'enter' to continue");
+                        Console.ReadLine();
+                    }
+                }
+                else if (input == "5")
+                {
+                    if ((V.credits >= 15000) && (curFuel <= ShowShipMaxFuel(currentShip) - 30))
+                    {
+                        curFuel += 30;
+                        V.credits -= 15000;
+                        Console.WriteLine("You bought 30 Fuel!");
+                        Console.WriteLine("Loading..");
+                        System.Threading.Thread.Sleep(1000);
+                    }
+                    else if ((V.credits < 15000) || (curFuel >= ShowShipMaxFuel(currentShip) - 29))
+                    {
+                        Console.WriteLine("You can not purchase this item");
+                        Console.WriteLine("Press 'enter' to continue");
+                        Console.ReadLine();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input.. Please check what you type before sendin' it in.");
+                }
+            } while (input != "exit");
+
+            return curFuel;
+        }
+
         public double ShipMaxFuel(double maxFuel)
         {
             this.maxFuel = maxFuel;

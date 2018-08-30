@@ -101,20 +101,24 @@ namespace SpaceGame
                 Console.WriteLine();
                 Console.WriteLine("Star Explorer! Price: 20000 Credits. Speed: 3. Cargo: 5. Fuel: 35");
                 Console.WriteLine("USS Schwifty Ship! Price: 50000 Credits. Speed: 6. Cargo: 10. Fuel 60");
+                Console.WriteLine("Fuel for your ship! Price: 500 Credits per 1 Fuel");
 
-                shipMenuInput = Console.ReadLine();
+                shipMenuInput = Console.ReadLine().ToLower();
                 switch (shipMenuInput)
                 {
-                    case "Star Explorer":
                     case "star explorer":
                         Console.Clear();
                         new ShipBuy().StarExplorer();
                         Program.UI();
                         break;
-                    case "USS Schwiftiest Ship":
                     case "uss schwiftiest ship":
                         Console.Clear();
                         new ShipBuy().UssSchwiftiestShip();
+                        Program.UI();
+                        break;
+                    case "fuel":
+                        Console.Clear();
+                        Ship.BuyingFuel();
                         Program.UI();
                         break;
                     default:

@@ -230,6 +230,7 @@ namespace SpaceGame
             if (currentPlanet == Planet.currentPlanet)
             {
                 Console.WriteLine("You are already here!! No need to travel anywhere..");
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("Press 'enter' to return to Menu");
                 Console.ReadLine();
             }
@@ -240,7 +241,10 @@ namespace SpaceGame
                 Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(getX, getY, destX, destY), 3));
                 Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(getX, getY, destX, destY) / Program.Velocity(Ship.ShowShipSpeed(Ship.currentShip)), 2));
                 Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("type 'GO' to depart");
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine();
                 Console.WriteLine("press 'enter' to go back to main menu");
                 double distance = Math.Ceiling(Program.Distance(getX, getY, destX, destY));
                 string conf = Console.ReadLine().ToLower();

@@ -98,8 +98,7 @@ namespace SpaceGame
                 Program.UI();
 
                 Console.WriteLine("What would you like to buy?: \n" +
-                                        "(Type name of Ship to purchase)");
-                Console.WriteLine("press 'Enter' to leave the trading post");
+                                        "(Type name of Ship to purchase)");                
                 Console.WriteLine();
                 Console.WriteLine("Type name of item or ship you would like to buy!");
                 Console.WriteLine();
@@ -107,6 +106,8 @@ namespace SpaceGame
                 Console.WriteLine("USS Schwifty Ship! Price: 50000 Credits. Speed: 6. Cargo: 10. Fuel 60");
                 Console.WriteLine();
                 Console.WriteLine("Fuel for your ship! Price: 500 Credits per 1 Fuel");
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("press 'Enter' to leave the trading post");
 
                 shipMenuInput = Console.ReadLine().ToLower();
                 switch (shipMenuInput)
@@ -279,7 +280,6 @@ namespace SpaceGame
                                         "(Type name of Item to purchase)");
                     Console.WriteLine("For buying multiples of the same item after the initial buy, use up/down");
                     Console.WriteLine("arrows to go to name, and press 'enter'");
-                    Console.WriteLine("press 'enter' to leave the trading post");
                     Console.WriteLine();
                     Console.WriteLine($"'Food', price: {V.costFood}. This will take up 1 cargo slot");
                     Console.WriteLine($"'Research', price: {V.costResearch}. This will take up 1 cargo slot");
@@ -287,6 +287,8 @@ namespace SpaceGame
                     Console.WriteLine($"'Water, price': {V.costWater}. This will take up 2 cargo slots");
                     Console.WriteLine($"'Dark Matter', price: {V.costDarkMatter}. This will take up 5 cargo slots");
                     Console.WriteLine("'Inv' to check your current inventory");
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("press 'Enter' to leave the trading post");
 
                     buyInput = Console.ReadLine().ToLower();
                     switch (buyInput)
@@ -445,7 +447,6 @@ namespace SpaceGame
                                         "(Type name of Item to purchase)");
                     Console.WriteLine("For buying multiples of the same item after the initial buy, use up/down");
                     Console.WriteLine("arrows to go to name, and press 'enter'");
-                    Console.WriteLine("press 'Enter' to leave the trading post");
                     Console.WriteLine();
                     Console.WriteLine($"'Food', sale price: {V.costFood}");
                     Console.WriteLine($"'Research', sale price: {V.costResearch}");
@@ -453,6 +454,8 @@ namespace SpaceGame
                     Console.WriteLine($"'Water', sale price: {V.costWater}");
                     Console.WriteLine($"'Dark Matter', sale price: {V.costDarkMatter}");
                     Console.WriteLine("'Inv' to check your current Inventory");
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("press 'Enter' to leave the trading post");
 
                     sellInput = Console.ReadLine().ToLower();
                     switch (sellInput)
@@ -506,8 +509,10 @@ namespace SpaceGame
             Program.UI();
             Console.WriteLine("Where would you like to go!!: \n" +
                                 "(Type name of planet you wish to go to)");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("press 'Enter' to leave the space port and return to Main Menu");
             Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
             // Bools for deciding if you are in range of planets
             #region Bool for range
             bool inRange1 = false;

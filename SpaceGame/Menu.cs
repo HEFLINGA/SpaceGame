@@ -104,12 +104,15 @@ namespace SpaceGame
                 Console.WriteLine();
                 Console.WriteLine("Type name of item or ship you would like to buy!");
                 Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 Console.WriteLine("Star Explorer! Price: 20000 Credits. Speed: 3. Cargo: 5. Fuel: 35");
                 Console.WriteLine("USS Schwifty Ship! Price: 50000 Credits. Speed: 6. Cargo: 10. Fuel 60");
                 Console.WriteLine();
-                Console.WriteLine("Fuel for your ship! Price: 500 Credits per 1 Fuel");
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine("Fuel for your ship!");
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("press 'Enter' to leave the trading post");
+                Console.WriteLine();
+                Console.WriteLine("press 'enter' to leave the trading post");
 
                 shipMenuInput = Console.ReadLine().ToLower();
                 switch (shipMenuInput)
@@ -472,7 +475,7 @@ namespace SpaceGame
 
                     Console.WriteLine("What would you like to Sell?: \n" +
                                         "(Type name of Item to purchase)");
-                    Console.WriteLine("For selling multiples of the same item after the initial sale, use up/down");
+                    Console.WriteLine("For selling multiples of the same item after the initial sale, use up/down");  
                     Console.WriteLine("arrows to go to name, and press 'enter'");
                     Console.WriteLine();
                     Console.WriteLine($"'Food', sale price: {V.costFood}");
@@ -549,42 +552,42 @@ namespace SpaceGame
             #endregion
 
             // Nested if statements determening whether or not you are in range of a planet
-            if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(1), Planet.GetDestY(1)) <= Ship.curFuel)
+            if ((Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(1), Planet.GetDestY(1)) <= Ship.curFuel) && (Planet.currentPlanet != 1))
             {
                 Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(1));
                 inRange1 = true;
             }
-            if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(2), Planet.GetDestY(2)) <= Ship.curFuel)
+            if ((Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(2), Planet.GetDestY(2)) <= Ship.curFuel) && (Planet.currentPlanet != 2))
             {
                 Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(2));
                 inRange2 = true;
             }
-            if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(3), Planet.GetDestY(3)) <= Ship.curFuel)
+            if ((Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(3), Planet.GetDestY(3)) <= Ship.curFuel) && (Planet.currentPlanet != 3))
             {
                 Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(3));
                 inRange3 = true;
             }
-            if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(4), Planet.GetDestY(4)) <= Ship.curFuel)
+            if ((Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(4), Planet.GetDestY(4)) <= Ship.curFuel) && (Planet.currentPlanet != 4))
             {
                 Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(4));
                 inRange4 = true;
             }
-            if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(5), Planet.GetDestY(5)) <= Ship.curFuel)
+            if ((Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(5), Planet.GetDestY(5)) <= Ship.curFuel) && (Planet.currentPlanet != 5))
             {
                 Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(5));
                 inRange5 = true;
             }
-            if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(6), Planet.GetDestY(6)) <= Ship.curFuel)
+            if ((Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(6), Planet.GetDestY(6)) <= Ship.curFuel) && (Planet.currentPlanet != 6))
             {
                 Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(6));
                 inRange6 = true;
             }
-            if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(7), Planet.GetDestY(7)) <= Ship.curFuel)
+            if ((Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(7), Planet.GetDestY(7)) <= Ship.curFuel) && (Planet.currentPlanet != 7))
             {
                 Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(7));
                 inRange7 = true;
             }
-            if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(8), Planet.GetDestY(8)) <= Ship.curFuel)
+            if ((Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(8), Planet.GetDestY(8)) <= Ship.curFuel) && (Planet.currentPlanet != 8))
             {
                 Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(8));
                 inRange8 = true;
@@ -649,7 +652,7 @@ namespace SpaceGame
                 && (inRange6 == false) 
                 && (inRange7 == false) 
                 && (inRange8 == false) 
-                && (V.credits < 500) 
+                && (V.credits < 500)
                 && (V.curInventory < 1))
                  {
                     stranded = true;

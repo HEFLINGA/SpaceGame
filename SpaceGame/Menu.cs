@@ -25,7 +25,7 @@ namespace SpaceGame
             Console.ReadLine();
         }
 
-        // Ship class for all buying of ships
+        // Ship class for all buying of ships. Used class within menu class to contain information for clearity and cleanness of code
         public class ShipBuy
         {
             // Ship Menu for buying ships
@@ -127,7 +127,7 @@ namespace SpaceGame
             }
         }
 
-        // Buy class for all buying of inventory
+        // Buy class for all buying of inventory. Used class within menu class to contain information for clearity and cleanness of code
         public class Buy
         {
             // Code for buying food
@@ -321,7 +321,7 @@ namespace SpaceGame
             }
         }
 
-        // Sell class for all selling of inventory;
+        // Sell class for all selling of inventory. Used class within menu class to contain information for clearity and cleanness of code;
         public class Sell
         {
             // Code for selling food
@@ -487,6 +487,7 @@ namespace SpaceGame
             }
         }
 
+        // Menu for travel and changing of planets in Planets.cs
         public void TravelMenu()
         {
             string travelInput = "";           

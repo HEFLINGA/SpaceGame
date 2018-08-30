@@ -20,24 +20,6 @@ namespace SpaceGame
         {
         }
 
-        // Methods for using planets
-        public int PlanetEarth()
-        {
-            return currentPlanet = 1;
-        }
-        public int PlanetAlphaCentauri()
-        {
-            return currentPlanet = 2;
-        }
-        public int PlanetTrappist()
-        {
-            return currentPlanet = 3;
-        }
-        public int Planetkrootabulon()
-        {
-            return currentPlanet = 4;
-        }
-
         // Get planet name
         public static string GetPlanetName(int currentPlanet)
         {

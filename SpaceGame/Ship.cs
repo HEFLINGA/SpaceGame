@@ -44,25 +44,25 @@ namespace SpaceGame
                 Program.UI();
                 Console.WriteLine("How much Fuel would you like to buy?");
                 Console.WriteLine("Fuel is sold in bundles of: ");
-                Console.WriteLine("1. 1 - Fuel. Price: 500");
-                Console.WriteLine("2. 5 - Fuel. Price: 2500");
-                Console.WriteLine("3. 10 - Fuel. Price: 5000");
-                Console.WriteLine("4. 15 - Fuel. Price: 7500");
-                Console.WriteLine("5. 30 - Fuel. Price: 15000");
+                Console.WriteLine("1. 1 - Fuel. Price: 250");
+                Console.WriteLine("2. 5 - Fuel. Price: 1250");
+                Console.WriteLine("3. 10 - Fuel. Price: 2500");
+                Console.WriteLine("4. 15 - Fuel. Price: 3750");
+                Console.WriteLine("5. 30 - Fuel. Price: 7500");
                 Console.WriteLine("Type 'exit' to exit back to Menu!");
                 input = Console.ReadLine().ToLower();
 
                 if (input == "1")
                 {
-                    if ((V.credits >= 500) && (curFuel < ShowShipMaxFuel(currentShip)))
+                    if ((V.credits >= 250) && (curFuel < ShowShipMaxFuel(currentShip)))
                     {
                         curFuel += 1;
-                        V.credits -= 500;
+                        V.credits -= 250;
                         Console.WriteLine("You bought 1 Fuel!");
                         Console.WriteLine("Loading..");
                         System.Threading.Thread.Sleep(1000);
                     }
-                    else if ((V.credits < 500) || (curFuel >= ShowShipMaxFuel(currentShip)))
+                    else if ((V.credits < 250) || (curFuel >= ShowShipMaxFuel(currentShip)))
                     {
                         Console.WriteLine("You can not purchase this item");
                         Console.WriteLine("Press 'enter' to continue");
@@ -71,15 +71,15 @@ namespace SpaceGame
                 }
                 else if (input == "2")
                 {
-                    if ((V.credits >= 2500) && (curFuel <= ShowShipMaxFuel(currentShip) - 5))
+                    if ((V.credits >= 1250) && (curFuel <= ShowShipMaxFuel(currentShip) - 5))
                     {
                         curFuel += 5;
-                        V.credits -= 2500;
+                        V.credits -= 1250;
                         Console.WriteLine("You bought 5 Fuel!");
                         Console.WriteLine("Loading..");
                         System.Threading.Thread.Sleep(1000);
                     }
-                    else if ((V.credits < 2500) || (curFuel >= ShowShipMaxFuel(currentShip) - 4))
+                    else if ((V.credits < 1250) || (curFuel >= ShowShipMaxFuel(currentShip) - 4))
                     {
                         Console.WriteLine("You can not purchase this item");
                         Console.WriteLine("Press 'enter' to continue");
@@ -89,15 +89,15 @@ namespace SpaceGame
                 }
                 else if (input == "3")
                 {
-                    if ((V.credits >= 5000) && (curFuel <= ShowShipMaxFuel(currentShip) - 10))
+                    if ((V.credits >= 2500) && (curFuel <= ShowShipMaxFuel(currentShip) - 10))
                     {
                         curFuel += 10;
-                        V.credits -= 5000;
+                        V.credits -= 2500;
                         Console.WriteLine("You bought 10 Fuel!");
                         Console.WriteLine("Loading..");
                         System.Threading.Thread.Sleep(1000);
                     }
-                    else if ((V.credits < 5000) || (curFuel >= ShowShipMaxFuel(currentShip) - 9))
+                    else if ((V.credits < 2500) || (curFuel >= ShowShipMaxFuel(currentShip) - 9))
                     {
                         Console.WriteLine("You can not purchase this item");
                         Console.WriteLine("Press 'enter' to continue");
@@ -107,15 +107,15 @@ namespace SpaceGame
                 }
                 else if (input == "4")
                 {
-                    if ((V.credits >= 7500) && (curFuel <= ShowShipMaxFuel(currentShip) - 15))
+                    if ((V.credits >= 3750) && (curFuel <= ShowShipMaxFuel(currentShip) - 15))
                     {
                         curFuel += 15;
-                        V.credits -= 7500;
+                        V.credits -= 3750;
                         Console.WriteLine("You bought 15 Fuel!");
                         Console.WriteLine("Loading..");
                         System.Threading.Thread.Sleep(1000);
                     }
-                    else if ((V.credits < 7500) || (curFuel >= ShowShipMaxFuel(currentShip) - 14))
+                    else if ((V.credits < 3750) || (curFuel >= ShowShipMaxFuel(currentShip) - 14))
                     {
                         Console.WriteLine("You can not purchase this item");
                         Console.WriteLine("Press 'enter' to continue");
@@ -124,15 +124,15 @@ namespace SpaceGame
                 }
                 else if (input == "5")
                 {
-                    if ((V.credits >= 15000) && (curFuel <= ShowShipMaxFuel(currentShip) - 30))
+                    if ((V.credits >= 7500) && (curFuel <= ShowShipMaxFuel(currentShip) - 30))
                     {
                         curFuel += 30;
-                        V.credits -= 15000;
+                        V.credits -= 7500;
                         Console.WriteLine("You bought 30 Fuel!");
                         Console.WriteLine("Loading..");
                         System.Threading.Thread.Sleep(1000);
                     }
-                    else if ((V.credits < 15000) || (curFuel >= ShowShipMaxFuel(currentShip) - 29))
+                    else if ((V.credits < 7500) || (curFuel >= ShowShipMaxFuel(currentShip) - 29))
                     {
                         Console.WriteLine("You can not purchase this item");
                         Console.WriteLine("Press 'enter' to continue");

@@ -116,6 +116,7 @@ namespace SpaceGame
                 Console.WriteLine("You paid {0} for your ship!!", cost);
                 Console.WriteLine();
                 Console.WriteLine("Thank you for shopping with SpaceBuggies R Us");
+                Console.WriteLine("Loading... ");
                 System.Threading.Thread.Sleep(1200);
 
                 UI();
@@ -123,8 +124,8 @@ namespace SpaceGame
                     Ship.ShowShipName(Ship.currentShip), 
                     Ship.ShowShipSpeed(Ship.currentShip), 
                     V.maxInventory);
-
-                Console.ReadLine();
+                Console.WriteLine("Loading... ");
+                System.Threading.Thread.Sleep(1200);
 
                 // Player starts his journey exploring and buying
                 do

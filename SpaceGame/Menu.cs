@@ -99,8 +99,11 @@ namespace SpaceGame
                                         "(Type name of Ship to purchase)");
                 Console.WriteLine("press 'Enter' to leave the trading post");
                 Console.WriteLine();
+                Console.WriteLine("Type name of item or ship you would like to buy!");
+                Console.WriteLine();
                 Console.WriteLine("Star Explorer! Price: 20000 Credits. Speed: 3. Cargo: 5. Fuel: 35");
                 Console.WriteLine("USS Schwifty Ship! Price: 50000 Credits. Speed: 6. Cargo: 10. Fuel 60");
+                Console.WriteLine();
                 Console.WriteLine("Fuel for your ship! Price: 500 Credits per 1 Fuel");
 
                 shipMenuInput = Console.ReadLine().ToLower();

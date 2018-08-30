@@ -147,6 +147,9 @@ namespace SpaceGame
                 {
                     V.credits -= V.costFood;
                     V.invFood += 1;
+                    Console.WriteLine("You bought 1 Food!");
+                    Console.WriteLine("Loading..");
+                    System.Threading.Thread.Sleep(800);
                 }
                 else if (V.credits <= V.costFood)
                 {
@@ -172,6 +175,9 @@ namespace SpaceGame
                 {
                     V.credits -= V.costResearch;
                     V.invResearch += 1;
+                    Console.WriteLine("You bought 1 Research!");
+                    Console.WriteLine("Loading..");
+                    System.Threading.Thread.Sleep(800);
                 }
                 else if (V.credits <= V.costResearch)
                 {
@@ -197,6 +203,9 @@ namespace SpaceGame
                 {
                     V.credits -= V.costAnimals;
                     V.invAnimals += 1;
+                    Console.WriteLine("You bought 1 Anaimal!");
+                    Console.WriteLine("Loading..");
+                    System.Threading.Thread.Sleep(800);
                 }
                 else if (V.credits <= V.costAnimals)
                 {
@@ -222,6 +231,9 @@ namespace SpaceGame
                 {
                     V.credits -= V.costWater;
                     V.invWater += 2;
+                    Console.WriteLine("You bought 1 Water! (Takes 2 cargo slots to hold)");
+                    Console.WriteLine("Loading..");
+                    System.Threading.Thread.Sleep(800);
                 }
                 else if (V.credits <= V.costWater)
                 {
@@ -247,6 +259,9 @@ namespace SpaceGame
                 {
                     V.credits -= V.costDarkMatter;
                     V.invDarkMatter += 5;
+                    Console.WriteLine("You bought some DARK MATTER! (Takes up 5 whole slots)");
+                    Console.WriteLine("Loading..");
+                    System.Threading.Thread.Sleep(800);
                 }
                 else if (V.credits <= V.costDarkMatter)
                 {
@@ -445,7 +460,7 @@ namespace SpaceGame
 
                     Console.WriteLine("What would you like to Sell?: \n" +
                                         "(Type name of Item to purchase)");
-                    Console.WriteLine("For buying multiples of the same item after the initial buy, use up/down");
+                    Console.WriteLine("For selling multiples of the same item after the initial sale, use up/down");
                     Console.WriteLine("arrows to go to name, and press 'enter'");
                     Console.WriteLine();
                     Console.WriteLine($"'Food', sale price: {V.costFood}");
@@ -455,7 +470,7 @@ namespace SpaceGame
                     Console.WriteLine($"'Dark Matter', sale price: {V.costDarkMatter}");
                     Console.WriteLine("'Inv' to check your current Inventory");
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.WriteLine("press 'Enter' to leave the trading post");
+                    Console.WriteLine("press 'enter' to leave the trading post");
 
                     sellInput = Console.ReadLine().ToLower();
                     switch (sellInput)
@@ -513,6 +528,7 @@ namespace SpaceGame
             Console.WriteLine("press 'Enter' to leave the space port and return to Main Menu");
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.DarkCyan;
+
             // Bools for deciding if you are in range of planets
             #region Bool for range
             bool inRange1 = false;
@@ -524,47 +540,49 @@ namespace SpaceGame
             bool inRange7 = false;
             bool inRange8 = false;
             #endregion
+
             // Nested if statements determening whether or not you are in range of a planet
             if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(1), Planet.GetDestY(1)) <= Ship.curFuel)
             {
                 Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(1));
                 inRange1 = true;
-                if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(2), Planet.GetDestY(2)) <= Ship.curFuel)
-                {
-                    Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(2));
-                    inRange2 = true;
-                    if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(3), Planet.GetDestY(3)) <= Ship.curFuel)
-                    {
-                        Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(3));
-                        inRange3 = true;
-                        if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(4), Planet.GetDestY(4)) <= Ship.curFuel)
-                        {
-                            Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(4));
-                            inRange4 = true;
-                            if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(5), Planet.GetDestY(5)) <= Ship.curFuel)
-                            {
-                                Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(5));
-                                inRange5 = true;
-                                if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(6), Planet.GetDestY(6)) <= Ship.curFuel)
-                                {
-                                    Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(6));
-                                    inRange6 = true;
-                                    if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(7), Planet.GetDestY(7)) <= Ship.curFuel)
-                                    {
-                                        Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(7));
-                                        inRange7 = true;
-                                        if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(8), Planet.GetDestY(8)) <= Ship.curFuel)
-                                        {
-                                            Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(8));
-                                            inRange8 = true;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
             }
+            if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(2), Planet.GetDestY(2)) <= Ship.curFuel)
+            {
+                Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(2));
+                inRange2 = true;
+            }
+            if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(3), Planet.GetDestY(3)) <= Ship.curFuel)
+            {
+                Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(3));
+                inRange3 = true;
+            }
+            if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(4), Planet.GetDestY(4)) <= Ship.curFuel)
+            {
+                Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(4));
+                inRange4 = true;
+            }
+            if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(5), Planet.GetDestY(5)) <= Ship.curFuel)
+            {
+                Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(5));
+                inRange5 = true;
+            }
+            if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(6), Planet.GetDestY(6)) <= Ship.curFuel)
+            {
+                Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(6));
+                inRange6 = true;
+            }
+            if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(7), Planet.GetDestY(7)) <= Ship.curFuel)
+            {
+                Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(7));
+                inRange7 = true;
+            }
+            if (Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(8), Planet.GetDestY(8)) <= Ship.curFuel)
+            {
+                Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(8));
+                inRange8 = true;
+            }
+                                        
             // Code for changing planetary information based on range and user input
             #region Planet changed based on range and input
             travelInput = Console.ReadLine().ToLower();

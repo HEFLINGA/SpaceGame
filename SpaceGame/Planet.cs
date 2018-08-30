@@ -239,7 +239,6 @@ namespace SpaceGame
             }
             else if (currentPlanet != Planet.currentPlanet)
             {
-                Planet.currentPlanet = currentPlanet;
                 Console.WriteLine("Heading to {0}!", GetPlanetName(currentPlanet));
                 Console.WriteLine("Distance is: {0}LYs", Math.Round(Program.Distance(getX, getY, destX, destY), 3));
                 Console.WriteLine("It will take you: {0}yrs", V.timePassage = Math.Round(Program.Distance(getX, getY, destX, destY) / Program.Velocity(Ship.ShowShipSpeed(Ship.currentShip)), 2));
@@ -249,8 +248,10 @@ namespace SpaceGame
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine();
                 Console.WriteLine("press 'enter' to go back to main menu");
+                Console.ForegroundColor = ConsoleColor.Green;
                 double distance = Math.Ceiling(Program.Distance(getX, getY, destX, destY));
                 string conf = Console.ReadLine().ToLower();
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
 
                 if (conf == "go")
                 {

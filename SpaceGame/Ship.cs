@@ -50,6 +50,7 @@ namespace SpaceGame
                 Console.WriteLine("3. 10 - Fuel. Price: 2500");
                 Console.WriteLine("4. 15 - Fuel. Price: 3750");
                 Console.WriteLine("5. 30 - Fuel. Price: 7500");
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("Type 'exit' to exit back to Menu!");
                 input = Console.ReadLine().ToLower();
 
@@ -61,7 +62,7 @@ namespace SpaceGame
                         V.credits -= 250;
                         Console.WriteLine("You bought 1 Fuel!");
                         Console.WriteLine("Loading..");
-                        System.Threading.Thread.Sleep(1000);
+                        System.Threading.Thread.Sleep(800);
                     }
                     else if ((V.credits < 250) || (curFuel >= ShowShipMaxFuel(currentShip)))
                     {
@@ -78,7 +79,7 @@ namespace SpaceGame
                         V.credits -= 1250;
                         Console.WriteLine("You bought 5 Fuel!");
                         Console.WriteLine("Loading..");
-                        System.Threading.Thread.Sleep(1000);
+                        System.Threading.Thread.Sleep(800);
                     }
                     else if ((V.credits < 1250) || (curFuel >= ShowShipMaxFuel(currentShip) - 4))
                     {
@@ -96,7 +97,7 @@ namespace SpaceGame
                         V.credits -= 2500;
                         Console.WriteLine("You bought 10 Fuel!");
                         Console.WriteLine("Loading..");
-                        System.Threading.Thread.Sleep(1000);
+                        System.Threading.Thread.Sleep(800);
                     }
                     else if ((V.credits < 2500) || (curFuel >= ShowShipMaxFuel(currentShip) - 9))
                     {
@@ -114,7 +115,7 @@ namespace SpaceGame
                         V.credits -= 3750;
                         Console.WriteLine("You bought 15 Fuel!");
                         Console.WriteLine("Loading..");
-                        System.Threading.Thread.Sleep(1000);
+                        System.Threading.Thread.Sleep(800);
                     }
                     else if ((V.credits < 3750) || (curFuel >= ShowShipMaxFuel(currentShip) - 14))
                     {
@@ -131,7 +132,7 @@ namespace SpaceGame
                         V.credits -= 7500;
                         Console.WriteLine("You bought 30 Fuel!");
                         Console.WriteLine("Loading..");
-                        System.Threading.Thread.Sleep(1000);
+                        System.Threading.Thread.Sleep(800);
                     }
                     else if ((V.credits < 7500) || (curFuel >= ShowShipMaxFuel(currentShip) - 29))
                     {

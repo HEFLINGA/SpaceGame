@@ -142,8 +142,9 @@ namespace SpaceGame
                         "- 'Buy' to buy goods\n" +
                         "- 'Sell' to sell goods\n" +
                         "- 'travel' to leave and go to the next planet!\n" +
-                        "- 'inv' to check your current inventory space\n" +
-                        "- 'exit' to exit the game........");
+                        "- 'inv' to check your current inventory space");
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("- 'exit' to exit the game........");
 
                     // Planetary options
                     shopInput = Console.ReadLine();

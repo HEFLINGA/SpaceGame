@@ -40,6 +40,7 @@ namespace SpaceGame
                     new Ship().ShipCargo(5);
                     new Ship().ShipSpeed(3);
                     new Ship().ShipVelocity(Program.Velocity(3));
+                    new Ship().ShipMaxFuel(35);
                     new Menu().Congrats();
                 }
                 else if (Ship.currentShip == 2)
@@ -67,6 +68,7 @@ namespace SpaceGame
                     new Ship().ShipCargo(10);
                     new Ship().ShipSpeed(6);
                     new Ship().ShipVelocity(Program.Velocity(6));
+                    new Ship().ShipMaxFuel(60);
                     new Menu().Congrats();
                 }
                 else if (Ship.currentShip == 3)

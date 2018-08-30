@@ -13,7 +13,8 @@ namespace SpaceGame
         public static int currentShip = 0;
         public int shipPrice = 0;
         public double speed = 0;
-        public double fuel = 0;
+        public static double curFuel = 0;
+        public double maxFuel = 0;
 
         // Code for setting Ship
         public int Tier1Ship()
@@ -33,6 +34,12 @@ namespace SpaceGame
         public Ship()
         {
 
+        }
+
+        public double ShipMaxFuel(double maxFuel)
+        {
+            this.maxFuel = maxFuel;
+            return this.maxFuel;
         }
 
         // Code for setting ship name
@@ -63,7 +70,7 @@ namespace SpaceGame
             return Program.Velocity(speed);
         }
 
-        // Code for showing stuff to user
+        // Code for showing stuff to user and for use later
         public static string ShowShipName(int currentShip)
         {
             if (currentShip == 1)
@@ -98,5 +105,22 @@ namespace SpaceGame
 
             return ShowShipSpeed(currentShip);
         }
-    }
+        public static double ShowShipMaxFuel(int currentShip)
+        {
+            if (currentShip == 1)
+            {
+                return 10;
+            }
+            else if (currentShip == 2)
+            {
+                return 35;
+            }
+            else if (currentShip == 3)
+            {
+                return 60;
+            }
+
+            return ShowShipMaxFuel(currentShip);
+        }
+    }    
 }

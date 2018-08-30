@@ -23,14 +23,16 @@ namespace SpaceGame
             Console.ForegroundColor = ConsoleColor.Red;
             Console.SetCursorPosition(0, 0);
             Console.WriteLine("________________________________________________________________________________________________________________________");
-            Console.SetCursorPosition(30, 1);
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Cargo: {0}/{1}", V.curInventory = V.invFood + V.invResearch + V.invAnimals + V.invWater + V.invDarkMatter, V.maxInventory);
             Console.SetCursorPosition(5, 1);
             Console.WriteLine("Name: {0}", V.character);
-            Console.SetCursorPosition(55, 1);
+            Console.SetCursorPosition(28, 1);            
+            Console.WriteLine("Cargo: {0}/{1}", V.curInventory = V.invFood + V.invResearch + V.invAnimals + V.invWater + V.invDarkMatter, V.maxInventory);
+            Console.SetCursorPosition(52,1);
+            Console.WriteLine("Fuel: {0}/{1}", Ship.curFuel, Ship.ShowShipMaxFuel(Ship.currentShip));
+            Console.SetCursorPosition(75, 1);
             Console.WriteLine("Credits: {0}", V.credits);
-            Console.SetCursorPosition(90, 1);
+            Console.SetCursorPosition(105, 1);
             Console.WriteLine("Year: {0}", V.time);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("________________________________________________________________________________________________________________________");
@@ -72,6 +74,7 @@ namespace SpaceGame
             new Ship().ShipName("Star Cruiser");
             new Ship().ShipSpeed(1.5);
             new Ship().ShipVelocity(Velocity(3));
+            new Ship().ShipMaxFuel(10);
             Planet.currentPlanet = 1;
             RandomNumbers();
 

@@ -51,7 +51,7 @@ namespace SpaceGame
                 Console.WriteLine("4. 15 - Fuel. Price: 3750");
                 Console.WriteLine("5. 30 - Fuel. Price: 7500");
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("Type 'exit' to exit back to Menu!");
+                Console.WriteLine("Press 'enter' to exit back to Menu!");
                 input = Console.ReadLine().ToLower();
 
                 if (input == "1")
@@ -145,7 +145,7 @@ namespace SpaceGame
                 {
                     Console.WriteLine("Invalid input.. Please check what you type before sendin' it in.");
                 }
-            } while (input != "exit");
+            } while (input != "");
 
             return curFuel;
         }

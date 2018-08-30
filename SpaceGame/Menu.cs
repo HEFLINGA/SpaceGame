@@ -24,6 +24,8 @@ namespace SpaceGame
             Console.WriteLine("You now have a new max speed, cargo, and fuel!");
             Console.WriteLine();
             Console.WriteLine("New Max Speed: {0}.  New Max Cargo: {1}. New Max Fuel: {2}", Ship.ShowShipSpeed(Ship.currentShip), V.maxInventory, Ship.ShowShipMaxFuel(Ship.currentShip));
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("Press 'enter' to return to Main Menu");
             Console.ReadLine();
         }
 

@@ -205,7 +205,7 @@ namespace SpaceGame
             }
             else if (currentPlanet == 4)
             {
-                return new Planet().destX4 = 15;
+                return new Planet().destX4 = 10;
             }
             else if (currentPlanet == 5)
             {

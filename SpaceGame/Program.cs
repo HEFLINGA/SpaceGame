@@ -69,7 +69,7 @@ namespace SpaceGame
 
         // Main Game
         public static void Main(string[] args)
-        {
+        {           
             Ship.currentShip = 1;
             new Ship().ShipName("Star Cruiser");
             new Ship().ShipSpeed(1.5);
@@ -113,19 +113,20 @@ namespace SpaceGame
             {
                 Planet.GetPlanetName(Planet.currentPlanet);
                 UI();
+                Console.SetCursorPosition(44, 12);
                 Console.WriteLine("You paid {0} for your ship!!", cost);
                 Console.WriteLine();
+                Console.SetCursorPosition(36, 13);
                 Console.WriteLine("Thank you for shopping with SpaceBuggies R Us");
-                Console.WriteLine("Loading... ");
-                System.Threading.Thread.Sleep(1200);
+                Menu.ShowLoadingScreen();
 
                 UI();
-                Console.WriteLine("\n Your first ship!! The {0}. Speed: {1}. Cargo Space: {2}", 
+                Console.SetCursorPosition(29, 13);
+                Console.WriteLine("Your first ship!! The {0}. Speed: {1}. Cargo Space: {2}", 
                     Ship.ShowShipName(Ship.currentShip), 
                     Ship.ShowShipSpeed(Ship.currentShip), 
                     V.maxInventory);
-                Console.WriteLine("Loading... ");
-                System.Threading.Thread.Sleep(1200);
+                Menu.ShowLoadingScreen();
 
                 // Player starts his journey exploring and buying
                 do

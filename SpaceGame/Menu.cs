@@ -10,6 +10,32 @@ namespace SpaceGame
     {
         public static bool stranded = false;
 
+        // General loading screen!
+        private void LoadingScreen()
+        {
+            Console.SetCursorPosition(54, 16);
+            Console.Write("Loading.");
+            System.Threading.Thread.Sleep(200);
+            Console.Write(".");
+            System.Threading.Thread.Sleep(300);
+            Console.Write(".");
+            System.Threading.Thread.Sleep(250);
+            Console.Write(".");
+            System.Threading.Thread.Sleep(200);
+            Console.Write(".");
+            System.Threading.Thread.Sleep(500);
+            Console.Write(".");
+            System.Threading.Thread.Sleep(250);
+            Console.Write(".");
+            System.Threading.Thread.Sleep(560);
+            Console.Write(".");
+        }
+        //Show LoadingScreen to user
+        public static void ShowLoadingScreen()
+        {
+            new Menu().LoadingScreen();
+        }
+
         // Custom default constructor
         public Menu()
         {

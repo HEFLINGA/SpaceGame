@@ -73,7 +73,7 @@ namespace SpaceGame
             Ship.currentShip = 1;
             new Ship().ShipName("Star Cruiser");
             new Ship().ShipSpeed(1.5);
-            new Ship().ShipVelocity(Velocity(3));
+            new Ship().ShipVelocity(Velocity(1.5));
             new Ship().ShipMaxFuel(10);
             Planet.currentPlanet = 1;
             RandomNumbers();

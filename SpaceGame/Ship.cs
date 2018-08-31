@@ -208,11 +208,11 @@ namespace SpaceGame
             }
             else if (currentShip == 2)
             {
-                return 3;
+                return 2.5;
             }
             else if (currentShip == 3)
             {
-                return 6;
+                return 4;
             }
 
             return ShowShipSpeed(currentShip);
@@ -225,11 +225,11 @@ namespace SpaceGame
             }
             else if (currentShip == 2)
             {
-                return 35;
+                return 45;
             }
             else if (currentShip == 3)
             {
-                return 60;
+                return 100;
             }
 
             return ShowShipMaxFuel(currentShip);

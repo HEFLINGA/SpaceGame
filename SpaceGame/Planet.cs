@@ -10,11 +10,11 @@ namespace SpaceGame
     {
         // Variables for planets controlling destination X's and Y's for travel
         #region Variables
-        private double x = 0;
-        private double y = 0;
+        private double[] x = new double[8];
+        private double[] y = new double[8];
         private double[] destX = new double[8];
         private double[] destY = new double[8];
-        private string planetName = "";
+        private string[] planetName = new string[8];
         public static int currentPlanet;
         #endregion
 
@@ -26,7 +26,7 @@ namespace SpaceGame
         {
             Program.UI();
 
-            Console.SetCursorPosition(51, 11);            
+            Console.SetCursorPosition(50, 11);            
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Heading to {GetPlanetName(currentPlanet)}");
             Console.SetCursorPosition(54, 16);
@@ -39,8 +39,6 @@ namespace SpaceGame
             Console.Write(".");
             System.Threading.Thread.Sleep(200);
             Console.Write(".");
-            System.Threading.Thread.Sleep(500);
-            Console.Write(".");
             System.Threading.Thread.Sleep(250);
             Console.Write(".");
             System.Threading.Thread.Sleep(560);
@@ -52,35 +50,35 @@ namespace SpaceGame
         {
             if (currentPlanet == 1)
             {
-                return new Planet().planetName = "Earth";
+                return new Planet().planetName[0] = "Earth";
             }
             else if (currentPlanet == 2)
             {
-                return new Planet().planetName = "Alpha Centauri";
+                return new Planet().planetName[1] = "Alpha Centauri";
             }
             else if (currentPlanet == 3)
             {
-                return new Planet().planetName = "TRAPPIST-1";
+                return new Planet().planetName[2] = "TRAPPIST-1";
             }
             else if (currentPlanet == 4)
             {
-                return new Planet().planetName = "Krootabulon";
+                return new Planet().planetName[3] = "Krootabulon";
             }
             else if (currentPlanet == 5)
             {
-                return new Planet().planetName = "Bird World";
+                return new Planet().planetName[4] = "Bird World";
             }
             else if (currentPlanet == 6)
             {
-                return new Planet().planetName = "Gazorpazorp";
+                return new Planet().planetName[5] = "Gazorpazorp";
             }
             else if (currentPlanet == 7)
             {
-                return new Planet().planetName = "Alphabetrium";
+                return new Planet().planetName[6] = "Alphabetrium";
             }
             else if (currentPlanet == 8)
             {
-                return new Planet().planetName = "Planet Squanch";
+                return new Planet().planetName[7] = "Planet Squanch";
             }
 
             return GetPlanetName(currentPlanet);
@@ -91,35 +89,35 @@ namespace SpaceGame
         {
             if (currentPlanet == 1)
             {
-                return new Planet().x = 0;
+                return new Planet().x[0] = 0;
             }
             else if (currentPlanet == 2)
             {
-                return new Planet().x = 0;
+                return new Planet().x[1] = 0;
             }
             else if (currentPlanet == 3)
             {
-                return new Planet().x = -3;
+                return new Planet().x[2] = -3;
             }
             else if (currentPlanet == 4)
             {
-                return new Planet().x = 10;
+                return new Planet().x[3] = 10;
             }
             else if (currentPlanet == 5)
             {
-                return new Planet().x = 20;
+                return new Planet().x[4] = 20;
             }
             else if (currentPlanet == 6)
             {
-                return new Planet().x = -25;
+                return new Planet().x[5] = -25;
             }
             else if (currentPlanet == 7)
             {
-                return new Planet().x = 45;
+                return new Planet().x[6] = 45;
             }
             else if (currentPlanet == 8)
             {
-                return new Planet().x = 55;
+                return new Planet().x[7] = 55;
             }
 
             return GetCurX();
@@ -130,35 +128,35 @@ namespace SpaceGame
         {
             if (currentPlanet == 1)
             {
-                return new Planet().y = 0;
+                return new Planet().y[0] = 0;
             }
             else if (currentPlanet == 2)
             {
-                return new Planet().y = 4.367;
+                return new Planet().y[1] = 4.367;
             }
             else if (currentPlanet == 3)
             {
-                return new Planet().y = 6;
+                return new Planet().y[2] = 6;
             }
             else if (currentPlanet == 4)
             {
-                return new Planet().y = -15;
+                return new Planet().y[3] = -15;
             }
             else if (currentPlanet == 5)
             {
-                return new Planet().y = -25;
+                return new Planet().y[4] = -25;
             }
             else if (currentPlanet == 6)
             {
-                return new Planet().y = 33;
+                return new Planet().y[5] = 33;
             }
             else if (currentPlanet == 7)
             {
-                return new Planet().y = -40;
+                return new Planet().y[6] = -40;
             }
             else if (currentPlanet == 8)
             {
-                return new Planet().y = -50;
+                return new Planet().y[7] = -50;
             }
 
             return GetCurY();

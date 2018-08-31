@@ -88,7 +88,7 @@ namespace SpaceGame
 
                 return Ship.currentShip;
             }
-            private int UssSchwiftiestShip()
+            private int UssSchwiftyShip()
             {
                 if ((Ship.currentShip != 3) && (V.credits >= 50000))
                 {
@@ -129,8 +129,8 @@ namespace SpaceGame
                 Console.WriteLine();
                 Console.WriteLine("Type name of ship you would like to buy, or 'fuel' to buy Fuel!");
                 Console.WriteLine();
-                Console.WriteLine("'Star Explorer'! - Ship Price: 20000 Credits. Speed: 3. Cargo: 5. Fuel: 35");
-                Console.WriteLine("'USS Schwifty Ship'! - Ship Price: 50000 Credits. Speed: 6. Cargo: 10. Fuel 60");
+                Console.WriteLine("'Star Explorer'! - Ship Price: 20000 Credits. Speed: 2.5. Cargo: 8. Fuel: 45");
+                Console.WriteLine("'USS Schwifty Ship'! - Ship Price: 50000 Credits. Speed: 4. Cargo: 15. Fuel 100");
                 Console.WriteLine();
                 Console.WriteLine("'Fuel' - Fuel for your ship!");
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -147,7 +147,7 @@ namespace SpaceGame
                         break;
                     case "uss schwiftiest ship":
                         Console.Clear();
-                        new ShipBuy().UssSchwiftiestShip();
+                        new ShipBuy().UssSchwiftyShip();
                         Program.UI();
                         break;
                     case "fuel":
@@ -177,7 +177,7 @@ namespace SpaceGame
                     V.invFood += 1;
                     Console.WriteLine("You bought 1 Food!");
                     Console.WriteLine("Loading..");
-                    System.Threading.Thread.Sleep(800);
+                    System.Threading.Thread.Sleep(500);
                 }
                 else if (V.credits <= V.costFood)
                 {
@@ -206,7 +206,7 @@ namespace SpaceGame
                     V.invResearch += 1;
                     Console.WriteLine("You bought 1 Research!");
                     Console.WriteLine("Loading..");
-                    System.Threading.Thread.Sleep(800);
+                    System.Threading.Thread.Sleep(500);
                 }
                 else if (V.credits <= V.costResearch)
                 {
@@ -235,7 +235,7 @@ namespace SpaceGame
                     V.invAnimals += 1;
                     Console.WriteLine("You bought 1 Anaimal!");
                     Console.WriteLine("Loading..");
-                    System.Threading.Thread.Sleep(800);
+                    System.Threading.Thread.Sleep(500);
                 }
                 else if (V.credits <= V.costAnimals)
                 {
@@ -264,7 +264,7 @@ namespace SpaceGame
                     V.invWater += 2;
                     Console.WriteLine("You bought 1 Water! (Takes 2 cargo slots to hold)");
                     Console.WriteLine("Loading..");
-                    System.Threading.Thread.Sleep(800);
+                    System.Threading.Thread.Sleep(500);
                 }
                 else if (V.credits <= V.costWater)
                 {
@@ -293,7 +293,7 @@ namespace SpaceGame
                     V.invDarkMatter += 5;
                     Console.WriteLine("You bought some DARK MATTER! (Takes up 5 whole slots)");
                     Console.WriteLine("Loading..");
-                    System.Threading.Thread.Sleep(800);
+                    System.Threading.Thread.Sleep(500);
                 }
                 else if (V.credits <= V.costDarkMatter)
                 {
@@ -332,7 +332,7 @@ namespace SpaceGame
                     Console.WriteLine($"'Food', price: {V.costFood}. This will take up 1 cargo slot");
                     Console.WriteLine($"'Research', price: {V.costResearch}. This will take up 1 cargo slot");
                     Console.WriteLine($"'Animals', price: {V.costAnimals}. This will take up 1 cargo slot");
-                    Console.WriteLine($"'Water, price': {V.costWater}. This will take up 2 cargo slots");
+                    Console.WriteLine($"'Water', price': {V.costWater}. This will take up 2 cargo slots");
                     Console.WriteLine($"'Dark Matter', price: {V.costDarkMatter}. This will take up 5 cargo slots");
                     Console.WriteLine("'Inv' to check your current inventory");
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -389,7 +389,7 @@ namespace SpaceGame
                     V.invFood -= 1;
                     Console.WriteLine("You sold 1 Food!");
                     Console.WriteLine("Loading..");
-                    System.Threading.Thread.Sleep(800);
+                    System.Threading.Thread.Sleep(500);
                 }
                 else if (V.invFood == 0)
                 {
@@ -412,7 +412,7 @@ namespace SpaceGame
                     V.invResearch -= 1;
                     Console.WriteLine("You sold 1 Research!");
                     Console.WriteLine("Loading..");
-                    System.Threading.Thread.Sleep(800);
+                    System.Threading.Thread.Sleep(500);
                 }
                 else if (V.invResearch == 0)
                 {
@@ -435,7 +435,7 @@ namespace SpaceGame
                     V.invAnimals -= 1;
                     Console.WriteLine("You sold an Animal!");
                     Console.WriteLine("Loading..");
-                    System.Threading.Thread.Sleep(800);
+                    System.Threading.Thread.Sleep(500);
                 }
                 else if (V.invAnimals == 0)
                 {
@@ -458,7 +458,7 @@ namespace SpaceGame
                     V.invWater -= 2;
                     Console.WriteLine("You sold some Water!");
                     Console.WriteLine("Loading..");
-                    System.Threading.Thread.Sleep(800);
+                    System.Threading.Thread.Sleep(500);
                 }
                 else if (V.invWater < 2)
                 {
@@ -481,7 +481,7 @@ namespace SpaceGame
                     V.invDarkMatter -= 5;
                     Console.WriteLine("You sold some DARK MATTER baby!!!");
                     Console.WriteLine("Loading..");
-                    System.Threading.Thread.Sleep(800);
+                    System.Threading.Thread.Sleep(500);
                 }
                 else if (V.invDarkMatter < 5)
                 {

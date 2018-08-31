@@ -573,117 +573,114 @@ namespace SpaceGame
 
             // Bools for deciding if you are in range of planets
             #region Bool for range
-            bool inRange1 = false;
-            bool inRange2 = false;
-            bool inRange3 = false;
-            bool inRange4 = false;
-            bool inRange5 = false;
-            bool inRange6 = false;
-            bool inRange7 = false;
-            bool inRange8 = false;
+            bool[] inRange = new bool[8];
+            for (int i = 0; i < inRange.Length; i++)
+            {
+                inRange[i] = false;
+            }
             #endregion
 
             // If statements determening whether or not you are in range of a planet
             if ((Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(1), Planet.GetDestY(1)) <= Ship.curFuel) && (Planet.currentPlanet != 1))
             {
                 Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(1));
-                inRange1 = true;
+                inRange[0] = true;
             }
             if ((Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(2), Planet.GetDestY(2)) <= Ship.curFuel) && (Planet.currentPlanet != 2))
             {
                 Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(2));
-                inRange2 = true;
+                inRange[1] = true;
             }
             if ((Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(3), Planet.GetDestY(3)) <= Ship.curFuel) && (Planet.currentPlanet != 3))
             {
                 Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(3));
-                inRange3 = true;
+                inRange[2] = true;
             }
             if ((Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(4), Planet.GetDestY(4)) <= Ship.curFuel) && (Planet.currentPlanet != 4))
             {
                 Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(4));
-                inRange4 = true;
+                inRange[3] = true;
             }
             if ((Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(5), Planet.GetDestY(5)) <= Ship.curFuel) && (Planet.currentPlanet != 5))
             {
                 Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(5));
-                inRange5 = true;
+                inRange[4] = true;
             }
             if ((Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(6), Planet.GetDestY(6)) <= Ship.curFuel) && (Planet.currentPlanet != 6))
             {
                 Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(6));
-                inRange6 = true;
+                inRange[5] = true;
             }
             if ((Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(7), Planet.GetDestY(7)) <= Ship.curFuel) && (Planet.currentPlanet != 7))
             {
                 Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(7));
-                inRange7 = true;
+                inRange[6] = true;
             }
             if ((Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(8), Planet.GetDestY(8)) <= Ship.curFuel) && (Planet.currentPlanet != 8))
             {
                 Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(8));
-                inRange8 = true;
+                inRange[7] = true;
             }
                                         
             // Code for changing planetary information based on range and user input
             #region Planet changed based on range and input
             travelInput = Console.ReadLine().ToLower();
-            if ((travelInput == "earth") && (inRange1 == true))
+            if ((travelInput == "earth") && (inRange[0] == true))
             {
                 Console.Clear();
-                new Planet().Planets(1, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(1), Planet.GetDestY(1));
+                new Planet().Planets(1, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(1), Planet.GetDestY(1), 0);
                 Program.UI();
             }
-            else if ((travelInput == "alpha centauri") && (inRange2 == true))
+            else if ((travelInput == "alpha centauri") && (inRange[1] == true))
             {
                 Console.Clear();
-                new Planet().Planets(2, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(2), Planet.GetDestY(2));
+                new Planet().Planets(2, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(2), Planet.GetDestY(2), 500);
                 Program.UI();
             }
-            else if ((travelInput == "trappist") && (inRange3 == true))
+            else if ((travelInput == "trappist") && (inRange[2] == true))
             {
                 Console.Clear();
-                new Planet().Planets(3, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(3), Planet.GetDestY(3));
+                new Planet().Planets(3, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(3), Planet.GetDestY(3), 1000);
                 Program.UI();
             }
-            else if ((travelInput == "krootabulon") && (inRange4 == true))
+            else if ((travelInput == "krootabulon") && (inRange[3] == true))
             {
                 Console.Clear();
-                new Planet().Planets(4, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(4), Planet.GetDestY(4));
+                new Planet().Planets(4, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(4), Planet.GetDestY(4), 3000);
                 Program.UI();
             }
-            else if ((travelInput == "bird world") && (inRange5 == true))
+            else if ((travelInput == "bird world") && (inRange[4] == true))
             {
                 Console.Clear();
-                new Planet().Planets(5, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(5), Planet.GetDestY(5));
+                new Planet().Planets(5, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(5), Planet.GetDestY(5), 5000);
                 Program.UI();
             }
-            else if ((travelInput == "gazorpazorp") && (inRange6 == true))
+            else if ((travelInput == "gazorpazorp") && (inRange[5] == true))
             {
                 Console.Clear();
-                new Planet().Planets(6, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(6), Planet.GetDestY(6));
+                new Planet().Planets(6, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(6), Planet.GetDestY(6), 5500);
                 Program.UI();
             }
-            else if ((travelInput == "alphabetruim") && (inRange7 == true))
+            else if ((travelInput == "alphabetruim") && (inRange[6] == true))
             {
                 Console.Clear();
-                new Planet().Planets(7, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(7), Planet.GetDestY(7));
+                new Planet().Planets(7, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(7), Planet.GetDestY(7), 8000);
                 Program.UI();
             }
-            else if ((travelInput == "planet squanch") && (inRange8 == true))
+            else if ((travelInput == "planet squanch") && (inRange[7] == true))
             {
                 Console.Clear();
-                new Planet().Planets(8, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(8), Planet.GetDestY(8));
+                new Planet().Planets(8, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(8), Planet.GetDestY(8), 10000);
                 Program.UI();
             }
-            else if ((inRange1 == false) 
-                && (inRange2 == false) 
-                && (inRange3 == false) 
-                && (inRange4 == false) 
-                && (inRange5 == false) 
-                && (inRange6 == false) 
-                && (inRange7 == false) 
-                && (inRange8 == false) 
+            else if ((inRange[0] == false) 
+                && (inRange[1] == false) 
+                && (inRange[2] == false) 
+                && (inRange[3] == false) 
+                && (inRange[4] == false) 
+                && (inRange[5] == false) 
+                && (inRange[6] == false) 
+                && (inRange[7] == false) 
                 && (V.credits < 500)
                 && (V.curInventory < 1))
                  {

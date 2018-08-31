@@ -9,14 +9,6 @@ namespace SpaceGame
     class Program
     {
         // Static Public fields for holding constant information;
-        public static void RandomNumbers()
-        {
-            V.costFood = V.rnd.Next(2000, 3500);
-            V.costResearch = V.rnd.Next(1000, 5500);
-            V.costAnimals = V.rnd.Next(2000, 5000);
-            V.costWater = V.rnd.Next(1000, 8000);
-            V.costDarkMatter = V.rnd.Next(40000, 65000);
-        }                                                // Code for RandomNumber generator
         public static void UI()
         {
             Console.Clear();
@@ -76,7 +68,6 @@ namespace SpaceGame
             new Ship().ShipVelocity(Velocity(1.5));
             new Ship().ShipMaxFuel(10);
             Planet.currentPlanet = 1;
-            RandomNumbers();
 
             // Variable Decleration
             string input;

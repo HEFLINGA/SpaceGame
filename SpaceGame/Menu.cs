@@ -13,7 +13,8 @@ namespace SpaceGame
         // General loading screen!
         private void LoadingScreen()
         {
-            Console.SetCursorPosition(54, 16);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.SetCursorPosition(53, 16);
             Console.Write("Loading.");
             System.Threading.Thread.Sleep(200);
             Console.Write(".");

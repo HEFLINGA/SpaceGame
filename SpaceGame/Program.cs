@@ -113,15 +113,15 @@ namespace SpaceGame
             {
                 Planet.GetPlanetName(Planet.currentPlanet);
                 UI();
-                Console.SetCursorPosition(44, 12);
+                Console.SetCursorPosition(43, 12);
                 Console.WriteLine("You paid {0} for your ship!!", cost);
                 Console.WriteLine();
-                Console.SetCursorPosition(36, 13);
+                Console.SetCursorPosition(35, 13);
                 Console.WriteLine("Thank you for shopping with SpaceBuggies R Us");
                 Menu.ShowLoadingScreen();
 
                 UI();
-                Console.SetCursorPosition(29, 13);
+                Console.SetCursorPosition(26, 13);
                 Console.WriteLine("Your first ship!! The {0}. Speed: {1}. Cargo Space: {2}", 
                     Ship.ShowShipName(Ship.currentShip), 
                     Ship.ShowShipSpeed(Ship.currentShip), 

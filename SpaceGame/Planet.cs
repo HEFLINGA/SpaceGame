@@ -33,10 +33,8 @@ namespace SpaceGame
         #endregion
 
         // Default constructor
-        public Planet()
-        {
-        }
-
+        public Planet() { }
+        
         // Travel loading screen
         private void Loading(int currentPlanet)
         {
@@ -137,8 +135,10 @@ namespace SpaceGame
             {
                 return new Planet().x = 55;
             }
+
             return GetCurX();
         }
+
         // Get planet Y
         public static double GetCurY()
         {
@@ -174,6 +174,7 @@ namespace SpaceGame
             {
                 return new Planet().y = -50;
             }
+
             return GetCurY();
         }
 
@@ -212,8 +213,10 @@ namespace SpaceGame
             {
                 return new Planet().destY8 = -50;
             }
+
             return GetDestY(currentPlanet);
         }
+
         // Get Destination planet X
         public static double GetDestX(int currentPlanet)
         {
@@ -249,6 +252,7 @@ namespace SpaceGame
             {
                 return new Planet().destX8 = 55;
             }
+
             return GetDestX(currentPlanet);
         }
 

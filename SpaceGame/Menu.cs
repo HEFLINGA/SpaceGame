@@ -31,6 +31,7 @@ namespace SpaceGame
             System.Threading.Thread.Sleep(560);
             Console.Write(".");
         }
+
         //Show LoadingScreen to user
         public static void ShowLoadingScreen()
         {
@@ -38,11 +39,8 @@ namespace SpaceGame
         }
 
         // Custom default constructor
-        public Menu()
-        {
-
-        }
-
+        public Menu(){}
+        
         // Congrats Window when buying ship
         private void Congrats()
         {
@@ -198,6 +196,7 @@ namespace SpaceGame
 
                 return V.invFood;
             }
+
             // Code for buying research
             private int CargoResearch()
             {
@@ -226,6 +225,7 @@ namespace SpaceGame
 
                 return V.invResearch;
             }
+
             // Code for buying animals
             private int CargoAnimals()
             {
@@ -254,6 +254,7 @@ namespace SpaceGame
 
                 return V.invAnimals;
             }
+
             // Code for buying water
             private int CargoWater()
             {
@@ -282,6 +283,7 @@ namespace SpaceGame
 
                 return V.invWater;
             }
+
             // Code for buying dark matter
             private int CargoDarkMatter()
             {
@@ -310,6 +312,7 @@ namespace SpaceGame
 
                 return V.invDarkMatter;
             }
+
             // Buying Menu
             public void BuyMenu()
             {
@@ -398,6 +401,7 @@ namespace SpaceGame
 
                 return V.invFood;
             }
+
             // Code for selling research
             private int CargoResearch()
             {
@@ -420,6 +424,7 @@ namespace SpaceGame
 
                 return V.invResearch;
             }
+
             // Code for selling animals
             private int CargoAnimals()
             {
@@ -442,6 +447,7 @@ namespace SpaceGame
 
                 return V.invAnimals;
             }
+
             // Code for selling water
             private int CargoWater()
             {
@@ -464,6 +470,7 @@ namespace SpaceGame
 
                 return V.invWater;
             }
+
             // Code for selling dark matter
             private int CargoDarkMatter()
             {

@@ -21,16 +21,6 @@ namespace SpaceGame
         // Default constructor
         public Planet() { }
 
-        // Code for RandomNumber generator
-        private void RandomNumbers(int planetaryFactor)
-        {
-            V.costFood = V.rnd.Next(2000, 3000 + planetaryFactor);
-            V.costResearch = V.rnd.Next(1000, 5000 + planetaryFactor);
-            V.costAnimals = V.rnd.Next(2000, 5000 + planetaryFactor);
-            V.costWater = V.rnd.Next(1000, 5000 + planetaryFactor);
-            V.costDarkMatter = V.rnd.Next(40000, 50000 + planetaryFactor);
-        }
-
         // Travel loading screen
         private void Loading(int currentPlanet)
         {
@@ -285,7 +275,7 @@ namespace SpaceGame
                     GetCurX();
                     GetCurY();
                     Ship.curFuel -= distance;
-                    new Planet().RandomNumbers(planetaryFactor);
+                    new Menu().RandomNumbers(planetaryFactor);
                     new Planet().Loading(currentPlanet);
                 }
                 else

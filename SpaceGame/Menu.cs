@@ -8,7 +8,21 @@ namespace SpaceGame
 {
     public class Menu
     {
+        // Bool to let the game know you are stranded and put Game over to TRUE
         public static bool stranded = false;
+
+        // Variables for cost of items
+        private static int[] costOfItem = new int[5] { 2000, 3000, 4000, 5000, 50000 };
+
+        // Code for RandomNumber generator
+        public void RandomNumbers(int planetaryFactor)
+        {
+            costOfItem[0] = V.rnd.Next(2000, 3000 + planetaryFactor);
+            costOfItem[1] = V.rnd.Next(1000, 5000 + planetaryFactor);
+            costOfItem[2] = V.rnd.Next(2000, 5000 + planetaryFactor);
+            costOfItem[3] = V.rnd.Next(1000, 5000 + planetaryFactor);
+            costOfItem[4] = V.rnd.Next(40000, 50000 + planetaryFactor);
+        }
 
         // General loading screen!
         private void LoadingScreen()
@@ -171,15 +185,15 @@ namespace SpaceGame
             // Code for buying food
             private int CargoFood()
             {
-                if ((V.curInventory < V.maxInventory) && (V.credits >= V.costFood))
+                if ((V.curInventory < V.maxInventory) && (V.credits >= costOfItem[0]))
                 {
-                    V.credits -= V.costFood;
+                    V.credits -= costOfItem[0];
                     V.invFood += 1;
                     Console.WriteLine("You bought 1 Food!");
                     Console.WriteLine("Loading..");
                     System.Threading.Thread.Sleep(500);
                 }
-                else if (V.credits <= V.costFood)
+                else if (V.credits <= costOfItem[0])
                 {
                     Program.UI();
                     Console.WriteLine("You do not have enough Credits to purchase item!");
@@ -200,15 +214,15 @@ namespace SpaceGame
             // Code for buying research
             private int CargoResearch()
             {
-                if ((V.curInventory < V.maxInventory) && (V.credits >= V.costResearch))
+                if ((V.curInventory < V.maxInventory) && (V.credits >= costOfItem[1]))
                 {
-                    V.credits -= V.costResearch;
+                    V.credits -= costOfItem[1];
                     V.invResearch += 1;
                     Console.WriteLine("You bought 1 Research!");
                     Console.WriteLine("Loading..");
                     System.Threading.Thread.Sleep(500);
                 }
-                else if (V.credits <= V.costResearch)
+                else if (V.credits <= costOfItem[1])
                 {
                     Program.UI();
                     Console.WriteLine("You do not have enough Credits to purchase item!");
@@ -229,15 +243,15 @@ namespace SpaceGame
             // Code for buying animals
             private int CargoAnimals()
             {
-                if ((V.curInventory < V.maxInventory) && (V.credits >= V.costAnimals))
+                if ((V.curInventory < V.maxInventory) && (V.credits >= costOfItem[2]))
                 {
-                    V.credits -= V.costAnimals;
+                    V.credits -= costOfItem[2];
                     V.invAnimals += 1;
                     Console.WriteLine("You bought 1 Anaimal!");
                     Console.WriteLine("Loading..");
                     System.Threading.Thread.Sleep(500);
                 }
-                else if (V.credits <= V.costAnimals)
+                else if (V.credits <= costOfItem[2])
                 {
                     Program.UI();
                     Console.WriteLine("You do not have enough Credits to purchase item!");
@@ -258,15 +272,15 @@ namespace SpaceGame
             // Code for buying water
             private int CargoWater()
             {
-                if ((V.curInventory <= V.maxInventory - 2) && (V.credits >= V.costWater))
+                if ((V.curInventory <= V.maxInventory - 2) && (V.credits >= costOfItem[3]))
                 {
-                    V.credits -= V.costWater;
+                    V.credits -= costOfItem[3];
                     V.invWater += 2;
                     Console.WriteLine("You bought 1 Water! (Takes 2 cargo slots to hold)");
                     Console.WriteLine("Loading..");
                     System.Threading.Thread.Sleep(500);
                 }
-                else if (V.credits <= V.costWater)
+                else if (V.credits <= costOfItem[3])
                 {
                     Program.UI();
                     Console.WriteLine("You do not have enough Credits to purchase item!");
@@ -287,15 +301,15 @@ namespace SpaceGame
             // Code for buying dark matter
             private int CargoDarkMatter()
             {
-                if ((V.curInventory <= V.maxInventory - 5) && (V.credits >= V.costDarkMatter))
+                if ((V.curInventory <= V.maxInventory - 5) && (V.credits >= costOfItem[4]))
                 {
-                    V.credits -= V.costDarkMatter;
+                    V.credits -= costOfItem[4];
                     V.invDarkMatter += 5;
                     Console.WriteLine("You bought some DARK MATTER! (Takes up 5 whole slots)");
                     Console.WriteLine("Loading..");
                     System.Threading.Thread.Sleep(500);
                 }
-                else if (V.credits <= V.costDarkMatter)
+                else if (V.credits <= costOfItem[4])
                 {
                     Program.UI();
                     Console.WriteLine("You do not have enough Credits to purchase item!");
@@ -329,11 +343,11 @@ namespace SpaceGame
                     Console.WriteLine("For buying multiples of the same item after the initial buy, use up/down");
                     Console.WriteLine("arrows to go to name, and press 'enter'");
                     Console.WriteLine();
-                    Console.WriteLine($"'Food', price: {V.costFood}. This will take up 1 cargo slot");
-                    Console.WriteLine($"'Research', price: {V.costResearch}. This will take up 1 cargo slot");
-                    Console.WriteLine($"'Animals', price: {V.costAnimals}. This will take up 1 cargo slot");
-                    Console.WriteLine($"'Water', price': {V.costWater}. This will take up 2 cargo slots");
-                    Console.WriteLine($"'Dark Matter', price: {V.costDarkMatter}. This will take up 5 cargo slots");
+                    Console.WriteLine($"'Food', price: {costOfItem[0]}. This will take up 1 cargo slot");
+                    Console.WriteLine($"'Research', price: {costOfItem[1]}. This will take up 1 cargo slot");
+                    Console.WriteLine($"'Animals', price: {costOfItem[2]}. This will take up 1 cargo slot");
+                    Console.WriteLine($"'Water', price': {costOfItem[3]}. This will take up 2 cargo slots");
+                    Console.WriteLine($"'Dark Matter', price: {costOfItem[4]}. This will take up 5 cargo slots");
                     Console.WriteLine("'Inv' to check your current inventory");
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("press 'Enter' to leave the trading post");
@@ -384,8 +398,8 @@ namespace SpaceGame
             {
                 if (V.invFood >= 1)
                 {
-                    V.credits += V.costFood;
-                    V.totalCredits += V.costFood;
+                    V.credits += costOfItem[0];
+                    V.totalCredits += costOfItem[0];
                     V.invFood -= 1;
                     Console.WriteLine("You sold 1 Food!");
                     Console.WriteLine("Loading..");
@@ -407,8 +421,8 @@ namespace SpaceGame
             {
                 if (V.invResearch >= 1)
                 {
-                    V.credits += V.costResearch;
-                    V.totalCredits += V.costResearch;
+                    V.credits += costOfItem[1];
+                    V.totalCredits += costOfItem[1];
                     V.invResearch -= 1;
                     Console.WriteLine("You sold 1 Research!");
                     Console.WriteLine("Loading..");
@@ -430,8 +444,8 @@ namespace SpaceGame
             {
                 if (V.invAnimals >= 1)
                 {
-                    V.credits += V.costAnimals;
-                    V.totalCredits += V.costAnimals;
+                    V.credits += costOfItem[2];
+                    V.totalCredits += costOfItem[2];
                     V.invAnimals -= 1;
                     Console.WriteLine("You sold an Animal!");
                     Console.WriteLine("Loading..");
@@ -453,8 +467,8 @@ namespace SpaceGame
             {
                 if (V.invWater >= 2)
                 {
-                    V.credits += V.costWater;
-                    V.totalCredits += V.costWater;
+                    V.credits += costOfItem[3];
+                    V.totalCredits += costOfItem[3];
                     V.invWater -= 2;
                     Console.WriteLine("You sold some Water!");
                     Console.WriteLine("Loading..");
@@ -476,8 +490,8 @@ namespace SpaceGame
             {
                 if (V.invDarkMatter >= 5)
                 {
-                    V.credits += V.invDarkMatter;
-                    V.totalCredits += V.invDarkMatter;
+                    V.credits += costOfItem[4];
+                    V.totalCredits += costOfItem[4];
                     V.invDarkMatter -= 5;
                     Console.WriteLine("You sold some DARK MATTER baby!!!");
                     Console.WriteLine("Loading..");
@@ -510,11 +524,11 @@ namespace SpaceGame
                     Console.WriteLine("For selling multiples of the same item after the initial sale, use up/down");  
                     Console.WriteLine("arrows to go to name, and press 'enter'");
                     Console.WriteLine();
-                    Console.WriteLine($"'Food', sale price: {V.costFood}");
-                    Console.WriteLine($"'Research', sale price: {V.costResearch}");
-                    Console.WriteLine($"'Animals', sale price: {V.costAnimals}");
-                    Console.WriteLine($"'Water', sale price: {V.costWater}");
-                    Console.WriteLine($"'Dark Matter', sale price: {V.costDarkMatter}");
+                    Console.WriteLine($"'Food', sale price: {costOfItem[0]}");
+                    Console.WriteLine($"'Research', sale price: {costOfItem[1]}");
+                    Console.WriteLine($"'Animals', sale price: {costOfItem[2]}");
+                    Console.WriteLine($"'Water', sale price: {costOfItem[3]}");
+                    Console.WriteLine($"'Dark Matter', sale price: {costOfItem[4]}");
                     Console.WriteLine("'Inv' to check your current Inventory");
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("press 'enter' to leave the trading post");

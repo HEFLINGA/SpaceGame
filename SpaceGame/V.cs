@@ -24,11 +24,6 @@ namespace SpaceGame
         public static int price = 0;
         public static int credits = 10000;
         public static int totalCredits = 0;
-        public static int costFood = 2000;
-        public static int costResearch = 3000;
-        public static int costAnimals = 4000;
-        public static int costWater = 5000;
-        public static int costDarkMatter = 50000;
 
         //various variables
         public static double timePassage = 0;

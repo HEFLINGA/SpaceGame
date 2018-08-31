@@ -135,6 +135,7 @@ namespace SpaceGame
             {
                 return new Planet().x = 55;
             }
+
             return GetCurX();
         }
 
@@ -173,6 +174,7 @@ namespace SpaceGame
             {
                 return new Planet().y = -50;
             }
+
             return GetCurY();
         }
 
@@ -211,6 +213,7 @@ namespace SpaceGame
             {
                 return new Planet().destY8 = -50;
             }
+
             return GetDestY(currentPlanet);
         }
 
@@ -249,6 +252,7 @@ namespace SpaceGame
             {
                 return new Planet().destX8 = 55;
             }
+
             return GetDestX(currentPlanet);
         }
 

@@ -11,9 +11,9 @@ namespace SpaceGame
         // Static Public fields for holding constant information;
         public static void RandomNumbers()
         {
-            V.costFood = V.rnd.Next(2000, 3000);
-            V.costResearch = V.rnd.Next(1000, 5000);
-            V.costAnimals = V.rnd.Next(2000, 4000);
+            V.costFood = V.rnd.Next(2000, 3500);
+            V.costResearch = V.rnd.Next(1000, 5500);
+            V.costAnimals = V.rnd.Next(2000, 5000);
             V.costWater = V.rnd.Next(1000, 8000);
             V.costDarkMatter = V.rnd.Next(40000, 65000);
         }                                                // Code for RandomNumber generator

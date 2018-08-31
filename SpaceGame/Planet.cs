@@ -37,6 +37,32 @@ namespace SpaceGame
         {
         }
 
+        // Travel loading screen
+        private void Loading(int currentPlanet)
+        {
+            Program.UI();
+
+            Console.SetCursorPosition(51, 11);            
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"Heading to {GetPlanetName(currentPlanet)}");
+            Console.SetCursorPosition(54, 16);
+            Console.Write("Loading.");
+            System.Threading.Thread.Sleep(200);
+            Console.Write(".");
+            System.Threading.Thread.Sleep(300);
+            Console.Write(".");
+            System.Threading.Thread.Sleep(250);
+            Console.Write(".");
+            System.Threading.Thread.Sleep(200);
+            Console.Write(".");
+            System.Threading.Thread.Sleep(500);
+            Console.Write(".");
+            System.Threading.Thread.Sleep(250);
+            Console.Write(".");
+            System.Threading.Thread.Sleep(560);
+            Console.Write(".");
+        }
+
         // Get planet name
         public static string GetPlanetName(int currentPlanet)
         {
@@ -262,6 +288,7 @@ namespace SpaceGame
                     GetCurY();
                     Ship.curFuel -= distance;
                     Program.RandomNumbers();
+                    new Planet().Loading(currentPlanet);
                 }
                 else
                 {

@@ -185,7 +185,7 @@ namespace SpaceGame
             return Program.Velocity(speed);
         }
 
-        // Code for showing stuff to user and for use later
+        // Code for showing stuff to user and for calling Shipname, speed and max fuel
         public static string ShowShipName(int currentShip)
         {
             if (currentShip == 1)

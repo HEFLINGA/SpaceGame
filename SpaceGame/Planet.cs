@@ -12,22 +12,8 @@ namespace SpaceGame
         #region Variables
         private double x = 0;
         private double y = 0;
-        private double destX = 0;
-        private double destY = 0;
-        private double destX2 = 0;
-        private double destY2 = 0;
-        private double destX3 = 0;
-        private double destY3 = 0;
-        private double destX4 = 0;
-        private double destY4 = 0;
-        private double destX5 = 0;
-        private double destY5 = 0;
-        private double destX6 = 0;
-        private double destY6 = 0;
-        private double destX7 = 0;
-        private double destY7 = 0;
-        private double destX8 = 0;
-        private double destY8 = 0;
+        private double[] destX = new double[8];
+        private double[] destY = new double[8];
         private string planetName = "";
         public static int currentPlanet;
         #endregion
@@ -182,35 +168,35 @@ namespace SpaceGame
         {
             if (currentPlanet == 1)
             {
-                return new Planet().destY = 0;
+                return new Planet().destY[0] = 0;
             }
             else if (currentPlanet == 2)
             {
-                return new Planet().destY2 = 4.367;
+                return new Planet().destY[1] = 4.367;
             }
             else if (currentPlanet == 3)
             {
-                return new Planet().destY3 = 6;
+                return new Planet().destY[2] = 6;
             }
             else if (currentPlanet == 4)
             {
-                return new Planet().destY4 = -15;
+                return new Planet().destY[3] = -15;
             }
             else if (currentPlanet == 5)
             {
-                return new Planet().destY5 = -25;
+                return new Planet().destY[4] = -25;
             }
             else if (currentPlanet == 6)
             {
-                return new Planet().destY6 = 33;
+                return new Planet().destY[5] = 33;
             }
             else if (currentPlanet == 7)
             {
-                return new Planet().destY7 = -40;
+                return new Planet().destY[6] = -40;
             }
             else if (currentPlanet == 8)
             {
-                return new Planet().destY8 = -50;
+                return new Planet().destY[7] = -50;
             }
             return GetDestY(currentPlanet);
         }
@@ -219,35 +205,35 @@ namespace SpaceGame
         {
             if (currentPlanet == 1)
             {
-                return new Planet().destX = 0;
+                return new Planet().destX[0] = 0;
             }
             else if (currentPlanet == 2)
             {
-                return new Planet().destX2 = 0;
+                return new Planet().destX[1] = 0;
             }
             else if (currentPlanet == 3)
             {
-                return new Planet().destX3 = -3;
+                return new Planet().destX[2] = -3;
             }
             else if (currentPlanet == 4)
             {
-                return new Planet().destX4 = 10;
+                return new Planet().destX[3] = 10;
             }
             else if (currentPlanet == 5)
             {
-                return new Planet().destX5 = 20;
+                return new Planet().destX[4] = 20;
             }
             else if (currentPlanet == 6)
             {
-                return new Planet().destX6 = -25;
+                return new Planet().destX[5] = -25;
             }
             else if (currentPlanet == 7)
             {
-                return new Planet().destX7 = 45;
+                return new Planet().destX[6] = 45;
             }
             else if (currentPlanet == 8)
             {
-                return new Planet().destX8 = 55;
+                return new Planet().destX[7] = 55;
             }
             return GetDestX(currentPlanet);
         }

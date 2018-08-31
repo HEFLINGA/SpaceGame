@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace SpaceGame
 {
+    // Static variable storage
     public class V
     {
         // Decleration of variables
@@ -21,11 +22,13 @@ namespace SpaceGame
         public static int invAnimals = 0;
         public static int invWater = 0;
         public static int invDarkMatter = 0;
+
+        // Games money and credit variables
         public static int price = 0;
         public static int credits = 10000;
         public static int totalCredits = 0;
 
-        //various variables
+        // Various variables
         public static double timePassage = 0;
         public static double time = 0;        
         public static double distance = 0;

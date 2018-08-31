@@ -31,10 +31,7 @@ namespace SpaceGame
         }
 
         // Default constructor
-        public Ship()
-        {
-
-        }
+        public Ship() { }
 
         // Code for fuel buying decisions
         public static double BuyingFuel()

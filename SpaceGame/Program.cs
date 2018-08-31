@@ -147,26 +147,26 @@ namespace SpaceGame
                     Console.WriteLine("- 'exit' to exit the game........");
 
                     // Planetary options
-                    shopInput = Console.ReadLine();
-                    if ((shopInput != "exit") || (shopInput != "Exit"))
+                    shopInput = Console.ReadLine().ToLower();
+                    if (shopInput != "exit")
                     {
-                        if ((shopInput == "Ship") || (shopInput == "ship"))
+                        if (shopInput == "ship")
                         {
                             new Menu.ShipBuy().ShipMenu();
                         }
-                        else if ((shopInput == "Buy") || (shopInput == "buy"))
+                        else if (shopInput == "buy")
                         {
                             new Menu.Buy().BuyMenu();
                         }
-                        else if ((shopInput == "Sell") || (shopInput == "sell"))
+                        else if (shopInput == "sell")
                         {
                             new Menu.Sell().SellMenu();
                         }
-                        else if ((shopInput == "Inv") || (shopInput == "inv"))
+                        else if (shopInput == "inv")
                         {
                             V.Inventory(V.maxInventory, V.curInventory);
                         }
-                        else if ((shopInput == "Travel") || (shopInput == "travel"))
+                        else if (shopInput == "travel")
                         {
                             new Menu().TravelMenu();
                         }

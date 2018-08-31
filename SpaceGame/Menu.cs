@@ -102,9 +102,8 @@ namespace SpaceGame
                 Console.WriteLine("What would you like to buy?: \n" +
                                         "(Type name of Ship to purchase)");                
                 Console.WriteLine();
-                Console.WriteLine("Type name of item or ship you would like to buy!");
+                Console.WriteLine("Type name of ship you would like to buy, or 'fuel' to buy Fuel!");
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.DarkGray;
                 Console.WriteLine("'Star Explorer'! - Ship Price: 20000 Credits. Speed: 3. Cargo: 5. Fuel: 35");
                 Console.WriteLine("'USS Schwifty Ship'! - Ship Price: 50000 Credits. Speed: 6. Cargo: 10. Fuel 60");
                 Console.WriteLine();

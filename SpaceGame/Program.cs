@@ -138,10 +138,10 @@ namespace SpaceGame
 
                     Console.WriteLine();
                     Console.WriteLine("What would you like to do?: \n" +
-                        "- 'Ship'to buy a new ship\n" +
+                        "- 'Ship'to buy a new ship or buy Fuel for your current one\n" +
                         "- 'Buy' to buy goods\n" +
                         "- 'Sell' to sell goods\n" +
-                        "- 'travel' to leave and go to the next planet!\n" +
+                        "- 'travel' to see planets in range!\n" +
                         "- 'inv' to check your current inventory space");
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("- 'exit' to exit the game........");

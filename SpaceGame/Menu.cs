@@ -104,12 +104,11 @@ namespace SpaceGame
                 Console.WriteLine();
                 Console.WriteLine("Type name of item or ship you would like to buy!");
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                Console.WriteLine("Star Explorer! Price: 20000 Credits. Speed: 3. Cargo: 5. Fuel: 35");
-                Console.WriteLine("USS Schwifty Ship! Price: 50000 Credits. Speed: 6. Cargo: 10. Fuel 60");
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.WriteLine("'Star Explorer'! - Ship Price: 20000 Credits. Speed: 3. Cargo: 5. Fuel: 35");
+                Console.WriteLine("'USS Schwifty Ship'! - Ship Price: 50000 Credits. Speed: 6. Cargo: 10. Fuel 60");
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.DarkCyan;
-                Console.WriteLine("Fuel for your ship!");
+                Console.WriteLine("'Fuel' - Fuel for your ship!");
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine();
                 Console.WriteLine("press 'enter' to leave the trading post");
@@ -551,7 +550,7 @@ namespace SpaceGame
             bool inRange8 = false;
             #endregion
 
-            // Nested if statements determening whether or not you are in range of a planet
+            // If statements determening whether or not you are in range of a planet
             if ((Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(1), Planet.GetDestY(1)) <= Ship.curFuel) && (Planet.currentPlanet != 1))
             {
                 Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(1));

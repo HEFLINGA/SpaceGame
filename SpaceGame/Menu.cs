@@ -572,13 +572,12 @@ namespace SpaceGame
             Console.ForegroundColor = ConsoleColor.DarkCyan;
 
             // Bools for deciding if you are in range of planets
-            #region Bool for range
+            #region Bool and loops for range
             bool[] inRange = new bool[8];
             for (int i = 0; i < inRange.Length; i++)
             {
                 inRange[i] = false;
-            }
-            #endregion
+            }            
 
             // If statements determening whether or not you are in range of a planet
             if ((Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(1), Planet.GetDestY(1)) <= Ship.curFuel) && (Planet.currentPlanet != 1))
@@ -621,7 +620,8 @@ namespace SpaceGame
                 Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(8));
                 inRange[7] = true;
             }
-                                        
+            #endregion
+
             // Code for changing planetary information based on range and user input
             #region Planet changed based on range and input
             travelInput = Console.ReadLine().ToLower();

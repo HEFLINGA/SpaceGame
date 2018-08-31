@@ -69,7 +69,7 @@ namespace SpaceGame
 
         // Main Game
         public static void Main(string[] args)
-        {
+        {           
             Ship.currentShip = 1;
             new Ship().ShipName("Star Cruiser");
             new Ship().ShipSpeed(1.5);
@@ -113,19 +113,20 @@ namespace SpaceGame
             {
                 Planet.GetPlanetName(Planet.currentPlanet);
                 UI();
+                Console.SetCursorPosition(43, 12);
                 Console.WriteLine("You paid {0} for your ship!!", cost);
                 Console.WriteLine();
+                Console.SetCursorPosition(35, 13);
                 Console.WriteLine("Thank you for shopping with SpaceBuggies R Us");
-                Console.WriteLine("Loading... ");
-                System.Threading.Thread.Sleep(1200);
+                Menu.ShowLoadingScreen();
 
                 UI();
-                Console.WriteLine("\n Your first ship!! The {0}. Speed: {1}. Cargo Space: {2}", 
+                Console.SetCursorPosition(26, 13);
+                Console.WriteLine("Your first ship!! The {0}. Speed: {1}. Cargo Space: {2}", 
                     Ship.ShowShipName(Ship.currentShip), 
                     Ship.ShowShipSpeed(Ship.currentShip), 
                     V.maxInventory);
-                Console.WriteLine("Loading... ");
-                System.Threading.Thread.Sleep(1200);
+                Menu.ShowLoadingScreen();
 
                 // Player starts his journey exploring and buying
                 do
@@ -138,35 +139,35 @@ namespace SpaceGame
 
                     Console.WriteLine();
                     Console.WriteLine("What would you like to do?: \n" +
-                        "- 'Ship'to buy a new ship\n" +
+                        "- 'Ship'to buy a new ship or buy Fuel for your current one\n" +
                         "- 'Buy' to buy goods\n" +
                         "- 'Sell' to sell goods\n" +
-                        "- 'travel' to leave and go to the next planet!\n" +
+                        "- 'travel' to see planets in range!\n" +
                         "- 'inv' to check your current inventory space");
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("- 'exit' to exit the game........");
 
                     // Planetary options
-                    shopInput = Console.ReadLine();
-                    if ((shopInput != "exit") || (shopInput != "Exit"))
+                    shopInput = Console.ReadLine().ToLower();
+                    if (shopInput != "exit")
                     {
-                        if ((shopInput == "Ship") || (shopInput == "ship"))
+                        if (shopInput == "ship")
                         {
                             new Menu.ShipBuy().ShipMenu();
                         }
-                        else if ((shopInput == "Buy") || (shopInput == "buy"))
+                        else if (shopInput == "buy")
                         {
                             new Menu.Buy().BuyMenu();
                         }
-                        else if ((shopInput == "Sell") || (shopInput == "sell"))
+                        else if (shopInput == "sell")
                         {
                             new Menu.Sell().SellMenu();
                         }
-                        else if ((shopInput == "Inv") || (shopInput == "inv"))
+                        else if (shopInput == "inv")
                         {
                             V.Inventory(V.maxInventory, V.curInventory);
                         }
-                        else if ((shopInput == "Travel") || (shopInput == "travel"))
+                        else if (shopInput == "travel")
                         {
                             new Menu().TravelMenu();
                         }

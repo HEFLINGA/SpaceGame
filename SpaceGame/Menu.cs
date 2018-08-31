@@ -10,12 +10,37 @@ namespace SpaceGame
     {
         public static bool stranded = false;
 
-        // Custom default constructor
-        public Menu()
+        // General loading screen!
+        private void LoadingScreen()
         {
-
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.SetCursorPosition(53, 16);
+            Console.Write("Loading.");
+            System.Threading.Thread.Sleep(200);
+            Console.Write(".");
+            System.Threading.Thread.Sleep(300);
+            Console.Write(".");
+            System.Threading.Thread.Sleep(250);
+            Console.Write(".");
+            System.Threading.Thread.Sleep(200);
+            Console.Write(".");
+            System.Threading.Thread.Sleep(500);
+            Console.Write(".");
+            System.Threading.Thread.Sleep(250);
+            Console.Write(".");
+            System.Threading.Thread.Sleep(560);
+            Console.Write(".");
         }
 
+        //Show LoadingScreen to user
+        public static void ShowLoadingScreen()
+        {
+            new Menu().LoadingScreen();
+        }
+
+        // Custom default constructor
+        public Menu(){}
+        
         // Congrats Window when buying ship
         private void Congrats()
         {
@@ -102,14 +127,12 @@ namespace SpaceGame
                 Console.WriteLine("What would you like to buy?: \n" +
                                         "(Type name of Ship to purchase)");                
                 Console.WriteLine();
-                Console.WriteLine("Type name of item or ship you would like to buy!");
+                Console.WriteLine("Type name of ship you would like to buy, or 'fuel' to buy Fuel!");
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                Console.WriteLine("Star Explorer! Price: 20000 Credits. Speed: 3. Cargo: 5. Fuel: 35");
-                Console.WriteLine("USS Schwifty Ship! Price: 50000 Credits. Speed: 6. Cargo: 10. Fuel 60");
+                Console.WriteLine("'Star Explorer'! - Ship Price: 20000 Credits. Speed: 3. Cargo: 5. Fuel: 35");
+                Console.WriteLine("'USS Schwifty Ship'! - Ship Price: 50000 Credits. Speed: 6. Cargo: 10. Fuel 60");
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.DarkCyan;
-                Console.WriteLine("Fuel for your ship!");
+                Console.WriteLine("'Fuel' - Fuel for your ship!");
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine();
                 Console.WriteLine("press 'enter' to leave the trading post");
@@ -173,6 +196,7 @@ namespace SpaceGame
 
                 return V.invFood;
             }
+
             // Code for buying research
             private int CargoResearch()
             {
@@ -201,6 +225,7 @@ namespace SpaceGame
 
                 return V.invResearch;
             }
+
             // Code for buying animals
             private int CargoAnimals()
             {
@@ -229,6 +254,7 @@ namespace SpaceGame
 
                 return V.invAnimals;
             }
+
             // Code for buying water
             private int CargoWater()
             {
@@ -257,6 +283,7 @@ namespace SpaceGame
 
                 return V.invWater;
             }
+
             // Code for buying dark matter
             private int CargoDarkMatter()
             {
@@ -285,6 +312,7 @@ namespace SpaceGame
 
                 return V.invDarkMatter;
             }
+
             // Buying Menu
             public void BuyMenu()
             {
@@ -373,6 +401,7 @@ namespace SpaceGame
 
                 return V.invFood;
             }
+
             // Code for selling research
             private int CargoResearch()
             {
@@ -395,6 +424,7 @@ namespace SpaceGame
 
                 return V.invResearch;
             }
+
             // Code for selling animals
             private int CargoAnimals()
             {
@@ -417,6 +447,7 @@ namespace SpaceGame
 
                 return V.invAnimals;
             }
+
             // Code for selling water
             private int CargoWater()
             {
@@ -439,6 +470,7 @@ namespace SpaceGame
 
                 return V.invWater;
             }
+
             // Code for selling dark matter
             private int CargoDarkMatter()
             {
@@ -551,7 +583,7 @@ namespace SpaceGame
             bool inRange8 = false;
             #endregion
 
-            // Nested if statements determening whether or not you are in range of a planet
+            // If statements determening whether or not you are in range of a planet
             if ((Planet.DistanceToPlanets(Planet.currentPlanet, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(1), Planet.GetDestY(1)) <= Ship.curFuel) && (Planet.currentPlanet != 1))
             {
                 Console.WriteLine("Planet {0} is in Range!", Planet.GetPlanetName(1));

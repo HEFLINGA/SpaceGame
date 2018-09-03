@@ -61,7 +61,8 @@ namespace SpaceGame
 
         // Main Game
         public static void Main(string[] args)
-        {           
+        {       
+            // Instantiating first ship into game, and placing player on 1st planet
             Ship.currentShip = 1;
             new Ship().ShipName("Star Cruiser");
             new Ship().ShipSpeed(1.5);

@@ -390,7 +390,7 @@ namespace SpaceGame
             }
         }
 
-        // Sell class for all selling of inventory. Used class within menu class to contain information for clearity and cleanness of code;
+        // Sell class for all selling of inventory. Used class within menu class to contain information for clearity and cleanness of code
         public class Sell
         {
             // Code for selling food

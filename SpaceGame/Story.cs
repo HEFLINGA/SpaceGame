@@ -8,6 +8,7 @@ namespace SpaceGame
 {
     class Story
     {
+        // Intro Story and establishing name of Captian
         public void Intro()
         {
             #region StoryStartUp

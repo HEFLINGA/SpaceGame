@@ -508,7 +508,7 @@ namespace SpaceGame
                 return V.invDarkMatter;
             }
 
-            // Code for sellMenu
+            // Code for sellMenu]
             public void SellMenu()
             {
                 string sellInput = "";
@@ -520,7 +520,7 @@ namespace SpaceGame
                     Program.UI();
 
                     Console.WriteLine("What would you like to Sell?: \n" +
-                                        "(Type name of Item to purchase)");
+                                        "(Type name of Item to sell)");
                     Console.WriteLine("For selling multiples of the same item after the initial sale, use up/down");  
                     Console.WriteLine("arrows to go to name, and press 'enter'");
                     Console.WriteLine();

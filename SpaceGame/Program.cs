@@ -14,20 +14,20 @@ namespace SpaceGame
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.SetCursorPosition(0, 0);
-            Console.WriteLine("________________________________________________________________________________________________________________________");
+            Console.WriteLine("______________________________________________________________________________________________________________");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.SetCursorPosition(5, 1);
+            Console.SetCursorPosition(3, 1);
             Console.WriteLine("Name: {0}", V.character);
-            Console.SetCursorPosition(28, 1);            
+            Console.SetCursorPosition(24, 1);            
             Console.WriteLine("Cargo: {0}/{1}", V.curInventory = V.invFood + V.invResearch + V.invAnimals + V.invWater + V.invDarkMatter, V.maxInventory);
-            Console.SetCursorPosition(52,1);
+            Console.SetCursorPosition(49,1);
             Console.WriteLine("Fuel: {0}/{1}", Ship.curFuel, Ship.ShowShipMaxFuel(Ship.currentShip));
-            Console.SetCursorPosition(75, 1);
+            Console.SetCursorPosition(70, 1);
             Console.WriteLine("Credits: {0}", V.credits);
-            Console.SetCursorPosition(105, 1);
+            Console.SetCursorPosition(95, 1);
             Console.WriteLine("Year: {0}", V.time);
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("________________________________________________________________________________________________________________________");
+            Console.WriteLine("______________________________________________________________________________________________________________");
             Console.ForegroundColor = ConsoleColor.DarkCyan;
         }                                                           // Code for UI
         public static double Distance(double x1, double y1, double destX, double destY)

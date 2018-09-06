@@ -651,7 +651,7 @@ namespace SpaceGame
                 new Planet().Planets(2, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(2), Planet.GetDestY(2), 500);
                 Program.UI();
             }
-            else if ((travelInput == "trappist") && (inRange[2] == true))
+            else if ((travelInput == "trappist-1") && (inRange[2] == true))
             {
                 Console.Clear();
                 new Planet().Planets(3, Planet.GetCurX(), Planet.GetCurY(), Planet.GetDestX(3), Planet.GetDestY(3), 1000);
